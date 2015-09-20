@@ -1,0 +1,1 @@
+Dossier contenant les maquettes XML du projet (pour les application mobiles)
