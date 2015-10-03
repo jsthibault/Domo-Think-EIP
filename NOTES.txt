@@ -1,7 +1,1 @@
-Outils utilisés:
-- Slack (communication dans l'équipe)
-- Github (pour les sources du projet) - Master / Documentation / Compte-rendu
-- Trello (découpage fonctionnel du projet)
-
-Création de channels dans Slack.
-La communication autour du projet sera uniquement sur Slack à présent.
+App IOS
