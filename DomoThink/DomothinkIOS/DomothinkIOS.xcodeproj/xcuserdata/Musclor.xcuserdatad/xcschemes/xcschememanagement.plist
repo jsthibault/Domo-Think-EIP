@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>DomoThink.xcscheme</key>
+		<key>DomothinkIOS.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,17 +12,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>9D9A72D31BC009B800358328</key>
+		<key>2FD98BFD1BC6A38300913F25</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9D9A72E71BC009B800358328</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9D9A72F21BC009B800358328</key>
+		<key>2FD98C121BC6A38300913F25</key>
 		<dict>
 			<key>primary</key>
 			<true/>

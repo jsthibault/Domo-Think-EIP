@@ -1,17 +1,18 @@
 //
 //  ViewController.swift
-//  DomoThink
+//  DomothinkIOS
 //
-//  Created by Guillaume Munsch on 03/10/2015.
-//  Copyright © 2015 DomoThink. All rights reserved.
+//  Created by Guillaume Wehrling on 08/10/2015.
+//  Copyright (c) 2015 DomoThink. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.performSegueWithIdentifier("toHome", sender: self)
         // Do any additional setup after loading the view, typically from a nib.
     }
 

@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  DomoThink
+//  DomothinkIOS
 //
-//  Created by Guillaume Munsch on 03/10/2015.
-//  Copyright © 2015 DomoThink. All rights reserved.
+//  Created by Guillaume Wehrling on 08/10/2015.
+//  Copyright (c) 2015 DomoThink. All rights reserved.
 //
 
 import UIKit

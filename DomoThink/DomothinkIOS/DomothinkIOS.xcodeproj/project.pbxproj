@@ -1,0 +1,440 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2FD98C041BC6A38300913F25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD98C031BC6A38300913F25 /* AppDelegate.swift */; };
+		2FD98C061BC6A38300913F25 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD98C051BC6A38300913F25 /* LoginViewController.swift */; };
+		2FD98C091BC6A38300913F25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FD98C071BC6A38300913F25 /* Main.storyboard */; };
+		2FD98C0B1BC6A38300913F25 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FD98C0A1BC6A38300913F25 /* Images.xcassets */; };
+		2FD98C0E1BC6A38300913F25 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FD98C0C1BC6A38300913F25 /* LaunchScreen.xib */; };
+		2FD98C1A1BC6A38300913F25 /* DomothinkIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD98C191BC6A38300913F25 /* DomothinkIOSTests.swift */; };
+		2FD98C261BC6B5EE00913F25 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD98C251BC6B5EE00913F25 /* HomeCollectionViewController.swift */; };
+		2FD98C281BC6BFE400913F25 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD98C271BC6BFE400913F25 /* HomeCell.swift */; };
+		2FD98C2A1BC6C33A00913F25 /* images.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2FD98C291BC6C33A00913F25 /* images.jpeg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2FD98C141BC6A38300913F25 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2FD98BF61BC6A38300913F25 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2FD98BFD1BC6A38300913F25;
+			remoteInfo = DomothinkIOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2FD98BFE1BC6A38300913F25 /* DomothinkIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DomothinkIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FD98C021BC6A38300913F25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FD98C031BC6A38300913F25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2FD98C051BC6A38300913F25 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2FD98C081BC6A38300913F25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2FD98C0A1BC6A38300913F25 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2FD98C0D1BC6A38300913F25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		2FD98C131BC6A38300913F25 /* DomothinkIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DomothinkIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FD98C181BC6A38300913F25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FD98C191BC6A38300913F25 /* DomothinkIOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomothinkIOSTests.swift; sourceTree = "<group>"; };
+		2FD98C251BC6B5EE00913F25 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
+		2FD98C271BC6BFE400913F25 /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
+		2FD98C291BC6C33A00913F25 /* images.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = images.jpeg; path = Images.xcassets/img/images.jpeg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2FD98BFB1BC6A38300913F25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FD98C101BC6A38300913F25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2FD98BF51BC6A38300913F25 = {
+			isa = PBXGroup;
+			children = (
+				2FD98C001BC6A38300913F25 /* DomothinkIOS */,
+				2FD98C161BC6A38300913F25 /* DomothinkIOSTests */,
+				2FD98BFF1BC6A38300913F25 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2FD98BFF1BC6A38300913F25 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2FD98BFE1BC6A38300913F25 /* DomothinkIOS.app */,
+				2FD98C131BC6A38300913F25 /* DomothinkIOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2FD98C001BC6A38300913F25 /* DomothinkIOS */ = {
+			isa = PBXGroup;
+			children = (
+				2FD98C031BC6A38300913F25 /* AppDelegate.swift */,
+				2FD98C051BC6A38300913F25 /* LoginViewController.swift */,
+				2FD98C071BC6A38300913F25 /* Main.storyboard */,
+				2FD98C0A1BC6A38300913F25 /* Images.xcassets */,
+				2FD98C0C1BC6A38300913F25 /* LaunchScreen.xib */,
+				2FD98C011BC6A38300913F25 /* Supporting Files */,
+				2FD98C251BC6B5EE00913F25 /* HomeCollectionViewController.swift */,
+				2FD98C271BC6BFE400913F25 /* HomeCell.swift */,
+			);
+			path = DomothinkIOS;
+			sourceTree = "<group>";
+		};
+		2FD98C011BC6A38300913F25 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2FD98C291BC6C33A00913F25 /* images.jpeg */,
+				2FD98C021BC6A38300913F25 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2FD98C161BC6A38300913F25 /* DomothinkIOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				2FD98C191BC6A38300913F25 /* DomothinkIOSTests.swift */,
+				2FD98C171BC6A38300913F25 /* Supporting Files */,
+			);
+			path = DomothinkIOSTests;
+			sourceTree = "<group>";
+		};
+		2FD98C171BC6A38300913F25 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2FD98C181BC6A38300913F25 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2FD98BFD1BC6A38300913F25 /* DomothinkIOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FD98C1D1BC6A38300913F25 /* Build configuration list for PBXNativeTarget "DomothinkIOS" */;
+			buildPhases = (
+				2FD98BFA1BC6A38300913F25 /* Sources */,
+				2FD98BFB1BC6A38300913F25 /* Frameworks */,
+				2FD98BFC1BC6A38300913F25 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DomothinkIOS;
+			productName = DomothinkIOS;
+			productReference = 2FD98BFE1BC6A38300913F25 /* DomothinkIOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2FD98C121BC6A38300913F25 /* DomothinkIOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FD98C201BC6A38300913F25 /* Build configuration list for PBXNativeTarget "DomothinkIOSTests" */;
+			buildPhases = (
+				2FD98C0F1BC6A38300913F25 /* Sources */,
+				2FD98C101BC6A38300913F25 /* Frameworks */,
+				2FD98C111BC6A38300913F25 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2FD98C151BC6A38300913F25 /* PBXTargetDependency */,
+			);
+			name = DomothinkIOSTests;
+			productName = DomothinkIOSTests;
+			productReference = 2FD98C131BC6A38300913F25 /* DomothinkIOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2FD98BF61BC6A38300913F25 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = DomoThink;
+				TargetAttributes = {
+					2FD98BFD1BC6A38300913F25 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					2FD98C121BC6A38300913F25 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 2FD98BFD1BC6A38300913F25;
+					};
+				};
+			};
+			buildConfigurationList = 2FD98BF91BC6A38300913F25 /* Build configuration list for PBXProject "DomothinkIOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2FD98BF51BC6A38300913F25;
+			productRefGroup = 2FD98BFF1BC6A38300913F25 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2FD98BFD1BC6A38300913F25 /* DomothinkIOS */,
+				2FD98C121BC6A38300913F25 /* DomothinkIOSTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2FD98BFC1BC6A38300913F25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FD98C091BC6A38300913F25 /* Main.storyboard in Resources */,
+				2FD98C2A1BC6C33A00913F25 /* images.jpeg in Resources */,
+				2FD98C0E1BC6A38300913F25 /* LaunchScreen.xib in Resources */,
+				2FD98C0B1BC6A38300913F25 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FD98C111BC6A38300913F25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2FD98BFA1BC6A38300913F25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FD98C261BC6B5EE00913F25 /* HomeCollectionViewController.swift in Sources */,
+				2FD98C061BC6A38300913F25 /* LoginViewController.swift in Sources */,
+				2FD98C281BC6BFE400913F25 /* HomeCell.swift in Sources */,
+				2FD98C041BC6A38300913F25 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FD98C0F1BC6A38300913F25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FD98C1A1BC6A38300913F25 /* DomothinkIOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2FD98C151BC6A38300913F25 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2FD98BFD1BC6A38300913F25 /* DomothinkIOS */;
+			targetProxy = 2FD98C141BC6A38300913F25 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2FD98C071BC6A38300913F25 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FD98C081BC6A38300913F25 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2FD98C0C1BC6A38300913F25 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FD98C0D1BC6A38300913F25 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2FD98C1B1BC6A38300913F25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2FD98C1C1BC6A38300913F25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2FD98C1E1BC6A38300913F25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DomothinkIOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2FD98C1F1BC6A38300913F25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DomothinkIOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2FD98C211BC6A38300913F25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DomothinkIOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DomothinkIOS.app/DomothinkIOS";
+			};
+			name = Debug;
+		};
+		2FD98C221BC6A38300913F25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DomothinkIOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DomothinkIOS.app/DomothinkIOS";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2FD98BF91BC6A38300913F25 /* Build configuration list for PBXProject "DomothinkIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FD98C1B1BC6A38300913F25 /* Debug */,
+				2FD98C1C1BC6A38300913F25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2FD98C1D1BC6A38300913F25 /* Build configuration list for PBXNativeTarget "DomothinkIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FD98C1E1BC6A38300913F25 /* Debug */,
+				2FD98C1F1BC6A38300913F25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2FD98C201BC6A38300913F25 /* Build configuration list for PBXNativeTarget "DomothinkIOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FD98C211BC6A38300913F25 /* Debug */,
+				2FD98C221BC6A38300913F25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2FD98BF61BC6A38300913F25 /* Project object */;
+}

@@ -1,15 +1,15 @@
 //
-//  DomoThinkTests.swift
-//  DomoThinkTests
+//  DomothinkIOSTests.swift
+//  DomothinkIOSTests
 //
-//  Created by Guillaume Munsch on 03/10/2015.
-//  Copyright © 2015 DomoThink. All rights reserved.
+//  Created by Guillaume Wehrling on 08/10/2015.
+//  Copyright (c) 2015 DomoThink. All rights reserved.
 //
 
+import UIKit
 import XCTest
-@testable import DomoThink
 
-class DomoThinkTests: XCTestCase {
+class DomothinkIOSTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -23,12 +23,12 @@ class DomoThinkTests: XCTestCase {
     
     func testExample() {
         // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssert(true, "Pass")
     }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measureBlock() {
             // Put the code you want to measure the time of here.
         }
     }

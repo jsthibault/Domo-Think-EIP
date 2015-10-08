@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0640"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,90 +14,91 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9D9A72D31BC009B800358328"
-               BuildableName = "DomoThink.app"
-               BlueprintName = "DomoThink"
-               ReferencedContainer = "container:DomoThink.xcodeproj">
+               BlueprintIdentifier = "2FD98BFD1BC6A38300913F25"
+               BuildableName = "DomothinkIOS.app"
+               BlueprintName = "DomothinkIOS"
+               ReferencedContainer = "container:DomothinkIOS.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2FD98C121BC6A38300913F25"
+               BuildableName = "DomothinkIOSTests.xctest"
+               BlueprintName = "DomothinkIOSTests"
+               ReferencedContainer = "container:DomothinkIOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      buildConfiguration = "Debug">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9D9A72E71BC009B800358328"
-               BuildableName = "DomoThinkTests.xctest"
-               BlueprintName = "DomoThinkTests"
-               ReferencedContainer = "container:DomoThink.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9D9A72F21BC009B800358328"
-               BuildableName = "DomoThinkUITests.xctest"
-               BlueprintName = "DomoThinkUITests"
-               ReferencedContainer = "container:DomoThink.xcodeproj">
+               BlueprintIdentifier = "2FD98C121BC6A38300913F25"
+               BuildableName = "DomothinkIOSTests.xctest"
+               BlueprintName = "DomothinkIOSTests"
+               ReferencedContainer = "container:DomothinkIOS.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9D9A72D31BC009B800358328"
-            BuildableName = "DomoThink.app"
-            BlueprintName = "DomoThink"
-            ReferencedContainer = "container:DomoThink.xcodeproj">
+            BlueprintIdentifier = "2FD98BFD1BC6A38300913F25"
+            BuildableName = "DomothinkIOS.app"
+            BlueprintName = "DomothinkIOS"
+            ReferencedContainer = "container:DomothinkIOS.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
-      debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9D9A72D31BC009B800358328"
-            BuildableName = "DomoThink.app"
-            BlueprintName = "DomoThink"
-            ReferencedContainer = "container:DomoThink.xcodeproj">
+            BlueprintIdentifier = "2FD98BFD1BC6A38300913F25"
+            BuildableName = "DomothinkIOS.app"
+            BlueprintName = "DomothinkIOS"
+            ReferencedContainer = "container:DomothinkIOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9D9A72D31BC009B800358328"
-            BuildableName = "DomoThink.app"
-            BlueprintName = "DomoThink"
-            ReferencedContainer = "container:DomoThink.xcodeproj">
+            BlueprintIdentifier = "2FD98BFD1BC6A38300913F25"
+            BuildableName = "DomothinkIOS.app"
+            BlueprintName = "DomothinkIOS"
+            ReferencedContainer = "container:DomothinkIOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
