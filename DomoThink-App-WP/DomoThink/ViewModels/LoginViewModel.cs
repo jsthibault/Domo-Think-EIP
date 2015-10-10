@@ -24,7 +24,9 @@ namespace DomoThink.ViewModels
     {
         #region FIELDS
 
-
+        private LoginModel loginInformations;
+        private Boolean fieldsVisibility;
+        private Boolean loadingVisibility;
 
         #endregion
 
@@ -33,7 +35,29 @@ namespace DomoThink.ViewModels
         /// <summary>
         /// Gets or sets the login informations.
         /// </summary>
-        public LoginModel LoginInformations { get; set; }
+        public LoginModel LoginInformations
+        {
+            get { return this.loginInformations; }
+            set { this.NotifyPropertyChanged(ref this.loginInformations, value); }
+        }
+
+        /// <summary>
+        /// Gets or sets the information fields visibility state.
+        /// </summary>
+        public Boolean FieldsVisibility
+        {
+            get { return this.fieldsVisibility; }
+            set { this.NotifyPropertyChanged(ref this.fieldsVisibility, value); }
+        }
+
+        /// <summary>
+        /// Gets or sets the loading screen visibility state.
+        /// </summary>
+        public Boolean LoadingVisibility
+        {
+            get { return this.loadingVisibility; }
+            set { this.NotifyPropertyChanged(ref this.loadingVisibility, value); }
+        }
 
         /// <summary>
         /// Gets the Login command action.
@@ -50,6 +74,8 @@ namespace DomoThink.ViewModels
         public LoginViewModel()
         {
             this.LoginInformations = new LoginModel();
+            this.FieldsVisibility = true;
+            this.LoadingVisibility = !this.FieldsVisibility;
 
             // Initialize commands
             this.LoginCommand = new RelayCommand(this.LoginCommandAction);
@@ -59,8 +85,21 @@ namespace DomoThink.ViewModels
 
         #region ACTIONS
 
+        /// <summary>
+        /// Process the login command action.
+        /// </summary>
+        /// <param name="param">Login command parameter.</param>
         private void LoginCommandAction(Object param)
         {
+            if (String.IsNullOrEmpty(this.LoginInformations.Id) || 
+                String.IsNullOrEmpty(this.loginInformations.Password))
+                return;
+
+            // Set the visibility states
+            this.FieldsVisibility = false;
+            this.LoadingVisibility = true;
+
+            // TODO: process login to the DomoBox and then process change page
         }
 
         #endregion
