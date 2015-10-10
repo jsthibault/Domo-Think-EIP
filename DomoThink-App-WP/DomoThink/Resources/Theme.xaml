@@ -1,0 +1,10 @@
+﻿<!-- Domo-Think theme resources -->
+    
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DomoThink.Resources">
+    
+    <SolidColorBrush x:Key="BackgroundColor" Color="AliceBlue"></SolidColorBrush>
+    
+</ResourceDictionary>
