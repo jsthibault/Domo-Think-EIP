@@ -35,9 +35,9 @@ Application Windows Phone 8.1
 
 ## SCREENS ##
 
-![alt tag](https://github.com/jsthibault/Domo-Think-EIP/tree/App-WindowsPhone/Screens/DomoThink_LoginPage.png)
+![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/DomoThink_LoginPage.png)
 
-![alt tag](https://github.com/jsthibault/Domo-Think-EIP/tree/App-WindowsPhone/Screens/DomoThink_HomePage.png)
+![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/DomoThink_HomePage.png)
 
 
 
