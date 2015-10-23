@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DomoThink.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -34,6 +35,7 @@ namespace DomoThink.Pages.Login
         /// Ce paramètre est généralement utilisé pour configurer la page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            this.DataContext = new LoginViewModel(this.Frame);
         }
     }
 }

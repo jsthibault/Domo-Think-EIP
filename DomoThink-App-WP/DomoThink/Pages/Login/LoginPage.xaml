@@ -5,7 +5,8 @@
     xmlns:local="using:DomoThink.Pages.Login"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewModel="using:DomoThink.ViewModels"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity" 
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:converters="using:DomoThink.Converters"
     mc:Ignorable="d"
     Background="{StaticResource DPrimaryColor}">
@@ -14,12 +15,7 @@
     <Page.Resources>
         <converters:BoolToVisibilityConverter x:Key="boolToVisibility" />
     </Page.Resources>
-    
-    <!-- Page Data context -->
-    <Page.DataContext>
-        <viewModel:LoginViewModel />
-    </Page.DataContext>
-    
+
     <!-- Main Grid -->
     <Grid x:Name="MAIN_GRID">
         
@@ -44,7 +40,7 @@
             <StackPanel>
                 <TextBlock Text="Box identifier" FontSize="18" />
                 <TextBox Background="{StaticResource DPrimaryColorDark}" BorderThickness="0" Height="40" 
-                         Text="{Binding LoginInformations.Id, Mode=TwoWay}"/>
+                         Text="{Binding LoginInformations.Id, Mode=TwoWay}" />
             </StackPanel>
 
             <!-- Box password field -->

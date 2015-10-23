@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Xaml.Controls;
 
 /*--------------------------------------------------------
  * LoginViewModel.cs
@@ -24,6 +25,7 @@ namespace DomoThink.ViewModels
     {
         #region FIELDS
 
+        private INavigate navigation;
         private LoginModel loginInformations;
         private Boolean fieldsVisibility;
         private Boolean loadingVisibility;
@@ -71,8 +73,9 @@ namespace DomoThink.ViewModels
         /// <summary>
         /// Creates a new LoginViewModel instance.
         /// </summary>
-        public LoginViewModel()
+        public LoginViewModel(INavigate navigation)
         {
+            this.navigation = navigation;
             this.LoginInformations = new LoginModel();
             this.FieldsVisibility = true;
             this.LoadingVisibility = !this.FieldsVisibility;
@@ -89,7 +92,7 @@ namespace DomoThink.ViewModels
         /// Process the login command action.
         /// </summary>
         /// <param name="param">Login command parameter.</param>
-        private void LoginCommandAction(Object param)
+        private async void LoginCommandAction(Object param)
         {
             if (String.IsNullOrEmpty(this.LoginInformations.Id) || 
                 String.IsNullOrEmpty(this.loginInformations.Password))
@@ -100,13 +103,25 @@ namespace DomoThink.ViewModels
             this.LoadingVisibility = true;
 
             // TODO: process login to the DomoBox and then process change page
+            this.ProcessLogin();
+
+            // Fake loading
+            await Task.Delay(5000);
+
+            // Change page
+            this.navigation.Navigate(typeof(Pages.Home));
         }
 
         #endregion
 
         #region METHODS
 
-
+        /// <summary>
+        /// Process the login to the DomoBox.
+        /// </summary>
+        private void ProcessLogin()
+        {
+        }
 
         #endregion
     }

@@ -33,3 +33,11 @@ Application Windows Phone 8.1
 - Création d'un dictionaire de ressources pour la langue anglaise
 - Création d'un dictionaire de ressources pour la langue française
 
+## SCREENS ##
+
+![alt tag](https://github.com/jsthibault/Domo-Think-EIP/tree/App-WindowsPhone/Screens/DomoThink_LoginPage.png)
+
+![alt tag](https://github.com/jsthibault/Domo-Think-EIP/tree/App-WindowsPhone/Screens/DomoThink_HomePage.png)
+
+
+
