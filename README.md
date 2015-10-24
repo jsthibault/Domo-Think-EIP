@@ -1,9 +1,10 @@
 Application Windows Phone 8.1
 =======
 
-## TODO ##
+Application DomoThink pour Windows Phone 8.1
 
-- Page d'accueil
+## Todo ##
+
 - Page de gestion des objets
 	- Visualisation des objets
 	- Ajouter un objet
@@ -22,22 +23,24 @@ Application Windows Phone 8.1
 	- Recherche de mises à jours
 
 
-## DONE ##
+## Done ##
 
 - Création de la solution
 - MVVM
 	- Ajout du système MVVM
 	- Ajout du système de RelayCommand
+	- Navigation entre les pages
 - Création de la page de Login (LoginPage.xaml)
 - Création d'un dictionaire de ressources pour le thème
 - Création d'un dictionaire de ressources pour la langue anglaise
 - Création d'un dictionaire de ressources pour la langue française
+- Page d'accueil
 
-## SCREENS ##
+## Screens ##
 
-![alt tag](https://github.com/jsthibault/Domo-Think-EIP/tree/App-WindowsPhone/Screens/DomoThink_LoginPage.png)
+![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/DomoThink_LoginPage.png)
 
-![alt tag](https://github.com/jsthibault/Domo-Think-EIP/tree/App-WindowsPhone/Screens/DomoThink_HomePage.png)
+![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/DomoThink_HomePage.png)
 
 
 
