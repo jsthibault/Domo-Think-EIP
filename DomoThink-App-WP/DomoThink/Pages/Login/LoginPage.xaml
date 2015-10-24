@@ -27,9 +27,7 @@
         <!-- Title row -->
         <StackPanel Grid.Row="0">
             <StackPanel>
-                <Image Source="ms-appx:///Assets/Logo.png" Width="128" Height="128" Margin="0,20,0,0" />
-                <TextBlock Text="DomoThink" TextAlignment="Center" FontSize="30"
-                           Margin="0,30,0,0" />
+                <Image Source="ms-appx:///Assets/dmlogo.png" Width="350" />
             </StackPanel>
         </StackPanel>
 

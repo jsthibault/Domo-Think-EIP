@@ -6,6 +6,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Phone.UI.Input;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -36,6 +38,26 @@ namespace DomoThink.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             this.DataContext = new HomeViewModel(this.Frame);
+            HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+        }
+
+        private async void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
+        {
+            e.Handled = true;
+
+            MessageDialog msgbox = new MessageDialog("Do you want to leave the application?", "Leave?")
+            {
+                Commands =
+                {
+                    new UICommand() { Label = "yes", Id = 0 },
+                    new UICommand() { Label = "no", Id = 1 }
+                },
+            };
+
+            IUICommand _result = await msgbox.ShowAsync();
+
+            if ((Int32)_result.Id == 0)
+                Application.Current.Exit();
         }
     }
 }

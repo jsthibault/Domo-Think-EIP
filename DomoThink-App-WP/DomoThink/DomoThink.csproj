@@ -80,7 +80,6 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <Folder Include="Pages\Directives\" />
     <Folder Include="Pages\Store\" />
   </ItemGroup>
   <ItemGroup>
@@ -92,6 +91,12 @@
     </Compile>
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Pages\Box\Box.xaml.cs">
+      <DependentUpon>Box.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Directives\Directives.xaml.cs">
+      <DependentUpon>Directives.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
@@ -113,6 +118,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\dmlogo.png" />
     <Content Include="Assets\Logo.scale-240.png" />
     <Content Include="Assets\SmallLogo.scale-240.png" />
     <Content Include="Assets\SplashScreen.scale-240.png" />
@@ -128,6 +134,14 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Controls\DTileButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Box\Box.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Directives\Directives.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

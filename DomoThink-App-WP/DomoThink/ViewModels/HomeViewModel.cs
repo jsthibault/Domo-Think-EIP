@@ -88,7 +88,7 @@ namespace DomoThink.ViewModels
         /// <param name="param"></param>
         private void DirectivesCommandAction(Object param)
         {
-            //this.navigation.Navigate(typeof(Pages.Login.LoginPage));
+            this.navigation.Navigate(typeof(Pages.Directives.Directives));
         }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace DomoThink.ViewModels
         /// <param name="param"></param>
         private void DomoBoxCommandAction(Object param)
         {
-            //this.navigation.Navigate(typeof(Pages.Login.LoginPage));
+            this.navigation.Navigate(typeof(Pages.Box.Box));
         }
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace DomoThink.ViewModels
         /// <param name="param"></param>
         private void ParametersCommandAction(Object param)
         {
-            //this.navigation.Navigate(typeof(Pages.Login.LoginPage));
+            //this.navigation.Navigate(typeof(Pages));
         }
 
         #endregion
