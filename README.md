@@ -40,7 +40,16 @@ Application DomoThink pour Windows Phone 8.1
 
 ![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/DomoThink_LoginPage.png)
 
+![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/DomoThink_LoginPage_Loading.png)
+
 ![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/DomoThink_HomePage.png)
 
+![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/DomoThink_ObjectsPage.png)
+
+![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/DomoThink_DirectivesPage.png)
+
+![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/DomoThink_BoxPage.png)
+
+![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/DomoThink_ParametersPage.png)
 
 
