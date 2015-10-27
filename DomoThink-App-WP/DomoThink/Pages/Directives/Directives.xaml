@@ -5,8 +5,14 @@
     xmlns:local="using:DomoThink.Pages.Directives"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:DomoThink.ViewModels"
     mc:Ignorable="d"
     Background="{StaticResource DBackgroundColor}">
+    
+    <!-- Page data context -->
+    <Page.DataContext>
+        <viewModels:DirectivesViewModel />
+    </Page.DataContext>
     
     <Grid x:Name="LayoutRoot">
 

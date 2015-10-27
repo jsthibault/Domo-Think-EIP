@@ -106,7 +106,7 @@ namespace DomoThink.ViewModels
         /// <param name="param"></param>
         private void ParametersCommandAction(Object param)
         {
-            //this.navigation.Navigate(typeof(Pages));
+            this.navigation.Navigate(typeof(Pages.Parameters));
         }
 
         #endregion

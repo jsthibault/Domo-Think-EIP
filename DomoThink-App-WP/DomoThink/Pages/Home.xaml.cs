@@ -25,6 +25,8 @@ namespace DomoThink.Pages
     /// </summary>
     public sealed partial class Home : Page
     {
+        private static Object syncRoot = new Object();
+
         public Home()
         {
             this.InitializeComponent();
@@ -41,6 +43,14 @@ namespace DomoThink.Pages
             HardwareButtons.BackPressed += HardwareButtons_BackPressed;
         }
 
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            this.DataContext = null;
+            HardwareButtons.BackPressed -= HardwareButtons_BackPressed;
+
+            base.OnNavigatedFrom(e);
+        }
+
         private async void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
         {
             e.Handled = true;
@@ -49,15 +59,21 @@ namespace DomoThink.Pages
             {
                 Commands =
                 {
-                    new UICommand() { Label = "yes", Id = 0 },
-                    new UICommand() { Label = "no", Id = 1 }
+                    new UICommand("yes", new UICommandInvokedHandler(this.LeaveCommand)),
+                    new UICommand("no", new UICommandInvokedHandler(this.LeaveCommand))
                 },
             };
 
-            IUICommand _result = await msgbox.ShowAsync();
+            await msgbox.ShowAsync();
+        }
 
-            if ((Int32)_result.Id == 0)
-                Application.Current.Exit();
+        private void LeaveCommand(IUICommand command)
+        {
+            switch (command.Label)
+            {
+                case "yes": Application.Current.Exit(); break;
+                case "no": break;
+            }
         }
     }
 }

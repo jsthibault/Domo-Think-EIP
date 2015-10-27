@@ -37,6 +37,7 @@ namespace DomoThink.Pages.Objects
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
+            HardwareButtons.BackPressed -= HardwareButtons_BackPressed;
         }
 
         private void HardwareButtons_BackPressed(Object sender, BackPressedEventArgs e)
