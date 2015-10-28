@@ -7,13 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F30E8BB1BCE1B34001AE9C7 /* DeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30E8BA1BCE1B34001AE9C7 /* DeviceViewController.swift */; };
+		2F60D8231BDB570D00751A4A /* ObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60D8221BDB570D00751A4A /* ObjectViewController.swift */; };
+		2F60D8251BDB58E200751A4A /* ObjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60D8241BDB58E200751A4A /* ObjectCell.swift */; };
+		2F60D8271BDB77B600751A4A /* DirectiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60D8261BDB77B600751A4A /* DirectiveCell.swift */; };
+		2F60D8291BDB7A3B00751A4A /* DirectiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60D8281BDB7A3B00751A4A /* DirectiveViewController.swift */; };
+		2F60D82B1BDB86E300751A4A /* AddDirectiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60D82A1BDB86E300751A4A /* AddDirectiveViewController.swift */; };
+		2F85277F1BE0B6B0002821A2 /* ObjectSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F85277E1BE0B6B0002821A2 /* ObjectSearchViewController.swift */; };
+		2F8527831BE0C168002821A2 /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8527821BE0C168002821A2 /* UpdateViewController.swift */; };
+		2F85278C1BE0D1CE002821A2 /* archive15.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8527841BE0D1CE002821A2 /* archive15.png */; };
+		2F85278D1BE0D1CE002821A2 /* briefcase11.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8527851BE0D1CE002821A2 /* briefcase11.png */; };
+		2F85278E1BE0D1CE002821A2 /* cog2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8527861BE0D1CE002821A2 /* cog2.png */; };
+		2F85278F1BE0D1CE002821A2 /* download63.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8527871BE0D1CE002821A2 /* download63.png */; };
+		2F8527901BE0D1CE002821A2 /* hdd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8527881BE0D1CE002821A2 /* hdd.png */; };
+		2F8527911BE0D1CE002821A2 /* inbox12.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8527891BE0D1CE002821A2 /* inbox12.png */; };
+		2F8527921BE0D1CE002821A2 /* list30.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F85278A1BE0D1CE002821A2 /* list30.png */; };
+		2F8527931BE0D1CE002821A2 /* shopping69.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F85278B1BE0D1CE002821A2 /* shopping69.png */; };
+		2F8C00851BD2451F0042FD9E /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8C00841BD2451F0042FD9E /* ProgressViewController.swift */; };
+		2F936D581BD9F7B800A030D4 /* 2017_logo_domothink.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F936D571BD9F7B800A030D4 /* 2017_logo_domothink.png */; };
+		2F936D5A1BDA067E00A030D4 /* HomeCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F936D591BDA067E00A030D4 /* HomeCollectionController.swift */; };
+		2FBECF471BCB76C000DD8CB9 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBECF461BCB76C000DD8CB9 /* Device.swift */; };
+		2FBECF491BCB785F00DD8CB9 /* Directive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBECF481BCB785F00DD8CB9 /* Directive.swift */; };
 		2FD98C041BC6A38300913F25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD98C031BC6A38300913F25 /* AppDelegate.swift */; };
 		2FD98C061BC6A38300913F25 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD98C051BC6A38300913F25 /* LoginViewController.swift */; };
 		2FD98C091BC6A38300913F25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FD98C071BC6A38300913F25 /* Main.storyboard */; };
 		2FD98C0B1BC6A38300913F25 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FD98C0A1BC6A38300913F25 /* Images.xcassets */; };
 		2FD98C0E1BC6A38300913F25 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FD98C0C1BC6A38300913F25 /* LaunchScreen.xib */; };
 		2FD98C1A1BC6A38300913F25 /* DomothinkIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD98C191BC6A38300913F25 /* DomothinkIOSTests.swift */; };
-		2FD98C261BC6B5EE00913F25 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD98C251BC6B5EE00913F25 /* HomeCollectionViewController.swift */; };
 		2FD98C281BC6BFE400913F25 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD98C271BC6BFE400913F25 /* HomeCell.swift */; };
 		2FD98C2A1BC6C33A00913F25 /* images.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2FD98C291BC6C33A00913F25 /* images.jpeg */; };
 /* End PBXBuildFile section */
@@ -29,6 +49,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F30E8BA1BCE1B34001AE9C7 /* DeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceViewController.swift; sourceTree = "<group>"; };
+		2F60D8221BDB570D00751A4A /* ObjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectViewController.swift; sourceTree = "<group>"; };
+		2F60D8241BDB58E200751A4A /* ObjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectCell.swift; sourceTree = "<group>"; };
+		2F60D8261BDB77B600751A4A /* DirectiveCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectiveCell.swift; sourceTree = "<group>"; };
+		2F60D8281BDB7A3B00751A4A /* DirectiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectiveViewController.swift; sourceTree = "<group>"; };
+		2F60D82A1BDB86E300751A4A /* AddDirectiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDirectiveViewController.swift; sourceTree = "<group>"; };
+		2F85277E1BE0B6B0002821A2 /* ObjectSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectSearchViewController.swift; sourceTree = "<group>"; };
+		2F8527821BE0C168002821A2 /* UpdateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateViewController.swift; sourceTree = "<group>"; };
+		2F8527841BE0D1CE002821A2 /* archive15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = archive15.png; path = Images.xcassets/img/archive15.png; sourceTree = "<group>"; };
+		2F8527851BE0D1CE002821A2 /* briefcase11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = briefcase11.png; path = Images.xcassets/img/briefcase11.png; sourceTree = "<group>"; };
+		2F8527861BE0D1CE002821A2 /* cog2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cog2.png; path = Images.xcassets/img/cog2.png; sourceTree = "<group>"; };
+		2F8527871BE0D1CE002821A2 /* download63.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = download63.png; path = Images.xcassets/img/download63.png; sourceTree = "<group>"; };
+		2F8527881BE0D1CE002821A2 /* hdd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hdd.png; path = Images.xcassets/img/hdd.png; sourceTree = "<group>"; };
+		2F8527891BE0D1CE002821A2 /* inbox12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = inbox12.png; path = Images.xcassets/img/inbox12.png; sourceTree = "<group>"; };
+		2F85278A1BE0D1CE002821A2 /* list30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = list30.png; path = Images.xcassets/img/list30.png; sourceTree = "<group>"; };
+		2F85278B1BE0D1CE002821A2 /* shopping69.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shopping69.png; path = Images.xcassets/img/shopping69.png; sourceTree = "<group>"; };
+		2F8C00841BD2451F0042FD9E /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
+		2F936D571BD9F7B800A030D4 /* 2017_logo_domothink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 2017_logo_domothink.png; path = Images.xcassets/img/2017_logo_domothink.png; sourceTree = "<group>"; };
+		2F936D591BDA067E00A030D4 /* HomeCollectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionController.swift; sourceTree = "<group>"; };
+		2FBECF461BCB76C000DD8CB9 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		2FBECF481BCB785F00DD8CB9 /* Directive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Directive.swift; sourceTree = "<group>"; };
 		2FD98BFE1BC6A38300913F25 /* DomothinkIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DomothinkIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD98C021BC6A38300913F25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FD98C031BC6A38300913F25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,7 +80,6 @@
 		2FD98C131BC6A38300913F25 /* DomothinkIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DomothinkIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD98C181BC6A38300913F25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FD98C191BC6A38300913F25 /* DomothinkIOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomothinkIOSTests.swift; sourceTree = "<group>"; };
-		2FD98C251BC6B5EE00913F25 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		2FD98C271BC6BFE400913F25 /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		2FD98C291BC6C33A00913F25 /* images.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = images.jpeg; path = Images.xcassets/img/images.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,6 +102,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2FBECF4B1BCB7A8500DD8CB9 /* NSObject */ = {
+			isa = PBXGroup;
+			children = (
+				2FD98C271BC6BFE400913F25 /* HomeCell.swift */,
+				2FBECF461BCB76C000DD8CB9 /* Device.swift */,
+				2FBECF481BCB785F00DD8CB9 /* Directive.swift */,
+				2F60D8241BDB58E200751A4A /* ObjectCell.swift */,
+				2F60D8261BDB77B600751A4A /* DirectiveCell.swift */,
+			);
+			name = NSObject;
+			sourceTree = "<group>";
+		};
+		2FBECF4C1BCB7AAD00DD8CB9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2FD98C051BC6A38300913F25 /* LoginViewController.swift */,
+				2F30E8BA1BCE1B34001AE9C7 /* DeviceViewController.swift */,
+				2F8C00841BD2451F0042FD9E /* ProgressViewController.swift */,
+				2F936D591BDA067E00A030D4 /* HomeCollectionController.swift */,
+				2F60D8221BDB570D00751A4A /* ObjectViewController.swift */,
+				2F60D8281BDB7A3B00751A4A /* DirectiveViewController.swift */,
+				2F60D82A1BDB86E300751A4A /* AddDirectiveViewController.swift */,
+				2F85277E1BE0B6B0002821A2 /* ObjectSearchViewController.swift */,
+				2F8527821BE0C168002821A2 /* UpdateViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		2FD98BF51BC6A38300913F25 = {
 			isa = PBXGroup;
 			children = (
@@ -84,13 +152,12 @@
 			isa = PBXGroup;
 			children = (
 				2FD98C031BC6A38300913F25 /* AppDelegate.swift */,
-				2FD98C051BC6A38300913F25 /* LoginViewController.swift */,
+				2FBECF4B1BCB7A8500DD8CB9 /* NSObject */,
+				2FBECF4C1BCB7AAD00DD8CB9 /* Controllers */,
 				2FD98C071BC6A38300913F25 /* Main.storyboard */,
 				2FD98C0A1BC6A38300913F25 /* Images.xcassets */,
 				2FD98C0C1BC6A38300913F25 /* LaunchScreen.xib */,
 				2FD98C011BC6A38300913F25 /* Supporting Files */,
-				2FD98C251BC6B5EE00913F25 /* HomeCollectionViewController.swift */,
-				2FD98C271BC6BFE400913F25 /* HomeCell.swift */,
 			);
 			path = DomothinkIOS;
 			sourceTree = "<group>";
@@ -98,6 +165,15 @@
 		2FD98C011BC6A38300913F25 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2F8527841BE0D1CE002821A2 /* archive15.png */,
+				2F8527851BE0D1CE002821A2 /* briefcase11.png */,
+				2F8527861BE0D1CE002821A2 /* cog2.png */,
+				2F8527871BE0D1CE002821A2 /* download63.png */,
+				2F8527881BE0D1CE002821A2 /* hdd.png */,
+				2F8527891BE0D1CE002821A2 /* inbox12.png */,
+				2F85278A1BE0D1CE002821A2 /* list30.png */,
+				2F85278B1BE0D1CE002821A2 /* shopping69.png */,
+				2F936D571BD9F7B800A030D4 /* 2017_logo_domothink.png */,
 				2FD98C291BC6C33A00913F25 /* images.jpeg */,
 				2FD98C021BC6A38300913F25 /* Info.plist */,
 			);
@@ -201,9 +277,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F8527921BE0D1CE002821A2 /* list30.png in Resources */,
+				2F8527931BE0D1CE002821A2 /* shopping69.png in Resources */,
+				2F8527901BE0D1CE002821A2 /* hdd.png in Resources */,
+				2F85278D1BE0D1CE002821A2 /* briefcase11.png in Resources */,
+				2F85278C1BE0D1CE002821A2 /* archive15.png in Resources */,
 				2FD98C091BC6A38300913F25 /* Main.storyboard in Resources */,
+				2F85278F1BE0D1CE002821A2 /* download63.png in Resources */,
 				2FD98C2A1BC6C33A00913F25 /* images.jpeg in Resources */,
 				2FD98C0E1BC6A38300913F25 /* LaunchScreen.xib in Resources */,
+				2F8527911BE0D1CE002821A2 /* inbox12.png in Resources */,
+				2F936D581BD9F7B800A030D4 /* 2017_logo_domothink.png in Resources */,
+				2F85278E1BE0D1CE002821A2 /* cog2.png in Resources */,
 				2FD98C0B1BC6A38300913F25 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,10 +307,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FD98C261BC6B5EE00913F25 /* HomeCollectionViewController.swift in Sources */,
+				2F30E8BB1BCE1B34001AE9C7 /* DeviceViewController.swift in Sources */,
 				2FD98C061BC6A38300913F25 /* LoginViewController.swift in Sources */,
+				2F60D8231BDB570D00751A4A /* ObjectViewController.swift in Sources */,
+				2F8C00851BD2451F0042FD9E /* ProgressViewController.swift in Sources */,
+				2F60D8251BDB58E200751A4A /* ObjectCell.swift in Sources */,
+				2F60D8271BDB77B600751A4A /* DirectiveCell.swift in Sources */,
+				2F85277F1BE0B6B0002821A2 /* ObjectSearchViewController.swift in Sources */,
+				2F60D82B1BDB86E300751A4A /* AddDirectiveViewController.swift in Sources */,
+				2F60D8291BDB7A3B00751A4A /* DirectiveViewController.swift in Sources */,
 				2FD98C281BC6BFE400913F25 /* HomeCell.swift in Sources */,
 				2FD98C041BC6A38300913F25 /* AppDelegate.swift in Sources */,
+				2FBECF471BCB76C000DD8CB9 /* Device.swift in Sources */,
+				2F8527831BE0C168002821A2 /* UpdateViewController.swift in Sources */,
+				2F936D5A1BDA067E00A030D4 /* HomeCollectionController.swift in Sources */,
+				2FBECF491BCB785F00DD8CB9 /* Directive.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

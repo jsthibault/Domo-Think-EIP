@@ -10,8 +10,9 @@ import UIKit
 
 class HomeCell: UICollectionViewCell {
     
-    @IBOutlet weak var imgCell: UIImageView!
+
     @IBOutlet weak var labelCell: UILabel!
-    
+    @IBOutlet weak var imgCell: UIImageView!
+    var labelSegue: String = ""
     
 }
