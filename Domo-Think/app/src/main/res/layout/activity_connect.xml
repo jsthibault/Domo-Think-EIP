@@ -9,35 +9,21 @@
     tools:context=".ConnectActivity"
     android:background="@color/lightGrey">
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Connect"
-        android:id="@+id/connect_string"
-        android:layout_marginTop="42dp"
+        android:layout_height="180dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/grey"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="and manage easily your home"
-        android:id="@+id/manage_text"
-        android:layout_marginTop="29dp"
-        android:layout_below="@+id/connect_string"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/grey"/>
+        android:id="@+id/connectLogo"
+        android:src="@drawable/logo"/>
 
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/identifier"
-        android:layout_marginTop="77dp"
+        android:layout_marginBottom="30dp"
         android:hint="DomoBox Identifier"
-        android:layout_below="@+id/manage_text"
+        android:layout_above="@+id/password"
         android:layout_centerHorizontal="true"
         android:textColor="@color/grey"/>
 
@@ -47,9 +33,9 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/password"
-        android:layout_below="@+id/identifier"
+        android:layout_marginBottom="70dp"
+        android:layout_above="@+id/connection_button"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="45dp"
         android:hint="Password"
         android:textColor="@color/grey"/>
 
@@ -61,7 +47,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@color/domoBlue"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="20dp"
         android:textColor="@color/white"
         android:textSize="20dp"/>
 </RelativeLayout>

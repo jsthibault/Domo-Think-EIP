@@ -1,22 +1,58 @@
 package eu.domothink.munsch.domo_think;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import eu.domothink.munsch.adapters.CheckboxListAdapter;
+import eu.domothink.munsch.adapters.SwitchListAdapter;
 
 /**
  * Created by munsch on 16/10/2015.
  */
 public class SearchObjectsActivity extends AppCompatActivity {
+    TextView text = null;
+    ListView list = null;
+    SearchObjectsActivity context = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_activity);
+        setContentView(R.layout.search_objects_activity);
+
+        context = SearchObjectsActivity.this;
+
+        text = (TextView)findViewById(R.id.searchObjectId);
+
+        new CountDownTimer(3000, 1000) {
+
+            public void onTick(long ms) {
+                text.setText("seconds remaining: " + ms / 1000);
+            }
+
+            public void onFinish() {
+                text.setText("done!");
+                setContentView(R.layout.found_objects_activity);
+                String [] objects = new String[]{
+                    "Lampe XYZ", "Temp Capture XYZ", "Autre module", "TV Smart Sony"
+                };
+                boolean [] states = new boolean[]{
+                        true, false, false, true
+                };
+                list = (ListView)findViewById(R.id.listFoundObjects);
+
+                list.setAdapter(new CheckboxListAdapter(context, objects, states));
+
+            }
+        }.start();
 
     }
 

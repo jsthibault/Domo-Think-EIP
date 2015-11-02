@@ -1,14 +1,14 @@
 package eu.domothink.munsch.domo_think;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-import java.util.ArrayList;
+import eu.domothink.munsch.adapters.SwitchListAdapter;
 
 /**
  * Created by munsch on 16/10/2015.
@@ -23,36 +23,18 @@ public class ConnectedObjectsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.connected_objects_activity);
 
+        String[] objs = new String[]{"Television", "Lampe salon", "Lampe chambre bébé", "Radiateur"};
+        boolean[] states = new boolean[]{true, false, false, true};
+
         list = (ListView)findViewById(R.id.listView);
 
-        String[] objs = new String[]{
-                "Television",
-                "Lampe salon",
-                "Lampe chambre bébé",
-                "Radiateur"};
-        ArrayList<String> objects = new ArrayList<>();
-        for (int i = 0; i < objs.length; i++){
-            objects.add(objs[i]);
-        }
-
-        ArrayAdapter adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_multiple_choice,
-                objects);
-        list.setAdapter(adapter);
+        list.setAdapter(new SwitchListAdapter(this, objs, states));
    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.add_object, menu);
-        /*add = (Button)findViewById(R.id.add);
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ConnectedObjectsActivity.this, SearchObjectsActivity.class);
-                startActivity(intent);
-            }
-        });*/
         return true;
     }
 
@@ -64,7 +46,9 @@ public class ConnectedObjectsActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.add) {
+            Intent intent = new Intent(ConnectedObjectsActivity.this, SearchObjectsActivity.class);
+            startActivity(intent);
             return true;
         }
 

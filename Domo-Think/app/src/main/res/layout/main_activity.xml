@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:columnCount="3"
+    android:columnCount="2"
     android:useDefaultMargins="true"
     android:alignmentMode="alignBounds"
     android:columnOrderPreserved="false">
@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:numColumns="3" >
+        android:numColumns="2" >
 
     </GridView>
 </RelativeLayout>
