@@ -5,3 +5,5 @@ Outils utilisés:
 
 Création de channels dans Slack.
 La communication autour du projet sera uniquement sur Slack à présent.
+
+COMMIT TEST
