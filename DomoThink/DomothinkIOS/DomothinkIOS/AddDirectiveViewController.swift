@@ -31,19 +31,19 @@ class AddDirectiveViewController: UIViewController {
     func addDirective() {
         
         
-        var dateFormatter = NSDateFormatter()
+        /*var dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "hh:mm" //format style. Browse online to get a format that fits your needs.
         element1 = dateFormatter.stringFromDate(dateChoice.date)
         
         //element1 = "12:00"
-        element2 = ordreText.text
+        element2 = ordreText.text*/
         
         self.performSegueWithIdentifier("directiveSection", sender: self)
     }
     
 
     //a revoir ne marche pas 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "directiveSection") {
             var svc = segue.destinationViewController as! DirectiveViewController
             
@@ -52,7 +52,8 @@ class AddDirectiveViewController: UIViewController {
             
             //svc.dataPassed = sender
         }
-    }
+    }*/
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

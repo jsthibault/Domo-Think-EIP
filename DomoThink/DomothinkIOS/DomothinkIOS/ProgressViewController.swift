@@ -12,7 +12,7 @@ class ProgressViewController: UIViewController {
 
     
     @IBOutlet weak var progressView: UIProgressView!
-    var timer: NSTimer!
+    private var timer: NSTimer!
     
     override func viewDidLoad() {
         super.viewDidLoad()

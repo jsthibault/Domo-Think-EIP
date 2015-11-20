@@ -36,6 +36,9 @@
 		2FD98C1A1BC6A38300913F25 /* DomothinkIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD98C191BC6A38300913F25 /* DomothinkIOSTests.swift */; };
 		2FD98C281BC6BFE400913F25 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD98C271BC6BFE400913F25 /* HomeCell.swift */; };
 		2FD98C2A1BC6C33A00913F25 /* images.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2FD98C291BC6C33A00913F25 /* images.jpeg */; };
+		2FFE7A0A1BFF1DEF00BFD21D /* RecentsStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFE7A091BFF1DEF00BFD21D /* RecentsStoreViewController.swift */; };
+		2FFE7A0C1BFF1DFD00BFD21D /* RatedStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFE7A0B1BFF1DFD00BFD21D /* RatedStoreViewController.swift */; };
+		2FFE7A0E1BFF1FA200BFD21D /* PluginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFE7A0D1BFF1FA200BFD21D /* PluginCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +85,9 @@
 		2FD98C191BC6A38300913F25 /* DomothinkIOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomothinkIOSTests.swift; sourceTree = "<group>"; };
 		2FD98C271BC6BFE400913F25 /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		2FD98C291BC6C33A00913F25 /* images.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = images.jpeg; path = Images.xcassets/img/images.jpeg; sourceTree = "<group>"; };
+		2FFE7A091BFF1DEF00BFD21D /* RecentsStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentsStoreViewController.swift; sourceTree = "<group>"; };
+		2FFE7A0B1BFF1DFD00BFD21D /* RatedStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatedStoreViewController.swift; sourceTree = "<group>"; };
+		2FFE7A0D1BFF1FA200BFD21D /* PluginCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluginCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,7 @@
 				2FBECF481BCB785F00DD8CB9 /* Directive.swift */,
 				2F60D8241BDB58E200751A4A /* ObjectCell.swift */,
 				2F60D8261BDB77B600751A4A /* DirectiveCell.swift */,
+				2FFE7A0D1BFF1FA200BFD21D /* PluginCell.swift */,
 			);
 			name = NSObject;
 			sourceTree = "<group>";
@@ -126,6 +133,8 @@
 				2F60D82A1BDB86E300751A4A /* AddDirectiveViewController.swift */,
 				2F85277E1BE0B6B0002821A2 /* ObjectSearchViewController.swift */,
 				2F8527821BE0C168002821A2 /* UpdateViewController.swift */,
+				2FFE7A091BFF1DEF00BFD21D /* RecentsStoreViewController.swift */,
+				2FFE7A0B1BFF1DFD00BFD21D /* RatedStoreViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -313,6 +322,8 @@
 				2F8C00851BD2451F0042FD9E /* ProgressViewController.swift in Sources */,
 				2F60D8251BDB58E200751A4A /* ObjectCell.swift in Sources */,
 				2F60D8271BDB77B600751A4A /* DirectiveCell.swift in Sources */,
+				2FFE7A0E1BFF1FA200BFD21D /* PluginCell.swift in Sources */,
+				2FFE7A0A1BFF1DEF00BFD21D /* RecentsStoreViewController.swift in Sources */,
 				2F85277F1BE0B6B0002821A2 /* ObjectSearchViewController.swift in Sources */,
 				2F60D82B1BDB86E300751A4A /* AddDirectiveViewController.swift in Sources */,
 				2F60D8291BDB7A3B00751A4A /* DirectiveViewController.swift in Sources */,
@@ -322,6 +333,7 @@
 				2F8527831BE0C168002821A2 /* UpdateViewController.swift in Sources */,
 				2F936D5A1BDA067E00A030D4 /* HomeCollectionController.swift in Sources */,
 				2FBECF491BCB785F00DD8CB9 /* Directive.swift in Sources */,
+				2FFE7A0C1BFF1DFD00BFD21D /* RatedStoreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
