@@ -1,5 +1,6 @@
-<Page x:Class="Domo_Think_UApp.Views.MainPage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Page
+    x:Class="Domo_Think_UApp.Views.Objects"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:Behaviors="using:Template10.Behaviors"
       xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
@@ -9,10 +10,7 @@
       xmlns:local="using:Domo_Think_UApp.Views"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:vm="using:Domo_Think_UApp.ViewModels" mc:Ignorable="d">
-
-    <!--<Page.DataContext>
-        --><!--<vm:MainPageViewModel />--><!--
-    </Page.DataContext>-->
+    
 
     <Grid Background="{StaticResource DBackgroundColorBrush}">
 
@@ -56,7 +54,7 @@
 
         <!--  page header  -->
 
-        <controls:PageHeader BackButtonVisibility="Collapsed" Content="Main Page" Frame="{x:Bind Frame}" Background="{StaticResource DPrimaryColorDarkBrush}">
+        <controls:PageHeader BackButtonVisibility="Collapsed" Content="Objects" Frame="{x:Bind Frame}" Background="{StaticResource DPrimaryColorDarkBrush}">
             <Interactivity:Interaction.Behaviors>
                 <Behaviors:EllipsisBehavior Visibility="Auto" />
             </Interactivity:Interaction.Behaviors>
@@ -71,10 +69,44 @@
         <StackPanel Grid.Row="1" VerticalAlignment="Top"
                      Padding="12,8,0,0">
 
-            <TextBlock Foreground="Black" Text="TODO: Overview"></TextBlock>
+            <ListBox Background="{StaticResource DBackgroundColorBrush}">
+                <ListBoxItem>
+                    <TextBlock Foreground="Black">Lampe salon</TextBlock>
+                </ListBoxItem>
+
+                <ListBoxItem>
+                    <TextBlock Foreground="Black">Sono salon</TextBlock>
+                </ListBoxItem>
+
+                <ListBoxItem>
+                    <TextBlock Foreground="Black">TV Nyso XYZ</TextBlock>
+                </ListBoxItem>
+
+                <ListBoxItem>
+                    <TextBlock Foreground="Black">Object #1</TextBlock>
+                </ListBoxItem>
+
+                <ListBoxItem>
+                    <TextBlock Foreground="Black">Object #2</TextBlock>
+                </ListBoxItem>
+
+
+                <ListBoxItem>
+                    <TextBlock Foreground="Black">Object #3</TextBlock>
+                </ListBoxItem>
+            </ListBox>
 
         </StackPanel>
 
     </Grid>
-</Page>
 
+    <Page.BottomAppBar>
+        <CommandBar x:Name="LOGIN_APP_BAR" IsSticky="True" 
+                    Background="{StaticResource DPrimaryColorDarkBrush}" >
+            <CommandBar.PrimaryCommands>
+                <AppBarButton x:Name="ADD_BUTTON" Icon="Add" IsCompact="False" Label="Add" />
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+    
+</Page>

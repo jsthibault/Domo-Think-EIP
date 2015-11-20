@@ -29,21 +29,6 @@ namespace Domo_Think_UApp.ViewModels
             await Task.Yield();
         }
 
-        public void GotoDetailsPage()
-        {
-            NavigationService.Navigate(typeof(Views.DetailPage), Value);
-        }
-
-        public void GotoPrivacy()
-        {
-            NavigationService.Navigate(typeof(Views.SettingsPage), 1);
-        }
-
-        public void GotoAbout()
-        {
-            NavigationService.Navigate(typeof(Views.SettingsPage), 2);
-        }
-
     }
 }
 

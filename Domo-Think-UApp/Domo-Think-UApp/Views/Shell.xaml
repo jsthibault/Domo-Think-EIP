@@ -11,7 +11,7 @@
 
     <Controls:ModalDialog IsModal="{x:Bind IsBusy, Mode=OneWay}">
         <Controls:ModalDialog.Content>
-            <Controls:HamburgerMenu x:Name="MyHamburgerMenu" IsFullScreen="False">
+            <Controls:HamburgerMenu x:Name="MyHamburgerMenu" IsFullScreen="False" AccentColor="{StaticResource DPrimaryColorDark}">
 
                 <Controls:HamburgerMenu.PrimaryButtons>
                     <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:MainPage">
@@ -20,10 +20,39 @@
                             <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Home" />
                         </StackPanel>
                     </Controls:HamburgerButtonInfo>
+
+                    <Controls:HamburgerButtonInfo PageType="views:Objects">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Width="48" Height="48" Symbol="Target" />
+                            <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Objects" />
+                        </StackPanel>
+                    </Controls:HamburgerButtonInfo>
+
+                    <Controls:HamburgerButtonInfo PageType="views:Directives">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Width="48" Height="48" Symbol="PreviewLink" />
+                            <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Directives" />
+                        </StackPanel>
+                    </Controls:HamburgerButtonInfo>
+
+                    <Controls:HamburgerButtonInfo PageType="views:MainPage">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Width="48" Height="48" Symbol="Repair" />
+                            <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Plugs-in" />
+                        </StackPanel>
+                    </Controls:HamburgerButtonInfo>
+                    
+                    <Controls:HamburgerButtonInfo PageType="views:MainPage">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Width="48" Height="48" Symbol="Shop" />
+                            <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Store" />
+                        </StackPanel>
+                    </Controls:HamburgerButtonInfo>
+
                 </Controls:HamburgerMenu.PrimaryButtons>
 
                 <Controls:HamburgerMenu.SecondaryButtons>
-                    <Controls:HamburgerButtonInfo PageType="views:SettingsPage">
+                    <Controls:HamburgerButtonInfo>
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Width="48" Height="48" Symbol="Setting" />
                             <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Settings" />
