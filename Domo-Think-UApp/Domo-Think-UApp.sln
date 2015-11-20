@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domo-Think-UApp", "Domo-Think-UApp\Domo-Think-UApp.csproj", "{D6A84C1F-8C92-46D1-A9BD-939479DE15B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domo-Think-UApp", "Domo-Think-UApp\Domo-Think-UApp.csproj", "{87EFA636-37B0-4965-ABE9-C03B7535A997}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,24 +15,24 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D6A84C1F-8C92-46D1-A9BD-939479DE15B1}.Debug|ARM.ActiveCfg = Debug|ARM
-		{D6A84C1F-8C92-46D1-A9BD-939479DE15B1}.Debug|ARM.Build.0 = Debug|ARM
-		{D6A84C1F-8C92-46D1-A9BD-939479DE15B1}.Debug|ARM.Deploy.0 = Debug|ARM
-		{D6A84C1F-8C92-46D1-A9BD-939479DE15B1}.Debug|x64.ActiveCfg = Debug|x64
-		{D6A84C1F-8C92-46D1-A9BD-939479DE15B1}.Debug|x64.Build.0 = Debug|x64
-		{D6A84C1F-8C92-46D1-A9BD-939479DE15B1}.Debug|x64.Deploy.0 = Debug|x64
-		{D6A84C1F-8C92-46D1-A9BD-939479DE15B1}.Debug|x86.ActiveCfg = Debug|x86
-		{D6A84C1F-8C92-46D1-A9BD-939479DE15B1}.Debug|x86.Build.0 = Debug|x86
-		{D6A84C1F-8C92-46D1-A9BD-939479DE15B1}.Debug|x86.Deploy.0 = Debug|x86
-		{D6A84C1F-8C92-46D1-A9BD-939479DE15B1}.Release|ARM.ActiveCfg = Release|ARM
-		{D6A84C1F-8C92-46D1-A9BD-939479DE15B1}.Release|ARM.Build.0 = Release|ARM
-		{D6A84C1F-8C92-46D1-A9BD-939479DE15B1}.Release|ARM.Deploy.0 = Release|ARM
-		{D6A84C1F-8C92-46D1-A9BD-939479DE15B1}.Release|x64.ActiveCfg = Release|x64
-		{D6A84C1F-8C92-46D1-A9BD-939479DE15B1}.Release|x64.Build.0 = Release|x64
-		{D6A84C1F-8C92-46D1-A9BD-939479DE15B1}.Release|x64.Deploy.0 = Release|x64
-		{D6A84C1F-8C92-46D1-A9BD-939479DE15B1}.Release|x86.ActiveCfg = Release|x86
-		{D6A84C1F-8C92-46D1-A9BD-939479DE15B1}.Release|x86.Build.0 = Release|x86
-		{D6A84C1F-8C92-46D1-A9BD-939479DE15B1}.Release|x86.Deploy.0 = Release|x86
+		{87EFA636-37B0-4965-ABE9-C03B7535A997}.Debug|ARM.ActiveCfg = Debug|ARM
+		{87EFA636-37B0-4965-ABE9-C03B7535A997}.Debug|ARM.Build.0 = Debug|ARM
+		{87EFA636-37B0-4965-ABE9-C03B7535A997}.Debug|ARM.Deploy.0 = Debug|ARM
+		{87EFA636-37B0-4965-ABE9-C03B7535A997}.Debug|x64.ActiveCfg = Debug|x64
+		{87EFA636-37B0-4965-ABE9-C03B7535A997}.Debug|x64.Build.0 = Debug|x64
+		{87EFA636-37B0-4965-ABE9-C03B7535A997}.Debug|x64.Deploy.0 = Debug|x64
+		{87EFA636-37B0-4965-ABE9-C03B7535A997}.Debug|x86.ActiveCfg = Debug|x86
+		{87EFA636-37B0-4965-ABE9-C03B7535A997}.Debug|x86.Build.0 = Debug|x86
+		{87EFA636-37B0-4965-ABE9-C03B7535A997}.Debug|x86.Deploy.0 = Debug|x86
+		{87EFA636-37B0-4965-ABE9-C03B7535A997}.Release|ARM.ActiveCfg = Release|ARM
+		{87EFA636-37B0-4965-ABE9-C03B7535A997}.Release|ARM.Build.0 = Release|ARM
+		{87EFA636-37B0-4965-ABE9-C03B7535A997}.Release|ARM.Deploy.0 = Release|ARM
+		{87EFA636-37B0-4965-ABE9-C03B7535A997}.Release|x64.ActiveCfg = Release|x64
+		{87EFA636-37B0-4965-ABE9-C03B7535A997}.Release|x64.Build.0 = Release|x64
+		{87EFA636-37B0-4965-ABE9-C03B7535A997}.Release|x64.Deploy.0 = Release|x64
+		{87EFA636-37B0-4965-ABE9-C03B7535A997}.Release|x86.ActiveCfg = Release|x86
+		{87EFA636-37B0-4965-ABE9-C03B7535A997}.Release|x86.Build.0 = Release|x86
+		{87EFA636-37B0-4965-ABE9-C03B7535A997}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

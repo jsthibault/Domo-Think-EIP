@@ -1,10 +1,12 @@
-Application Windows Phone 8.1
+Application Windows 10
 =======
 
-Application DomoThink pour Windows Phone 8.1
+Application DomoThink pour Windows 10
 
 ## Todo ##
 
+- Création de la page de Login (LoginPage.xaml)
+- Page d'accueil
 - Page de gestion des objets
 	- Visualisation des objets
 	- Ajouter un objet
@@ -26,30 +28,13 @@ Application DomoThink pour Windows Phone 8.1
 ## Done ##
 
 - Création de la solution
-- MVVM
-	- Ajout du système MVVM
-	- Ajout du système de RelayCommand
-	- Navigation entre les pages
-- Création de la page de Login (LoginPage.xaml)
 - Création d'un dictionaire de ressources pour le thème
 - Création d'un dictionaire de ressources pour la langue anglaise
 - Création d'un dictionaire de ressources pour la langue française
-- Page d'accueil
+- Passage Windows Universal App 10
+
 
 ## Screens ##
 
-![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/DomoThink_LoginPage.png)
-
-![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/DomoThink_LoginPage_Loading.png)
-
-![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/DomoThink_HomePage.png)
-
-![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/DomoThink_ObjectsPage.png)
-
-![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/DomoThink_DirectivesPage.png)
-
-![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/DomoThink_BoxPage.png)
-
-![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/DomoThink_ParametersPage.png)
 
 
