@@ -106,7 +106,7 @@ namespace DomoThink.ViewModels
             this.ProcessLogin();
 
             // Fake loading
-            await Task.Delay(5000);
+            await Task.Delay(3000);
 
             // Change page
             this.navigation.Navigate(typeof(Pages.Home));

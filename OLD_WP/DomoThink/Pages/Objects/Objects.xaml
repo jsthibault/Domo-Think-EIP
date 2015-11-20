@@ -9,6 +9,13 @@
     mc:Ignorable="d"
     Background="{StaticResource DBackgroundColor}">
 
+    <!-- Page resources -->
+    <!--<Page.Resources>
+        <Style x:Name="OBJECT_LIST_BOX" TargetType="ListBoxItem">
+            
+        </Style>
+    </Page.Resources>-->
+    
     <!-- Page data context -->
     <Page.DataContext>
         <viewModels:ObjectsViewModel />
@@ -35,7 +42,26 @@
 
         <!-- Main grid -->
         <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
-            
+            <!--<ListBox ItemsSource="{Binding Objects}" Background="{StaticResource DBackgroundColor}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="0.2*" />
+                            </Grid.ColumnDefinitions>
+                            
+                            <StackPanel Grid.Column="0" Width="250">
+                                <TextBlock x:Name="ITEM_NAME" Text="{Binding Name}" />
+                            </StackPanel>
+                            
+                            <StackPanel Grid.Column="1">
+                                <ToggleSwitch></ToggleSwitch>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>-->
         </Grid>
     </Grid>
 
@@ -44,7 +70,7 @@
         <CommandBar x:Name="LOGIN_APP_BAR" IsSticky="True" 
                     Background="{StaticResource DPrimaryColorDark}" >
             <CommandBar.PrimaryCommands>
-                <AppBarButton x:Name="ADD_BUTTON" Icon="Add" IsCompact="False" Label="Add" Command="{Binding AddCommand}" />
+                <AppBarButton x:Name="ADD_BUTTON" Icon="Add" IsCompact="False" Label="add" Command="{Binding AddCommand}" />
             </CommandBar.PrimaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

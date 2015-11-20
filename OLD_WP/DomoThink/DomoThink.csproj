@@ -91,6 +91,7 @@
     </Compile>
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\ObjectModel.cs" />
     <Compile Include="Pages\Box\Box.xaml.cs">
       <DependentUpon>Box.xaml</DependentUpon>
     </Compile>
