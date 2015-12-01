@@ -10,11 +10,13 @@ import UIKit
 
 class Device: NSObject {
     
-    var name : String!
+    var _name: String!
+    var _isActive: Bool!
     
-    init(name: String) {
+    init(name: String, isActive: Bool) {
         super.init()
-        self.name = name
+        self._name = name
+        self._isActive = isActive
     }
 
    

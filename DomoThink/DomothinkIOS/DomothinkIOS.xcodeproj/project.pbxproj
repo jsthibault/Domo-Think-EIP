@@ -26,6 +26,9 @@
 		2F8C00851BD2451F0042FD9E /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8C00841BD2451F0042FD9E /* ProgressViewController.swift */; };
 		2F936D581BD9F7B800A030D4 /* 2017_logo_domothink.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F936D571BD9F7B800A030D4 /* 2017_logo_domothink.png */; };
 		2F936D5A1BDA067E00A030D4 /* HomeCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F936D591BDA067E00A030D4 /* HomeCollectionController.swift */; };
+		2FB148F61C08597900CEF770 /* LibraryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB148F51C08597900CEF770 /* LibraryAPI.swift */; };
+		2FB148F81C085B3400CEF770 /* PersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB148F71C085B3400CEF770 /* PersistencyManager.swift */; };
+		2FB148FB1C08692A00CEF770 /* Plugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB148FA1C08692A00CEF770 /* Plugin.swift */; };
 		2FBECF471BCB76C000DD8CB9 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBECF461BCB76C000DD8CB9 /* Device.swift */; };
 		2FBECF491BCB785F00DD8CB9 /* Directive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBECF481BCB785F00DD8CB9 /* Directive.swift */; };
 		2FD98C041BC6A38300913F25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD98C031BC6A38300913F25 /* AppDelegate.swift */; };
@@ -71,6 +74,9 @@
 		2F8C00841BD2451F0042FD9E /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		2F936D571BD9F7B800A030D4 /* 2017_logo_domothink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 2017_logo_domothink.png; path = Images.xcassets/img/2017_logo_domothink.png; sourceTree = "<group>"; };
 		2F936D591BDA067E00A030D4 /* HomeCollectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionController.swift; sourceTree = "<group>"; };
+		2FB148F51C08597900CEF770 /* LibraryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryAPI.swift; sourceTree = "<group>"; };
+		2FB148F71C085B3400CEF770 /* PersistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistencyManager.swift; sourceTree = "<group>"; };
+		2FB148FA1C08692A00CEF770 /* Plugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plugin.swift; sourceTree = "<group>"; };
 		2FBECF461BCB76C000DD8CB9 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		2FBECF481BCB785F00DD8CB9 /* Directive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Directive.swift; sourceTree = "<group>"; };
 		2FD98BFE1BC6A38300913F25 /* DomothinkIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DomothinkIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,17 +114,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2FBECF4B1BCB7A8500DD8CB9 /* NSObject */ = {
+		2FB148F41C08594500CEF770 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				2FB148F51C08597900CEF770 /* LibraryAPI.swift */,
+				2FB148F71C085B3400CEF770 /* PersistencyManager.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		2FB148F91C0864EF00CEF770 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2FBECF481BCB785F00DD8CB9 /* Directive.swift */,
+				2FBECF461BCB76C000DD8CB9 /* Device.swift */,
+				2FB148FA1C08692A00CEF770 /* Plugin.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		2FBECF4B1BCB7A8500DD8CB9 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				2FD98C271BC6BFE400913F25 /* HomeCell.swift */,
-				2FBECF461BCB76C000DD8CB9 /* Device.swift */,
-				2FBECF481BCB785F00DD8CB9 /* Directive.swift */,
 				2F60D8241BDB58E200751A4A /* ObjectCell.swift */,
 				2F60D8261BDB77B600751A4A /* DirectiveCell.swift */,
 				2FFE7A0D1BFF1FA200BFD21D /* PluginCell.swift */,
 			);
-			name = NSObject;
+			name = View;
 			sourceTree = "<group>";
 		};
 		2FBECF4C1BCB7AAD00DD8CB9 /* Controllers */ = {
@@ -160,8 +183,10 @@
 		2FD98C001BC6A38300913F25 /* DomothinkIOS */ = {
 			isa = PBXGroup;
 			children = (
+				2FB148F91C0864EF00CEF770 /* Model */,
+				2FB148F41C08594500CEF770 /* API */,
 				2FD98C031BC6A38300913F25 /* AppDelegate.swift */,
-				2FBECF4B1BCB7A8500DD8CB9 /* NSObject */,
+				2FBECF4B1BCB7A8500DD8CB9 /* View */,
 				2FBECF4C1BCB7AAD00DD8CB9 /* Controllers */,
 				2FD98C071BC6A38300913F25 /* Main.storyboard */,
 				2FD98C0A1BC6A38300913F25 /* Images.xcassets */,
@@ -324,12 +349,15 @@
 				2F60D8271BDB77B600751A4A /* DirectiveCell.swift in Sources */,
 				2FFE7A0E1BFF1FA200BFD21D /* PluginCell.swift in Sources */,
 				2FFE7A0A1BFF1DEF00BFD21D /* RecentsStoreViewController.swift in Sources */,
+				2FB148F61C08597900CEF770 /* LibraryAPI.swift in Sources */,
+				2FB148FB1C08692A00CEF770 /* Plugin.swift in Sources */,
 				2F85277F1BE0B6B0002821A2 /* ObjectSearchViewController.swift in Sources */,
 				2F60D82B1BDB86E300751A4A /* AddDirectiveViewController.swift in Sources */,
 				2F60D8291BDB7A3B00751A4A /* DirectiveViewController.swift in Sources */,
 				2FD98C281BC6BFE400913F25 /* HomeCell.swift in Sources */,
 				2FD98C041BC6A38300913F25 /* AppDelegate.swift in Sources */,
 				2FBECF471BCB76C000DD8CB9 /* Device.swift in Sources */,
+				2FB148F81C085B3400CEF770 /* PersistencyManager.swift in Sources */,
 				2F8527831BE0C168002821A2 /* UpdateViewController.swift in Sources */,
 				2F936D5A1BDA067E00A030D4 /* HomeCollectionController.swift in Sources */,
 				2FBECF491BCB785F00DD8CB9 /* Directive.swift in Sources */,

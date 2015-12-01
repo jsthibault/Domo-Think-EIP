@@ -341,11 +341,24 @@
                                 <items>
                                     <barButtonItem systemItem="add" id="2id-P6-7tg">
                                         <connections>
-                                            <segue destination="KP0-XB-Nf3" kind="presentation" id="fjS-xs-91k"/>
+                                            <segue destination="KP0-XB-Nf3" kind="show" id="fjS-xs-91k"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="upd-dy-fi9">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Directives" id="RSP-pq-S1B">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt; Home" id="fla-gL-03d">
+                                            <connections>
+                                                <segue destination="icB-Lp-Ffq" kind="presentation" id="TYW-Ej-g1R"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="x0d-b8-eRr"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jgE-40-yas">
                                 <rect key="frame" x="0.0" y="72" width="414" height="620"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -388,28 +401,15 @@
                                     <outlet property="delegate" destination="Wf3-e4-2Cq" id="ssx-bB-LuP"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="upd-dy-fi9">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="Directives" id="RSP-pq-S1B">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt; Home" id="fla-gL-03d">
-                                            <connections>
-                                                <segue destination="icB-Lp-Ffq" kind="presentation" id="TYW-Ej-g1R"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="jgE-40-yas" firstAttribute="top" secondItem="upd-dy-fi9" secondAttribute="bottom" id="4eI-YX-n6Q"/>
-                            <constraint firstItem="5zw-qt-XdL" firstAttribute="top" secondItem="jgE-40-yas" secondAttribute="bottom" constant="44" id="5qZ-7d-Dn6"/>
+                            <constraint firstItem="jgE-40-yas" firstAttribute="top" secondItem="exX-uH-SmY" secondAttribute="bottom" constant="52" id="959-cR-dHC"/>
                             <constraint firstItem="Ogy-UZ-GEw" firstAttribute="leading" secondItem="HYL-WL-qwn" secondAttribute="leadingMargin" constant="-16" id="FIJ-zD-qx3"/>
+                            <constraint firstItem="5zw-qt-XdL" firstAttribute="top" secondItem="jgE-40-yas" secondAttribute="bottom" constant="44" id="Ga4-Ub-Bg8"/>
                             <constraint firstItem="upd-dy-fi9" firstAttribute="leading" secondItem="HYL-WL-qwn" secondAttribute="leadingMargin" constant="-16" id="HLJ-5d-x7i"/>
                             <constraint firstAttribute="trailingMargin" secondItem="upd-dy-fi9" secondAttribute="trailing" constant="-16" id="Sgn-18-AuT"/>
                             <constraint firstItem="upd-dy-fi9" firstAttribute="top" secondItem="exX-uH-SmY" secondAttribute="bottom" constant="8" id="euC-6a-ya0"/>
-                            <constraint firstItem="jgE-40-yas" firstAttribute="top" secondItem="exX-uH-SmY" secondAttribute="bottom" constant="52" id="fNO-Ve-zpJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ogy-UZ-GEw" secondAttribute="trailing" constant="-16" id="qnK-59-fy7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jgE-40-yas" secondAttribute="trailing" constant="-16" id="r7r-YF-xeg"/>
                             <constraint firstItem="Ogy-UZ-GEw" firstAttribute="top" secondItem="jgE-40-yas" secondAttribute="bottom" id="u1A-J7-Vgt"/>
@@ -418,6 +418,9 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="tableViewObject" destination="jgE-40-yas" id="mE1-p2-H5G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WFq-Zz-ftc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -876,8 +879,8 @@
         <image name="2017_logo_domothink.png" width="842" height="595"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xBi-c3-SmL"/>
-        <segue reference="bmT-DK-jv4"/>
+        <segue reference="TYW-Ej-g1R"/>
         <segue reference="aF1-kl-mic"/>
+        <segue reference="bmT-DK-jv4"/>
     </inferredMetricsTieBreakers>
 </document>

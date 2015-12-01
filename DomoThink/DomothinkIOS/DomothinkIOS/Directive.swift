@@ -10,8 +10,17 @@ import UIKit
 
 class Directive: NSObject {
     
-    var title: String!
-    var dateCreate: NSDate!
-    var dateApply: NSDate!
+    var _title: String!
+    var _dateCreate: NSDate!
+    var _dateApply: NSDate!
+    var _isActive: Bool!
+    
+    init(title: String, dateCreate: NSDate, dateApply: NSDate, isActive: Bool) {
+        super.init()
+        self._title = title
+        self._dateCreate = dateCreate
+        self._dateApply = dateApply
+        self._isActive = isActive
+    }
    
 }

@@ -14,52 +14,27 @@ class AddDirectiveViewController: UIViewController {
     @IBOutlet weak var dateChoice: UIDatePicker!
     @IBOutlet weak var buttonAdd: UIButton!
     
-    var element1: String!
-    var element2: String!
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //add target for the button
         buttonAdd.addTarget(self, action: "addDirective", forControlEvents: .TouchUpInside)
-        // Do any additional setup after loading the view.
     }
     
-    
-    
-    func addDirective() {
-        
-        
-        /*var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "hh:mm" //format style. Browse online to get a format that fits your needs.
-        element1 = dateFormatter.stringFromDate(dateChoice.date)
-        
-        //element1 = "12:00"
-        element2 = ordreText.text*/
-        
-        self.performSegueWithIdentifier("directiveSection", sender: self)
-    }
-    
-
-    //a revoir ne marche pas 
-    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "directiveSection") {
-            var svc = segue.destinationViewController as! DirectiveViewController
-            
-            svc.dataPassed = element2
-            svc.dataPassed2 = element1
-            
-            //svc.dataPassed = sender
-        }
-    }*/
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
+    func addDirective() {
+        
+        // create new directive with the value add by the user
+        let addDirectiveObject = Directive(title: ordreText.text, dateCreate: NSDate(), dateApply: dateChoice.date, isActive: true)
+        
+        //add directive in data
+        LibraryAPI.sharedInstance.addDirective(addDirectiveObject, index: LibraryAPI.sharedInstance.countDirectives())
+        
+        //go back to the last view
+        self.performSegueWithIdentifier("directiveSection", sender: self)
+    }
 }
