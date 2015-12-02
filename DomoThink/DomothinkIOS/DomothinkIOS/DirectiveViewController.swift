@@ -120,9 +120,8 @@ class DirectiveViewController: UIViewController, UISearchResultsUpdating, UITabl
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             
-            LibraryAPI.sharedInstance.deleteDirective(indexPath.row)
+            // delete directive if recherche activer ou non
             if (resultSeachController.active) {
-                
                 //trouver une meilleure solution
                 var tmp : Directive!
                 tmp = filtredDirective[indexPath.row]
@@ -132,13 +131,13 @@ class DirectiveViewController: UIViewController, UISearchResultsUpdating, UITabl
                 {
                     i = i + 1
                 }
-                println(i)
-                
                 allDirective.removeAtIndex(i)
+                LibraryAPI.sharedInstance.deleteDirective(i)
                 filtredDirective.removeAtIndex(indexPath.row)
                 
             } else {
                 allDirective.removeAtIndex(indexPath.row)
+                LibraryAPI.sharedInstance.deleteDirective(indexPath.row)
             }
             
             self.tableViewObject.reloadData()
