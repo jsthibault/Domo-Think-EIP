@@ -39,5 +39,15 @@ Application DomoThink pour Windows 10
 
 ## Screens ##
 
+![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/Screen_1.PNG)
+Visuel sur Windows Desktop
 
+![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/Screen_2.PNG)
+Visual sur tablette
+
+![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/Screen_3.PNG)
+Visuel sur Windows Mobile (menu fermé)
+
+![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/Screen_4.PNG)
+Visuel sur Windows Mobile (menu ouvert)
 
