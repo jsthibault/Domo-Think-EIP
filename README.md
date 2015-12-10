@@ -32,6 +32,9 @@ Application DomoThink pour Windows 10
 - Création d'un dictionaire de ressources pour la langue anglaise
 - Création d'un dictionaire de ressources pour la langue française
 - Passage Windows Universal App 10
+- Visual States (adaptation en fonction du périphérique)
+- Menu lateral
+- Navigation
 
 
 ## Screens ##

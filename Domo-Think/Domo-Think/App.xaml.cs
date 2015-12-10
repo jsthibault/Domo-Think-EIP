@@ -46,7 +46,7 @@ namespace Domo_Think
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {
-                this.DebugSettings.EnableFrameRateCounter = true;
+                this.DebugSettings.EnableFrameRateCounter = false;
             }
 #endif
 
@@ -70,12 +70,14 @@ namespace Domo_Think
                 Window.Current.Content = rootFrame;
             }
 
+            Window.Current.Content = new AppShell(rootFrame);
+
             if (rootFrame.Content == null)
             {
                 // Quand la pile de navigation n'est pas restaurée, accédez à la première page,
                 // puis configurez la nouvelle page en transmettant les informations requises en tant que
                 // paramètre
-                rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                rootFrame.Navigate(typeof(Views.MainPage), e.Arguments);
             }
             // Vérifiez que la fenêtre actuelle est active
             Window.Current.Activate();
