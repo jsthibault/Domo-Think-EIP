@@ -1,5 +1,8 @@
 ﻿using Domo_Think.Model;
 using Domo_Think.MVVM;
+using Domo_Think.Navigation;
+using Domo_Think.Views;
+using Domo_Think.Views.Objects;
 using System;
 using System.Collections.Generic;
 using System.Windows.Input;
@@ -104,14 +107,14 @@ namespace Domo_Think
         {
             // Initialize primary buttons
             this.PrimaryNavigationButtons = new List<NavigationButton>();
-            this.PrimaryNavigationButtons.Add(new NavigationButton("Home", "\uE80F", typeof(Views.MainPage), true));
-            this.PrimaryNavigationButtons.Add(new NavigationButton("Objects", "\uE772", typeof(Views.ObjectsPage)));
-            this.PrimaryNavigationButtons.Add(new NavigationButton("Directives", "\uE17D", typeof(Views.OrdersPage)));
-            this.PrimaryNavigationButtons.Add(new NavigationButton("Store", "\uE719", typeof(Views.StorePage)));
+            this.PrimaryNavigationButtons.Add(new NavigationButton("Home", "\uE80F", typeof(MainPage), true));
+            this.PrimaryNavigationButtons.Add(new NavigationButton("Objects", "\uE772", typeof(ObjectsPage)));
+            this.PrimaryNavigationButtons.Add(new NavigationButton("Directives", "\uE17D", typeof(OrdersPage)));
+            this.PrimaryNavigationButtons.Add(new NavigationButton("Store", "\uE719", typeof(StorePage)));
 
             // Initialize secondary buttons
             this.SecondaryNavigationButtons = new List<NavigationButton>();
-            this.SecondaryNavigationButtons.Add(new NavigationButton("Settings", "\uE713", typeof(Views.SettingsPage)));
+            this.SecondaryNavigationButtons.Add(new NavigationButton("Settings", "\uE713", typeof(SettingsPage)));
         }
 
         /// <summary>
@@ -125,8 +128,11 @@ namespace Domo_Think
             // TODO: Check platform (adaptative code)
             this.BackButton.Visibility = this.contentFrame.CanGoBack ? Visibility.Visible : Visibility.Collapsed;
 
-            this.UpdateCurrentRadioButton(this.PRIMARY_ITEMS);
-            this.UpdateCurrentRadioButton(this.SECONDARY_ITEMS);
+            if (this.IsCurrentFrameInMenu())
+            {
+                this.UpdateCurrentRadioButton(this.PRIMARY_ITEMS);
+                this.UpdateCurrentRadioButton(this.SECONDARY_ITEMS);
+            }
         }
 
         /// <summary>
@@ -137,7 +143,7 @@ namespace Domo_Think
         {
             Type _type = this.contentFrame.CurrentSourcePageType;
 
-            foreach (RadioButton radioButton in GetAllRadioButtons(this.PRIMARY_ITEMS))
+            foreach (RadioButton radioButton in GetAllRadioButtons(dp))
             {
                 NavigationButton _target = radioButton.CommandParameter as NavigationButton;
 
@@ -172,6 +178,18 @@ namespace Domo_Think
             return list;
         }
 
+        /// <summary>
+        /// Check if the current frame type is in the menu.
+        /// </summary>
+        /// <returns></returns>
+        private Boolean IsCurrentFrameInMenu()
+        {
+            Type _type = this.contentFrame.CurrentSourcePageType;
+
+            return this.PrimaryNavigationButtons.Find(x => x.Type == _type) != null ||
+                this.SecondaryNavigationButtons.Find(x => x.Type == _type) != null;
+        }
+
         #endregion
 
         #region EVENTS
@@ -200,7 +218,7 @@ namespace Domo_Think
             NavigationButton _navigationButton = param as NavigationButton;
 
             if (this.currentNavigationButton != null && this.currentNavigationButton.Type != _navigationButton.Type)
-                this.contentFrame.Navigate(_navigationButton.Type as Type);
+                NavigationService.Navigate(_navigationButton.Type);
 
             this.currentNavigationButton = _navigationButton;
         }
@@ -211,8 +229,7 @@ namespace Domo_Think
         /// <param name="param"></param>
         private void GoBackAction(Object param)
         {
-            if (this.contentFrame.CanGoBack)
-                this.contentFrame.GoBack();
+            NavigationService.GoBack();
         }
 
         /// <summary>

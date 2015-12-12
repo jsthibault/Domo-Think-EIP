@@ -111,13 +111,21 @@
     <Compile Include="AppShell.xaml.cs">
       <DependentUpon>AppShell.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\DebugConverter.cs" />
     <Compile Include="Model\NavigationButton.cs" />
+    <Compile Include="Model\ObjectModel.cs" />
     <Compile Include="MVVM\Command.cs" />
+    <Compile Include="MVVM\ViewModelBase.cs" />
+    <Compile Include="Navigation\NavigationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ObjectsViewModel.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ObjectsPage.xaml.cs">
+    <Compile Include="Views\Objects\AddObject.xaml.cs">
+      <DependentUpon>AddObject.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Objects\ObjectsPage.xaml.cs">
       <DependentUpon>ObjectsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\OrdersPage.xaml.cs">
@@ -152,9 +160,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Page Include="AppShell.xaml">
       <SubType>Designer</SubType>
@@ -174,7 +180,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ObjectsPage.xaml">
+    <Page Include="Views\Objects\AddObject.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Objects\ObjectsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domo_Think.Navigation;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -45,9 +46,7 @@ namespace Domo_Think
 
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
-            {
                 this.DebugSettings.EnableFrameRateCounter = false;
-            }
 #endif
 
             Frame rootFrame = Window.Current.Content as Frame;
@@ -71,14 +70,11 @@ namespace Domo_Think
             }
 
             Window.Current.Content = new AppShell(rootFrame);
+            NavigationService.InitializeContentFrame(rootFrame); // Initialize the Content Frame
 
             if (rootFrame.Content == null)
-            {
-                // Quand la pile de navigation n'est pas restaurée, accédez à la première page,
-                // puis configurez la nouvelle page en transmettant les informations requises en tant que
-                // paramètre
-                rootFrame.Navigate(typeof(Views.MainPage), e.Arguments);
-            }
+                NavigationService.Navigate(typeof(Views.MainPage), e.Arguments); // Navigate to the main page inside the shell
+
             // Vérifiez que la fenêtre actuelle est active
             Window.Current.Activate();
         }

@@ -3,6 +3,11 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Domo_Think"
+    xmlns:converters="using:Domo_Think.Converters"
     RequestedTheme="Light">
+
+    <Application.Resources>
+        <converters:DebugConverter x:Key="debugConverter" />
+    </Application.Resources>
 
 </Application>
