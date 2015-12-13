@@ -48,8 +48,16 @@ namespace Domo_Think.Navigation
         {
             lock (syncRoot)
             {
-                if (frame.CanGoBack)
+                if (CanGoBack())
                     frame.GoBack();
+            }
+        }
+
+        public static Boolean CanGoBack()
+        {
+            lock (syncRoot)
+            {
+                return frame == null ? false : frame.CanGoBack;
             }
         }
     }

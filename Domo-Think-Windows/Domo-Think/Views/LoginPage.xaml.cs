@@ -1,5 +1,4 @@
-﻿using Domo_Think.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,22 +15,16 @@ using Windows.UI.Xaml.Navigation;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, voir la page http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace Domo_Think.Views.Objects
+namespace Domo_Think.Views
 {
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class AddObject : Page
+    public sealed partial class LoginPage : Page
     {
-        public AddObject()
+        public LoginPage()
         {
             this.InitializeComponent();
-            this.Loaded += AddObject_Loaded;
-        }
-
-        private void AddObject_Loaded(Object sender, RoutedEventArgs e)
-        {
-            (this.DataContext as AddObjectViewModel).SeatchDevicesCommand.Execute(null);
         }
     }
 }

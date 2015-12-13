@@ -8,12 +8,14 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 namespace Domo_Think
@@ -65,18 +67,33 @@ namespace Domo_Think
                     //TODO: chargez l'état de l'application précédemment suspendue
                 }
 
+                SystemNavigationManager.GetForCurrentView().BackRequested += App_BackRequested;
+
                 // Placez le frame dans la fenêtre active
                 Window.Current.Content = rootFrame;
             }
 
-            Window.Current.Content = new AppShell(rootFrame);
-            NavigationService.InitializeContentFrame(rootFrame); // Initialize the Content Frame
+            //Window.Current.Content = new AppShell(rootFrame);
+
+            //NavigationService.InitializeContentFrame(rootFrame); // Initialize the Content Frame
+
+            //if (rootFrame.Content == null)
+            //    NavigationService.Navigate(typeof(Views.MainPage), e.Arguments); // Navigate to the main page inside the shell
 
             if (rootFrame.Content == null)
-                NavigationService.Navigate(typeof(Views.MainPage), e.Arguments); // Navigate to the main page inside the shell
+                rootFrame.Navigate(typeof(Views.LoginPage), e.Arguments);
 
             // Vérifiez que la fenêtre actuelle est active
             Window.Current.Activate();
+        }
+
+        private void App_BackRequested(Object sender, BackRequestedEventArgs e)
+        {
+            if (NavigationService.CanGoBack())
+            {
+                e.Handled = true;
+                NavigationService.GoBack();
+            }
         }
 
         /// <summary>

@@ -4,7 +4,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Domo_Think.Views"
     xmlns:viewModel="using:Domo_Think.ViewModels"
-    xmlns:controls="using:Domo_Think.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" x:Name="OBJECTS_PAGE">
@@ -53,8 +52,7 @@
 
                                 <SymbolIcon Symbol="DisconnectDrive" Margin="8,0,12,0" />
                                 <TextBlock Grid.Column="1" Text="{Binding Name}" TextWrapping="Wrap" VerticalAlignment="Center" />
-                                <ToggleSwitch x:Name="TOGGLE_ITEM_STATE" Grid.Column="2" 
-                                              HorizontalContentAlignment="Right" HorizontalAlignment="Right" 
+                                <ToggleSwitch x:Name="TOGGLE_ITEM_STATE" Grid.Column="2"
                                               IsOn="{Binding State}" OnContent="On" OffContent="Off" 
                                               Toggled="TOGGLE_ITEM_STATE_Toggled" />
                             </Grid>

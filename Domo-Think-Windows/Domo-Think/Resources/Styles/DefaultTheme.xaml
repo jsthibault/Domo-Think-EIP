@@ -3,6 +3,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Domo_Think.Resources.Styles">
 
+    <SolidColorBrush x:Key="DBackgroundColor" Color="LightGray"></SolidColorBrush>
+    <SolidColorBrush x:Key="DPrimaryColor" Color="#03A9F4"></SolidColorBrush>
+    <SolidColorBrush x:Key="DPrimaryColorDark" Color="#0288D1"></SolidColorBrush>
     <SolidColorBrush x:Key="SplitViewPaneColor">#FF2B2B2B</SolidColorBrush>
     <SolidColorBrush x:Key="SplitViewPaneItemColor">White</SolidColorBrush>
 

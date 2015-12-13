@@ -7,7 +7,15 @@
     RequestedTheme="Light">
 
     <Application.Resources>
-        <converters:DebugConverter x:Key="debugConverter" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/DefaultTheme.xaml" />
+                <ResourceDictionary Source="Resources/Styles/SplitViewStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            
+            <converters:DebugConverter x:Key="debugConverter" />
+            <converters:VisibilityConverter x:Key="visibilityConverter" />
+        </ResourceDictionary>
     </Application.Resources>
 
 </Application>

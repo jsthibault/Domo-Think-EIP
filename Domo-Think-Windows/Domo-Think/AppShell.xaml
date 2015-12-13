@@ -6,23 +6,16 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" x:Name="SHELL_PAGE">
-    
-    
+
+    <!-- Page resources -->
     <Page.Resources>
-        <ResourceDictionary>
-
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="../Resources/Styles/SplitViewStyle.xaml"/>
-                <ResourceDictionary Source="../Resources/Styles/DefaultTheme.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
-
-            <Style TargetType="RadioButton" BasedOn="{StaticResource CustomRadioButtonMenu}" />
-
-        </ResourceDictionary>
+        <Style TargetType="RadioButton" BasedOn="{StaticResource CustomRadioButtonMenu}" />
     </Page.Resources>
 
+    <!-- Main Grid -->
     <Grid>
 
+        <!-- Visual states -->
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="ApplicationGroup">
                 <VisualState x:Name="WindowsMobile">
@@ -55,11 +48,13 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
+        <!-- Grid definitions -->
         <Grid.RowDefinitions>
             <RowDefinition Height="48" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
+        <!-- Page header panel -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" Background="{ThemeResource MenuFlyoutItemFocusedBackgroundThemeBrush}">
             <RadioButton x:Name="HamburgerButton" Command="{Binding ElementName=SHELL_PAGE, Path=DataContext.MenuCommand}"
                          Height="48" Width="48" MinWidth="48"
@@ -73,6 +68,7 @@
                          Tag="&#xE0C4;" Checked="DontCheck" />
         </StackPanel>
 
+        <!-- Split view -->
         <SplitView x:Name="ShellSplitView" Grid.Row="1" CompactPaneLength="48" OpenPaneLength="200">
             <SplitView.Pane>
                 <Grid Background="{StaticResource SplitViewPaneColor}" Opacity="1">

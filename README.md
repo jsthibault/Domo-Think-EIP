@@ -43,7 +43,10 @@ Application DomoThink pour Windows 10
 Visuel sur Windows Desktop
 
 ![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/Screen_5.PNG)
-Viseul des objets sur Windows Desktop
+Visuel des objets sur Windows Desktop
+
+![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/Screen_6.PNG)
+Viseul de la page de connexion sur Windows Desktop
 
 ![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/Screen_2.PNG)
 Visual sur tablette
