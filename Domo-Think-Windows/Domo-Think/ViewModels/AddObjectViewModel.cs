@@ -23,7 +23,15 @@ namespace Domo_Think.ViewModels
 {
     public class AddObjectViewModel : ViewModelBase
     {
+        #region FIELDS
+
         private Boolean loaderVisible;
+        private Boolean devicesVisible;
+
+        #endregion
+
+        #region PROPERTIES
+
         public Boolean LoaderVisible
         {
             get { return this.loaderVisible; }
@@ -31,7 +39,6 @@ namespace Domo_Think.ViewModels
         }
 
 
-        private Boolean devicesVisible;
         public Boolean DevicesVisible
         {
             get { return this.devicesVisible; }
@@ -42,6 +49,13 @@ namespace Domo_Think.ViewModels
 
         public ObservableCollection<ObjectModel> Objects { get; private set; }
 
+        #endregion
+
+        #region CONSTRUCTORS
+
+        /// <summary>
+        /// 
+        /// </summary>
         public AddObjectViewModel()
         {
             this.LoaderVisible = true;
@@ -60,11 +74,25 @@ namespace Domo_Think.ViewModels
             }
         }
 
+        #endregion
+
+        #region METHODS
+
+        #endregion
+
+        #region ACTIONS
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="param"></param>
         private async void SearchDevicesCommandAction(Object param)
         {
             await Task.Delay(5000);
             this.LoaderVisible = false;
             this.DevicesVisible = true;
         }
+
+        #endregion
     }
 }

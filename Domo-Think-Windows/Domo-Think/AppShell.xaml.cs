@@ -6,6 +6,7 @@ using Domo_Think.Views.Objects;
 using System;
 using System.Collections.Generic;
 using System.Windows.Input;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -110,10 +111,12 @@ namespace Domo_Think
             this.PrimaryNavigationButtons.Add(new NavigationButton("Home", "\uE80F", typeof(MainPage), true));
             this.PrimaryNavigationButtons.Add(new NavigationButton("Objects", "\uE772", typeof(ObjectsPage)));
             this.PrimaryNavigationButtons.Add(new NavigationButton("Directives", "\uE17D", typeof(OrdersPage)));
+            this.PrimaryNavigationButtons.Add(new NavigationButton("My DomoBox", "\uE1E4", typeof(MyDomoBox)));
             this.PrimaryNavigationButtons.Add(new NavigationButton("Store", "\uE719", typeof(StorePage)));
 
             // Initialize secondary buttons
             this.SecondaryNavigationButtons = new List<NavigationButton>();
+            this.SecondaryNavigationButtons.Add(new NavigationButton("Logout", "\uE7E8", typeof(Boolean)));
             this.SecondaryNavigationButtons.Add(new NavigationButton("Settings", "\uE713", typeof(SettingsPage)));
         }
 
@@ -190,6 +193,33 @@ namespace Domo_Think
                 this.SecondaryNavigationButtons.Find(x => x.Type == _type) != null;
         }
 
+        /// <summary>
+        /// Process logout.
+        /// </summary>
+        private async void Logout()
+        {
+            MessageDialog dialog = new MessageDialog(
+                "Do you want to logout?",
+                "Logout");
+
+            dialog.Commands.Add(new UICommand("Yes") { Id = 0 });
+            dialog.Commands.Add(new UICommand("No") { Id = 1 });
+
+            dialog.DefaultCommandIndex = 0;
+            dialog.CancelCommandIndex = 1;
+
+            var result = await dialog.ShowAsync();
+
+            if ((Int32)result.Id == 0)
+            {
+                // Process logout here
+
+                Window.Current.Content = new LoginPage();
+                Window.Current.Activate();
+            }
+
+        }
+
         #endregion
 
         #region EVENTS
@@ -218,8 +248,13 @@ namespace Domo_Think
             NavigationButton _navigationButton = param as NavigationButton;
 
             if (this.currentNavigationButton != null && this.currentNavigationButton.Type != _navigationButton.Type)
-                NavigationService.Navigate(_navigationButton.Type);
-
+            {
+                if (_navigationButton.Type == typeof(Boolean))
+                    this.Logout();
+                else
+                    NavigationService.Navigate(_navigationButton.Type);
+            }
+            
             this.currentNavigationButton = _navigationButton;
         }
 

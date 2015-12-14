@@ -72,14 +72,7 @@ namespace Domo_Think
                 // Placez le frame dans la fenêtre active
                 Window.Current.Content = rootFrame;
             }
-
-            //Window.Current.Content = new AppShell(rootFrame);
-
-            //NavigationService.InitializeContentFrame(rootFrame); // Initialize the Content Frame
-
-            //if (rootFrame.Content == null)
-            //    NavigationService.Navigate(typeof(Views.MainPage), e.Arguments); // Navigate to the main page inside the shell
-
+            
             if (rootFrame.Content == null)
                 rootFrame.Navigate(typeof(Views.LoginPage), e.Arguments);
 
