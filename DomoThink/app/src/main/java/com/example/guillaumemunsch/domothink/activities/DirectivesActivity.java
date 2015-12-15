@@ -10,7 +10,8 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.example.guillaumemunsch.domothink.R;
-import com.example.guillaumemunsch.domothink.adapter.EditDeleteAdapter;
+import com.example.guillaumemunsch.domothink.adapter.EditAdapter;
+import com.example.guillaumemunsch.domothink.touch_listeners.SwipeDismissListViewTouchListener;
 
 /**
  * Created by guillaumemunsch on 03/12/15.
@@ -29,9 +30,24 @@ public class DirectivesActivity extends AppCompatActivity {
                 "Directive #2",
                 "Directive #3",
                 "Directive #4"};
-
-        EditDeleteAdapter adapter = new EditDeleteAdapter(this, objs);
+        final EditAdapter adapter = new EditAdapter(this, objs);
         mList.setAdapter(adapter);
+        mList.setOnTouchListener(new SwipeDismissListViewTouchListener(
+                mList,
+                new SwipeDismissListViewTouchListener.DismissCallbacks() {
+                    @Override
+                    public boolean canDismiss(int position) {
+                        return true;
+                    }
+
+                    @Override
+                    public void onDismiss(ListView listView, int[] reverseSortedPositions) {
+                        for (int position : reverseSortedPositions) {
+                            adapter.remove(position);
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+                }));
         add = (FloatingActionButton)findViewById(R.id.addDirectiveButton);
         add.setOnClickListener(new View.OnClickListener() {
             @Override

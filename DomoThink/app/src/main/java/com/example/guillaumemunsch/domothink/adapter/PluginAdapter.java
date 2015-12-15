@@ -2,6 +2,7 @@ package com.example.guillaumemunsch.domothink.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +29,7 @@ public class PluginAdapter extends BaseAdapter {
     Context context;
     boolean [] states;
     private static LayoutInflater inflater=null;
-    public PluginAdapter(StoreActivity mainActivity, int[] mIcons, String[] mNames, String[] mDescs, float[] mRates) {
+    public PluginAdapter(AppCompatActivity mainActivity, int[] mIcons, String[] mNames, String[] mDescs, float[] mRates) {
         context = mainActivity;
         icons = mIcons;
         names = mNames;

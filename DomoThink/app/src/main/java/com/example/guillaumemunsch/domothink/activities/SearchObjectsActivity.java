@@ -40,7 +40,7 @@ public class SearchObjectsActivity extends AppCompatActivity {
                 String [] objects = new String[]{
                         "Lampe XYZ", "Temp Capture XYZ", "Autre module", "TV Smart Sony"
                 };
-                boolean [] states = new boolean[]{
+                Boolean [] states = new Boolean[]{
                         true, false, false, true
                 };
                 list = (ListView)findViewById(R.id.listFoundObjects);

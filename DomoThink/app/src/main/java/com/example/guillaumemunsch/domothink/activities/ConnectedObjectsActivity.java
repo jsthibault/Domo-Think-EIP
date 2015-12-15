@@ -12,6 +12,7 @@ import android.widget.ListView;
 
 import com.example.guillaumemunsch.domothink.R;
 import com.example.guillaumemunsch.domothink.adapter.SwitchListAdapter;
+import com.example.guillaumemunsch.domothink.touch_listeners.SwipeDismissListViewTouchListener;
 
 /**
  * Created by guillaumemunsch on 03/12/15.
@@ -27,10 +28,27 @@ public class ConnectedObjectsActivity extends AppCompatActivity {
         setContentView(R.layout.connected_objects_activity);
 
         String[] objs = new String[]{"Television", "Lampe salon", "Lampe chambre bébé", "Radiateur"};
-        boolean[] states = new boolean[]{true, false, false, true};
-        list = (ListView)findViewById(R.id.listView);
-        list.setAdapter(new SwitchListAdapter(this, objs, states));
-        search = (FloatingActionButton)findViewById(R.id.searchObjectsButton);
+        Boolean[] states = new Boolean[]{true, false, false, true};
+        list = (ListView) findViewById(R.id.listView);
+        final SwitchListAdapter adapter = new SwitchListAdapter(this, objs, states);
+        list.setAdapter(adapter);
+        list.setOnTouchListener(new SwipeDismissListViewTouchListener(
+                list,
+                new SwipeDismissListViewTouchListener.DismissCallbacks() {
+                    @Override
+                    public boolean canDismiss(int position) {
+                        return true;
+                    }
+
+                    @Override
+                    public void onDismiss(ListView listView, int[] reverseSortedPositions) {
+                        for (int position : reverseSortedPositions) {
+                            adapter.remove(position);
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+                }));
+        search = (FloatingActionButton) findViewById(R.id.searchObjectsButton);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

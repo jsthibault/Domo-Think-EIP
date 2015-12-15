@@ -2,6 +2,7 @@ package com.example.guillaumemunsch.domothink.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,7 @@ public class PluginCommentsAdapter extends BaseAdapter {
     float [] rates;
     Context context;
     private static LayoutInflater inflater=null;
-    public PluginCommentsAdapter(PluginDetailActivity mainActivity, int[] mIcons, String[] mNames, String[] mComments, float[] mRates) {
+    public PluginCommentsAdapter(AppCompatActivity mainActivity, int[] mIcons, String[] mNames, String[] mComments, float[] mRates) {
         // TODO Auto-generated constructor stub
         context=mainActivity;
         icons = mIcons;

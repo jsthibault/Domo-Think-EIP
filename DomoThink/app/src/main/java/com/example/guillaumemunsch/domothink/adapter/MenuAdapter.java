@@ -2,6 +2,7 @@ package com.example.guillaumemunsch.domothink.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +23,7 @@ public class MenuAdapter extends BaseAdapter {
     int [] imageId;
     Class[] links;
     private static LayoutInflater inflater=null;
-    public MenuAdapter(MainActivity mainActivity, String[] labels, int[] images, Class[] btnLinks) {
+    public MenuAdapter(AppCompatActivity mainActivity, String[] labels, int[] images, Class[] btnLinks) {
         // TODO Auto-generated constructor stub
         result=labels;
         context=mainActivity;

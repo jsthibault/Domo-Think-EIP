@@ -1,11 +1,7 @@
 package com.example.guillaumemunsch.domothink.activities;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.GridView;
@@ -18,10 +14,10 @@ import com.example.guillaumemunsch.domothink.adapter.MenuAdapter;
 public class MainActivity extends AppCompatActivity {
     ImageView imageView = null;
     GridView gv = null;
-    public static String [] menuItems = {"Objets", "Directives", "Ma DomoBox", "Store", "Mise à jour", "Paramètres"};
+    public static String [] menuItems = {"Objets", "Directives", "Mes Plugins", "Store", "Mise à jour", "Paramètres"};
     public static int [] menuImages = {R.drawable.icon_grid_objects, R.drawable.icon_grid_directives, R.drawable.icon_grid_domobox,
             R.drawable.icon_grid_store, R.drawable.icon_grid_update, R.drawable.icon_grid_settings};
-    public static Class [] menuLinks = {ConnectedObjectsActivity.class, DirectivesActivity.class, MyDomoBoxActivity.class,
+    public static Class [] menuLinks = {ConnectedObjectsActivity.class, DirectivesActivity.class, MyPluginsActivity.class,
             StoreActivity.class, UpdateActivity.class, SettingsActivity.class};
 
     @Override

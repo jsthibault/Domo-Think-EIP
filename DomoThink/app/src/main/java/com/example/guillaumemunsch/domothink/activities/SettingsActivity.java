@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Spinner;
 
 import com.example.guillaumemunsch.domothink.R;
 
@@ -11,10 +14,15 @@ import com.example.guillaumemunsch.domothink.R;
  * Created by guillaumemunsch on 03/12/15.
  */
 public class SettingsActivity extends AppCompatActivity {
+    Spinner spinner = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
+        String[] themes = getResources().getStringArray(R.array.themes);
+        spinner = (Spinner)findViewById(R.id.themesSpinner);
+        spinner.setAdapter(new ArrayAdapter<String>(this, R.layout.spinner_themes, themes));
     }
 
     @Override

@@ -12,31 +12,34 @@ import android.widget.Toast;
 import com.example.guillaumemunsch.domothink.R;
 import com.example.guillaumemunsch.domothink.activities.SearchObjectsActivity;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * Created by guillaumemunsch on 03/12/15.
  */
 public class CheckboxListAdapter extends BaseAdapter {
-    String [] objs;
     Context context;
-    boolean [] states;
+    ArrayList<String> objs = null;
+    ArrayList<Boolean> states = null;
     private static LayoutInflater inflater=null;
-    public CheckboxListAdapter(SearchObjectsActivity mainActivity, String[] mObjs, boolean[] mStates) {
-        objs = mObjs;
+    public CheckboxListAdapter(SearchObjectsActivity mainActivity, String[] mObjs, Boolean[] mStates) {
+        objs = new ArrayList<String>(Arrays.asList(mObjs));
         context = mainActivity;
-        states = mStates;
+        states = new ArrayList<Boolean>(Arrays.asList(mStates));
         inflater = ( LayoutInflater )context.
                 getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        return objs.length;
+        return objs.size();
     }
 
     @Override
-    public Object getItem(int position) {
+    public String getItem(int position) {
         // TODO Auto-generated method stub
-        return position;
+        return objs.get(position);
     }
 
     @Override
@@ -58,16 +61,13 @@ public class CheckboxListAdapter extends BaseAdapter {
         rowView = inflater.inflate(R.layout.list_item_checkbox, null);
         holder.tv=(TextView) rowView.findViewById(R.id.checkboxObjectName);
         holder.ch=(CheckBox) rowView.findViewById(R.id.checkboxId);
-        holder.tv.setText(objs[position]);
-        holder.ch.setChecked(states[position]);
-        rowView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                Toast.makeText(context, "You Clicked " + objs[position], Toast.LENGTH_LONG).show();
-                holder.ch.setChecked(!holder.ch.isChecked());
-            }
-        });
+        holder.tv.setText(objs.get(position));
+        holder.ch.setChecked(states.get(position));
         return rowView;
+    }
+
+    public void remove(int position){
+        objs.remove(position);
+        states.remove(position);
     }
 }
