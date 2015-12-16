@@ -11,6 +11,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/DefaultTheme.xaml" />
                 <ResourceDictionary Source="Resources/Styles/SplitViewStyle.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/StoreButtonStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
             
             <converters:DebugConverter x:Key="debugConverter" />

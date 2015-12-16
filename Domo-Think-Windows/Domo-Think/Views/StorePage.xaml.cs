@@ -25,6 +25,11 @@ namespace Domo_Think.Views
         public StorePage()
         {
             this.InitializeComponent();
+
+            for (Int32 i = 0; i < 10; i++)
+            {
+                this.GRID_VIEW.Items.Add(new object());
+            }
         }
     }
 }

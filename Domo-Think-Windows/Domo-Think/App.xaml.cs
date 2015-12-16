@@ -72,12 +72,20 @@ namespace Domo_Think
                 // Placez le frame dans la fenêtre active
                 Window.Current.Content = rootFrame;
             }
-            
-            if (rootFrame.Content == null)
-                rootFrame.Navigate(typeof(Views.LoginPage), e.Arguments);
 
-            // Vérifiez que la fenêtre actuelle est active
+            Frame frame = Window.Current.Content as Frame;
+
+            Window.Current.Content = new AppShell(frame);
+            NavigationService.InitializeContentFrame(frame);
+            NavigationService.Navigate(typeof(Views.MainPage));
             Window.Current.Activate();
+            frame.BackStack.Clear();
+
+            //if (rootFrame.Content == null)
+            //    rootFrame.Navigate(typeof(Views.LoginPage), e.Arguments);
+
+            //// Vérifiez que la fenêtre actuelle est active
+            //Window.Current.Activate();
         }
 
         private void App_BackRequested(Object sender, BackRequestedEventArgs e)
