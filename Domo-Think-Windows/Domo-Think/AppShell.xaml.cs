@@ -6,6 +6,7 @@ using Domo_Think.Views.Objects;
 using System;
 using System.Collections.Generic;
 using System.Windows.Input;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -26,6 +27,7 @@ namespace Domo_Think
 
         private Frame contentFrame;
         private NavigationButton currentNavigationButton;
+        private SystemNavigationManager systemNavigationManager;
 
         #endregion
 
@@ -40,11 +42,6 @@ namespace Domo_Think
         /// Gets the menu command action.
         /// </summary>
         public ICommand MenuCommand { get; private set; }
-
-        /// <summary>
-        /// Gets the back command action.
-        /// </summary>
-        public ICommand BackCommand { get; private set; }
 
         /// <summary>
         /// Gets the list of the primary navigation buttons.
@@ -72,12 +69,17 @@ namespace Domo_Think
             // Initialize the commands
             this.NavigationCommand = new Command(this.NavigateAction);
             this.MenuCommand = new Command(this.MenuAction);
-            this.BackCommand = new Command(this.GoBackAction);
 
             // Initialize the content frame and navigation buttons
             this.InitializeFrame(frame);
             this.InitializeNavigationButtons();
             this.Loaded += (sender, e) => this.UpdateShell();
+
+            // Initialize back button
+            this.systemNavigationManager = SystemNavigationManager.GetForCurrentView();
+
+            if (this.systemNavigationManager != null)
+                this.UpdateBackButtonVisibility();
         }
 
         #endregion
@@ -108,16 +110,16 @@ namespace Domo_Think
         {
             // Initialize primary buttons
             this.PrimaryNavigationButtons = new List<NavigationButton>();
-            this.PrimaryNavigationButtons.Add(new NavigationButton("Home", "\uE80F", typeof(MainPage), true));
-            this.PrimaryNavigationButtons.Add(new NavigationButton("Objects", "\uE772", typeof(ObjectsPage)));
-            this.PrimaryNavigationButtons.Add(new NavigationButton("Directives", "\uE17D", typeof(OrdersPage)));
-            this.PrimaryNavigationButtons.Add(new NavigationButton("My DomoBox", "\uE1E4", typeof(MyDomoBox)));
-            this.PrimaryNavigationButtons.Add(new NavigationButton("Store", "\uE719", typeof(StorePage)));
+            this.PrimaryNavigationButtons.Add(new NavigationButton("Home", "Home", "\uE80F", typeof(MainPage), true));
+            this.PrimaryNavigationButtons.Add(new NavigationButton("Objects", "Objects", "\uE772", typeof(ObjectsPage)));
+            this.PrimaryNavigationButtons.Add(new NavigationButton("Directives", "Directives", "\uE17D", typeof(OrdersPage)));
+            this.PrimaryNavigationButtons.Add(new NavigationButton("My DomoBox", "My DomoBox", "\uE1E4", typeof(MyDomoBox)));
+            this.PrimaryNavigationButtons.Add(new NavigationButton("Store", "Domo Store", "\uE719", typeof(StorePage)));
 
             // Initialize secondary buttons
             this.SecondaryNavigationButtons = new List<NavigationButton>();
-            this.SecondaryNavigationButtons.Add(new NavigationButton("Logout", "\uE7E8", typeof(Boolean)));
-            this.SecondaryNavigationButtons.Add(new NavigationButton("Settings", "\uE713", typeof(SettingsPage)));
+            this.SecondaryNavigationButtons.Add(new NavigationButton("Logout", "", "\uE7E8", typeof(Boolean)));
+            this.SecondaryNavigationButtons.Add(new NavigationButton("Settings", "Application settings", "\uE713", typeof(SettingsPage)));
         }
 
         /// <summary>
@@ -128,13 +130,15 @@ namespace Domo_Think
             if (this.ActualWidth < 900)
                 this.ShellSplitView.IsPaneOpen = false;
 
-            // TODO: Check platform (adaptative code)
-            this.BackButton.Visibility = this.contentFrame.CanGoBack ? Visibility.Visible : Visibility.Collapsed;
-
+            this.UpdateBackButtonVisibility();
+            
             if (this.IsCurrentFrameInMenu())
             {
                 this.UpdateCurrentRadioButton(this.PRIMARY_ITEMS);
                 this.UpdateCurrentRadioButton(this.SECONDARY_ITEMS);
+
+                if (this.currentNavigationButton != null)
+                    this.PAGE_TITLE.Text = this.currentNavigationButton.Title;
             }
         }
 
@@ -220,10 +224,18 @@ namespace Domo_Think
 
         }
 
+        /// <summary>
+        /// Update the back button visiblity.
+        /// </summary>
+        private void UpdateBackButtonVisibility()
+        {
+            this.systemNavigationManager.AppViewBackButtonVisibility = NavigationService.CanGoBack() ? AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;
+        }
+
         #endregion
 
         #region EVENTS
-    
+
         /// <summary>
         /// Do not check the radio button.
         /// </summary>
@@ -256,15 +268,6 @@ namespace Domo_Think
             }
             
             this.currentNavigationButton = _navigationButton;
-        }
-
-        /// <summary>
-        /// Process the Go back action.
-        /// </summary>
-        /// <param name="param"></param>
-        private void GoBackAction(Object param)
-        {
-            NavigationService.GoBack();
         }
 
         /// <summary>

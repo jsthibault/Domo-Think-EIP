@@ -35,15 +35,21 @@ namespace Domo_Think.Model
         public String Text { get; set; }
 
         /// <summary>
+        /// Gets or sets the page title.
+        /// </summary>
+        public String Title { get; set; }
+
+        /// <summary>
         /// Gets or sets the current button state.
         /// </summary>
         public Boolean IsChecked { get; set; }
+
 
         /// <summary>
         /// Creates a new Navigation button.
         /// </summary>
         public NavigationButton()
-            : this("NULL", "NULL", null, false)
+            : this("NULL", "NULL", "NULL", null, false)
         { }
 
         /// <summary>
@@ -53,9 +59,10 @@ namespace Domo_Think.Model
         /// <param name="icon">Display icon</param>
         /// <param name="type">Destination page type</param>
         /// <param name="isChecked">State</param>
-        public NavigationButton(String text, String icon, Type type, Boolean isChecked = false)
+        public NavigationButton(String text, String title, String icon, Type type, Boolean isChecked = false)
         {
             this.Text = text;
+            this.Title = title;
             this.Icon = icon;
             this.Type = type;
             this.IsChecked = isChecked;

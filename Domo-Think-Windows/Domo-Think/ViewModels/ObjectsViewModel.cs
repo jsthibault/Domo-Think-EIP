@@ -39,39 +39,71 @@ namespace Domo_Think.ViewModels
 
         #region FIELDS
 
+        private Boolean loadingObjects;
+        private Boolean displayObjects;
+
         #endregion
 
         #region PROPERTIES
 
+        /// <summary>
+        /// Gets or sets the loading visibility state.
+        /// </summary>
+        public Boolean LoadingObjects
+        {
+            get { return this.loadingObjects; }
+            set { this.NotifyPropertyChanged(ref this.loadingObjects, value); }
+        }
+
+        /// <summary>
+        /// Gets or sets the display objects visibility state.
+        /// </summary>
+        public Boolean DisplayObjects
+        {
+            get { return this.displayObjects; }
+            set { this.NotifyPropertyChanged(ref this.displayObjects, value); }
+        }
+
+        /// <summary>
+        /// Gets the Add object command.
+        /// </summary>
         public ICommand AddObjectCommand { get; private set; }
 
-        public ICommand GetObjectPropertiesCommand { get; private set; }
+        /// <summary>
+        /// Gets the load/reload object command.
+        /// </summary>
+        public ICommand LoadObjectsCommand { get; private set; }
 
+        /// <summary>
+        /// Gets the switch state command of an object.
+        /// </summary>
         public ICommand SwitchObjectStateCommand { get; private set; }
 
+        /// <summary>
+        /// Gets the connected objects list.
+        /// </summary>
         public ObservableCollection<ObjectModel> ConnectedObjects { get; private set; }
 
         #endregion
 
         #region CONSTRUCTORS
 
+        /// <summary>
+        /// Create a new Objects View Model instance.
+        /// </summary>
         public ObjectsViewModel()
         {
             // Initialiaze the commands
             this.AddObjectCommand = new Command(this.AddObjectCommandAction);
-            this.GetObjectPropertiesCommand = new Command(this.GetObjectPropertiesCommandAction);
+            this.LoadObjectsCommand = new Command(this.LoadObjectsCommandAction);
             this.SwitchObjectStateCommand = new Command(this.SwitchObjectStateCommandAction);
 
             // Initialize connected objets collection
             this.ConnectedObjects = new ObservableCollection<ObjectModel>();
-            for (Int32 i = 0; i < 5; ++i)
-            {
-                this.ConnectedObjects.Add(new ObjectModel()
-                {
-                    Name = "Object #" + i.ToString(),
-                    State = i % 2 == 0
-                });
-            }
+
+            // Initialize different view states
+            this.LoadingObjects = true;
+            this.DisplayObjects = !this.LoadingObjects;
         }
 
         #endregion
@@ -84,17 +116,51 @@ namespace Domo_Think.ViewModels
 
         #region ACTIONS
 
+        /// <summary>
+        /// Switch to the page to add a new object.
+        /// </summary>
+        /// <param name="param"></param>
         private void AddObjectCommandAction(Object param)
         {
             NavigationService.Navigate(typeof(Views.Objects.AddObject));
         }
 
-        private void GetObjectPropertiesCommandAction(Object param)
-        {
-        }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="param"></param>
         private void SwitchObjectStateCommandAction(Object param)
         {
+            // Change object state here
+        }
+
+        /// <summary>
+        /// Loads or reloads the object list.
+        /// </summary>
+        /// <param name="param"></param>
+        private async void LoadObjectsCommandAction(Object param)
+        {
+            this.LoadingObjects = true;
+            this.DisplayObjects = false;
+
+            await Task.Delay(4000); // Wait 4 seconds
+
+            // Fill list with the data we recieve from the box
+            if (this.ConnectedObjects.Any())
+                this.ConnectedObjects.Clear();
+
+            for (Int32 i = 0; i < 5; ++i)
+            {
+                this.ConnectedObjects.Add(new ObjectModel()
+                {
+                    Name = "Object #" + i.ToString(),
+                    State = i % 2 == 0
+                });
+            }
+            
+            this.LoadingObjects = false;
+            this.DisplayObjects = true;
+
         }
 
         #endregion

@@ -5,16 +5,21 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domo-Think", "Domo-Think\Domo-Think.csproj", "{1BAE9A43-2EE5-4B74-B0FA-247D505780A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expander", "Expander\Expander.csproj", "{6FFB913B-CC9C-4176-8FD5-AC5ED56AB86B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
 		Release|ARM = Release|ARM
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1BAE9A43-2EE5-4B74-B0FA-247D505780A1}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{1BAE9A43-2EE5-4B74-B0FA-247D505780A1}.Debug|ARM.ActiveCfg = Debug|ARM
 		{1BAE9A43-2EE5-4B74-B0FA-247D505780A1}.Debug|ARM.Build.0 = Debug|ARM
 		{1BAE9A43-2EE5-4B74-B0FA-247D505780A1}.Debug|ARM.Deploy.0 = Debug|ARM
@@ -24,6 +29,7 @@ Global
 		{1BAE9A43-2EE5-4B74-B0FA-247D505780A1}.Debug|x86.ActiveCfg = Debug|x86
 		{1BAE9A43-2EE5-4B74-B0FA-247D505780A1}.Debug|x86.Build.0 = Debug|x86
 		{1BAE9A43-2EE5-4B74-B0FA-247D505780A1}.Debug|x86.Deploy.0 = Debug|x86
+		{1BAE9A43-2EE5-4B74-B0FA-247D505780A1}.Release|Any CPU.ActiveCfg = Release|x86
 		{1BAE9A43-2EE5-4B74-B0FA-247D505780A1}.Release|ARM.ActiveCfg = Release|ARM
 		{1BAE9A43-2EE5-4B74-B0FA-247D505780A1}.Release|ARM.Build.0 = Release|ARM
 		{1BAE9A43-2EE5-4B74-B0FA-247D505780A1}.Release|ARM.Deploy.0 = Release|ARM
@@ -33,6 +39,22 @@ Global
 		{1BAE9A43-2EE5-4B74-B0FA-247D505780A1}.Release|x86.ActiveCfg = Release|x86
 		{1BAE9A43-2EE5-4B74-B0FA-247D505780A1}.Release|x86.Build.0 = Release|x86
 		{1BAE9A43-2EE5-4B74-B0FA-247D505780A1}.Release|x86.Deploy.0 = Release|x86
+		{6FFB913B-CC9C-4176-8FD5-AC5ED56AB86B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FFB913B-CC9C-4176-8FD5-AC5ED56AB86B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FFB913B-CC9C-4176-8FD5-AC5ED56AB86B}.Debug|ARM.ActiveCfg = Debug|ARM
+		{6FFB913B-CC9C-4176-8FD5-AC5ED56AB86B}.Debug|ARM.Build.0 = Debug|ARM
+		{6FFB913B-CC9C-4176-8FD5-AC5ED56AB86B}.Debug|x64.ActiveCfg = Debug|x64
+		{6FFB913B-CC9C-4176-8FD5-AC5ED56AB86B}.Debug|x64.Build.0 = Debug|x64
+		{6FFB913B-CC9C-4176-8FD5-AC5ED56AB86B}.Debug|x86.ActiveCfg = Debug|x86
+		{6FFB913B-CC9C-4176-8FD5-AC5ED56AB86B}.Debug|x86.Build.0 = Debug|x86
+		{6FFB913B-CC9C-4176-8FD5-AC5ED56AB86B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FFB913B-CC9C-4176-8FD5-AC5ED56AB86B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FFB913B-CC9C-4176-8FD5-AC5ED56AB86B}.Release|ARM.ActiveCfg = Release|ARM
+		{6FFB913B-CC9C-4176-8FD5-AC5ED56AB86B}.Release|ARM.Build.0 = Release|ARM
+		{6FFB913B-CC9C-4176-8FD5-AC5ED56AB86B}.Release|x64.ActiveCfg = Release|x64
+		{6FFB913B-CC9C-4176-8FD5-AC5ED56AB86B}.Release|x64.Build.0 = Release|x64
+		{6FFB913B-CC9C-4176-8FD5-AC5ED56AB86B}.Release|x86.ActiveCfg = Release|x86
+		{6FFB913B-CC9C-4176-8FD5-AC5ED56AB86B}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

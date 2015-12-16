@@ -171,7 +171,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Expander\Expander.csproj">
+      <Project>{6ffb913b-cc9c-4176-8fd5-ac5ed56ab86b}</Project>
+      <Name>Expander</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Page Include="AppShell.xaml">
       <SubType>Designer</SubType>
