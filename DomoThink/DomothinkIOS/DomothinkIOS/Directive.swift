@@ -22,5 +22,7 @@ class Directive: NSObject {
         self._dateApply = dateApply
         self._isActive = isActive
     }
+    
+    
    
 }

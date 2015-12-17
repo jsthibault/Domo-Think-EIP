@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F30E8BB1BCE1B34001AE9C7 /* DeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F30E8BA1BCE1B34001AE9C7 /* DeviceViewController.swift */; };
-		2F60D8231BDB570D00751A4A /* ObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60D8221BDB570D00751A4A /* ObjectViewController.swift */; };
+		2F4BAD091C22F0A200EDBAFE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BAD081C22F0A200EDBAFE /* SettingsViewController.swift */; };
+		2F60D8231BDB570D00751A4A /* DeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60D8221BDB570D00751A4A /* DeviceViewController.swift */; };
 		2F60D8251BDB58E200751A4A /* ObjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60D8241BDB58E200751A4A /* ObjectCell.swift */; };
 		2F60D8271BDB77B600751A4A /* DirectiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60D8261BDB77B600751A4A /* DirectiveCell.swift */; };
 		2F60D8291BDB7A3B00751A4A /* DirectiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60D8281BDB7A3B00751A4A /* DirectiveViewController.swift */; };
@@ -39,6 +39,9 @@
 		2FD98C1A1BC6A38300913F25 /* DomothinkIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD98C191BC6A38300913F25 /* DomothinkIOSTests.swift */; };
 		2FD98C281BC6BFE400913F25 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD98C271BC6BFE400913F25 /* HomeCell.swift */; };
 		2FD98C2A1BC6C33A00913F25 /* images.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2FD98C291BC6C33A00913F25 /* images.jpeg */; };
+		2FEA19991C148DCA001AC9C4 /* PluginInstallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA19981C148DCA001AC9C4 /* PluginInstallViewController.swift */; };
+		2FEA199B1C157A3F001AC9C4 /* PluginManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA199A1C157A3F001AC9C4 /* PluginManagerViewController.swift */; };
+		2FEA199D1C157F0C001AC9C4 /* PluginManagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEA199C1C157F0C001AC9C4 /* PluginManagerCell.swift */; };
 		2FFE7A0A1BFF1DEF00BFD21D /* RecentsStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFE7A091BFF1DEF00BFD21D /* RecentsStoreViewController.swift */; };
 		2FFE7A0C1BFF1DFD00BFD21D /* RatedStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFE7A0B1BFF1DFD00BFD21D /* RatedStoreViewController.swift */; };
 		2FFE7A0E1BFF1FA200BFD21D /* PluginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFE7A0D1BFF1FA200BFD21D /* PluginCell.swift */; };
@@ -55,8 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2F30E8BA1BCE1B34001AE9C7 /* DeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceViewController.swift; sourceTree = "<group>"; };
-		2F60D8221BDB570D00751A4A /* ObjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectViewController.swift; sourceTree = "<group>"; };
+		2F4BAD081C22F0A200EDBAFE /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		2F60D8221BDB570D00751A4A /* DeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceViewController.swift; sourceTree = "<group>"; };
 		2F60D8241BDB58E200751A4A /* ObjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectCell.swift; sourceTree = "<group>"; };
 		2F60D8261BDB77B600751A4A /* DirectiveCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectiveCell.swift; sourceTree = "<group>"; };
 		2F60D8281BDB7A3B00751A4A /* DirectiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectiveViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +94,9 @@
 		2FD98C191BC6A38300913F25 /* DomothinkIOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomothinkIOSTests.swift; sourceTree = "<group>"; };
 		2FD98C271BC6BFE400913F25 /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		2FD98C291BC6C33A00913F25 /* images.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = images.jpeg; path = Images.xcassets/img/images.jpeg; sourceTree = "<group>"; };
+		2FEA19981C148DCA001AC9C4 /* PluginInstallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluginInstallViewController.swift; sourceTree = "<group>"; };
+		2FEA199A1C157A3F001AC9C4 /* PluginManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluginManagerViewController.swift; sourceTree = "<group>"; };
+		2FEA199C1C157F0C001AC9C4 /* PluginManagerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluginManagerCell.swift; sourceTree = "<group>"; };
 		2FFE7A091BFF1DEF00BFD21D /* RecentsStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentsStoreViewController.swift; sourceTree = "<group>"; };
 		2FFE7A0B1BFF1DFD00BFD21D /* RatedStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatedStoreViewController.swift; sourceTree = "<group>"; };
 		2FFE7A0D1BFF1FA200BFD21D /* PluginCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluginCell.swift; sourceTree = "<group>"; };
@@ -140,6 +146,7 @@
 				2F60D8241BDB58E200751A4A /* ObjectCell.swift */,
 				2F60D8261BDB77B600751A4A /* DirectiveCell.swift */,
 				2FFE7A0D1BFF1FA200BFD21D /* PluginCell.swift */,
+				2FEA199C1C157F0C001AC9C4 /* PluginManagerCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -148,16 +155,18 @@
 			isa = PBXGroup;
 			children = (
 				2FD98C051BC6A38300913F25 /* LoginViewController.swift */,
-				2F30E8BA1BCE1B34001AE9C7 /* DeviceViewController.swift */,
 				2F8C00841BD2451F0042FD9E /* ProgressViewController.swift */,
 				2F936D591BDA067E00A030D4 /* HomeCollectionController.swift */,
-				2F60D8221BDB570D00751A4A /* ObjectViewController.swift */,
+				2F60D8221BDB570D00751A4A /* DeviceViewController.swift */,
 				2F60D8281BDB7A3B00751A4A /* DirectiveViewController.swift */,
 				2F60D82A1BDB86E300751A4A /* AddDirectiveViewController.swift */,
 				2F85277E1BE0B6B0002821A2 /* ObjectSearchViewController.swift */,
 				2F8527821BE0C168002821A2 /* UpdateViewController.swift */,
 				2FFE7A091BFF1DEF00BFD21D /* RecentsStoreViewController.swift */,
 				2FFE7A0B1BFF1DFD00BFD21D /* RatedStoreViewController.swift */,
+				2FEA19981C148DCA001AC9C4 /* PluginInstallViewController.swift */,
+				2FEA199A1C157A3F001AC9C4 /* PluginManagerViewController.swift */,
+				2F4BAD081C22F0A200EDBAFE /* SettingsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -341,9 +350,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F30E8BB1BCE1B34001AE9C7 /* DeviceViewController.swift in Sources */,
 				2FD98C061BC6A38300913F25 /* LoginViewController.swift in Sources */,
-				2F60D8231BDB570D00751A4A /* ObjectViewController.swift in Sources */,
+				2F60D8231BDB570D00751A4A /* DeviceViewController.swift in Sources */,
 				2F8C00851BD2451F0042FD9E /* ProgressViewController.swift in Sources */,
 				2F60D8251BDB58E200751A4A /* ObjectCell.swift in Sources */,
 				2F60D8271BDB77B600751A4A /* DirectiveCell.swift in Sources */,
@@ -356,12 +364,16 @@
 				2F60D8291BDB7A3B00751A4A /* DirectiveViewController.swift in Sources */,
 				2FD98C281BC6BFE400913F25 /* HomeCell.swift in Sources */,
 				2FD98C041BC6A38300913F25 /* AppDelegate.swift in Sources */,
+				2FEA19991C148DCA001AC9C4 /* PluginInstallViewController.swift in Sources */,
 				2FBECF471BCB76C000DD8CB9 /* Device.swift in Sources */,
+				2FEA199D1C157F0C001AC9C4 /* PluginManagerCell.swift in Sources */,
 				2FB148F81C085B3400CEF770 /* PersistencyManager.swift in Sources */,
+				2FEA199B1C157A3F001AC9C4 /* PluginManagerViewController.swift in Sources */,
 				2F8527831BE0C168002821A2 /* UpdateViewController.swift in Sources */,
 				2F936D5A1BDA067E00A030D4 /* HomeCollectionController.swift in Sources */,
 				2FBECF491BCB785F00DD8CB9 /* Directive.swift in Sources */,
 				2FFE7A0C1BFF1DFD00BFD21D /* RatedStoreViewController.swift in Sources */,
+				2F4BAD091C22F0A200EDBAFE /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

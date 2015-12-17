@@ -23,12 +23,12 @@ class LibraryAPI: NSObject {
         super.init()
     }
     
+    /*
+    ** Directive functions
+    */
+    
     func getDirectives() -> [Directive] {
         return persistencyManager.getDirectives()
-    }
-    
-    func countDirectives() -> Int {
-        return persistencyManager.countDirectives()
     }
     
     func addDirective(directive: Directive, index: Int) {
@@ -47,6 +47,78 @@ class LibraryAPI: NSObject {
     
     func setIsActive(directive: Directive, value: Bool) {
         persistencyManager.setIsActive(directive, value: value)
+    }
+    
+    func countDirectives() -> Int {
+        return persistencyManager.countDirectives()
+    }
+    
+    /*
+    ** Device functions
+    */
+    
+    func getDevice() -> [Device] {
+        return persistencyManager.getDevices()
+    }
+    
+    func addDevice(device: Device, index: Int) {
+        persistencyManager.addDevice(device, index: index)
+        /*if isOnline {
+        httpClient.postRequest("/api/addAlbum", body: album.description)
+        }*/
+    }
+    
+    func deleteDevice(index: Int) {
+        persistencyManager.deleteDeviceAtIndex(index)
+        /*if isOnline {
+        httpClient.postRequest("/api/deleteAlbum", body: "\(index)")
+        }*/
+    }
+    
+    func setIsActiveDevice(device: Device, value: Bool) {
+        persistencyManager.setIsActiveDevice(device, value: value)
+    }
+
+    /*
+    ** Plugin functions
+    */
+    
+    func getPlugins() -> [Plugin] {
+        return persistencyManager.getPlugins()
+    }
+    
+    func getPluginsInstalled() -> [Plugin] {
+        return persistencyManager.getPluginsInstalled()
+    }
+    
+    func getPluginsRated() -> [Plugin] {
+        return persistencyManager.getPluginsRated()
+    }
+    
+    func addPlugin(device: Device, index: Int) {
+        persistencyManager.addDevice(device, index: index)
+        /*if isOnline {
+        httpClient.postRequest("/api/addAlbum", body: album.description)
+        }*/
+    }
+    
+    func deletePlugin(index: Int) {
+        persistencyManager.deleteDeviceAtIndex(index)
+        /*if isOnline {
+        httpClient.postRequest("/api/deleteAlbum", body: "\(index)")
+        }*/
+    }
+    
+    func adjustRate(plugin: Plugin, rate: Int) {
+        persistencyManager.adjustRate(plugin, rate: rate)
+    }
+    
+    func installPlugin(plugin: Plugin, value: Bool) {
+        persistencyManager.installPlugin(plugin, value: value)
+    }
+    
+    func setIsActivePlugin(plugin: Plugin, value: Bool) {
+        persistencyManager.setIsActivePlugin(plugin, value: value)
     }
     
     //1

@@ -14,7 +14,7 @@ class HomeCollectionController: UIViewController, UICollectionViewDataSource, UI
 
     @IBOutlet weak var logoutButton: UIBarButtonItem!
     
-    var tableData: [String] = ["Objects", "Directives", "Ma Domobox", "Store", "Mise à jour", "Paramètres"]
+    var tableData: [String] = ["Objects", "Directives", "Mes Plugins", "Store", "Mise à jour", "Paramètres"]
     var tableImg: [String] = ["briefcase11.png", "list30.png", "archive15.png", "shopping69.png", "download63.png", "cog2.png"]
     var tableSegueName: [String] = ["objectSegue", "directiveSegue", "domoboxSegue", "storeSegue", "updateSegue", "settingSegue"]
     

@@ -14,6 +14,4 @@ class ObjectCell: UITableViewCell {
     @IBOutlet weak var labelCellTab: UILabel!
    
     @IBOutlet weak var switchCellTab: UISwitch!
-    
-    @IBOutlet weak var sliderCellTab: UISlider!
 }
