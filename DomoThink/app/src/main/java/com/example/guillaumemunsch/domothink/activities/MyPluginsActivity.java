@@ -45,6 +45,24 @@ public class MyPluginsActivity extends AppCompatActivity {
                 new SwipeDismissListViewTouchListener.DismissCallbacks() {
                     @Override
                     public boolean canDismiss(int position) {
+/*                        final boolean ret;
+                        new AlertDialog.Builder(context)
+                                .setTitle("Removing")
+                                .setMessage("Do you really want to remove " + adapter.getItem(reverseSortedPositions[0]) + "?")
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                                    public void onClick(DialogInterface dialog, int whichButton) {
+                                        ret = true;
+                                    }
+                                })
+                                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+
+                                    public void onClick(DialogInterface dialog, int whichButton) {
+                                        ret = false;
+                                    }
+                                }).show();
+                        return ret;*/
                         return true;
                     }
 
@@ -58,7 +76,6 @@ public class MyPluginsActivity extends AppCompatActivity {
 
                                     public void onClick(DialogInterface dialog, int whichButton) {
                                         for (int position : reverseSortedPositions) {
-                                            Log.w("Int", "" + position);
                                             adapter.remove(position);
                                         }
                                         adapter.notifyDataSetChanged();

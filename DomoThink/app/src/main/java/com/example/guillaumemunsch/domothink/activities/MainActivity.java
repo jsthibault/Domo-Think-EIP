@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     public static int [] menuImages = {R.drawable.icon_grid_objects, R.drawable.icon_grid_directives, R.drawable.icon_grid_domobox,
             R.drawable.icon_grid_store, R.drawable.icon_grid_update, R.drawable.icon_grid_settings};
     public static Class [] menuLinks = {ConnectedObjectsActivity.class, DirectivesActivity.class, MyPluginsActivity.class,
-            StoreActivity.class, UpdateActivity.class, SettingsActivity.class};
+            TabsActivity.class, UpdateActivity.class, SettingsActivity.class};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

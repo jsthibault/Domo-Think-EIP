@@ -27,16 +27,16 @@ public class StoreActivity extends AppCompatActivity {
         String[] descs = new String[]{"The best plugin for your couples evenings", "Ready to rock ?!", "Watch your favourite movies !", "Calm ambiance. Perfect for work !"};
         float[] rates = new float[]{4.7f, 3.8f, 4.4f, 3f};
 
-        list = (ListView)findViewById(R.id.pluginList);
+/*        list = (ListView)findViewById(R.id.pluginList);
 
         list.setAdapter(new PluginAdapter(this, icons, names, descs, rates));
-
+*/
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_connect, menu);
+        getMenuInflater().inflate(R.menu.searchable_menu, menu);
         return true;
     }
 

@@ -38,19 +38,18 @@
             android:layout_marginTop="16dp"
             android:entries="@array/periodicity"></Spinner>
 
-        <LinearLayout
+        <Spinner
+            android:id="@+id/newDirectiveDay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <DatePicker
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"></DatePicker>
+            android:layout_marginTop="16dp"
+            android:entries="@array/days"></Spinner>
 
-            <TimePicker
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"></TimePicker>
-
-        </LinearLayout>
+        <TimePicker
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:id="@+id/directiveHour"></TimePicker>
 
         <Button
             android:id="@+id/creationButton"
@@ -59,6 +58,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="32dp"
             android:background="@color/domoBlue"
             android:text="ADD"
             android:textColor="@color/white"

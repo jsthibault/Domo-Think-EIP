@@ -18,6 +18,12 @@
     <item name="domoBlueDark" type="color">#0288D1</item>
     <item name="lightGrey" type="color">#F0F0F0</item>
     <item name="black" type="color">#000000</item>
+    <item name="colorPrimary" type="color">#125688</item>
+    <item name="colorPrimaryDark" type="color">#125688</item>
+    <item name="textColorPrimary" type="color">#FFFFFF</item>
+    <item name="windowBackground" type="color">#FFFFFF</item>
+    <item name="navigationBarColor" type="color">#000000</item>
+    <item name="colorAccent" type="color">#c8e8ff</item>
 
 
     <integer-array name="androidcolors">
@@ -37,6 +43,12 @@
         <item>@color/domoBlue</item>
         <item>@color/domoBlueDark</item>
         <item>@color/lightGrey</item>
+        <item>@color/colorPrimary</item>
+        <item>@color/colorPrimaryDark</item>
+        <item>@color/textColorPrimary</item>
+        <item>@color/windowBackground</item>
+        <item>@color/navigationBarColor</item>
+        <item>@color/colorAccent</item>
     </integer-array>
 
 </resources> 

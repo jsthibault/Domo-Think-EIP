@@ -1,47 +1,47 @@
 package com.example.guillaumemunsch.domothink.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.RatingBar;
-import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.guillaumemunsch.domothink.R;
-import com.example.guillaumemunsch.domothink.activities.ConnectedObjectsActivity;
 import com.example.guillaumemunsch.domothink.activities.PluginDetailActivity;
-import com.example.guillaumemunsch.domothink.activities.StoreActivity;
+
+import java.util.List;
+
+import com.example.guillaumemunsch.domothink.models.Plugin;
 
 /**
  * Created by guillaumemunsch on 03/12/15.
  */
 public class PluginAdapter extends BaseAdapter {
-    int[] icons;
-    String [] names;
-    String[] descs;
-    float[] rates;
+    List<Plugin> mPlugins = null;
     Context context;
-    boolean [] states;
+
     private static LayoutInflater inflater=null;
-    public PluginAdapter(AppCompatActivity mainActivity, int[] mIcons, String[] mNames, String[] mDescs, float[] mRates) {
+    public PluginAdapter(Activity mainActivity, List<Plugin> plugins) {
         context = mainActivity;
-        icons = mIcons;
-        names = mNames;
-        descs = mDescs;
-        rates = mRates;
+        mPlugins = plugins;
         inflater = ( LayoutInflater )context.
                 getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
+
+    public void update(List<Plugin> plugins){
+        mPlugins = plugins;
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        return names.length;
+        return mPlugins.size();
     }
 
     @Override
@@ -73,10 +73,10 @@ public class PluginAdapter extends BaseAdapter {
         holder.n=(TextView) rowView.findViewById(R.id.pluginName);
         holder.d=(TextView) rowView.findViewById(R.id.pluginDescription);
         holder.r=(RatingBar) rowView.findViewById(R.id.pluginRate);
-        holder.i.setImageResource(icons[position]);
-        holder.n.setText(names[position]);
-        holder.d.setText(descs[position]);
-        holder.r.setRating(rates[position]);
+        holder.i.setImageResource((mPlugins.get(position)).getmIcon());
+        holder.n.setText((mPlugins.get(position)).getmName());
+        holder.d.setText((mPlugins.get(position)).getmDescription());
+        holder.r.setRating((mPlugins.get(position)).getmRate());
         rowView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
