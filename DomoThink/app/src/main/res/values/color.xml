@@ -24,6 +24,8 @@
     <item name="windowBackground" type="color">#FFFFFF</item>
     <item name="navigationBarColor" type="color">#000000</item>
     <item name="colorAccent" type="color">#c8e8ff</item>
+    <item name="actionbar_color" type="color">#bf360c</item>
+    <item name="drawer_arrow_second_color" type="color">#303f9f</item>
 
 
     <integer-array name="androidcolors">
@@ -49,6 +51,8 @@
         <item>@color/windowBackground</item>
         <item>@color/navigationBarColor</item>
         <item>@color/colorAccent</item>
+        <item>@color/actionbar_color</item>
+        <item>@color/drawer_arrow_second_color</item>
     </integer-array>
 
 </resources> 

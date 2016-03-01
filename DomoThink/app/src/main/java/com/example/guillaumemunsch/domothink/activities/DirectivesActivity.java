@@ -11,7 +11,7 @@ import android.widget.ListView;
 
 import com.example.guillaumemunsch.domothink.R;
 import com.example.guillaumemunsch.domothink.adapter.EditAdapter;
-import com.example.guillaumemunsch.domothink.touch_listeners.SwipeDismissListViewTouchListener;
+import com.example.guillaumemunsch.domothink.listeners.SwipeDismissListViewTouchListener;
 
 /**
  * Created by guillaumemunsch on 03/12/15.
