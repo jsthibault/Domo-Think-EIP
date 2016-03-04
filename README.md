@@ -5,11 +5,8 @@ Application DomoThink pour Windows 10
 
 ## Todo ##
 
-- Création de la page de Login (LoginPage.xaml)
 - Page d'accueil
 - Page de gestion des objets
-	- Visualisation des objets
-	- Ajouter un objet
 	- Supprimmer un objet
 - Page de gestion des directives
 	- Visualisation des directives
@@ -17,7 +14,7 @@ Application DomoThink pour Windows 10
 	- Supprimer une directive
 	- Filtres de directives en fonction des objets
 - Page de paramètres
-	- Changement de langue
+	- Notifications
 	- Informations de l'application
 	- Facebook / Twitter / Site officiel
 - Page de l'état de la DomoBox
@@ -35,8 +32,12 @@ Application DomoThink pour Windows 10
 - Visual States (adaptation en fonction du périphérique)
 - Menu lateral
 - Navigation
+- Création de la page de Login (LoginPage.xaml)
+- Page de gestion des objets
+	- Visualisation des objets
+	- Ajouter un objet
 
-
+	
 ## Screens ##
 
 ![alt tag](https://github.com/jsthibault/Domo-Think-EIP/blob/App-WindowsPhone/Screens/Screen_1.PNG)

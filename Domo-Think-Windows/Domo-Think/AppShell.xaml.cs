@@ -2,6 +2,7 @@
 using Domo_Think.MVVM;
 using Domo_Think.Navigation;
 using Domo_Think.Views;
+using Domo_Think.Views.Directives;
 using Domo_Think.Views.Objects;
 using System;
 using System.Collections.Generic;

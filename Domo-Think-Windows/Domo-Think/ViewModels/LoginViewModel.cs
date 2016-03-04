@@ -1,7 +1,10 @@
 ﻿using Domo_Think.Model;
 using Domo_Think.MVVM;
 using Domo_Think.Navigation;
+using Domo_Think.Network;
 using System;
+using System.IO;
+using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Xaml;
@@ -25,6 +28,8 @@ namespace Domo_Think.ViewModels
 
         private Boolean logingIn;
         private Boolean fieldsEnabled;
+        private Boolean errorFieldEnabled;
+        private String errorText;
 
         #endregion
 
@@ -58,6 +63,24 @@ namespace Domo_Think.ViewModels
             set { this.NotifyPropertyChanged(ref this.fieldsEnabled, value); }
         }
 
+        /// <summary>
+        /// Gets or sets the error field visbility state.
+        /// </summary>
+        public Boolean ErrorFieldEnabled
+        {
+            get { return this.errorFieldEnabled; }
+            set { this.NotifyPropertyChanged(ref this.errorFieldEnabled, value); }
+        }
+
+        /// <summary>
+        /// Gets or sets the error text.
+        /// </summary>
+        public String ErrorText
+        {
+            get { return this.errorText; }
+            set { this.NotifyPropertyChanged(ref this.errorText, value); }
+        }
+
         #endregion
 
         #region CONSTRUCTORS
@@ -76,6 +99,8 @@ namespace Domo_Think.ViewModels
             // Initialize properties
             this.FieldsEnabled = true;
             this.LogingIn = false;
+            this.ErrorFieldEnabled = false;
+            this.ErrorText = String.Empty;
         }
 
         #endregion
@@ -96,6 +121,16 @@ namespace Domo_Think.ViewModels
             frame.BackStack.Clear();
         }
 
+        private void DisplayErrorMessage(String message)
+        {
+        }
+
+        private void HideErrorMessage()
+        {
+            this.ErrorFieldEnabled = false;
+            this.ErrorText = String.Empty;
+        }
+
         #endregion
 
         #region ACTIONS
@@ -106,12 +141,33 @@ namespace Domo_Think.ViewModels
         /// <param name="parameter"></param>
         private async void LoginCommandAction(Object parameter)
         {
-            this.LogingIn = true;
-            this.FieldsEnabled = false;
+            try
+            {
+                this.LogingIn = true;
+                this.FieldsEnabled = false;
+                this.HideErrorMessage();
 
-            await Task.Delay(5000); // wait for 5 seconds
+                DomoAPI _api = new DomoAPI(Constants.API_ADDRESS);
+                HttpStatusCode _login = await _api.Post<LoginModel>("api/Login/UserLogin", this.LoginInformations);
 
-            this.SwitchToMainPage();
+                if (_login == HttpStatusCode.OK)
+                    this.SwitchToMainPage();
+                else
+                    throw new Exception("Cannot connect to the DomoBox.");
+            }
+            catch (Exception e)
+            {
+                // Display Error
+                this.LogingIn = false;
+                this.FieldsEnabled = true;
+                this.DisplayErrorMessage(e.Message);
+
+                // Wait 3 seconds
+                await Task.Delay(3000);
+
+                // Remove the error message
+                this.HideErrorMessage();
+            }
         }
 
         #endregion

@@ -73,19 +73,19 @@ namespace Domo_Think
                 Window.Current.Content = rootFrame;
             }
 
-            Frame frame = Window.Current.Content as Frame;
+            //Frame frame = Window.Current.Content as Frame;
 
-            Window.Current.Content = new AppShell(frame);
-            NavigationService.InitializeContentFrame(frame);
-            NavigationService.Navigate(typeof(Views.MainPage));
-            Window.Current.Activate();
-            frame.BackStack.Clear();
-
-            //if (rootFrame.Content == null)
-            //    rootFrame.Navigate(typeof(Views.LoginPage), e.Arguments);
-
-            //// Vérifiez que la fenêtre actuelle est active
+            //Window.Current.Content = new AppShell(frame);
+            //NavigationService.InitializeContentFrame(frame);
+            //NavigationService.Navigate(typeof(Views.MainPage));
             //Window.Current.Activate();
+            //frame.BackStack.Clear();
+
+            if (rootFrame.Content == null)
+                rootFrame.Navigate(typeof(Views.LoginPage), e.Arguments);
+
+            // Vérifiez que la fenêtre actuelle est active
+            Window.Current.Activate();
         }
 
         private void App_BackRequested(Object sender, BackRequestedEventArgs e)

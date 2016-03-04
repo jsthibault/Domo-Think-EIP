@@ -1,0 +1,81 @@
+﻿<Page
+    x:Class="Domo_Think.Views.Directives.OrdersPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Domo_Think.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:Domo_Think.ViewModels"
+    mc:Ignorable="d">
+
+    <!-- Page DataContext -->
+    <Page.DataContext>
+        <viewModel:DirectiveViewModel />
+    </Page.DataContext>
+
+    <!-- Main Grid -->
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <!-- Visual states -->
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="WindowsMobile">
+
+            </VisualStateGroup>
+            <VisualStateGroup x:Name="WindowsDesktop1">
+
+            </VisualStateGroup>
+            <VisualStateGroup x:Name="WindowsDesktop2">
+
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <!-- Grid definitions -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Filters panel -->
+        <StackPanel Grid.Row="0" Margin="10">
+            <TextBlock Grid.Column="0" Text="Filters" FontSize="18" FontWeight="Bold" />
+            <TextBox Grid.Column="1" PlaceholderText="Filter" />
+        </StackPanel>
+
+        <!-- Orders panel -->
+        <StackPanel Grid.Row="1" Margin="10" Visibility="{Binding DisplayOrders, Converter={StaticResource visibilityConverter}}">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ItemsControl x:Name="ORDERS_LIST" ItemsSource="{Binding ConnectedObjects}" HorizontalContentAlignment="Stretch">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <SymbolIcon Symbol="DisconnectDrive" Margin="8,0,12,0" />
+                                <TextBlock Grid.Column="1" Text="{Binding Name}" TextWrapping="Wrap" VerticalAlignment="Center" />
+                                <!--<ToggleSwitch x:Name="TOGGLE_ITEM_STATE" Grid.Column="2"
+                                              IsOn="{Binding State}" OnContent="On" OffContent="Off" 
+                                              Toggled="TOGGLE_ITEM_STATE_Toggled" />-->
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </StackPanel>
+
+        <!-- Loading panel -->
+        <StackPanel Grid.Row="1" Margin="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding LoadingOrders, Converter={StaticResource visibilityConverter}}">
+            <ProgressRing Width="40" Height="40" IsActive="True" />
+            <TextBlock Text="Loading orders..." FontSize="20" Margin="10,0,0,0" />
+        </StackPanel>
+
+        <!-- Command bar -->
+        <CommandBar Grid.Row="2">
+            <AppBarButton Icon="Refresh" Width="48" Label="Refresh" Command="{Binding LoadOrdersCommand}" Visibility="{Binding DisplayOrders, Converter={StaticResource visibilityConverter}}" />
+            <AppBarButton Icon="Add" Width="48" Label="Add" Command="{Binding AddOrdersCommand}" />
+        </CommandBar>
+    </Grid>
+</Page>

@@ -1,14 +1,18 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Domo_Think.Resources.Styles">
+    xmlns:local="using:Domo_Think.Resources.Styles"
+    xmlns:controls="using:Domo_Think.Controls">
 
     <DataTemplate x:Key="StoreButtonTemplate">
         <Grid Margin="12" x:Name="StoreButtonMainGrid">
             <StackPanel x:Name="ButtonPanel">
                 <Image Source="../Assets/windows_store-512.png" Stretch="Fill" Width="128" Height="128" />
-                <TextBlock Text="App name" TextWrapping="Wrap" Margin="0,4,4,0" />
-                <TextBlock Text="Rate: " />
+                <TextBlock Text="{Binding Name}" TextWrapping="Wrap" Margin="0,4,4,0" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Rate: " />
+                    <controls:RatingStar Margin="4,4,0,0" MaxStars="5" CurrentStarsCount="{Binding Rate}" />
+                </StackPanel>
             </StackPanel>
         </Grid>
     </DataTemplate>

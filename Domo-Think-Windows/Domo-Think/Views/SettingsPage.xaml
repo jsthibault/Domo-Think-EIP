@@ -8,6 +8,23 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="Settings page" FontSize="78" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <StackPanel>
+            <TextBlock Text="Application settings" FontSize="20" Margin="10" />
+
+            <StackPanel Margin="10,20,0,0">
+                <TextBlock Text="Enable the notifications" />
+                <ToggleSwitch OffContent="Off" OnContent="On" />
+            </StackPanel>
+
+            <StackPanel Margin="10,20,0,0">
+                <TextBlock Text="Theme" />
+                <ComboBox SelectedIndex="0">
+                    <ComboBoxItem Content="Windows Generic" />
+                    <ComboBoxItem Content="DomoThink Light" />
+                    <ComboBoxItem Content="DomoThink Dark" />
+                </ComboBox>
+            </StackPanel>
+
+        </StackPanel>
     </Grid>
 </Page>
