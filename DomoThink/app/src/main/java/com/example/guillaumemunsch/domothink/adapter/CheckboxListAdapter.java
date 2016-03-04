@@ -1,5 +1,6 @@
 package com.example.guillaumemunsch.domothink.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,7 +24,7 @@ public class CheckboxListAdapter extends BaseAdapter {
     ArrayList<String> objs = null;
     ArrayList<Boolean> states = null;
     private static LayoutInflater inflater=null;
-    public CheckboxListAdapter(SearchObjectsActivity mainActivity, String[] mObjs, Boolean[] mStates) {
+    public CheckboxListAdapter(Activity mainActivity, String[] mObjs, Boolean[] mStates) {
         objs = new ArrayList<String>(Arrays.asList(mObjs));
         context = mainActivity;
         states = new ArrayList<Boolean>(Arrays.asList(mStates));

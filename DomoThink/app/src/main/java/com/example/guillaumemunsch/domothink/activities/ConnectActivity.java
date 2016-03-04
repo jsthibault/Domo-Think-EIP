@@ -3,18 +3,28 @@ package com.example.guillaumemunsch.domothink.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.guillaumemunsch.domothink.R;
+import com.example.guillaumemunsch.domothink.http.Api;
+import com.example.guillaumemunsch.domothink.http.ServiceClasses;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.GsonConverterFactory;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 /**
  * Created by guillaumemunsch on 03/12/15.
  */
 public class ConnectActivity extends AppCompatActivity {
-
     Button connectButton = null;
 
     @Override
@@ -27,6 +37,37 @@ public class ConnectActivity extends AppCompatActivity {
         connectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                try {
+                    Retrofit retrofit = new Retrofit.Builder()
+                            .baseUrl(ServiceClasses.API_URL)
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build();
+                    Api api = retrofit.create(Api.class);
+                    Call<List<ServiceClasses.Contributor>> call = api.contributors("square", "retrofit");
+                    call.enqueue(new Callback<List<ServiceClasses.Contributor>>() {
+                        @Override
+                        public void onResponse(Call<List<ServiceClasses.Contributor>> call, Response<List<ServiceClasses.Contributor>> response) {
+                            if (response.code() == 200) {
+                                if (response.body() != null) {
+                                    for (ServiceClasses.Contributor con : response.body()) {
+                                        Log.d("Contributor -> ", con.login + " - " + con.contributions);
+                                    }
+                                }
+                            } else {
+                                Log.d("Empty", "Response is empty");
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<List<ServiceClasses.Contributor>> call, Throwable t) {
+                            Log.d("Error: ", "Request failed.");
+                        }
+                    });
+                }
+                catch (Throwable ex)
+                {
+                    Log.d("Error: ", ex.getMessage());
+                }
                 startActivity(intent);
             }
         });

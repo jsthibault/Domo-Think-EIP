@@ -1,5 +1,6 @@
 package com.example.guillaumemunsch.domothink.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -22,7 +23,7 @@ public class EditAdapter extends BaseAdapter {
     Context context;
     ArrayList<String> objs = null;
     private static LayoutInflater inflater=null;
-    public EditAdapter(AppCompatActivity mainActivity, String[] mObjs) {
+    public EditAdapter(Activity mainActivity, String[] mObjs) {
         objs = new ArrayList<String>(Arrays.asList(mObjs));
         context = mainActivity;
         inflater = ( LayoutInflater )context.

@@ -1,5 +1,6 @@
 package com.example.guillaumemunsch.domothink.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -24,7 +25,7 @@ public class SwitchListAdapter extends BaseAdapter {
     ArrayList<Boolean> states;
     Context context;
     private static LayoutInflater inflater=null;
-    public SwitchListAdapter(AppCompatActivity mainActivity, String[] mObjs, Boolean[] mStates) {
+    public SwitchListAdapter(Activity mainActivity, String[] mObjs, Boolean[] mStates) {
         objs = new ArrayList<String>(Arrays.asList(mObjs));
         context = mainActivity;
         states = new ArrayList<Boolean>(Arrays.asList(mStates));

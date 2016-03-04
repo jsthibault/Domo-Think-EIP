@@ -30,4 +30,12 @@
         <item>Saturday</item>
         <item>Sunday</item>
     </string-array>
+    <string-array name="nav_drawer_icons">
+        <item>@drawable/icon_grid_objects</item>
+        <item>@drawable/icon_grid_directives</item>
+        <item>@drawable/icon_grid_domobox</item>
+        <item>@drawable/icon_grid_store</item>
+        <item>@drawable/icon_grid_update</item>
+        <item>@drawable/icon_grid_settings</item>
+    </string-array>
 </resources>
