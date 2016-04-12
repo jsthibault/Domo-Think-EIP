@@ -1,11 +1,13 @@
 ﻿using System;
-using System.Net;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 
 /*--------------------------------------------------------
- * DomoAPI.cs
+ * ApiClient.cs
  * 
  * Version: 1.0
  * Author: Filipe
@@ -14,9 +16,9 @@ using System.Threading.Tasks;
  * Notes:
  * -------------------------------------------------------*/
 
-namespace Domo_Think.Network
+namespace DomoAPI.Client
 {
-    public class DomoAPI
+    public class ApiClient
     {
         #region CONSTANTS
 
@@ -38,16 +40,24 @@ namespace Domo_Think.Network
 
         #region PROPERTIES
 
-
+        /// <summary>
+        /// Gets the API base url.
+        /// </summary>
+        public String BaseUrl { get; private set; }
 
         #endregion
 
         #region CONSTRUCTORS
 
-        public DomoAPI(String url)
+        /// <summary>
+        /// Creates a new ApiClient instance.
+        /// </summary>
+        /// <param name="baseUrl">API url.</param>
+        public ApiClient(String baseUrl)
         {
+            this.BaseUrl = baseUrl;
             this.client = new HttpClient();
-            this.client.BaseAddress = new Uri(url);
+            this.client.BaseAddress = new Uri(this.BaseUrl);
             this.client.DefaultRequestHeaders.Accept.Clear();
             this.client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
@@ -66,22 +76,14 @@ namespace Domo_Think.Network
             return default(T);
         }
 
-        public async Task<HttpStatusCode> Post<T>(String url, T value)
+        public async Task<U> Post<T, U>(String url, T value)
         {
             HttpResponseMessage _response = await this.client.PostAsJsonAsync(url, value);
 
             if (_response.IsSuccessStatusCode)
-                return _response.StatusCode;
+                return await _response.Content.ReadAsAsync<U>();
 
-            return HttpStatusCode.NotImplemented;
-        }
-
-        public void Put()
-        {
-        }
-
-        public void Delete()
-        {
+            return default(U);
         }
 
         #endregion

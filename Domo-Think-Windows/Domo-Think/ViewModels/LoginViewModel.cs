@@ -1,7 +1,6 @@
 ﻿using Domo_Think.Model;
 using Domo_Think.MVVM;
 using Domo_Think.Navigation;
-using Domo_Think.Network;
 using System;
 using System.IO;
 using System.Net;
@@ -123,6 +122,8 @@ namespace Domo_Think.ViewModels
 
         private void DisplayErrorMessage(String message)
         {
+            this.ErrorFieldEnabled = true;
+            this.ErrorText = message;
         }
 
         private void HideErrorMessage()
@@ -147,10 +148,13 @@ namespace Domo_Think.ViewModels
                 this.FieldsEnabled = false;
                 this.HideErrorMessage();
 
-                DomoAPI _api = new DomoAPI(Constants.API_ADDRESS);
-                HttpStatusCode _login = await _api.Post<LoginModel>("api/Login/UserLogin", this.LoginInformations);
+                DomoAPI.Model.Login login = new DomoAPI.Model.Login(
+                    this.LoginInformations.Id, 
+                    this.LoginInformations.Password);
+                
+                var _login = await App.ApiClient.Post<DomoAPI.Model.Login, DomoAPI.Model.Login>("api/Login/UserLogin", login);
 
-                if (_login == HttpStatusCode.OK)
+                if (_login != null)
                     this.SwitchToMainPage();
                 else
                     throw new Exception("Cannot connect to the DomoBox.");

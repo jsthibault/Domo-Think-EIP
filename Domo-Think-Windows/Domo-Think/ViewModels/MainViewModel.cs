@@ -1,5 +1,4 @@
 ﻿using Domo_Think.MVVM;
-using Domo_Think.Network;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,9 +53,14 @@ namespace Domo_Think.ViewModels
 
         #region CONSTRUCTORS
 
+        /// <summary>
+        /// Creates a new MainViewModel instance.
+        /// </summary>
         public MainViewModel()
         {
             this.EchoName = String.Empty;
+
+            // Initialize command
             this.EchoApiCommand = new Command(this.EchoApiAction);
         }
 
@@ -70,12 +74,18 @@ namespace Domo_Think.ViewModels
 
         #region ACTIONS
 
+        public struct ApiResponse
+        {
+            public String Result;
+            public Object ObjResult;
+        }
+
         private async void EchoApiAction(Object param)
         {
-            DomoAPI _api = new DomoAPI(Constants.API_ADDRESS);
-            String _result = await _api.Get<String>("/api/Login/GetUsername?username={0}", param.ToString());
+            //DomoAPI _api = new DomoAPI(Constants.API_ADDRESS);
+            //ApiResponse _result = await _api.Get<ApiResponse>("/api/Login/GetUsername?username={0}", param.ToString());
 
-            this.EchoName = _result;
+            //this.EchoName = String.Format("'{0}'", _result.ObjResult.ToString());
         }
 
         #endregion

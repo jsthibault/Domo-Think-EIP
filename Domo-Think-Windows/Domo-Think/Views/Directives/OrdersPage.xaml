@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Domo_Think.Views"
+    xmlns:xp="using:Expander"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="using:Domo_Think.ViewModels"
@@ -47,19 +48,24 @@
                 <ItemsControl x:Name="ORDERS_LIST" ItemsSource="{Binding ConnectedObjects}" HorizontalContentAlignment="Stretch">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
+                            <xp:Expander VerticalAlignment="Top" Margin="0,0,0,10" IsExpanded="False">
+                                <xp:Expander.HeaderButtonContent>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
 
-                                <SymbolIcon Symbol="DisconnectDrive" Margin="8,0,12,0" />
-                                <TextBlock Grid.Column="1" Text="{Binding Name}" TextWrapping="Wrap" VerticalAlignment="Center" />
-                                <!--<ToggleSwitch x:Name="TOGGLE_ITEM_STATE" Grid.Column="2"
-                                              IsOn="{Binding State}" OnContent="On" OffContent="Off" 
-                                              Toggled="TOGGLE_ITEM_STATE_Toggled" />-->
-                            </Grid>
+                                        <SymbolIcon Symbol="DisconnectDrive" Margin="8,0,12,0" />
+                                        <TextBlock Grid.Column="1" Text="{Binding Name}" TextWrapping="Wrap" VerticalAlignment="Center" />
+                                        <Button Content="Edit" Grid.Column="2" />
+                                    </Grid>
+                                </xp:Expander.HeaderButtonContent>
+                                <Grid Background="#FFF5F1D9">
+                                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Informations about the object" VerticalAlignment="Center" />
+                                </Grid>
+                            </xp:Expander>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>

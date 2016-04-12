@@ -25,6 +25,13 @@ namespace Domo_Think
     /// </summary>
     sealed partial class App : Application
     {
+#if DEBUG
+        public const String API_URL = "http://localhost:3313/";
+#else
+        public const String API_URL = "";
+#endif
+        public static DomoAPI.Client.ApiClient ApiClient;
+
         /// <summary>
         /// Initialise l'objet d'application de singleton.  Il s'agit de la première ligne du code créé
         /// à être exécutée. Elle correspond donc à l'équivalent logique de main() ou WinMain().
@@ -36,6 +43,7 @@ namespace Domo_Think
                 Microsoft.ApplicationInsights.WindowsCollectors.Session);
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            ApiClient = new DomoAPI.Client.ApiClient(API_URL);
         }
 
         /// <summary>

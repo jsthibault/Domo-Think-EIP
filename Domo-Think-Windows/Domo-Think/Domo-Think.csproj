@@ -127,8 +127,6 @@
     <Compile Include="MVVM\Command.cs" />
     <Compile Include="MVVM\ViewModelBase.cs" />
     <Compile Include="Navigation\NavigationService.cs" />
-    <Compile Include="Network\Constants.cs" />
-    <Compile Include="Network\DomoAPI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AddObjectViewModel.cs" />
     <Compile Include="ViewModels\DirectiveViewModel.cs" />
@@ -190,6 +188,10 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DomoAPI\DomoAPI.csproj">
+      <Project>{f4de4c78-cc93-4a4c-96ae-1ed827556a11}</Project>
+      <Name>DomoAPI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Expander\Expander.csproj">
       <Project>{6ffb913b-cc9c-4176-8fd5-ac5ed56ab86b}</Project>
       <Name>Expander</Name>

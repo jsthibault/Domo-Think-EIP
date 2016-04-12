@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domo-Think", "Domo-Think\Do
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expander", "Expander\Expander.csproj", "{6FFB913B-CC9C-4176-8FD5-AC5ED56AB86B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomoAPI", "DomoAPI\DomoAPI.csproj", "{F4DE4C78-CC93-4A4C-96AE-1ED827556A11}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,22 @@ Global
 		{6FFB913B-CC9C-4176-8FD5-AC5ED56AB86B}.Release|x64.Build.0 = Release|x64
 		{6FFB913B-CC9C-4176-8FD5-AC5ED56AB86B}.Release|x86.ActiveCfg = Release|x86
 		{6FFB913B-CC9C-4176-8FD5-AC5ED56AB86B}.Release|x86.Build.0 = Release|x86
+		{F4DE4C78-CC93-4A4C-96AE-1ED827556A11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4DE4C78-CC93-4A4C-96AE-1ED827556A11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4DE4C78-CC93-4A4C-96AE-1ED827556A11}.Debug|ARM.ActiveCfg = Debug|ARM
+		{F4DE4C78-CC93-4A4C-96AE-1ED827556A11}.Debug|ARM.Build.0 = Debug|ARM
+		{F4DE4C78-CC93-4A4C-96AE-1ED827556A11}.Debug|x64.ActiveCfg = Debug|x64
+		{F4DE4C78-CC93-4A4C-96AE-1ED827556A11}.Debug|x64.Build.0 = Debug|x64
+		{F4DE4C78-CC93-4A4C-96AE-1ED827556A11}.Debug|x86.ActiveCfg = Debug|x86
+		{F4DE4C78-CC93-4A4C-96AE-1ED827556A11}.Debug|x86.Build.0 = Debug|x86
+		{F4DE4C78-CC93-4A4C-96AE-1ED827556A11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4DE4C78-CC93-4A4C-96AE-1ED827556A11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4DE4C78-CC93-4A4C-96AE-1ED827556A11}.Release|ARM.ActiveCfg = Release|ARM
+		{F4DE4C78-CC93-4A4C-96AE-1ED827556A11}.Release|ARM.Build.0 = Release|ARM
+		{F4DE4C78-CC93-4A4C-96AE-1ED827556A11}.Release|x64.ActiveCfg = Release|x64
+		{F4DE4C78-CC93-4A4C-96AE-1ED827556A11}.Release|x64.Build.0 = Release|x64
+		{F4DE4C78-CC93-4A4C-96AE-1ED827556A11}.Release|x86.ActiveCfg = Release|x86
+		{F4DE4C78-CC93-4A4C-96AE-1ED827556A11}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
