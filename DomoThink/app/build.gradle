@@ -26,7 +26,4 @@ dependencies {
     compile 'com.android.support:design:23.1.1'
     compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
     compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta3'
-    compile('com.mikepenz:materialdrawer:5.0.9@aar') {
-        transitive = true
-    }
 }

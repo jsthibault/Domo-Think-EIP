@@ -27,23 +27,23 @@ public class UpdatingFragment extends Fragment{
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_updating, container, false);
-                text = (TextView)rootView.findViewById(R.id.updateInstallText);
-                new CountDownTimer(3000, 1000) {
-
-                    public void onTick(long ms) {
-                        text.setText("Installation en cours: " + ms / 1000);
-                    }
-
-                    public void onFinish() {
-                        text.setText("done!");
-                        Fragment fragment = new UpToDateFragment();
-
-                        FragmentManager fm = getActivity().getFragmentManager();
-                        FragmentTransaction transaction = fm.beginTransaction();
-                        transaction.replace(R.id.frame_container, fragment);
-                        transaction.commit();
-                    }
-                }.start();
+//        text = (TextView)rootView.findViewById(R.id.updateInstallText);
+//        new CountDownTimer(3000, 1000) {
+//
+//            public void onTick(long ms) {
+//                text.setText("Installation en cours: " + ms / 1000);
+//            }
+//
+//            public void onFinish() {
+//                text.setText("done!");
+//                Fragment fragment = new UpToDateFragment();
+//
+//                FragmentManager fm = getActivity().getFragmentManager();
+//                FragmentTransaction transaction = fm.beginTransaction();
+//                transaction.replace(R.id.frame_container, fragment);
+//                transaction.commit();
+//            }
+//        }.start();
 
         return rootView;
     }
