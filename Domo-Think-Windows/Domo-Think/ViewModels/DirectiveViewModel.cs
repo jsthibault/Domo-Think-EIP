@@ -1,6 +1,8 @@
-﻿using Domo_Think.Model;
+﻿using Domo_Think.API;
+using Domo_Think.Model;
 using Domo_Think.MVVM;
 using Domo_Think.Navigation;
+using DomoAPI.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -39,6 +41,8 @@ namespace Domo_Think.ViewModels
 
         private Boolean loadingOrders;
         private Boolean displayOrders;
+
+        private DirectiveService directiveService;
 
         #endregion
 
@@ -96,6 +100,9 @@ namespace Domo_Think.ViewModels
             // Initialize different view states
             this.LoadingOrders = true;
             this.DisplayOrders = !this.LoadingOrders;
+
+            // Initialize service
+            this.directiveService = new DirectiveService(App.ApiClient);
         }
 
         #endregion
@@ -135,17 +142,20 @@ namespace Domo_Think.ViewModels
             this.LoadingOrders = true;
             this.DisplayOrders = false;
 
-            await Task.Delay(4000); // Wait 4 seconds
+            List<DirectiveModel> directives = await this.directiveService.GetDirectives();
+
+            //await Task.Delay(4000); // Wait 4 seconds
 
             // Fill list with the data we recieve from the box
             if (this.ConnectedObjects.Any())
                 this.ConnectedObjects.Clear();
 
-            for (Int32 i = 0; i < 5; ++i)
+            for (Int32 i = 0; i < directives.Count; ++i)
             {
                 this.ConnectedObjects.Add(new ObjectModel()
                 {
-                    Name = "Directive #" + i.ToString(),
+                    Name = directives[i].Name,
+                    Id = (Int32)directives[i].Id.Value,
                     State = i % 2 == 0
                 });
             }

@@ -1,6 +1,8 @@
-﻿using Domo_Think.Model;
+﻿using Domo_Think.API;
+using Domo_Think.Model;
 using Domo_Think.MVVM;
 using Domo_Think.Navigation;
+using DomoAPI.Model;
 using System;
 using System.IO;
 using System.Net;
@@ -29,6 +31,8 @@ namespace Domo_Think.ViewModels
         private Boolean fieldsEnabled;
         private Boolean errorFieldEnabled;
         private String errorText;
+
+        private LoginService loginService;
 
         #endregion
 
@@ -93,13 +97,16 @@ namespace Domo_Think.ViewModels
             this.LoginCommand = new Command(this.LoginCommandAction);
 
             // Initialize model
-            this.LoginInformations = new LoginModel();
+            this.LoginInformations = new DomoAPI.Model.LoginModel();
 
             // Initialize properties
             this.FieldsEnabled = true;
             this.LogingIn = false;
             this.ErrorFieldEnabled = false;
             this.ErrorText = String.Empty;
+
+            // Initialize API service
+            this.loginService = new LoginService(App.ApiClient);
         }
 
         #endregion
@@ -120,12 +127,19 @@ namespace Domo_Think.ViewModels
             frame.BackStack.Clear();
         }
 
+        /// <summary>
+        /// Display the error message.
+        /// </summary>
+        /// <param name="message">Message</param>
         private void DisplayErrorMessage(String message)
         {
             this.ErrorFieldEnabled = true;
             this.ErrorText = message;
         }
 
+        /// <summary>
+        /// Hide the error message.
+        /// </summary>
         private void HideErrorMessage()
         {
             this.ErrorFieldEnabled = false;
@@ -147,14 +161,10 @@ namespace Domo_Think.ViewModels
                 this.LogingIn = true;
                 this.FieldsEnabled = false;
                 this.HideErrorMessage();
-
-                DomoAPI.Model.Login login = new DomoAPI.Model.Login(
-                    this.LoginInformations.Id, 
-                    this.LoginInformations.Password);
                 
-                var _login = await App.ApiClient.Post<DomoAPI.Model.Login, DomoAPI.Model.Login>("api/Login/UserLogin", login);
+                Boolean _connected = await this.loginService.SendLoginRequest(this.LoginInformations);
 
-                if (_login != null)
+                if (_connected)
                     this.SwitchToMainPage();
                 else
                     throw new Exception("Cannot connect to the DomoBox.");

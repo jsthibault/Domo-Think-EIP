@@ -108,7 +108,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client\ApiClient.cs" />
-    <Compile Include="Model\Login.cs" />
+    <Compile Include="Client\ApiService.cs" />
+    <Compile Include="Model\DirectiveModel.cs" />
+    <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\DomoAPI.rd.xml" />
   </ItemGroup>

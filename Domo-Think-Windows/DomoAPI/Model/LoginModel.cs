@@ -15,7 +15,7 @@ using System.Text;
 namespace DomoAPI.Model
 {
     [DataContract]
-    public class Login : IEquatable<Login>
+    public class LoginModel : IEquatable<LoginModel>
     {
         #region FIELDS
         #endregion
@@ -26,7 +26,7 @@ namespace DomoAPI.Model
         /// Gets or sets the login username.
         /// </summary>
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public String Username { get; set; }
+        public String Id { get; set; }
 
         /// <summary>
         /// Gets or sets the login password.
@@ -41,7 +41,7 @@ namespace DomoAPI.Model
         /// <summary>
         /// Creates a new empty login data contract.
         /// </summary>
-        public Login()
+        public LoginModel()
             : this(String.Empty, String.Empty)
         { }
 
@@ -50,9 +50,9 @@ namespace DomoAPI.Model
         /// </summary>
         /// <param name="id">Id</param>
         /// <param name="password">Password</param>
-        public Login(String id, String password)
+        public LoginModel(String id, String password)
         {
-            this.Username = id;
+            this.Id = id;
             this.Password = password;
         }
 
@@ -69,7 +69,7 @@ namespace DomoAPI.Model
             StringBuilder _sb = new StringBuilder();
 
             _sb.AppendLine("class Login {\n");
-            _sb.Append("  Id: ").Append(this.Username).Append("\n");
+            _sb.Append("  Id: ").Append(this.Id).Append("\n");
             _sb.Append("  Password: ").Append(this.Password).Append("\n");
             _sb.AppendLine("}\n");
 
@@ -83,7 +83,7 @@ namespace DomoAPI.Model
         /// <returns>Boolean</returns>
         public override Boolean Equals(Object obj)
         {
-            return this.Equals(obj as Login);
+            return this.Equals(obj as LoginModel);
         }
 
         /// <summary>
@@ -91,12 +91,12 @@ namespace DomoAPI.Model
         /// </summary>
         /// <param name="other">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public Boolean Equals(Login other)
+        public Boolean Equals(LoginModel other)
         {
             if (other == null)
                 return false;
 
-            return (this.Username == other.Username) && (this.Password == other.Password);
+            return (this.Id == other.Id) && (this.Password == other.Password);
         }
 
         public override Int32 GetHashCode()
@@ -105,5 +105,9 @@ namespace DomoAPI.Model
         }
 
         #endregion
+    }
+
+    public class LoginResponse
+    {
     }
 }

@@ -109,6 +109,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\DirectiveService.cs" />
+    <Compile Include="API\LoginService.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -120,7 +122,6 @@
     </Compile>
     <Compile Include="Converters\DebugConverter.cs" />
     <Compile Include="Converters\VisibilityConverter.cs" />
-    <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\NavigationButton.cs" />
     <Compile Include="Model\ObjectModel.cs" />
     <Compile Include="Model\StoreAppModel.cs" />
