@@ -14,14 +14,23 @@ class DeviceViewController: UIViewController, UISearchResultsUpdating, UITableVi
 
     @IBOutlet weak var deviceTableView: UITableView!
     
-    private var resultSeachController = UISearchController()
+    @IBOutlet weak var menuBtn: UIBarButtonItem!
+    
     
     private var allDevice = [Device]()
     private var filtredDevice = [Device]()
     
+    private var resultSeachController = UISearchController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if self.revealViewController() != nil {
+            menuBtn.target = self.revealViewController()
+            menuBtn.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+        }
         
         allDevice = LibraryAPI.sharedInstance.getDevice()
         
@@ -142,6 +151,10 @@ class DeviceViewController: UIViewController, UISearchResultsUpdating, UITableVi
         } else {
             LibraryAPI.sharedInstance.setIsActiveDevice(allDevice[switchTab.tag], value: false)
         }
+        
+    }
+    
+    @IBAction func cancelToDeviceViewController(segue:UIStoryboardSegue) {
         
     }
 

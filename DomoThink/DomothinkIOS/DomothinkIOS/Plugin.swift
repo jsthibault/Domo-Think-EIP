@@ -27,7 +27,7 @@ class Plugin: NSObject {
         self._imgName = imgName
         self._rate = rate
         self._publishDate = date
-        self._installed = false
+        self._installed = true
         self._isActive = false
         self._autor = autor
     }

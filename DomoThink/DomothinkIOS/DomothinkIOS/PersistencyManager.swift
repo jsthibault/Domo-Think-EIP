@@ -14,13 +14,13 @@ class PersistencyManager: NSObject {
     private var plugins = [Plugin]()
     
     override init() {
-        let directive1 = Directive(title: "Allumage four", dateCreate: NSDate(), dateApply: NSDate(), isActive: true)
-        let directive2 = Directive(title: "Eteindre les lumieres", dateCreate: NSDate(), dateApply: NSDate(), isActive: false)
+        let directive1 = Directive(id: 0, title: "Allumage four", dateCreate: NSDate(), dateApply: NSDate(), isActive: true)
+        let directive2 = Directive(id: 1, title: "Eteindre les lumieres", dateCreate: NSDate(), dateApply: NSDate(), isActive: false)
         
-        let device1 = Device(name: "Oven", isActive: false)
-        let device2 = Device(name: "Garden Light", isActive: true)
-        let device3 = Device(name: "TV", isActive: false)
-        let device4 = Device(name: "Stereo", isActive: true)
+        let device1 = Device(id: 1, name: "Oven", isActive: false, description: "four ma gueul")
+        let device2 = Device(id: 2, name: "Garden Light", isActive: true, description: "light ma gueule")
+        let device3 = Device(id: 3, name: "TV", isActive: false, description: "TV ma gueul")
+        let device4 = Device(id: 4, name: "Stereo", isActive: true, description: "Stereo ma gueul")
         
         
         let plugin1 = Plugin(name: "Valentine Mood",
@@ -87,6 +87,17 @@ class PersistencyManager: NSObject {
         return directives.count
     }
     
+    func updateDirective(directive: Directive, id: Int) {
+        for (var i = 0; i < directives.count; i++) {
+            if (id == directives[i]._id) {
+                directives[i]._title = directive._title
+                directives[i]._dateCreate = directive._dateCreate
+                directives[i]._dateApply = directive._dateApply
+                directives[i]._isActive = directive._isActive
+            }
+        }
+    }
+    
     /*
     **  methods for device
     */
@@ -119,7 +130,6 @@ class PersistencyManager: NSObject {
     /*
     **  Methods for plugin
     */
-    
     
     func getPlugins() -> [Plugin] {
         return plugins

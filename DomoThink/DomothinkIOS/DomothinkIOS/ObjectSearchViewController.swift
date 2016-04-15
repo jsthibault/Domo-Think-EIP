@@ -10,6 +10,7 @@ import UIKit
 
 class ObjectSearchViewController: UIViewController {
 
+    
     @IBOutlet weak var buttonSearch: UIButton!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var infoLabel: UILabel!
@@ -22,6 +23,7 @@ class ObjectSearchViewController: UIViewController {
         infoLabel.hidden = true
         spinner.hidesWhenStopped = true
         buttonSearch.addTarget(self, action: "startReasearch", forControlEvents: .TouchUpInside)
+        
         // Do any additional setup after loading the view.
     }
 
@@ -42,6 +44,7 @@ class ObjectSearchViewController: UIViewController {
         println("indicator : \(indicator)")
         indicator += 1
     }
+
     
     func startReasearch() {
         infoLabel.text = "recherche d'object...."

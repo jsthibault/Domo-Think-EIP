@@ -14,6 +14,8 @@ class DirectiveViewController: UIViewController, UISearchResultsUpdating, UITabl
     
     @IBOutlet weak var tableViewObject: UITableView!
     
+    @IBOutlet weak var menuBtn: UIBarButtonItem!
+    
     private var resultSeachController = UISearchController()
     
     private var allDirective = [Directive]()
@@ -21,6 +23,15 @@ class DirectiveViewController: UIViewController, UISearchResultsUpdating, UITabl
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        if self.revealViewController() != nil {
+            menuBtn.target = self.revealViewController()
+            menuBtn.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+        }
+
         
         // get all the directive in data
         //println(NSDate())
@@ -145,6 +156,23 @@ class DirectiveViewController: UIViewController, UISearchResultsUpdating, UITabl
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "editDir" {
+            let directiveDetailViewController = segue.destinationViewController as! AddDirectiveViewController
+            
+            // Get the cell that generated this segue.
+            if let selectedDirectiveCell = sender as? DirectiveCell {
+                let indexPath = tableViewObject.indexPathForCell(selectedDirectiveCell)!
+                let selectedDirective = allDirective[indexPath.row]
+                println(selectedDirective._title)
+                directiveDetailViewController.directive = selectedDirective
+            }
+        }
+        else if segue.identifier == "addDir" {
+            print("Adding new meal.")
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -158,6 +186,24 @@ class DirectiveViewController: UIViewController, UISearchResultsUpdating, UITabl
             LibraryAPI.sharedInstance.setIsActive(allDirective[switchTab.tag], value: false)
         }
         
+    }
+    
+    @IBAction func cancelToDeviceViewController(segue:UIStoryboardSegue) {
+    }
+    
+    @IBAction func saveToDeviceViewController(segue:UIStoryboardSegue) {
+        if let addDirectiveViewController = segue.sourceViewController as? AddDirectiveViewController {
+            if let directive = addDirectiveViewController.directive {
+                if (directive._id == LibraryAPI.sharedInstance.countDirectives()) {
+                    LibraryAPI.sharedInstance.addDirective(directive, index: LibraryAPI.sharedInstance.countDirectives())
+                }
+                else {
+                    LibraryAPI.sharedInstance.updateDirective(directive, id: directive._id)
+                }
+            }
+            allDirective = LibraryAPI.sharedInstance.getDirectives()
+            self.tableViewObject.reloadData()
+        }
     }
     
 }

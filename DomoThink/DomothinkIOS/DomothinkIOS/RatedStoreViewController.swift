@@ -11,6 +11,8 @@ import UIKit
 //let reuseIdentifierPluginRated = "PluginRatedCell"
 
 class RatedStoreViewController: UIViewController, UISearchResultsUpdating, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var menuBtn: UIBarButtonItem!
 
     
     @IBOutlet weak var ratedTableView: UITableView!
@@ -25,6 +27,13 @@ class RatedStoreViewController: UIViewController, UISearchResultsUpdating, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if self.revealViewController() != nil {
+            menuBtn.target = self.revealViewController()
+            menuBtn.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+        }
         
         indexSelected = -1
         
@@ -120,11 +129,17 @@ class RatedStoreViewController: UIViewController, UISearchResultsUpdating, UITab
         }
     }
     
+ 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    @IBAction func goBackToStoreViewController(segue:UIStoryboardSegue) {
+        
+    }
+    
     
 
     /*

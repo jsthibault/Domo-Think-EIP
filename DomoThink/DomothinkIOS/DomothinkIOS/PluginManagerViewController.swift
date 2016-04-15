@@ -14,8 +14,17 @@ class PluginManagerViewController: UIViewController, UITableViewDataSource, UITa
 
     private var allPluginInstalled: [Plugin]!
     
+    @IBOutlet weak var menuBtn: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if self.revealViewController() != nil {
+            menuBtn.target = self.revealViewController()
+            menuBtn.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+        }
 
         allPluginInstalled = LibraryAPI.sharedInstance.getPluginsInstalled()
     }

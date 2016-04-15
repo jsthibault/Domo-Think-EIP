@@ -14,6 +14,7 @@ class RecentsStoreViewController: UIViewController, UISearchResultsUpdating, UIT
     
 
     @IBOutlet weak var recentTableView: UITableView!
+    @IBOutlet weak var menuBtn: UIBarButtonItem!
     
     private var allPlugin = [Plugin]()
     private var filtredPlugin = [Plugin]()
@@ -24,6 +25,13 @@ class RecentsStoreViewController: UIViewController, UISearchResultsUpdating, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if self.revealViewController() != nil {
+            menuBtn.target = self.revealViewController()
+            menuBtn.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+        }
         
         indexSelected = -1
         
@@ -121,9 +129,14 @@ class RecentsStoreViewController: UIViewController, UISearchResultsUpdating, UIT
         }
     }
 
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func goBackToStoreViewController(segue:UIStoryboardSegue) {
+        
     }
     
 }

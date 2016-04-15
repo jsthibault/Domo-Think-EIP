@@ -12,11 +12,19 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
 
     @IBOutlet weak var themeChoice: UIPickerView!
     @IBOutlet weak var notifDisplay: UITextView!
+    @IBOutlet weak var menuBtn: UIBarButtonItem!
     
     let pickerData = ["Bleu","Rouge","Vert"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if self.revealViewController() != nil {
+            menuBtn.target = self.revealViewController()
+            menuBtn.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+        }
 
         themeChoice.delegate = self
         themeChoice.dataSource = self

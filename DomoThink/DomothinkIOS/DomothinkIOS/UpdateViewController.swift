@@ -15,11 +15,19 @@ class UpdateViewController: UIViewController {
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var menuBtn: UIBarButtonItem!
     private var timer: NSTimer!
     private var indicator = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if self.revealViewController() != nil {
+            menuBtn.target = self.revealViewController()
+            menuBtn.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+        }
 
         progressView.hidden = true
         descriptionUpdate.hidden = true
