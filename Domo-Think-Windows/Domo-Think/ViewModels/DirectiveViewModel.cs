@@ -25,22 +25,10 @@ namespace Domo_Think.ViewModels
 {
     public class DirectiveViewModel : ViewModelBase
     {
-        #region CONSTANTS
-
-
-
-        #endregion
-
-        #region ENUMS
-
-
-
-        #endregion
-
         #region FIELDS
 
-        private Boolean loadingOrders;
-        private Boolean displayOrders;
+        private Boolean loadingDirectives;
+        private Boolean displayDirectives;
 
         private DirectiveService directiveService;
 
@@ -51,35 +39,35 @@ namespace Domo_Think.ViewModels
         /// <summary>
         /// Gets or sets the loading visibility state.
         /// </summary>
-        public Boolean LoadingOrders
+        public Boolean LoadingDirectives
         {
-            get { return this.loadingOrders; }
-            set { this.NotifyPropertyChanged(ref this.loadingOrders, value); }
+            get { return this.loadingDirectives; }
+            set { this.NotifyPropertyChanged(ref this.loadingDirectives, value); }
         }
 
         /// <summary>
-        /// Gets or sets the display objects visibility state.
+        /// Gets or sets the display directive visibility state.
         /// </summary>
-        public Boolean DisplayOrders
+        public Boolean DisplayDirectives
         {
-            get { return this.displayOrders; }
-            set { this.NotifyPropertyChanged(ref this.displayOrders, value); }
+            get { return this.displayDirectives; }
+            set { this.NotifyPropertyChanged(ref this.displayDirectives, value); }
         }
 
         /// <summary>
-        /// Gets the Add object command.
+        /// Gets the Add directive command.
         /// </summary>
-        public ICommand AddOrderCommand { get; private set; }
+        public ICommand AddDirectiveCommand { get; private set; }
 
         /// <summary>
-        /// Gets the load/reload object command.
+        /// Gets the load/reload directives command.
         /// </summary>
-        public ICommand LoadOrdersCommand { get; private set; }
+        public ICommand LoadDirectivesCommand { get; private set; }
 
         /// <summary>
-        /// Gets the connected objects list.
+        /// Gets the directives list.
         /// </summary>
-        public ObservableCollection<ObjectModel> ConnectedObjects { get; private set; }
+        public ObservableCollection<DirectiveModel> Directives { get; private set; }
 
         #endregion
 
@@ -91,15 +79,15 @@ namespace Domo_Think.ViewModels
         public DirectiveViewModel()
         {
             // Initialiaze the commands
-            this.AddOrderCommand = new Command(this.AddObjectCommandAction);
-            this.LoadOrdersCommand = new Command(this.LoadObjectsCommandAction);
+            this.AddDirectiveCommand = new Command(this.AddDirectiveCommandAction);
+            this.LoadDirectivesCommand = new Command(this.LoadDirectivesCommandAction);
 
             // Initialize connected objets collection
-            this.ConnectedObjects = new ObservableCollection<ObjectModel>();
+            this.Directives = new ObservableCollection<DirectiveModel>();
 
             // Initialize different view states
-            this.LoadingOrders = true;
-            this.DisplayOrders = !this.LoadingOrders;
+            this.LoadingDirectives = true;
+            this.DisplayDirectives = !this.LoadingDirectives;
 
             // Initialize service
             this.directiveService = new DirectiveService(App.ApiClient);
@@ -109,7 +97,15 @@ namespace Domo_Think.ViewModels
 
         #region METHODS
 
-
+        /// <summary>
+        /// Sets the loading state.
+        /// </summary>
+        /// <param name="state">Loading state.</param>
+        private void LoadingState(Boolean state)
+        {
+            this.LoadingDirectives = state;
+            this.DisplayDirectives = !state;
+        }
 
         #endregion
 
@@ -119,49 +115,36 @@ namespace Domo_Think.ViewModels
         /// Switch to the page to add a new object.
         /// </summary>
         /// <param name="param"></param>
-        private void AddObjectCommandAction(Object param)
+        private void AddDirectiveCommandAction(Object param)
         {
-            //NavigationService.Navigate(typeof(Views.Objects.AddObject));
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="param"></param>
-        private void SwitchObjectStateCommandAction(Object param)
-        {
-            // Change object state here
+            // TODO: navigate to the add directive page
         }
 
         /// <summary>
         /// Loads or reloads the object list.
         /// </summary>
         /// <param name="param"></param>
-        private async void LoadObjectsCommandAction(Object param)
+        private async void LoadDirectivesCommandAction(Object param)
         {
-            this.LoadingOrders = true;
-            this.DisplayOrders = false;
+            // Activate loading state
+            this.LoadingState(true);
 
-            List<DirectiveModel> directives = await this.directiveService.GetDirectives();
+            // Clear the directive list if there's any
+            if (this.Directives.Any())
+                this.Directives.Clear();
 
-            //await Task.Delay(4000); // Wait 4 seconds
+            // Send the request to the API
+            List<DirectiveModel> _directives = await this.directiveService.GetDirectives();
 
             // Fill list with the data we recieve from the box
-            if (this.ConnectedObjects.Any())
-                this.ConnectedObjects.Clear();
-
-            for (Int32 i = 0; i < directives.Count; ++i)
+            if (_directives != null)
             {
-                this.ConnectedObjects.Add(new ObjectModel()
-                {
-                    Name = directives[i].Name,
-                    Id = (Int32)directives[i].Id.Value,
-                    State = i % 2 == 0
-                });
+                for (Int32 i = 0; i < _directives.Count; ++i)
+                    this.Directives.Add(_directives[i]);
             }
 
-            this.LoadingOrders = false;
-            this.DisplayOrders = true;
+            // Deactivate loading state
+            this.LoadingState(false);
         }
 
         #endregion

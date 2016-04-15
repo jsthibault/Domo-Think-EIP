@@ -1,6 +1,8 @@
-﻿using Domo_Think.Model;
+﻿using Domo_Think.API;
+using Domo_Think.Model;
 using Domo_Think.MVVM;
 using Domo_Think.Navigation;
+using DomoAPI.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -41,6 +43,8 @@ namespace Domo_Think.ViewModels
 
         private Boolean loadingObjects;
         private Boolean displayObjects;
+
+        private ObjectService objectService;
 
         #endregion
 
@@ -104,13 +108,24 @@ namespace Domo_Think.ViewModels
             // Initialize different view states
             this.LoadingObjects = true;
             this.DisplayObjects = !this.LoadingObjects;
+
+            // Initialize API service
+            this.objectService = new ObjectService(App.ApiClient);
         }
 
         #endregion
 
         #region METHODS
 
-
+        /// <summary>
+        /// Sets the loading state.
+        /// </summary>
+        /// <param name="state">Loading state.</param>
+        private void LoadingState(Boolean state)
+        {
+            this.LoadingObjects = state;
+            this.DisplayObjects = !state;
+        }
 
         #endregion
 
@@ -140,27 +155,25 @@ namespace Domo_Think.ViewModels
         /// <param name="param"></param>
         private async void LoadObjectsCommandAction(Object param)
         {
-            this.LoadingObjects = true;
-            this.DisplayObjects = false;
+            // Activate loading state
+            this.LoadingState(true);
 
-            await Task.Delay(4000); // Wait 4 seconds
-
-            // Fill list with the data we recieve from the box
+            // Clear the connected objects if there's any
             if (this.ConnectedObjects.Any())
                 this.ConnectedObjects.Clear();
 
-            for (Int32 i = 0; i < 5; ++i)
+            // Send the request to the API
+            List<ObjectModel> _objects = await this.objectService.GetObjects();
+
+            // Fill list with the data we recieve from the box
+            if (_objects != null)
             {
-                this.ConnectedObjects.Add(new ObjectModel()
-                {
-                    Name = "Object #" + i.ToString(),
-                    State = i % 2 == 0
-                });
+                for (Int32 i = 0; i < _objects.Count; ++i)
+                    this.ConnectedObjects.Add(_objects[i]);
             }
             
-            this.LoadingObjects = false;
-            this.DisplayObjects = true;
-
+            // Deactivate loading state
+            this.LoadingState(false);
         }
 
         #endregion

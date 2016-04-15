@@ -34,7 +34,8 @@ namespace Domo_Think.Views.Directives
 
         private void OrdersPage_Loaded(Object sender, RoutedEventArgs e)
         {
-            this.dataContext.LoadOrdersCommand.Execute(null);
+            if (this.dataContext.LoadDirectivesCommand != null)
+                this.dataContext.LoadDirectivesCommand.Execute(null);
         }
     }
 }

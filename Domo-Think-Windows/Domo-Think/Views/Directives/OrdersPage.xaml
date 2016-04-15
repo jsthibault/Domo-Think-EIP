@@ -43,9 +43,9 @@
         </StackPanel>
 
         <!-- Orders panel -->
-        <StackPanel Grid.Row="1" Margin="10" Visibility="{Binding DisplayOrders, Converter={StaticResource visibilityConverter}}">
+        <StackPanel Grid.Row="1" Margin="10" Visibility="{Binding DisplayDirectives, Converter={StaticResource visibilityConverter}}">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <ItemsControl x:Name="ORDERS_LIST" ItemsSource="{Binding ConnectedObjects}" HorizontalContentAlignment="Stretch">
+                <ItemsControl x:Name="ORDERS_LIST" ItemsSource="{Binding Directives}" HorizontalContentAlignment="Stretch">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <xp:Expander VerticalAlignment="Top" Margin="0,0,0,10" IsExpanded="False">
@@ -73,15 +73,15 @@
         </StackPanel>
 
         <!-- Loading panel -->
-        <StackPanel Grid.Row="1" Margin="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding LoadingOrders, Converter={StaticResource visibilityConverter}}">
+        <StackPanel Grid.Row="1" Margin="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding LoadingDirectives, Converter={StaticResource visibilityConverter}}">
             <ProgressRing Width="40" Height="40" IsActive="True" />
             <TextBlock Text="Loading orders..." FontSize="20" Margin="10,0,0,0" />
         </StackPanel>
 
         <!-- Command bar -->
         <CommandBar Grid.Row="2">
-            <AppBarButton Icon="Refresh" Width="48" Label="Refresh" Command="{Binding LoadOrdersCommand}" Visibility="{Binding DisplayOrders, Converter={StaticResource visibilityConverter}}" />
-            <AppBarButton Icon="Add" Width="48" Label="Add" Command="{Binding AddOrdersCommand}" />
+            <AppBarButton Icon="Refresh" Width="48" Label="Refresh" Command="{Binding LoadDirectivesCommand}" Visibility="{Binding DisplayDirectives, Converter={StaticResource visibilityConverter}}" />
+            <AppBarButton Icon="Add" Width="48" Label="Add" Command="{Binding AddDirectiveCommand}" />
         </CommandBar>
     </Grid>
 </Page>

@@ -111,6 +111,7 @@
     <Compile Include="Client\ApiService.cs" />
     <Compile Include="Model\DirectiveModel.cs" />
     <Compile Include="Model\LoginModel.cs" />
+    <Compile Include="Model\ObjectModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\DomoAPI.rd.xml" />
   </ItemGroup>

@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 
 /*--------------------------------------------------------
- * DirectiveModel.cs
+ * ObjectModel.cs
  * 
  * Version: 1.0
  * Author: Filipe
- * Created: 14/04/2016 13:32:25
+ * Created: 15/04/2016 09:35:36
  * 
  * Notes:
  * -------------------------------------------------------*/
@@ -20,7 +20,7 @@ using System.Threading.Tasks;
 namespace DomoAPI.Model
 {
     [DataContract]
-    public class DirectiveModel : IEquatable<DirectiveModel>
+    public class ObjectModel : IEquatable<ObjectModel>
     {
         #region FIELDS
         #endregion
@@ -28,49 +28,33 @@ namespace DomoAPI.Model
         #region PROPERTIES
 
         /// <summary>
-        /// Gets or sets the Id of the directive.
+        /// Gets or sets the Id of the object.
         /// </summary>
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public Double? Id { get; set; }
+        public Int32 Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of the directive.
+        /// Gets or sets the name of the object.
         /// </summary>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public String Name { get; set; }
-
-        /// <summary>
-        /// Gets or sets the directive's creator Id.
-        /// </summary>
-        [DataMember(Name = "creatorId", EmitDefaultValue = false)]
-        public Double? CreatorId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the directive's parent object Id.
-        /// </summary>
-        [DataMember(Name = "objectId", EmitDefaultValue = false)]
-        public Double? ObjectId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the directive's action Id.
-        /// </summary>
-        [DataMember(Name = "actionId", EmitDefaultValue = false)]
-        public Double? ActionId { get; set; }
 
         #endregion
 
         #region CONSTRUCTORS
 
-        public DirectiveModel(Double id, String name, Double creatorId, Double objectId, Double actionId)
+        /// <summary>
+        /// Creates a new ObjectModel instance.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        public ObjectModel(Int32 id, String name)
         {
             if (String.IsNullOrEmpty(name))
                 throw new InvalidDataException("The name of the directive cannot by empty.");
 
             this.Id = id;
             this.Name = name;
-            this.CreatorId = creatorId;
-            this.ObjectId = objectId;
-            this.ActionId = actionId;
         }
 
         #endregion
@@ -85,12 +69,9 @@ namespace DomoAPI.Model
         {
             StringBuilder _sb = new StringBuilder();
 
-            _sb.AppendLine("class DirectiveModel {");
-            _sb.Append("  Id: ").Append(Id).Append("\n");
-            _sb.Append("  Name: ").Append(Name).Append("\n");
-            _sb.Append("  CreatorId: ").Append(CreatorId).Append("\n");
-            _sb.Append("  ObjectId: ").Append(ObjectId).Append("\n");
-            _sb.Append("  ActionId: ").Append(ActionId).Append("\n");
+            _sb.AppendLine("class ObjectModel {");
+            _sb.Append("  Id: ").Append(this.Id).Append("\n");
+            _sb.Append("  Name: ").Append(this.Name).Append("\n");
             _sb.AppendLine("}");
 
             return _sb.ToString();
@@ -111,16 +92,13 @@ namespace DomoAPI.Model
         /// </summary>
         /// <param name="other">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public Boolean Equals(DirectiveModel other)
+        public Boolean Equals(ObjectModel other)
         {
             if (other == null)
                 return false;
 
             return this.Id == other.Id
-                && this.Name == other.Name
-                && this.ObjectId == other.ObjectId
-                && this.ActionId == other.ActionId
-                && this.CreatorId == other.CreatorId;
+                && this.Name == other.Name;
         }
 
         /// <summary>

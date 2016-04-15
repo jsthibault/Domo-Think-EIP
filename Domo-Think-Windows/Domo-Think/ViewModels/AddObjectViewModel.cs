@@ -1,5 +1,6 @@
 ﻿using Domo_Think.Model;
 using Domo_Think.MVVM;
+using DomoAPI.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -67,10 +68,7 @@ namespace Domo_Think.ViewModels
             this.Objects = new ObservableCollection<ObjectModel>();
             for (Int32 i = 5; i < 9; ++i)
             {
-                this.Objects.Add(new ObjectModel()
-                {
-                    Name = "Object #" + i.ToString()
-                });
+                this.Objects.Add(new ObjectModel(-1, "Object #" + i.ToString()));
             }
         }
 

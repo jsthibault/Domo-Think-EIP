@@ -80,7 +80,7 @@ namespace Domo_Think.ViewModels
             public Object ObjResult;
         }
 
-        private async void EchoApiAction(Object param)
+        private void EchoApiAction(Object param)
         {
             //DomoAPI _api = new DomoAPI(Constants.API_ADDRESS);
             //ApiResponse _result = await _api.Get<ApiResponse>("/api/Login/GetUsername?username={0}", param.ToString());
