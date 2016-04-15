@@ -30,7 +30,7 @@ public class DirectivesActivity extends AppCompatActivity {
                 "Directive #2",
                 "Directive #3",
                 "Directive #4"};
-        final EditAdapter adapter = new EditAdapter(this, objs);
+/*        final EditAdapter adapter = new EditAdapter(this, objs);
         mList.setAdapter(adapter);
         mList.setOnTouchListener(new SwipeDismissListViewTouchListener(
                 mList,
@@ -47,7 +47,7 @@ public class DirectivesActivity extends AppCompatActivity {
                         }
                         adapter.notifyDataSetChanged();
                     }
-                }));
+                }));*/
         add = (FloatingActionButton)findViewById(R.id.addDirectiveButton);
         add.setOnClickListener(new View.OnClickListener() {
             @Override

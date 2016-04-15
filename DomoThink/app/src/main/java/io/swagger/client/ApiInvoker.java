@@ -1,7 +1,5 @@
 package io.swagger.client;
 
-import android.util.Log;
-
 import org.apache.http.*;
 import org.apache.http.client.*;
 import org.apache.http.client.methods.*;
@@ -245,7 +243,7 @@ public class ApiInvoker {
 
   public String invokeAPI(String host, String path, String method, List<Pair> queryParams, Object body, Map<String, String> headerParams, Map<String, String> formParams, String contentType) throws ApiException {
     HttpClient client = getClient(host);
-    Log.d("SHEIT", "AIZUHIUZAEYOAIZUEYOIAZUYEOZIAYE");
+
     StringBuilder b = new StringBuilder();
     b.append("?");
     if (queryParams != null){
@@ -299,7 +297,6 @@ public class ApiInvoker {
       }
       formParamStr = formParamBuilder.toString();
     }
-    Log.d("HAHAHAHAHAHA", "AIZUHIUZAEYOAIZUEYOIAZUYEOZIAYE");
 
     HttpResponse response = null;
     try {
@@ -309,9 +306,7 @@ public class ApiInvoker {
         for(String key : headers.keySet()) {
           get.setHeader(key, headers.get(key));
         }
-        Log.d("DANS LE GET !", "AIZUHIUZAEYOAIZUEYOIAZUYEOZIAYE");
         response = client.execute(get);
-        Log.d("APRES LE GET !", "AIZUHIUZAEYOAIZUEYOIAZUYEOZIAYE");
       }
       else if ("POST".equals(method)) {
         HttpPost post = new HttpPost(url);

@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,27 +14,37 @@ import com.example.guillaumemunsch.domothink.R;
 import com.example.guillaumemunsch.domothink.activities.ConnectedObjectsActivity;
 import com.example.guillaumemunsch.domothink.activities.SearchObjectsActivity;
 import com.example.guillaumemunsch.domothink.adapter.SwitchListAdapter;
+import com.example.guillaumemunsch.domothink.http.GetDevices;
 import com.example.guillaumemunsch.domothink.listeners.SwipeDismissListViewTouchListener;
+import com.example.guillaumemunsch.domothink.utils.Utils;
+
+import java.util.List;
+
+import io.swagger.client.model.Device;
 
 /**
  * Created by guillaumemunsch on 01/03/16.
  */
 public class ObjectsFragment extends Fragment {
+    View rootView = null;
+    boolean listLoaded = false;
     FloatingActionButton search = null;
     ListView list = null;
+    List<Device> devices;
 
     public ObjectsFragment(){}
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public void setList(List<Device> list) {
+        devices = list;
+        listLoaded = true;
+    }
 
-        View rootView = inflater.inflate(R.layout.fragment_objects, container, false);
-
-        String[] objs = new String[]{"Television", "Lampe salon", "Lampe chambre bébé", "Radiateur"};
-        Boolean[] states = new Boolean[]{true, false, false, true};
+    public void loadContent(){
+        List<String> names = Utils.transform(devices, "name");
         list = (ListView)rootView.findViewById(R.id.listView);
-        final SwitchListAdapter adapter = new SwitchListAdapter(this.getActivity(), objs, states);
+        final SwitchListAdapter adapter = new SwitchListAdapter(this.getActivity(),
+                (List<String>)(Object)Utils.transform(devices, "name"),
+                (List<Boolean>)(Object)Utils.transform(devices, "activate"));
         list.setAdapter(adapter);
         list.setOnTouchListener(new SwipeDismissListViewTouchListener(
                 list,
@@ -51,6 +62,17 @@ public class ObjectsFragment extends Fragment {
                         adapter.notifyDataSetChanged();
                     }
                 }));
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        rootView = inflater.inflate(R.layout.fragment_objects, container, false);
+
+        try { new GetDevices(this).execute(); }
+        catch (Exception ex) { Log.d("Error: ", ex.getMessage()); }
+
         search = (FloatingActionButton)rootView.findViewById(R.id.searchObjectsButton);
         search.setOnClickListener(new View.OnClickListener() {
             @Override

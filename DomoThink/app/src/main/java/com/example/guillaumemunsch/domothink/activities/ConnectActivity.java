@@ -13,10 +13,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.guillaumemunsch.domothink.R;
 import com.example.guillaumemunsch.domothink.fragments.UpToDateFragment;
 import com.example.guillaumemunsch.domothink.http.Api;
+import com.example.guillaumemunsch.domothink.http.PostUserAuth;
 import com.example.guillaumemunsch.domothink.http.ServiceClasses;
 
 import java.util.List;
@@ -34,70 +37,33 @@ import retrofit2.Retrofit;
  */
 public class ConnectActivity extends AppCompatActivity {
     Button connectButton = null;
-    DefaultApi api = null;
-    List<Device> list;
+    DefaultApi api = new DefaultApi();
+    String token = null;
+    EditText userInput, passwordInput;
 
-    private class AsyncCaller extends AsyncTask<Void, Void, List<Device>>
-    {
-        List<Device> list;
-        DefaultApi api = null;
+    public void setToken(String t) {
+        token = t;
+    }
 
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            api = new DefaultApi();
-            api.setBasePath("http://MBPdeGuillaume.lan:8080/api");
-
-            //this method will be running on UI thread
-        }
-        @Override
-        protected List<Device> doInBackground(Void... params) {
-
-            try {
-                list = api.deviceGet();
-            }
-            catch (Throwable ex) {
-                Log.d("FAILFAILFAIL", "Dans la Async Task");
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(List<Device> result) {
-            super.onPostExecute(result);
-            for (Device dev : list) {
-                Log.d(dev.getName(), dev.getId().toString());
-                Log.d(dev.getName(), dev.getDescription());
-                Log.d(dev.getName(), (dev.getActivate() ? "True" : "False"));
-            }
-            //this method will be running on UI thread
-        }
-
+    public void tryConnection(){
+        Log.d("TOKEN", "[" + token + "]");
+        if (token.equals("Error"))
+            Toast.makeText(this, "Wrong username/password", Toast.LENGTH_LONG).show();
+        else
+            startActivity(new Intent(ConnectActivity.this, MainActivity.class));
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connect);
-
+        userInput = (EditText)findViewById(R.id.user);
+        passwordInput = (EditText)findViewById(R.id.password);
         connectButton = (Button)findViewById(R.id.connection_button);
-        final Intent intent = new Intent(ConnectActivity.this, MainActivity.class);
         connectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    AsyncCaller call = new AsyncCaller();
-                    Log.d("PRE-EXECUTE", "RERTYUZERTYUZERTYZERTY");
-                    call.execute();
-                    Log.d("POST-EXECUTE", "RERTYUZERTYUZERTYZERTY");
-                }
-                catch (Exception ex)
-                {
-                    Log.d("EXCEPTIONEXCEPTION", "RERTYUZERTYUZERTYZERTY");
-                    Log.d("Error: ", ex.toString());
-                    Log.d("Error: ", ex.getMessage());
-                }
-                startActivity(intent);
+                new PostUserAuth(ConnectActivity.this).execute(userInput.getText().toString(), passwordInput.getText().toString());
             }
         });
     }

@@ -40,7 +40,7 @@ public class MyPluginsFragment extends Fragment {
                 false
         };
         list = (ListView)rootView.findViewById(R.id.myPluginsList);
-        final SwitchListAdapter adapter = new SwitchListAdapter(this.getActivity(), plugins, states);
+/*        final SwitchListAdapter adapter = new SwitchListAdapter(this.getActivity(), plugins, states);
         list.setAdapter(adapter);
         list.setOnTouchListener(new SwipeDismissListViewTouchListener(
                 list,
@@ -54,7 +54,7 @@ public class MyPluginsFragment extends Fragment {
                     public void onDismiss(ListView listView, final int[] reverseSortedPositions)
                     {
                     }
-                }));
+                }));*/
         return rootView;
     }
 }
