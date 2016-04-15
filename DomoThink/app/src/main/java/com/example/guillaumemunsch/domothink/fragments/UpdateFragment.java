@@ -29,17 +29,17 @@ public class UpdateFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_update, container, false);
         installButton = (Button)rootView.findViewById(R.id.updateInstallButton);
-        installButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Fragment fragment = new UpdatingFragment();
-
-                FragmentManager fm = getActivity().getFragmentManager();
-                FragmentTransaction transaction = fm.beginTransaction();
-                transaction.replace(R.id.frame_container, fragment);
-                transaction.commit();
-            }
-        });
+//        installButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Fragment fragment = new UpdatingFragment();
+//
+//                FragmentManager fm = getActivity().getFragmentManager();
+//                FragmentTransaction transaction = fm.beginTransaction();
+//                transaction.replace(R.id.frame_container, fragment);
+//                transaction.commit();
+//            }
+//        });
         return rootView;
     }
 }
