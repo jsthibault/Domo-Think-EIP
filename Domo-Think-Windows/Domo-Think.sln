@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domo-Think", "Domo-Think\Domo-Think.csproj", "{1BAE9A43-2EE5-4B74-B0FA-247D505780A1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expander", "Expander\Expander.csproj", "{6FFB913B-CC9C-4176-8FD5-AC5ED56AB86B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomoAPI", "DomoAPI\DomoAPI.csproj", "{F4DE4C78-CC93-4A4C-96AE-1ED827556A11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{BEDD7C3A-E210-483A-A260-A1ECA53A8EB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +75,26 @@ Global
 		{F4DE4C78-CC93-4A4C-96AE-1ED827556A11}.Release|x64.Build.0 = Release|x64
 		{F4DE4C78-CC93-4A4C-96AE-1ED827556A11}.Release|x86.ActiveCfg = Release|x86
 		{F4DE4C78-CC93-4A4C-96AE-1ED827556A11}.Release|x86.Build.0 = Release|x86
+		{BEDD7C3A-E210-483A-A260-A1ECA53A8EB2}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{BEDD7C3A-E210-483A-A260-A1ECA53A8EB2}.Debug|ARM.ActiveCfg = Debug|ARM
+		{BEDD7C3A-E210-483A-A260-A1ECA53A8EB2}.Debug|ARM.Build.0 = Debug|ARM
+		{BEDD7C3A-E210-483A-A260-A1ECA53A8EB2}.Debug|ARM.Deploy.0 = Debug|ARM
+		{BEDD7C3A-E210-483A-A260-A1ECA53A8EB2}.Debug|x64.ActiveCfg = Debug|x64
+		{BEDD7C3A-E210-483A-A260-A1ECA53A8EB2}.Debug|x64.Build.0 = Debug|x64
+		{BEDD7C3A-E210-483A-A260-A1ECA53A8EB2}.Debug|x64.Deploy.0 = Debug|x64
+		{BEDD7C3A-E210-483A-A260-A1ECA53A8EB2}.Debug|x86.ActiveCfg = Debug|x86
+		{BEDD7C3A-E210-483A-A260-A1ECA53A8EB2}.Debug|x86.Build.0 = Debug|x86
+		{BEDD7C3A-E210-483A-A260-A1ECA53A8EB2}.Debug|x86.Deploy.0 = Debug|x86
+		{BEDD7C3A-E210-483A-A260-A1ECA53A8EB2}.Release|Any CPU.ActiveCfg = Release|x86
+		{BEDD7C3A-E210-483A-A260-A1ECA53A8EB2}.Release|ARM.ActiveCfg = Release|ARM
+		{BEDD7C3A-E210-483A-A260-A1ECA53A8EB2}.Release|ARM.Build.0 = Release|ARM
+		{BEDD7C3A-E210-483A-A260-A1ECA53A8EB2}.Release|ARM.Deploy.0 = Release|ARM
+		{BEDD7C3A-E210-483A-A260-A1ECA53A8EB2}.Release|x64.ActiveCfg = Release|x64
+		{BEDD7C3A-E210-483A-A260-A1ECA53A8EB2}.Release|x64.Build.0 = Release|x64
+		{BEDD7C3A-E210-483A-A260-A1ECA53A8EB2}.Release|x64.Deploy.0 = Release|x64
+		{BEDD7C3A-E210-483A-A260-A1ECA53A8EB2}.Release|x86.ActiveCfg = Release|x86
+		{BEDD7C3A-E210-483A-A260-A1ECA53A8EB2}.Release|x86.Build.0 = Release|x86
+		{BEDD7C3A-E210-483A-A260-A1ECA53A8EB2}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
