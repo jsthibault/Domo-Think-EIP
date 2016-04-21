@@ -36,7 +36,7 @@ public class MyPluginsActivity extends AppCompatActivity {
                 false
         };
         list = (ListView)findViewById(R.id.myPluginsList);
-        final SwitchListAdapter adapter = new SwitchListAdapter(this, plugins, states);
+/*        final SwitchListAdapter adapter = new SwitchListAdapter(this, plugins, states);
         list.setAdapter(adapter);
         list.setOnTouchListener(new SwipeDismissListViewTouchListener(
                 list,
@@ -60,7 +60,7 @@ public class MyPluginsActivity extends AppCompatActivity {
                                         ret = false;
                                     }
                                 }).show();
-                        return ret;*/
+                        return ret;
                         return true;
                     }
 
@@ -81,7 +81,7 @@ public class MyPluginsActivity extends AppCompatActivity {
                                 })
                                 .setNegativeButton(android.R.string.no, null).show();
                     }
-                }));
+                }));*/
     }
 
     @Override

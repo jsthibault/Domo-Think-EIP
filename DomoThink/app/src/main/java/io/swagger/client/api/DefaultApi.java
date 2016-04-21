@@ -1,7 +1,5 @@
 package io.swagger.client.api;
 
-import android.util.Log;
-
 import io.swagger.client.ApiException;
 import io.swagger.client.ApiInvoker;
 import io.swagger.client.Pair;
@@ -16,6 +14,7 @@ import java.math.BigDecimal;
 import io.swagger.client.model.Directive;
 import io.swagger.client.model.Plugin;
 import io.swagger.client.model.InlineResponse200;
+import io.swagger.client.model.ConnectionInfos;
 import io.swagger.client.model.BoxInformations;
 
 import org.apache.http.HttpEntity;
@@ -26,7 +25,7 @@ import java.util.HashMap;
 import java.io.File;
 
 public class DefaultApi {
-  String basePath = "https://localhost:8080/api";
+  String basePath = "https://localhost";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -65,7 +64,9 @@ public class DefaultApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
+    
 
+    
 
     String[] contentTypes = {
       
@@ -83,20 +84,16 @@ public class DefaultApi {
       // normal form params
       
     }
+
     try {
-      Log.d("AHhhhhhhhhhhhh BANON", "RERTYUZERTYUZERTYZERTY");
       String response = apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType);
-      Log.d("AHhhhhhhhhhhhh BASI", "RERTYUZERTYUZERTYZERTY");
       if(response != null){
-        Log.d("NICE", "RERTYUZERTYUZERTYZERTY");
         return (List<Device>) ApiInvoker.deserialize(response, "array", Device.class);
       }
       else {
-        Log.d("FAIL", "RERTYUZERTYUZERTYZERTY");
         return null;
       }
     } catch (ApiException ex) {
-      Log.d("CETTE EXCEPTION LA ? -> ", ex.getMessage());
       throw ex;
     }
   }
@@ -1461,21 +1458,15 @@ public class DefaultApi {
   /**
    * 
    * Authentifie l&#39;utilisateur
-   * @param username Size of array
-   * @param password Password
+   * @param body Connection informations
    * @return String
    */
-  public String  userAuthPost (String username, String password) throws ApiException {
-    Object postBody = null;
+  public String  userAuthPost (ConnectionInfos body) throws ApiException {
+    Object postBody = body;
     
-    // verify the required parameter 'username' is set
-    if (username == null) {
-       throw new ApiException(400, "Missing the required parameter 'username' when calling userAuthPost");
-    }
-    
-    // verify the required parameter 'password' is set
-    if (password == null) {
-       throw new ApiException(400, "Missing the required parameter 'password' when calling userAuthPost");
+    // verify the required parameter 'body' is set
+    if (body == null) {
+       throw new ApiException(400, "Missing the required parameter 'body' when calling userAuthPost");
     }
     
 
@@ -1489,10 +1480,6 @@ public class DefaultApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "username", username));
-    
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "password", password));
     
 
     

@@ -14,14 +14,14 @@
         android:layout_height="180dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/identifier"
+        android:layout_above="@+id/user"
         android:id="@+id/connectLogo"
         android:src="@drawable/logo"/>
 
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/identifier"
+        android:id="@+id/user"
         android:layout_marginBottom="30dp"
         android:hint="DomoBox Identifier"
         android:layout_above="@+id/password"

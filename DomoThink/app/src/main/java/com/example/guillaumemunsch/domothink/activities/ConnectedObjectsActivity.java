@@ -29,7 +29,7 @@ public class ConnectedObjectsActivity extends AppCompatActivity {
         String[] objs = new String[]{"Television", "Lampe salon", "Lampe chambre bébé", "Radiateur"};
         Boolean[] states = new Boolean[]{true, false, false, true};
         list = (ListView) findViewById(R.id.listView);
-        final SwitchListAdapter adapter = new SwitchListAdapter(this, objs, states);
+/*        final SwitchListAdapter adapter = new SwitchListAdapter(this, objs, states);
         list.setAdapter(adapter);
         list.setOnTouchListener(new SwipeDismissListViewTouchListener(
                 list,
@@ -46,7 +46,7 @@ public class ConnectedObjectsActivity extends AppCompatActivity {
                         }
                         adapter.notifyDataSetChanged();
                     }
-                }));
+                }));*/
         search = (FloatingActionButton) findViewById(R.id.searchObjectsButton);
         search.setOnClickListener(new View.OnClickListener() {
             @Override

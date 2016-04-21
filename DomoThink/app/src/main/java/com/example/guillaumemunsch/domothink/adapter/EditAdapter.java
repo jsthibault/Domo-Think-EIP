@@ -15,16 +15,17 @@ import com.example.guillaumemunsch.domothink.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by guillaumemunsch on 03/12/15.
  */
 public class EditAdapter extends BaseAdapter {
     Context context;
-    ArrayList<String> objs = null;
+    List<String> objs = null;
     private static LayoutInflater inflater=null;
-    public EditAdapter(Activity mainActivity, String[] mObjs) {
-        objs = new ArrayList<String>(Arrays.asList(mObjs));
+    public EditAdapter(Activity mainActivity, List<String> mObjs) {
+        objs = mObjs;
         context = mainActivity;
         inflater = ( LayoutInflater )context.
                 getSystemService(Context.LAYOUT_INFLATER_SERVICE);

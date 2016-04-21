@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,30 +15,33 @@ import com.example.guillaumemunsch.domothink.R;
 import com.example.guillaumemunsch.domothink.activities.CreateDirectiveActivity;
 import com.example.guillaumemunsch.domothink.activities.DirectivesActivity;
 import com.example.guillaumemunsch.domothink.adapter.EditAdapter;
+import com.example.guillaumemunsch.domothink.http.GetDevices;
+import com.example.guillaumemunsch.domothink.http.GetDirectives;
 import com.example.guillaumemunsch.domothink.listeners.SwipeDismissListViewTouchListener;
+import com.example.guillaumemunsch.domothink.utils.Utils;
+
+import java.util.List;
+
+import io.swagger.client.model.Directive;
 
 /**
  * Created by guillaumemunsch on 01/03/16.
  */
 public class DirectivesFragment extends Fragment {
     FloatingActionButton add = null;
+    List<Directive> directives = null;
     ListView mList = null;
 
     public DirectivesFragment(){}
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public void setList(List<Directive> list) {
+        this.directives = list;
+        Log.d("ELEENT 1", list.get(1).getName());
+    }
 
-        View rootView = inflater.inflate(R.layout.fragment_directives, container, false);
-
-        mList = (ListView)rootView.findViewById(R.id.directivesList);
-        String[] objs = new String[]{
-                "Directive #1",
-                "Directive #2",
-                "Directive #3",
-                "Directive #4"};
-        final EditAdapter adapter = new EditAdapter(this.getActivity(), objs);
+    public void loadContent() {
+        final EditAdapter adapter = new EditAdapter(this.getActivity(),
+                (List<String>)(Object)Utils.transform(directives, "name"));
         mList.setAdapter(adapter);
         mList.setOnTouchListener(new SwipeDismissListViewTouchListener(
                 mList,
@@ -55,6 +59,17 @@ public class DirectivesFragment extends Fragment {
                         adapter.notifyDataSetChanged();
                     }
                 }));
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        View rootView = inflater.inflate(R.layout.fragment_directives, container, false);
+        try { new GetDirectives(this).execute(); }
+        catch (Exception ex) { Log.d("Error: ", ex.getMessage()); }
+
+        mList = (ListView)rootView.findViewById(R.id.directivesList);
         add = (FloatingActionButton)rootView.findViewById(R.id.addDirectiveButton);
         add.setOnClickListener(new View.OnClickListener() {
             @Override

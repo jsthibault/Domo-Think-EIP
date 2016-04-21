@@ -16,19 +16,20 @@ import com.example.guillaumemunsch.domothink.activities.ConnectedObjectsActivity
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by guillaumemunsch on 03/12/15.
  */
 public class SwitchListAdapter extends BaseAdapter {
-    ArrayList<String> objs;
-    ArrayList<Boolean> states;
+    List<String> objs;
+    List<Boolean> states;
     Context context;
     private static LayoutInflater inflater=null;
-    public SwitchListAdapter(Activity mainActivity, String[] mObjs, Boolean[] mStates) {
-        objs = new ArrayList<String>(Arrays.asList(mObjs));
+    public SwitchListAdapter(Activity mainActivity, List<String> mObjs, List<Boolean> mStates) {
         context = mainActivity;
-        states = new ArrayList<Boolean>(Arrays.asList(mStates));
+        objs = mObjs;
+        states = mStates;
         inflater = ( LayoutInflater )context.
                 getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
