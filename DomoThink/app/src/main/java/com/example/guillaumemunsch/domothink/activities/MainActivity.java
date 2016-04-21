@@ -45,7 +45,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public static Class [] menuLinks = {ConnectedObjectsActivity.class, DirectivesActivity.class, MyPluginsActivity.class,
             TabsActivity.class, UpdateActivity.class, SettingsActivity.class};
 
-/*    private DrawerLayout mDrawerLayout;
+    private ArrayList<Fragment> fragmentList;
+    private FragmentManager fragmentManager;
+
+    private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
     private CharSequence mDrawerTitle;
@@ -58,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private TypedArray navMenuIcons;
 
     private ArrayList<NavDrawerItem> navDrawerItems;
-    private NavDrawerListAdapter adapter;*/
+    private NavDrawerListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,15 +69,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.main_activity);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         android.support.v7.app.ActionBarDrawerToggle toggle = new android.support.v7.app.ActionBarDrawerToggle(
@@ -85,7 +79,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        fragmentManager = getFragmentManager();
+        fragmentList = new ArrayList<Fragment>();
+        fragmentList.add(new ObjectsFragment());
+        fragmentList.add(new DirectivesFragment());
+        fragmentList.add(new StoreFragment());
+        fragmentList.add(new MyPluginsFragment());
+        fragmentList.add(new UpdateFragment());
+        fragmentList.add(new SettingsFragment());
 
+        fragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragmentList.get(0)).commit();
+
+        // update selected item and title, then close the drawer
+/*        mDrawerList.setItemChecked(position, true);
+        mDrawerList.setSelection(position);
+        setTitle(navMenuTitles[position]);
+        mDrawerLayout.closeDrawer(mDrawerList);*/
     }
 
     @Override
@@ -104,19 +114,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        Fragment fragment = null;
+        FragmentManager fragmentManager = getFragmentManager();
 
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.nav_objects) {
+            fragment = fragmentList.get(0);
+        } else if (id == R.id.nav_directives) {
+            fragment = fragmentList.get(1);
+        } else if (id == R.id.nav_domobox) {
+            fragment = fragmentList.get(2);
+        } else if (id == R.id.nav_store) {
+            fragment = fragmentList.get(3);
+        } else if (id == R.id.nav_update) {
+            fragment = fragmentList.get(4);
+        } else if (id == R.id.nav_settings) {
+            fragment = fragmentList.get(5);
         }
+        fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

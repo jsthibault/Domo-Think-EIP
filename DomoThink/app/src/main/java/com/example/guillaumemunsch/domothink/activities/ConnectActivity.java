@@ -37,7 +37,6 @@ import retrofit2.Retrofit;
  */
 public class ConnectActivity extends AppCompatActivity {
     Button connectButton = null;
-    DefaultApi api = new DefaultApi();
     String token = null;
     EditText userInput, passwordInput;
 
@@ -46,7 +45,6 @@ public class ConnectActivity extends AppCompatActivity {
     }
 
     public void tryConnection(){
-        Log.d("TOKEN", "[" + token + "]");
         if (token.equals("Error"))
             Toast.makeText(this, "Wrong username/password", Toast.LENGTH_LONG).show();
         else

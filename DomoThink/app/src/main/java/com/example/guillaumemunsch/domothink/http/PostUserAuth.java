@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.example.guillaumemunsch.domothink.R;
 import com.example.guillaumemunsch.domothink.activities.ConnectActivity;
 import com.example.guillaumemunsch.domothink.fragments.DirectivesFragment;
 
@@ -29,7 +30,8 @@ public class PostUserAuth  extends AsyncTask<String, Void, String> {
     protected void onPreExecute() {
         super.onPreExecute();
         api = new DefaultApi();
-        api.setBasePath("http://MBPdeGuillaume.lan:8080/api");
+        api.setBasePath(context.getResources().getString(R.string.apiUrl));
+        Log.d("API URL: ", R.string.apiUrl + "");
     }
     @Override
     protected String doInBackground(String... params) {
@@ -49,6 +51,7 @@ public class PostUserAuth  extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
+        Log.d("RESULT: ", result);
         context.setToken(result);
         context.tryConnection();
     }

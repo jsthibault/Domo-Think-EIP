@@ -13,7 +13,6 @@ public class Utils {
     public static <T, U> List<T> transform(List<U> income, String property) {
         List<T> list = new ArrayList<T>();
 
-        Log.d("Avant La Liste: ", "Go go go go go !" + income.size());
         for (U obj : income) {
             try {
                 Field f = obj.getClass().getDeclaredField(property);

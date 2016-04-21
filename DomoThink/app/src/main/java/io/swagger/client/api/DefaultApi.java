@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.io.File;
 
 public class DefaultApi {
-  String basePath = "https://localhost";
+  String basePath = null;
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {

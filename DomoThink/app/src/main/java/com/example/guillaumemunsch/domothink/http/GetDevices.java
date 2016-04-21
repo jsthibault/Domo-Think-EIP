@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.example.guillaumemunsch.domothink.R;
 import com.example.guillaumemunsch.domothink.fragments.ObjectsFragment;
 
 import java.util.List;
@@ -29,7 +30,7 @@ public class GetDevices extends AsyncTask<Void, Void, List<Device>>
     protected void onPreExecute() {
         super.onPreExecute();
         api = new DefaultApi();
-        api.setBasePath("http://MBPdeGuillaume.lan:8080/api");
+        api.setBasePath(fragment.getResources().getString(R.string.apiUrl));
     }
     @Override
     protected List<Device> doInBackground(Void... params) {
