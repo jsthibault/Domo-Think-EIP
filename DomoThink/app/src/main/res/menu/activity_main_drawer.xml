@@ -11,9 +11,9 @@
             android:icon="@drawable/icon_grid_directives"
             android:title="Directives" />
         <item
-            android:id="@+id/nav_domobox"
+            android:id="@+id/nav_plugins"
             android:icon="@drawable/icon_grid_domobox"
-            android:title="DomoBox" />
+            android:title="Plugins" />
         <item
             android:id="@+id/nav_store"
             android:icon="@drawable/icon_grid_store"
@@ -27,4 +27,13 @@
             android:icon="@drawable/icon_grid_settings"
             android:title="Paramètres" />
     </group>
+
+    <item android:title="Account">
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/button_delete"
+                android:title="Logout" />
+        </menu>
+    </item>
 </menu>

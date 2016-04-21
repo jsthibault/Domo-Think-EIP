@@ -1,6 +1,7 @@
 package com.example.guillaumemunsch.domothink.fragments;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -26,6 +27,7 @@ import io.swagger.client.model.Device;
  * Created by guillaumemunsch on 01/03/16.
  */
 public class ObjectsFragment extends Fragment {
+    Context context = null;
     View rootView = null;
     boolean listLoaded = false;
     FloatingActionButton search = null;
@@ -56,6 +58,7 @@ public class ObjectsFragment extends Fragment {
 
                     @Override
                     public void onDismiss(ListView listView, int[] reverseSortedPositions) {
+                        Utils.confirm(context, "Deleting Object", "Do you really wanna delete this object ?");
                         for (int position : reverseSortedPositions) {
                             adapter.remove(position);
                         }
@@ -67,7 +70,7 @@ public class ObjectsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        context = this.getActivity();
         rootView = inflater.inflate(R.layout.fragment_objects, container, false);
 
         try { new GetDevices(this).execute(); }

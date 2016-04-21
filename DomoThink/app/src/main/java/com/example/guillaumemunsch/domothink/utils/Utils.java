@@ -1,6 +1,11 @@
 package com.example.guillaumemunsch.domothink.utils;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.util.Log;
+
+import com.example.guillaumemunsch.domothink.R;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -25,5 +30,34 @@ public class Utils {
             }
         }
         return list;
+    }
+
+    public static boolean confirm(Context c, String title, String msg) {
+        final boolean confirmation = false;
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(c);
+
+        alertDialogBuilder.setTitle(title);
+        alertDialogBuilder.setMessage(msg).setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        //confirmation = false;
+                        dialog.cancel();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        //confirmation = true;
+            }
+        });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
+        return confirmation;
     }
 }

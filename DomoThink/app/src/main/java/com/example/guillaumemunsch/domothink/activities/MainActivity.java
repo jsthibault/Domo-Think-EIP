@@ -83,8 +83,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentList = new ArrayList<Fragment>();
         fragmentList.add(new ObjectsFragment());
         fragmentList.add(new DirectivesFragment());
-        fragmentList.add(new StoreFragment());
         fragmentList.add(new MyPluginsFragment());
+        fragmentList.add(new StoreFragment());
         fragmentList.add(new UpdateFragment());
         fragmentList.add(new SettingsFragment());
 
@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragment = fragmentList.get(0);
         } else if (id == R.id.nav_directives) {
             fragment = fragmentList.get(1);
-        } else if (id == R.id.nav_domobox) {
+        } else if (id == R.id.nav_plugins) {
             fragment = fragmentList.get(2);
         } else if (id == R.id.nav_store) {
             fragment = fragmentList.get(3);
@@ -129,6 +129,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragment = fragmentList.get(4);
         } else if (id == R.id.nav_settings) {
             fragment = fragmentList.get(5);
+        } else if (id == R.id.nav_logout) {
+            //Logout
+            finish();
+            return true;
         }
         fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit();
 
