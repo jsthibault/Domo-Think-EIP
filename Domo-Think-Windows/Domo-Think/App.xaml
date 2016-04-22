@@ -16,6 +16,7 @@
             
             <converters:DebugConverter x:Key="debugConverter" />
             <converters:VisibilityConverter x:Key="visibilityConverter" />
+            <converters:CacheImageConverter x:Key="cacheImageConverter" />
         </ResourceDictionary>
     </Application.Resources>
 

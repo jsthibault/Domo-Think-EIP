@@ -2,6 +2,7 @@
 using Domo_Think.Model;
 using Domo_Think.MVVM;
 using Domo_Think.Navigation;
+using Domo_Think.ViewModels.Interfaces;
 using DomoAPI.Model;
 using System;
 using System.Collections.Generic;
@@ -23,12 +24,12 @@ using System.Windows.Input;
 
 namespace Domo_Think.ViewModels
 {
-    public class DirectiveViewModel : ViewModelBase
+    public class DirectiveViewModel : ViewModelBase, ILoader
     {
         #region FIELDS
 
-        private Boolean loadingDirectives;
-        private Boolean displayDirectives;
+        private Boolean loading;
+        private Boolean display;
 
         private DirectiveService directiveService;
 
@@ -37,32 +38,32 @@ namespace Domo_Think.ViewModels
         #region PROPERTIES
 
         /// <summary>
-        /// Gets or sets the loading visibility state.
+        /// Gets or sets the loading state.
         /// </summary>
-        public Boolean LoadingDirectives
+        public Boolean Loading
         {
-            get { return this.loadingDirectives; }
-            set { this.NotifyPropertyChanged(ref this.loadingDirectives, value); }
+            get { return this.loading; }
+            set { this.NotifyPropertyChanged(ref this.loading, value); }
         }
 
         /// <summary>
-        /// Gets or sets the display directive visibility state.
+        /// Gets or sets the display state.
         /// </summary>
-        public Boolean DisplayDirectives
+        public Boolean Display
         {
-            get { return this.displayDirectives; }
-            set { this.NotifyPropertyChanged(ref this.displayDirectives, value); }
+            get { return this.display; }
+            set { this.NotifyPropertyChanged(ref this.display, value); }
         }
+
+        /// <summary>
+        /// Gets or sets the Load command.
+        /// </summary>
+        public ICommand LoadCommand { get; set; }
 
         /// <summary>
         /// Gets the Add directive command.
         /// </summary>
         public ICommand AddDirectiveCommand { get; private set; }
-
-        /// <summary>
-        /// Gets the load/reload directives command.
-        /// </summary>
-        public ICommand LoadDirectivesCommand { get; private set; }
 
         /// <summary>
         /// Gets the directives list.
@@ -80,14 +81,10 @@ namespace Domo_Think.ViewModels
         {
             // Initialiaze the commands
             this.AddDirectiveCommand = new Command(this.AddDirectiveCommandAction);
-            this.LoadDirectivesCommand = new Command(this.LoadDirectivesCommandAction);
+            this.LoadCommand = new Command(this.LoadDirectivesCommandAction);
 
             // Initialize connected objets collection
             this.Directives = new ObservableCollection<DirectiveModel>();
-
-            // Initialize different view states
-            this.LoadingDirectives = true;
-            this.DisplayDirectives = !this.LoadingDirectives;
 
             // Initialize service
             this.directiveService = new DirectiveService(App.ApiClient);
@@ -103,8 +100,8 @@ namespace Domo_Think.ViewModels
         /// <param name="state">Loading state.</param>
         private void LoadingState(Boolean state)
         {
-            this.LoadingDirectives = state;
-            this.DisplayDirectives = !state;
+            this.Loading = state;
+            this.Display = !state;
         }
 
         #endregion

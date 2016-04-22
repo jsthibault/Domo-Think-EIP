@@ -69,8 +69,8 @@ namespace DomoAPI.Model
             StringBuilder _sb = new StringBuilder();
 
             _sb.AppendLine("class Login {\n");
-            _sb.Append("  Id: ").Append(this.Id).Append("\n");
-            _sb.Append("  Password: ").Append(this.Password).Append("\n");
+            _sb.Append("    Id: ").Append(this.Id).Append("\n");
+            _sb.Append("    Password: ").Append(this.Password).Append("\n");
             _sb.AppendLine("}\n");
 
             return _sb.ToString();

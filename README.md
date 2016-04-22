@@ -7,9 +7,9 @@ Application DomoThink pour Windows 10
 
 - Page d'accueil
 - Page de gestion des objets
+	- Ajouter un objet
 	- Supprimmer un objet
 - Page de gestion des directives
-	- Visualisation des directives
 	- Ajouter une directive
 	- Supprimer une directive
 	- Filtres de directives en fonction des objets
@@ -35,7 +35,10 @@ Application DomoThink pour Windows 10
 - Création de la page de Login (LoginPage.xaml)
 - Page de gestion des objets
 	- Visualisation des objets
-	- Ajouter un objet
+- Page de gestion des directives
+	- Visualisation des directives
+- Page de plugins
+	- Affichage des plugins
 
 	
 ## Screens ##

@@ -1,41 +1,12 @@
-﻿using Domo_Think.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-
-// Pour plus d'informations sur le modèle d'élément Page vierge, voir la page http://go.microsoft.com/fwlink/?LinkId=234238
+﻿using Domo_Think.Controls;
 
 namespace Domo_Think.Views.Directives
 {
-    /// <summary>
-    /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
-    /// </summary>
-    public sealed partial class OrdersPage : Page
+    public sealed partial class OrdersPage : DomoPage
     {
-        private DirectiveViewModel dataContext;
-
         public OrdersPage()
         {
             this.InitializeComponent();
-            this.dataContext = this.DataContext as DirectiveViewModel;
-            this.Loaded += OrdersPage_Loaded;
-        }
-
-        private void OrdersPage_Loaded(Object sender, RoutedEventArgs e)
-        {
-            if (this.dataContext.LoadDirectivesCommand != null)
-                this.dataContext.LoadDirectivesCommand.Execute(null);
         }
     }
 }

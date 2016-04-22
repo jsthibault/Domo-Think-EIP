@@ -1,6 +1,7 @@
 ﻿using Domo_Think.Model;
 using Domo_Think.MVVM;
 using Domo_Think.Navigation;
+using Domo_Think.ViewModels.Interfaces;
 using Domo_Think.Views;
 using Domo_Think.Views.Directives;
 using Domo_Think.Views.Objects;
@@ -115,7 +116,7 @@ namespace Domo_Think
             this.PrimaryNavigationButtons.Add(new NavigationButton("Objects", "Objects", "\uE772", typeof(ObjectsPage)));
             this.PrimaryNavigationButtons.Add(new NavigationButton("Directives", "Directives", "\uE17D", typeof(OrdersPage)));
             this.PrimaryNavigationButtons.Add(new NavigationButton("My DomoBox", "My DomoBox", "\uE1E4", typeof(MyDomoBox)));
-            this.PrimaryNavigationButtons.Add(new NavigationButton("Store", "Domo Store", "\uE719", typeof(StorePage)));
+            this.PrimaryNavigationButtons.Add(new NavigationButton("Store", "Domo Store", "\uE719", typeof(PluginStorePage)));
 
             // Initialize secondary buttons
             this.SecondaryNavigationButtons = new List<NavigationButton>();
@@ -265,7 +266,7 @@ namespace Domo_Think
                 if (_navigationButton.Type == typeof(Boolean))
                     this.Logout();
                 else
-                    NavigationService.Navigate(_navigationButton.Type);
+                    NavigationService.Navigate(_navigationButton.Type, param);
             }
             
             this.currentNavigationButton = _navigationButton;

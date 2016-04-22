@@ -89,10 +89,16 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <None Include="ApplicationInsights.config" />
     <None Include="project.json" />
+    <Page Include="Controls\DomoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\LoadingPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\RatingStar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -112,30 +118,38 @@
     <Compile Include="API\DirectiveService.cs" />
     <Compile Include="API\LoginService.cs" />
     <Compile Include="API\ObjectService.cs" />
+    <Compile Include="API\PluginService.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppShell.xaml.cs">
       <DependentUpon>AppShell.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\DomoPage.xaml.cs">
+      <DependentUpon>DomoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LoadingPanel.xaml.cs">
+      <DependentUpon>LoadingPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\RatingStar.xaml.cs">
       <DependentUpon>RatingStar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\CacheImageConverter.cs" />
     <Compile Include="Converters\DebugConverter.cs" />
     <Compile Include="Converters\VisibilityConverter.cs" />
     <Compile Include="Model\NavigationButton.cs" />
-    <Compile Include="Model\StoreAppModel.cs" />
     <Compile Include="MVVM\Command.cs" />
     <Compile Include="MVVM\ViewModelBase.cs" />
     <Compile Include="Navigation\NavigationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AddObjectViewModel.cs" />
     <Compile Include="ViewModels\DirectiveViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\ILoader.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ObjectsViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
-    <Compile Include="ViewModels\StoreViewModel.cs" />
+    <Compile Include="ViewModels\PluginStoreViewModel.cs" />
     <Compile Include="Views\Directives\AddOrder.xaml.cs">
       <DependentUpon>AddOrder.xaml</DependentUpon>
     </Compile>
@@ -160,8 +174,8 @@
     <Compile Include="Views\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\StorePage.xaml.cs">
-      <DependentUpon>StorePage.xaml</DependentUpon>
+    <Compile Include="Views\PluginStorePage.xaml.cs">
+      <DependentUpon>PluginStorePage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -250,7 +264,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\StorePage.xaml">
+    <Page Include="Views\PluginStorePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

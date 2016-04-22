@@ -47,6 +47,7 @@ namespace Domo_Think.ViewModels
         }
 
         public ICommand EchoApiCommand { get; private set; }
+
         public Object DomoApi { get; private set; }
 
         #endregion

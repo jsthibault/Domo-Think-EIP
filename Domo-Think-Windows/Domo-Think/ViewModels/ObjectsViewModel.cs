@@ -2,6 +2,7 @@
 using Domo_Think.Model;
 using Domo_Think.MVVM;
 using Domo_Think.Navigation;
+using Domo_Think.ViewModels.Interfaces;
 using DomoAPI.Model;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
-
 
 /*--------------------------------------------------------
  * ObjectsViewModel.cs
@@ -25,48 +25,18 @@ using Windows.UI.Xaml.Controls;
 
 namespace Domo_Think.ViewModels
 {
-    public class ObjectsViewModel : ViewModelBase
+    public class ObjectsViewModel : ViewModelBase, ILoader
     {
-        #region CONSTANTS
-
-
-
-        #endregion
-
-        #region ENUMS
-
-
-
-        #endregion
-
         #region FIELDS
 
-        private Boolean loadingObjects;
-        private Boolean displayObjects;
+        private Boolean loading;
+        private Boolean display;
 
         private ObjectService objectService;
 
         #endregion
 
         #region PROPERTIES
-
-        /// <summary>
-        /// Gets or sets the loading visibility state.
-        /// </summary>
-        public Boolean LoadingObjects
-        {
-            get { return this.loadingObjects; }
-            set { this.NotifyPropertyChanged(ref this.loadingObjects, value); }
-        }
-
-        /// <summary>
-        /// Gets or sets the display objects visibility state.
-        /// </summary>
-        public Boolean DisplayObjects
-        {
-            get { return this.displayObjects; }
-            set { this.NotifyPropertyChanged(ref this.displayObjects, value); }
-        }
 
         /// <summary>
         /// Gets the Add object command.
@@ -88,6 +58,29 @@ namespace Domo_Think.ViewModels
         /// </summary>
         public ObservableCollection<ObjectModel> ConnectedObjects { get; private set; }
 
+        /// <summary>
+        /// Gets or sets the loading state.
+        /// </summary>
+        public Boolean Loading
+        {
+            get { return this.loading; }
+            set { this.NotifyPropertyChanged(ref this.loading, value); }
+        }
+
+        /// <summary>
+        /// Gets or sets the display state.
+        /// </summary>
+        public Boolean Display
+        {
+            get { return this.display; }
+            set { this.NotifyPropertyChanged(ref this.display, value); }
+        }
+
+        /// <summary>
+        /// Gets or sets the Load command.
+        /// </summary>
+        public ICommand LoadCommand { get; set; }
+
         #endregion
 
         #region CONSTRUCTORS
@@ -98,16 +91,12 @@ namespace Domo_Think.ViewModels
         public ObjectsViewModel()
         {
             // Initialiaze the commands
-            this.AddObjectCommand = new Command(this.AddObjectCommandAction);
-            this.LoadObjectsCommand = new Command(this.LoadObjectsCommandAction);
-            this.SwitchObjectStateCommand = new Command(this.SwitchObjectStateCommandAction);
+            this.LoadCommand = new Command(this.LoadObjectsAction);
+            this.AddObjectCommand = new Command(this.AddObjectAction);
+            this.SwitchObjectStateCommand = new Command(this.SwitchObjectStateAction);
 
             // Initialize connected objets collection
             this.ConnectedObjects = new ObservableCollection<ObjectModel>();
-
-            // Initialize different view states
-            this.LoadingObjects = true;
-            this.DisplayObjects = !this.LoadingObjects;
 
             // Initialize API service
             this.objectService = new ObjectService(App.ApiClient);
@@ -123,8 +112,8 @@ namespace Domo_Think.ViewModels
         /// <param name="state">Loading state.</param>
         private void LoadingState(Boolean state)
         {
-            this.LoadingObjects = state;
-            this.DisplayObjects = !state;
+            this.Loading = state;
+            this.Display = !state;
         }
 
         #endregion
@@ -135,7 +124,7 @@ namespace Domo_Think.ViewModels
         /// Switch to the page to add a new object.
         /// </summary>
         /// <param name="param"></param>
-        private void AddObjectCommandAction(Object param)
+        private void AddObjectAction(Object param)
         {
             NavigationService.Navigate(typeof(Views.Objects.AddObject));
         }
@@ -144,7 +133,7 @@ namespace Domo_Think.ViewModels
         /// 
         /// </summary>
         /// <param name="param"></param>
-        private void SwitchObjectStateCommandAction(Object param)
+        private void SwitchObjectStateAction(Object param)
         {
             // Change object state here
         }
@@ -153,7 +142,7 @@ namespace Domo_Think.ViewModels
         /// Loads or reloads the object list.
         /// </summary>
         /// <param name="param"></param>
-        private async void LoadObjectsCommandAction(Object param)
+        private async void LoadObjectsAction(Object param)
         {
             // Activate loading state
             this.LoadingState(true);

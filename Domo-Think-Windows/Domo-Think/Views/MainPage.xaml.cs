@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domo_Think.Controls;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace Domo_Think.Views
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage : DomoPage
     {
         public MainPage()
         {
