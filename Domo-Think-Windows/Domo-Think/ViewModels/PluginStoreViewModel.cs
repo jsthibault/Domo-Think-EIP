@@ -2,6 +2,7 @@
 using Domo_Think.Model;
 using Domo_Think.MVVM;
 using Domo_Think.ViewModels.Interfaces;
+using Domo_Think.Views;
 using DomoAPI.Model;
 using System;
 using System.Collections.Generic;
@@ -64,6 +65,8 @@ namespace Domo_Think.ViewModels
         /// </summary>
         public ICommand LoadCommand { get; set; }
 
+        public ICommand SeePluginCommand { get; private set; }
+
         #endregion
 
         #region CONSTRUCTORS
@@ -78,6 +81,7 @@ namespace Domo_Think.ViewModels
 
             // Initialize commands
             this.LoadCommand = new Command(this.LoadPluginsAction);
+            this.SeePluginCommand = new Command(this.SeePluginAction);
         }
 
         #endregion
@@ -106,6 +110,17 @@ namespace Domo_Think.ViewModels
 
             this.Loading = false;
             this.Display = true;
+        }
+
+        private async void SeePluginAction(Object param)
+        {
+            PluginModel _model = null;
+
+            for (Int32 i = 0; i < this.Plugins.Count; ++i)
+                if (this.Plugins[i].Id == (Int32)param)
+                    _model = this.Plugins[i];
+
+            Navigation.NavigationService.Navigate(typeof(PluginPage), _model);
         }
 
         #endregion

@@ -7,7 +7,7 @@
     xmlns:controls="using:Domo_Think.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
+    mc:Ignorable="d" x:Name="PLUGIN_STORE_PAGE"
     OnLoaded="{Binding LoadCommand}">
 
     <!-- Page DataContext -->
@@ -52,7 +52,20 @@
 
             <!-- Display plugins panel -->
             <ScrollViewer VerticalScrollBarVisibility="Auto" Visibility="{Binding Display, Converter={StaticResource visibilityConverter}}">
-                <GridView x:Name="GRID_VIEW" ItemTemplate="{StaticResource StoreButtonTemplate}" ItemsSource="{Binding Plugins}" />
+                <GridView x:Name="GRID_VIEW" 
+                          ItemsSource="{Binding Plugins}">
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource PlainButtonWithNoStyle}" Command="{Binding DataContext.SeePluginCommand, ElementName=PLUGIN_STORE_PAGE}" CommandParameter="{Binding Id}">
+                                <StackPanel>
+                                    <Image Margin="4" Source="{Binding Image, Converter={StaticResource cacheImageConverter}}" Stretch="Fill" Width="128" Height="128" />
+                                    <TextBlock Margin="4,4,4,0" Text="{Binding Name}" TextWrapping="Wrap" />
+                                    <TextBlock Margin="4,4,4,0"  Text="Rate: " />
+                                </StackPanel>
+                            </Button>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
             </ScrollViewer>
         </Grid>
     </Grid>
