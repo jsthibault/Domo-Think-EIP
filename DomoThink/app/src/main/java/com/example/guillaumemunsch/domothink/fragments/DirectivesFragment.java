@@ -9,11 +9,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.guillaumemunsch.domothink.R;
 import com.example.guillaumemunsch.domothink.activities.CreateDirectiveActivity;
 import com.example.guillaumemunsch.domothink.activities.DirectivesActivity;
+import com.example.guillaumemunsch.domothink.activities.InfosObject;
 import com.example.guillaumemunsch.domothink.adapter.EditAdapter;
 import com.example.guillaumemunsch.domothink.http.GetDevices;
 import com.example.guillaumemunsch.domothink.http.GetDirectives;
@@ -53,12 +55,20 @@ public class DirectivesFragment extends Fragment {
 
                     @Override
                     public void onDismiss(ListView listView, int[] reverseSortedPositions) {
+                        Utils.confirm(getActivity(), "Deleting Directive", "Do you really want to delete this directive ?");
                         for (int position : reverseSortedPositions) {
                             adapter.remove(position);
                         }
                         adapter.notifyDataSetChanged();
                     }
                 }));
+        mList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(new Intent(getActivity(), CreateDirectiveActivity.class));
+            }
+        });
     }
 
     @Override

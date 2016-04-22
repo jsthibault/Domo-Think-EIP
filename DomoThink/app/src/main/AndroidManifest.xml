@@ -55,12 +55,15 @@
             android:label="Paramètres">
         </activity>
         <activity android:name=".activities.CreateDirectiveActivity"
-            android:label="Création d'une directive">
+            android:label="Edition d'une directive">
         </activity>
         <activity android:name=".activities.PluginDetailActivity"
             android:label="Détail d'un plugin">
         </activity>
         <activity android:name=".activities.TabsActivity"
+            android:label="Store">
+        </activity>
+        <activity android:name=".activities.InfosObject"
             android:label="Store">
         </activity>
     </application>

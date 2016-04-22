@@ -56,7 +56,7 @@ public class MyPluginsFragment extends Fragment {
 
                     @Override
                     public void onDismiss(ListView listView, int[] reverseSortedPositions) {
-                        Utils.confirm(context, "Deleting Object", "Do you really wanna delete this object ?");
+                        Utils.confirm(context, "Removing Plugin", "Do you really want to remove this plugin ?");
                         for (int position : reverseSortedPositions) {
                             adapter.remove(position);
                         }

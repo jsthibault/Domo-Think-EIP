@@ -9,10 +9,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.guillaumemunsch.domothink.R;
 import com.example.guillaumemunsch.domothink.activities.ConnectedObjectsActivity;
+import com.example.guillaumemunsch.domothink.activities.InfosObject;
+import com.example.guillaumemunsch.domothink.activities.MainActivity;
 import com.example.guillaumemunsch.domothink.activities.SearchObjectsActivity;
 import com.example.guillaumemunsch.domothink.adapter.SwitchListAdapter;
 import com.example.guillaumemunsch.domothink.http.GetDevices;
@@ -58,13 +61,20 @@ public class ObjectsFragment extends Fragment {
 
                     @Override
                     public void onDismiss(ListView listView, int[] reverseSortedPositions) {
-                        Utils.confirm(context, "Deleting Object", "Do you really wanna delete this object ?");
+                        Utils.confirm(context, "Deleting Object", "Do you really want to delete this object ?");
                         for (int position : reverseSortedPositions) {
                             adapter.remove(position);
                         }
                         adapter.notifyDataSetChanged();
                     }
                 }));
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(new Intent(getActivity(), InfosObject.class));
+            }
+        });
     }
 
     @Override

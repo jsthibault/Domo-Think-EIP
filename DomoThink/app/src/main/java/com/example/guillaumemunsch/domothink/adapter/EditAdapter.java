@@ -60,15 +60,15 @@ public class EditAdapter extends BaseAdapter {
         View rowView;
         rowView = inflater.inflate(R.layout.list_item_edit, null);
         holder.tv = (TextView) rowView.findViewById(R.id.editDeleteObjectName);
-        holder.e = (ImageView) rowView.findViewById(R.id.editElement);
+//        holder.e = (ImageView) rowView.findViewById(R.id.editElement);
         holder.tv.setText(objs.get(position));
-        holder.e.setOnClickListener(new View.OnClickListener() {
+        /*holder.e.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 Toast.makeText(context, "Edit coming soon", Toast.LENGTH_LONG).show();
             }
-        });
+        });*/
         return rowView;
     }
 

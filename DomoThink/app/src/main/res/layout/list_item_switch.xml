@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
     android:paddingBottom="@dimen/list_vertical_padding"
     android:paddingTop="@dimen/list_vertical_padding"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -12,6 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="20"
+        android:focusable="false"
+        android:clickable="false"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
         android:id="@+id/switchObjectName" />
