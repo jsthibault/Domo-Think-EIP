@@ -13,18 +13,14 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.guillaumemunsch.domothink.R;
-import com.example.guillaumemunsch.domothink.activities.ConnectedObjectsActivity;
 import com.example.guillaumemunsch.domothink.activities.InfosObject;
-import com.example.guillaumemunsch.domothink.activities.MainActivity;
 import com.example.guillaumemunsch.domothink.activities.SearchObjectsActivity;
 import com.example.guillaumemunsch.domothink.adapter.SwitchListAdapter;
-import com.example.guillaumemunsch.domothink.http.GetDevices;
 import com.example.guillaumemunsch.domothink.listeners.SwipeDismissListViewTouchListener;
+import com.example.guillaumemunsch.domothink.models.Device;
 import com.example.guillaumemunsch.domothink.utils.Utils;
 
 import java.util.List;
-
-import io.swagger.client.model.Device;
 
 /**
  * Created by guillaumemunsch on 01/03/16.
@@ -82,9 +78,6 @@ public class ObjectsFragment extends Fragment {
                              Bundle savedInstanceState) {
         context = this.getActivity();
         rootView = inflater.inflate(R.layout.fragment_objects, container, false);
-
-        try { new GetDevices(this).execute(); }
-        catch (Exception ex) { Log.d("Error: ", ex.getMessage()); }
 
         search = (FloatingActionButton)rootView.findViewById(R.id.searchObjectsButton);
         search.setOnClickListener(new View.OnClickListener() {

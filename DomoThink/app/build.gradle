@@ -39,9 +39,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:22.1.0'
     compile 'com.android.support:design:23.1.1'
-    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta3'
     compile 'org.apache.httpcomponents:httpmime:4.5.2'
     compile 'org.apache.httpcomponents:httpcore:4.4.4'
-    compile 'io.swagger:swagger-annotations:1.5.8'
+    compile 'com.loopj.android:android-async-http:1.4.9'
+
 }

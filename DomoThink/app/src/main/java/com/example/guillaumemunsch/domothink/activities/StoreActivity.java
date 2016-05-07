@@ -9,6 +9,12 @@ import android.widget.ListView;
 import com.example.guillaumemunsch.domothink.R;
 import com.example.guillaumemunsch.domothink.adapter.PluginAdapter;
 import com.example.guillaumemunsch.domothink.adapter.SwitchListAdapter;
+import com.example.guillaumemunsch.domothink.models.Plugin;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Created by guillaumemunsch on 03/12/15.
@@ -22,15 +28,19 @@ public class StoreActivity extends AppCompatActivity {
 
         setContentView(R.layout.store_activity);
 
-        int[] icons = new int[]{R.drawable.mario, R.drawable.mario, R.drawable.mario, R.drawable.mario};
+        int[] icons = new int[]{R.drawable.plugin_logo, R.drawable.plugin_logo, R.drawable.plugin_logo, R.drawable.plugin_logo};
         String[] names = new String[]{"Valentine Day", "Music Mode", "Cinema setup", "Working Mood"};
         String[] descs = new String[]{"The best plugin for your couples evenings", "Ready to rock ?!", "Watch your favourite movies !", "Calm ambiance. Perfect for work !"};
         float[] rates = new float[]{4.7f, 3.8f, 4.4f, 3f};
 
-/*        list = (ListView)findViewById(R.id.pluginList);
+        list = (ListView)findViewById(R.id.pluginList);
 
-        list.setAdapter(new PluginAdapter(this, icons, names, descs, rates));
-*/
+        List<Plugin> plugins = new ArrayList<Plugin>();
+        for (int i = 0; i < 4; ++i)
+            plugins.add(new Plugin(icons[i], names[i], descs[i], rates[i]));
+
+        list.setAdapter(new PluginAdapter(this, plugins));
+
     }
 
     @Override

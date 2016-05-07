@@ -20,9 +20,9 @@ public class PluginDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.plugin_detail_activity);
 
-        int[] icons = new int[]{R.drawable.mario, R.drawable.mario, R.drawable.mario};
-        String[] names = new String[]{"Marcel Patulacci", "Tom Cruise", "Emma Watson"};
-        String[] comments = new String[]{"Really cool though !", "Crashes everytime I use it ! Fix this please !!!", "OMFG. Too much advertisement ! :@ !!"};
+        int[] icons = new int[]{R.drawable.plugin_logo, R.drawable.plugin_logo, R.drawable.plugin_logo};
+        String[] names = new String[]{"User 1", "User 2", "User 3"};
+        String[] comments = new String[]{"This plugin works great!", "Crashed with the lamp XM1014", "I use this plugin a lot, it works well."};
         float[] rates = new float[]{5f, 2f, 3.5f};
 
         list = (ListView)findViewById(R.id.pluginCommentsList);

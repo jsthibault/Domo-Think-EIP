@@ -1,6 +1,7 @@
 package com.example.guillaumemunsch.domothink.fragments;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -15,6 +16,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.guillaumemunsch.domothink.R;
+import com.example.guillaumemunsch.domothink.activities.InfosObject;
+import com.example.guillaumemunsch.domothink.activities.StoreActivity;
 import com.example.guillaumemunsch.domothink.adapter.PluginAdapter;
 import com.example.guillaumemunsch.domothink.adapter.ViewPagerAdapter;
 import com.example.guillaumemunsch.domothink.models.Plugin;
@@ -48,7 +51,7 @@ public class StoreFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_store, container, false);
-
+        startActivity(new Intent(getActivity(), StoreActivity.class));
         return rootView;
     }
 

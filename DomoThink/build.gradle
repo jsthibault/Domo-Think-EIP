@@ -74,13 +74,14 @@ ext {
 
 dependencies {
     compile "io.swagger:swagger-annotations:$swagger_annotations_version"
-    compile "com.google.code.gson:gson:$gson_version"
-    compile ("org.apache.httpcomponents:httpmime:4.5.2"){
+    compile 'com.squareup.okhttp:okhttp:2.4.0'
+    compile 'com.loopj.android:android-async-http:1.4.9'
+    /*    compile ("org.apache.httpcomponents:httpmime:4.5.2"){
         exclude group: 'org.apache.httpcomponents', module: 'httpclient'
     }
     compile ("org.apache.httpcomponents:httpcore:4.4.4"){
         exclude group: 'org.apache.httpcomponents', module: 'httpclient'
-    }
+    }*/
     testCompile "junit:junit:$junit_version"
 }
 

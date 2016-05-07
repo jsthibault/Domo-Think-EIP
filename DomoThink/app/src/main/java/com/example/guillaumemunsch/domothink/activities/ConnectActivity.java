@@ -1,12 +1,8 @@
 package com.example.guillaumemunsch.domothink.activities;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -16,26 +12,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.guillaumemunsch.domothink.http.RestAPI;
+import com.loopj.android.http.*;
+
 import com.example.guillaumemunsch.domothink.R;
-import com.example.guillaumemunsch.domothink.fragments.UpToDateFragment;
-import com.example.guillaumemunsch.domothink.http.Api;
-import com.example.guillaumemunsch.domothink.http.PostUserAuth;
-import com.example.guillaumemunsch.domothink.http.ServiceClasses;
 
-import java.util.List;
+import org.json.*;
 
-import io.swagger.client.api.DefaultApi;
-import io.swagger.client.model.Device;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.GsonConverterFactory;
-import retrofit2.Response;
-import retrofit2.Retrofit;
+import cz.msebera.android.httpclient.Header;
 
 /**
  * Created by guillaumemunsch on 03/12/15.
  */
 public class ConnectActivity extends AppCompatActivity {
+    Context context;
     Button connectButton = null;
     String token = null;
     EditText userInput, passwordInput;
@@ -45,23 +35,50 @@ public class ConnectActivity extends AppCompatActivity {
     }
 
     public void tryConnection(){
-        if (token.equals("Error"))
-            Toast.makeText(this, "Wrong username/password", Toast.LENGTH_LONG).show();
-        else
-            startActivity(new Intent(ConnectActivity.this, MainActivity.class));
+        try {
+            if (token.equals("Error"))
+                Toast.makeText(this, "Wrong username/password", Toast.LENGTH_LONG).show();
+            else
+                startActivity(new Intent(ConnectActivity.this, MainActivity.class));
+        }
+        catch (NullPointerException ex)
+        {
+            throw ex;
+        }
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connect);
+        context = this;
         userInput = (EditText)findViewById(R.id.user);
         passwordInput = (EditText)findViewById(R.id.password);
         connectButton = (Button)findViewById(R.id.connection_button);
         connectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new PostUserAuth(ConnectActivity.this).execute(userInput.getText().toString(), passwordInput.getText().toString());
+                RequestParams params = new RequestParams();
+                params.put("username", "user");
+                params.put("password", "test");
+                RestAPI.post("user/auth", params, new JsonHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                        Log.d("Ce CODE", ": " + statusCode);
+                        try {
+                            token = response.getString("token");
+                            startActivity(new Intent(ConnectActivity.this, MainActivity.class));
+                        }
+                        catch (Throwable ex){
+                            Log.d("Connexion", "Unable to find token.");
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                        Log.d("Connexion: ", "" + statusCode);
+                    }
+                });
             }
         });
     }

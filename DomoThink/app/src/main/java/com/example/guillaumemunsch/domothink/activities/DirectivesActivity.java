@@ -10,8 +10,6 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.example.guillaumemunsch.domothink.R;
-import com.example.guillaumemunsch.domothink.adapter.EditAdapter;
-import com.example.guillaumemunsch.domothink.listeners.SwipeDismissListViewTouchListener;
 
 /**
  * Created by guillaumemunsch on 03/12/15.
@@ -52,7 +50,7 @@ public class DirectivesActivity extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DirectivesActivity.this, CreateDirectiveActivity.class));
+                startActivity(new Intent(DirectivesActivity.this, CreateUpdateDirectiveActivity.class));
             }
         });
     }

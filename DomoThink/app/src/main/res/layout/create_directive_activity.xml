@@ -10,7 +10,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/directiveName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -19,28 +19,28 @@
 
 
         <Spinner
-            android:id="@+id/newDirectiveObject"
+            android:id="@+id/directiveObject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:entries="@array/connectedObjects"></Spinner>
 
         <Spinner
-            android:id="@+id/newDirectiveAction"
+            android:id="@+id/directiveAction"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:entries="@array/objectsAction"></Spinner>
 
         <Spinner
-            android:id="@+id/newDirectivePeriodicity"
+            android:id="@+id/directivePeriodicity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:entries="@array/periodicity"></Spinner>
 
         <Spinner
-            android:id="@+id/newDirectiveDay"
+            android:id="@+id/directiveDay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

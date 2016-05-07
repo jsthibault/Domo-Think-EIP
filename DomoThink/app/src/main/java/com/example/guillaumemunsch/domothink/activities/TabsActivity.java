@@ -150,8 +150,10 @@ public class TabsActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+/*
         outState.putParcelableArrayList("mPlugins", (ArrayList<Plugin>) mPlugins);
         outState.putParcelableArrayList("mPluginsFiltered", (ArrayList<Plugin>) mPluginsFiltered);
+*/
         outState.putBoolean("mSearchOpened", mSearchOpened);
         outState.putString("mSearchString", mSearchString);
     }
@@ -220,16 +222,19 @@ public class TabsActivity extends AppCompatActivity {
             for (Plugin plugin : mPlugins) {
 
                 // Content to search through (in lower case).
+/*
                 String content = (
                         String.valueOf(plugin.getmIcon()) + " " +
                                 plugin.getmName() + " " +
                                 plugin.getmDescription() + " " +
                                 String.valueOf(plugin.getmRate())
                 ).toLowerCase();
+*/
 
                 for (String word : queryByWords) {
 
                     // There is a match only if all of the words are contained.
+/*
                     int numberOfMatches = queryByWords.length;
 
                     // All query words have to be contained,
@@ -244,6 +249,7 @@ public class TabsActivity extends AppCompatActivity {
                     if (numberOfMatches == 0) {
                         pluginsFiltered.add(plugin);
                     }
+*/
 
                 }
 

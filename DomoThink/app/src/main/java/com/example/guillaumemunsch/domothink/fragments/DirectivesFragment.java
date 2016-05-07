@@ -13,18 +13,14 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.guillaumemunsch.domothink.R;
-import com.example.guillaumemunsch.domothink.activities.CreateDirectiveActivity;
-import com.example.guillaumemunsch.domothink.activities.DirectivesActivity;
-import com.example.guillaumemunsch.domothink.activities.InfosObject;
+import com.example.guillaumemunsch.domothink.activities.CreateUpdateDirectiveActivity;
 import com.example.guillaumemunsch.domothink.adapter.EditAdapter;
-import com.example.guillaumemunsch.domothink.http.GetDevices;
-import com.example.guillaumemunsch.domothink.http.GetDirectives;
 import com.example.guillaumemunsch.domothink.listeners.SwipeDismissListViewTouchListener;
+import com.example.guillaumemunsch.domothink.models.Directive;
 import com.example.guillaumemunsch.domothink.utils.Utils;
 
 import java.util.List;
 
-import io.swagger.client.model.Directive;
 
 /**
  * Created by guillaumemunsch on 01/03/16.
@@ -38,7 +34,6 @@ public class DirectivesFragment extends Fragment {
 
     public void setList(List<Directive> list) {
         this.directives = list;
-        Log.d("ELEENT 1", list.get(1).getName());
     }
 
     public void loadContent() {
@@ -66,7 +61,10 @@ public class DirectivesFragment extends Fragment {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity(new Intent(getActivity(), CreateDirectiveActivity.class));
+
+                Intent intent = new Intent(getActivity(), CreateUpdateDirectiveActivity.class);
+                intent.putExtra("editedDirective", directives.get(position));
+                startActivity(intent);
             }
         });
     }
@@ -76,15 +74,13 @@ public class DirectivesFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_directives, container, false);
-        try { new GetDirectives(this).execute(); }
-        catch (Exception ex) { Log.d("Error: ", ex.getMessage()); }
 
         mList = (ListView)rootView.findViewById(R.id.directivesList);
         add = (FloatingActionButton)rootView.findViewById(R.id.addDirectiveButton);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), CreateDirectiveActivity.class));
+                startActivity(new Intent(getActivity(), CreateUpdateDirectiveActivity.class));
             }
         });
 

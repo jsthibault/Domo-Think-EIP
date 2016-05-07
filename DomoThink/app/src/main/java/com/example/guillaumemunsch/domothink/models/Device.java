@@ -1,28 +1,16 @@
 package com.example.guillaumemunsch.domothink.models;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.io.Serializable;
 
 /**
- * Created by guillaumemunsch on 21/12/15.
+ * Created by guillaumemunsch on 07/05/16.
  */
 
 @SuppressWarnings("serial")
-public class Plugin implements Serializable {
-    private int icon;
+public class Device implements Serializable {
     private String name;
     private String description;
-    private float rate;
-
-    public int getIcon() {
-        return icon;
-    }
-
-    public void setIcon(int icon) {
-        this.icon = icon;
-    }
+    private boolean state;
 
     public String getName() {
         return name;
@@ -40,19 +28,18 @@ public class Plugin implements Serializable {
         this.description = description;
     }
 
-    public float getRate() {
-        return rate;
+    public boolean isState() {
+        return state;
     }
 
-    public void setRate(float rate) {
-        this.rate = rate;
+    public void setState(boolean state) {
+        this.state = state;
     }
 
-    public Plugin(int icon, String name, String description, float rate) {
+    public Device(String name, String description, boolean state) {
 
-        this.icon = icon;
         this.name = name;
         this.description = description;
-        this.rate = rate;
+        this.state = state;
     }
 }

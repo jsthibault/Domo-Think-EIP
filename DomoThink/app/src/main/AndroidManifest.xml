@@ -54,7 +54,7 @@
         <activity android:name=".activities.SettingsActivity"
             android:label="Paramètres">
         </activity>
-        <activity android:name=".activities.CreateDirectiveActivity"
+        <activity android:name=".activities.CreateUpdateDirectiveActivity"
             android:label="Edition d'une directive">
         </activity>
         <activity android:name=".activities.PluginDetailActivity"

@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 
@@ -17,7 +18,10 @@ import com.example.guillaumemunsch.domothink.R;
 /**
  * Created by guillaumemunsch on 03/12/15.
  */
-public class CreateDirectiveActivity extends AppCompatActivity {
+public class CreateUpdateDirectiveActivity extends AppCompatActivity {
+    EditText name = null;
+    Spinner object = null;
+    Spinner action = null;
     Spinner periodicity = null;
     Spinner day = null;
     TimePicker tp = null;
@@ -26,8 +30,10 @@ public class CreateDirectiveActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_directive_activity);
-        periodicity = (Spinner)findViewById(R.id.newDirectivePeriodicity);
-        day = (Spinner)findViewById(R.id.newDirectiveDay);
+        name = (EditText)findViewById(R.id.directiveName);
+        object = (Spinner)findViewById(R.id.directiveObject);
+        periodicity = (Spinner)findViewById(R.id.directivePeriodicity);
+        day = (Spinner)findViewById(R.id.directiveDay);
         tp = (TimePicker)findViewById(R.id.directiveHour);
         tp.setIs24HourView(true);
         tp.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
@@ -55,6 +61,12 @@ public class CreateDirectiveActivity extends AppCompatActivity {
                 tp.setVisibility(View.GONE);
             }
         });
+
+
+        if (getIntent().hasExtra("editedDirective"))
+        {
+
+        }
     }
 
     @Override
