@@ -11,11 +11,20 @@ import android.widget.ListView;
 
 import com.example.guillaumemunsch.domothink.R;
 import com.example.guillaumemunsch.domothink.adapter.SwitchListAdapter;
+import com.example.guillaumemunsch.domothink.http.RestAPI;
 import com.example.guillaumemunsch.domothink.listeners.SwipeDismissListViewTouchListener;
+import com.example.guillaumemunsch.domothink.models.Device;
 import com.example.guillaumemunsch.domothink.models.Plugin;
 import com.example.guillaumemunsch.domothink.utils.Utils;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.json.JSONArray;
 
 import java.util.List;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * Created by guillaumemunsch on 01/03/16.
@@ -66,6 +75,23 @@ public class MyPluginsFragment extends Fragment {
         context = this.getActivity();
         rootView = inflater.inflate(R.layout.fragment_my_plugins, container, false);
 
+        RestAPI.get("/plugin", null, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                try {
+                    pluginList = new Gson().fromJson(response.toString(), new TypeToken<List<Plugin>>() {
+                    }.getType());
+                    loadContent();
+                } catch (Throwable ex) {
+                    Log.d("Plugin Fragment", "Unable to find plugin.");
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                Log.d("Response: ", responseString);
+            }
+        });
 
         return rootView;
     }

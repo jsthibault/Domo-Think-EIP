@@ -14,13 +14,24 @@ import android.widget.ListView;
 
 import com.example.guillaumemunsch.domothink.R;
 import com.example.guillaumemunsch.domothink.activities.InfosObject;
+import com.example.guillaumemunsch.domothink.activities.MainActivity;
 import com.example.guillaumemunsch.domothink.activities.SearchObjectsActivity;
 import com.example.guillaumemunsch.domothink.adapter.SwitchListAdapter;
+import com.example.guillaumemunsch.domothink.http.RestAPI;
 import com.example.guillaumemunsch.domothink.listeners.SwipeDismissListViewTouchListener;
 import com.example.guillaumemunsch.domothink.models.Device;
 import com.example.guillaumemunsch.domothink.utils.Utils;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.loopj.android.http.JsonHttpResponseHandler;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.List;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * Created by guillaumemunsch on 01/03/16.
@@ -78,6 +89,18 @@ public class ObjectsFragment extends Fragment {
                              Bundle savedInstanceState) {
         context = this.getActivity();
         rootView = inflater.inflate(R.layout.fragment_objects, container, false);
+        RestAPI.get("/device", null, new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                try {
+                    devices = new Gson().fromJson(response.toString(), new TypeToken<List<Device>>(){}.getType());
+                    loadContent();
+                }
+                catch (Throwable ex){
+                    Log.d("Devices Fragment", "Unable to find devices.");
+                }
+            }
+        });
 
         search = (FloatingActionButton)rootView.findViewById(R.id.searchObjectsButton);
         search.setOnClickListener(new View.OnClickListener() {

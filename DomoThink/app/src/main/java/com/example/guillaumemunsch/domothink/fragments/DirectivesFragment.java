@@ -15,11 +15,20 @@ import android.widget.ListView;
 import com.example.guillaumemunsch.domothink.R;
 import com.example.guillaumemunsch.domothink.activities.CreateUpdateDirectiveActivity;
 import com.example.guillaumemunsch.domothink.adapter.EditAdapter;
+import com.example.guillaumemunsch.domothink.http.RestAPI;
 import com.example.guillaumemunsch.domothink.listeners.SwipeDismissListViewTouchListener;
+import com.example.guillaumemunsch.domothink.models.Device;
 import com.example.guillaumemunsch.domothink.models.Directive;
 import com.example.guillaumemunsch.domothink.utils.Utils;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.json.JSONArray;
 
 import java.util.List;
+
+import cz.msebera.android.httpclient.Header;
 
 
 /**
@@ -74,6 +83,19 @@ public class DirectivesFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_directives, container, false);
+
+        RestAPI.get("/directive", null, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                try {
+                    directives = new Gson().fromJson(response.toString(), new TypeToken<List<Directive>>() {
+                    }.getType());
+                    loadContent();
+                } catch (Throwable ex) {
+                    Log.d("Directive Fragment", "Unable to find directives.");
+                }
+            }
+        });
 
         mList = (ListView)rootView.findViewById(R.id.directivesList);
         add = (FloatingActionButton)rootView.findViewById(R.id.addDirectiveButton);

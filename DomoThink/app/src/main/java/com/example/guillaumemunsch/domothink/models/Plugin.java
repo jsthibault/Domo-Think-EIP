@@ -15,6 +15,11 @@ public class Plugin implements Serializable {
     private String name;
     private String description;
     private float rate;
+    private boolean activate;
+
+    public boolean isActivate() { return activate; }
+
+    public void setActivate(boolean activate) { this.activate = activate; }
 
     public int getIcon() {
         return icon;
