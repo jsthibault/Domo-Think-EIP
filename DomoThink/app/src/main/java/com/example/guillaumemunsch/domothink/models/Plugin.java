@@ -11,11 +11,16 @@ import java.io.Serializable;
 
 @SuppressWarnings("serial")
 public class Plugin implements Serializable {
+    private int id;
     private int icon;
     private String name;
     private String description;
     private float rate;
     private boolean activate;
+
+    public int getId() { return id; }
+
+    public void setId(int id) { this.id = id; }
 
     public boolean isActivate() { return activate; }
 
@@ -53,8 +58,9 @@ public class Plugin implements Serializable {
         this.rate = rate;
     }
 
-    public Plugin(int icon, String name, String description, float rate) {
+    public Plugin(int id, int icon, String name, String description, float rate) {
 
+        this.id = id;
         this.icon = icon;
         this.name = name;
         this.description = description;

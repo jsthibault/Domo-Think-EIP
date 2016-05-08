@@ -14,16 +14,29 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
+            android:text="Name: "
             android:id="@+id/textView"
             android:layout_alignParentBottom="true" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText2"
+            android:id="@+id/infoObjectName"
             android:layout_gravity="right"
             android:layout_alignParentBottom="true" />
+
     </LinearLayout>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:id="@+id/editDeviceNameBtn"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/domoBlue"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/white"
+        android:textSize="20dp"/>
 
 </LinearLayout>

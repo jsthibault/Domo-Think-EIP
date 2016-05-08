@@ -43,6 +43,7 @@ public class ObjectsFragment extends Fragment {
     FloatingActionButton search = null;
     ListView list = null;
     List<Device> devices;
+    int pos;
 
     public ObjectsFragment(){}
 
@@ -70,16 +71,30 @@ public class ObjectsFragment extends Fragment {
                     public void onDismiss(ListView listView, int[] reverseSortedPositions) {
                         Utils.confirm(context, "Deleting Object", "Do you really want to delete this object ?");
                         for (int position : reverseSortedPositions) {
-                            adapter.remove(position);
+                            pos = position;
+                            RestAPI.delete("/device/" + devices.get(position).getId(), null, new JsonHttpResponseHandler() {
+                                @Override
+                                public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                                    Log.d("Success:", "Deleting device");
+                                    adapter.remove(pos);
+                                    adapter.notifyDataSetChanged();
+                                }
+
+                                @Override
+                                public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                                    Log.d("Error:", "Deleting device");
+                                }
+                            });
                         }
-                        adapter.notifyDataSetChanged();
                     }
                 }));
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity(new Intent(getActivity(), InfosObject.class));
+                Intent intent = new Intent(getActivity(), InfosObject.class);
+                intent.putExtra("device", devices.get(position));
+                startActivity(intent);
             }
         });
     }

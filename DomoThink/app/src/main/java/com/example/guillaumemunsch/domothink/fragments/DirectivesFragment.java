@@ -25,6 +25,7 @@ import com.google.gson.reflect.TypeToken;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -38,6 +39,7 @@ public class DirectivesFragment extends Fragment {
     FloatingActionButton add = null;
     List<Directive> directives = null;
     ListView mList = null;
+    int pos;
 
     public DirectivesFragment(){}
 
@@ -61,9 +63,21 @@ public class DirectivesFragment extends Fragment {
                     public void onDismiss(ListView listView, int[] reverseSortedPositions) {
                         Utils.confirm(getActivity(), "Deleting Directive", "Do you really want to delete this directive ?");
                         for (int position : reverseSortedPositions) {
-                            adapter.remove(position);
+                            pos = position;
+                            RestAPI.delete("/directive/" + directives.get(position).getId(), null, new JsonHttpResponseHandler() {
+                                @Override
+                                public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                                    Log.d("Success:", "Deleting directive");
+                                    adapter.remove(pos);
+                                    adapter.notifyDataSetChanged();
+                                }
+
+                                @Override
+                                public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                                    Log.d("Error:", "Deleting device");
+                                }
+                            });
                         }
-                        adapter.notifyDataSetChanged();
                     }
                 }));
         mList.setOnItemClickListener(new AdapterView.OnItemClickListener() {

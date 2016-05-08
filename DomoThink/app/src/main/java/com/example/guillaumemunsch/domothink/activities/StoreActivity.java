@@ -37,7 +37,7 @@ public class StoreActivity extends AppCompatActivity {
 
         List<Plugin> plugins = new ArrayList<Plugin>();
         for (int i = 0; i < 4; ++i)
-            plugins.add(new Plugin(icons[i], names[i], descs[i], rates[i]));
+            plugins.add(new Plugin(i, icons[i], names[i], descs[i], rates[i]));
 
         list.setAdapter(new PluginAdapter(this, plugins));
 

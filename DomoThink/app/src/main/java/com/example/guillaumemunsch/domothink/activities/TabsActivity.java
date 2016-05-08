@@ -67,10 +67,10 @@ public class TabsActivity extends AppCompatActivity {
 
         if (savedInstanceState == null) {
             mPlugins = new ArrayList<Plugin>();
-            mPlugins.add(new Plugin(R.drawable.mario, "Plugin 1", "Un excellent plugin !", 5f));
-            mPlugins.add(new Plugin(R.drawable.mario, "Plugin 2", "Un plugin génial !", 4.8f));
-            mPlugins.add(new Plugin(R.drawable.mario, "Plugin 3", "Un super plugin !", 4.5f));
-            mPlugins.add(new Plugin(R.drawable.mario, "Plugin 4", "Un très bon plugin !", 2.3f));
+            mPlugins.add(new Plugin(1, R.drawable.mario, "Plugin 1", "Un excellent plugin !", 5f));
+            mPlugins.add(new Plugin(2, R.drawable.mario, "Plugin 2", "Un plugin génial !", 4.8f));
+            mPlugins.add(new Plugin(3, R.drawable.mario, "Plugin 3", "Un super plugin !", 4.5f));
+            mPlugins.add(new Plugin(4, R.drawable.mario, "Plugin 4", "Un très bon plugin !", 2.3f));
             mPluginsFiltered = mPlugins;
             mSearchOpened = false;
             mSearchString = "";
