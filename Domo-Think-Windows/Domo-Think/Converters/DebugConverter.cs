@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Data;
  * Notes:
  * -------------------------------------------------------*/
 
-namespace Domo_Think.Converters
+namespace DomoThink.Converters
 {
     public class DebugConverter : IValueConverter
     {

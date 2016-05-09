@@ -1,6 +1,6 @@
-﻿using Domo_Think.Controls;
+﻿using DomoThink.Controls;
 
-namespace Domo_Think.Views.Directives
+namespace DomoThink.Views.Directives
 {
     public sealed partial class OrdersPage : DomoPage
     {

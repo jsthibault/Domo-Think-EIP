@@ -1,10 +1,10 @@
 ﻿<Page
-    x:Class="Domo_Think.Views.LoginPage"
+    x:Class="DomoThink.Views.LoginPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Domo_Think.Views"
-    xmlns:viewModel="using:Domo_Think.ViewModels"
-    xmlns:controls="using:Domo_Think.Controls"
+    xmlns:local="using:DomoThink.Views"
+    xmlns:viewModel="using:DomoThink.ViewModels"
+    xmlns:controls="using:DomoThink.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -92,7 +92,7 @@
 
                         <!-- Login button -->
                         <StackPanel Margin="0,15,0,0" Orientation="Horizontal">
-                            <Button Content="Login" Height="48" Width="92" Command="{Binding LoginCommand}" IsEnabled="{Binding FieldsEnabled}" />
+                            <Button Content="GO" Height="48" Width="92" Command="{Binding LoginCommand}" IsEnabled="{Binding FieldsEnabled}" />
                             <ProgressRing Margin="30,0,0,0" Width="36" Height="36" VerticalAlignment="Center" IsActive="{Binding LogingIn}" />
                             <TextBlock Margin="10,0,0,0" FontSize="16" Text="Loging in..." VerticalAlignment="Center" Visibility="{Binding LogingIn, Converter={StaticResource visibilityConverter}}" />
                             <TextBlock Margin="10,0,0,0" FontSize="16" Foreground="Red" Text="{Binding ErrorText}" VerticalAlignment="Center" Visibility="{Binding ErrorFieldEnabled, Converter={StaticResource visibilityConverter}}" />

@@ -3,26 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
+
 
 /*--------------------------------------------------------
- * ILoader.cs
+ * APIConstants.cs
  * 
  * Version: 1.0
  * Author: Filipe
- * Created: 22/04/2016 12:41:56
+ * Created: 29/04/2016 17:28:04
  * 
  * Notes:
  * -------------------------------------------------------*/
 
-namespace DomoThink.ViewModels.Interfaces
+namespace DomoThink.API
 {
-    public interface ILoader
+    public class APIConstants
     {
-        Boolean Loading { get; set; }
-
-        Boolean Display { get; set; }
-
-        ICommand LoadCommand { get; set; }
+#if DEBUG
+        public const String API_URL = "http://localhost:3313/";
+#else
+        public const String API_URL = "";
+#endif
     }
 }

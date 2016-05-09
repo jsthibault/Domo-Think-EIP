@@ -15,7 +15,7 @@ using System.Threading.Tasks;
  * Notes:
  * -------------------------------------------------------*/
 
-namespace Domo_Think.Model
+namespace DomoThink.Model
 {
     public class NavigationButton
     {

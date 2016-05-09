@@ -1,5 +1,5 @@
-﻿using Domo_Think.MVVM;
-using Domo_Think.ViewModels.Interfaces;
+﻿using DomoThink.MVVM;
+using DomoThink.ViewModels.Interfaces;
 using DomoAPI.Model;
 using System;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ using System.Windows.Input;
  * Notes:
  * -------------------------------------------------------*/
 
-namespace Domo_Think.ViewModels
+namespace DomoThink.ViewModels
 {
     public class PluginViewModel : ViewModelBase, ILoader
     {

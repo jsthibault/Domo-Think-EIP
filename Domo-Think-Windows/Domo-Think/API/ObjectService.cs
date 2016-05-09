@@ -17,7 +17,7 @@ using System.Threading.Tasks;
  * Notes:
  * -------------------------------------------------------*/
 
-namespace Domo_Think.API
+namespace DomoThink.API
 {
     public class ObjectService : ApiService
     {

@@ -1,6 +1,6 @@
 ﻿using Windows.UI.Xaml.Controls;
 
-namespace Domo_Think.Views
+namespace DomoThink.Views
 {
     public sealed partial class SettingsPage : Page
     {

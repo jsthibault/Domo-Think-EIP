@@ -26,13 +26,13 @@ namespace UnitTests.Tests.API
         public void LoginCorrectUsernameAndPassword()
         {
             // Connect to the API
-            ApiClient _apiClient = new ApiClient(Domo_Think.App.API_URL);
+            ApiClient _apiClient = new ApiClient("http://89.156.151.77:4242");
 
             // Create the LoginService
-            Domo_Think.API.LoginService _service = new Domo_Think.API.LoginService(_apiClient);
+            DomoThink.API.LoginService _service = new DomoThink.API.LoginService(_apiClient);
 
             // Create the data contract
-            LoginModel _model = new LoginModel("gomesp_f", "1234");
+            LoginModel _model = new LoginModel("guenno_v", "1234");
 
             // Send the login request
             Boolean _connected = _service.SendLoginRequest(_model).Result;
@@ -49,10 +49,10 @@ namespace UnitTests.Tests.API
         public void LoginIncorrectUsername()
         {
             // Connect to the API
-            ApiClient _apiClient = new ApiClient(Domo_Think.App.API_URL);
+            ApiClient _apiClient = new ApiClient(DomoThink.API.APIConstants.API_URL);
 
             // Create the LoginService
-            Domo_Think.API.LoginService _service = new Domo_Think.API.LoginService(_apiClient);
+            DomoThink.API.LoginService _service = new DomoThink.API.LoginService(_apiClient);
 
             // Create the data contract
             LoginModel _model = new LoginModel("hello_w", "1234");
@@ -72,10 +72,10 @@ namespace UnitTests.Tests.API
         public void LoginIncorrectPassword()
         {
             // Connect to the API
-            ApiClient _apiClient = new ApiClient(Domo_Think.App.API_URL);
+            ApiClient _apiClient = new ApiClient(DomoThink.API.APIConstants.API_URL);
 
             // Create the LoginService
-            Domo_Think.API.LoginService service = new Domo_Think.API.LoginService(_apiClient);
+            DomoThink.API.LoginService service = new DomoThink.API.LoginService(_apiClient);
 
             // Create the data contract
             LoginModel _model = new LoginModel("gomesp_f", "4321");
@@ -95,10 +95,10 @@ namespace UnitTests.Tests.API
         public void LoginEmptyUsername()
         {
             // Connect to the API
-            ApiClient _apiClient = new ApiClient(Domo_Think.App.API_URL);
+            ApiClient _apiClient = new ApiClient(DomoThink.API.APIConstants.API_URL);
 
             // Create the LoginService
-            Domo_Think.API.LoginService _service = new Domo_Think.API.LoginService(_apiClient);
+            DomoThink.API.LoginService _service = new DomoThink.API.LoginService(_apiClient);
 
             // Create the data contract
             LoginModel _model = new LoginModel(String.Empty, "4321");
@@ -119,10 +119,10 @@ namespace UnitTests.Tests.API
         public void LoginEmptyPassword()
         {
             // Connect to the API
-            ApiClient _apiClient = new ApiClient(Domo_Think.App.API_URL);
+            ApiClient _apiClient = new ApiClient(DomoThink.API.APIConstants.API_URL);
 
             // Create the LoginService
-            Domo_Think.API.LoginService _service = new Domo_Think.API.LoginService(_apiClient);
+            DomoThink.API.LoginService _service = new DomoThink.API.LoginService(_apiClient);
 
             // Create the data contract
             LoginModel _model = new LoginModel("gomesp_f", String.Empty);
@@ -143,10 +143,10 @@ namespace UnitTests.Tests.API
         public void LoginEmptyUsernameAndPassword()
         {
             // Connect to the API
-            ApiClient _apiClient = new ApiClient(Domo_Think.App.API_URL);
+            ApiClient _apiClient = new ApiClient(DomoThink.API.APIConstants.API_URL);
 
             // Create the LoginService
-            Domo_Think.API.LoginService _service = new Domo_Think.API.LoginService(_apiClient);
+            DomoThink.API.LoginService _service = new DomoThink.API.LoginService(_apiClient);
 
             // Create the data contract
             LoginModel _model = new LoginModel(String.Empty, String.Empty);

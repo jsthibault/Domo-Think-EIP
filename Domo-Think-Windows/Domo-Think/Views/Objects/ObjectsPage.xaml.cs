@@ -1,6 +1,6 @@
-﻿using Domo_Think.Controls;
+﻿using DomoThink.Controls;
 
-namespace Domo_Think.Views.Objects
+namespace DomoThink.Views.Objects
 {
     public sealed partial class ObjectsPage : DomoPage
     {

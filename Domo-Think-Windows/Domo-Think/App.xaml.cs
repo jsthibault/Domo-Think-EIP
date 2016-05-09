@@ -1,4 +1,4 @@
-﻿using Domo_Think.Navigation;
+﻿using DomoThink.Navigation;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,18 +18,13 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
-namespace Domo_Think
+namespace DomoThink
 {
     /// <summary>
     /// Fournit un comportement spécifique à l'application afin de compléter la classe Application par défaut.
     /// </summary>
     sealed partial class App : Application
     {
-#if DEBUG
-        public const String API_URL = "http://localhost:3313/";
-#else
-        public const String API_URL = "";
-#endif
         public static DomoAPI.Client.ApiClient ApiClient;
 
         /// <summary>
@@ -43,7 +38,7 @@ namespace Domo_Think
                 Microsoft.ApplicationInsights.WindowsCollectors.Session);
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-            ApiClient = new DomoAPI.Client.ApiClient(API_URL);
+            ApiClient = new DomoAPI.Client.ApiClient(API.APIConstants.API_URL);
         }
 
         /// <summary>

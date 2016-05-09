@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Domo_Think.MVVM
+namespace DomoThink.MVVM
 {
     public class ViewModelBase : INotifyPropertyChanged
     {

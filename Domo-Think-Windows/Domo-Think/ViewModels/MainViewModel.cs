@@ -1,4 +1,4 @@
-﻿using Domo_Think.MVVM;
+﻿using DomoThink.MVVM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +16,7 @@ using System.Windows.Input;
  * Notes:
  * -------------------------------------------------------*/
 
-namespace Domo_Think.ViewModels
+namespace DomoThink.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {

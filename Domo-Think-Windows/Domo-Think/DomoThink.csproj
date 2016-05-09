@@ -7,8 +7,8 @@
     <ProjectGuid>{1BAE9A43-2EE5-4B74-B0FA-247D505780A1}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Domo_Think</RootNamespace>
-    <AssemblyName>Domo-Think</AssemblyName>
+    <RootNamespace>DomoThink</RootNamespace>
+    <AssemblyName>DomoThink</AssemblyName>
     <DefaultLanguage>fr-FR</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
@@ -99,10 +99,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\RatingStar.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Resources\Languages\Language.English.xaml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
@@ -115,6 +111,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\APIConstants.cs" />
     <Compile Include="API\DirectiveService.cs" />
     <Compile Include="API\LoginService.cs" />
     <Compile Include="API\ObjectService.cs" />
@@ -130,9 +127,6 @@
     </Compile>
     <Compile Include="Controls\LoadingPanel.xaml.cs">
       <DependentUpon>LoadingPanel.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\RatingStar.xaml.cs">
-      <DependentUpon>RatingStar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\CacheImageConverter.cs" />
     <Compile Include="Converters\DebugConverter.cs" />
@@ -162,6 +156,9 @@
     </Compile>
     <Compile Include="Views\MyDomoBox.xaml.cs">
       <DependentUpon>MyDomoBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyPlugins.xaml.cs">
+      <DependentUpon>MyPlugins.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Objects\AddObject.xaml.cs">
       <DependentUpon>AddObject.xaml</DependentUpon>
@@ -249,6 +246,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MyDomoBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MyPlugins.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

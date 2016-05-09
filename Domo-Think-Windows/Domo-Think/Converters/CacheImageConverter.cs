@@ -18,7 +18,7 @@ using Windows.UI.Xaml.Media.Imaging;
  * Notes:
  * -------------------------------------------------------*/
 
-namespace Domo_Think.Converters
+namespace DomoThink.Converters
 {
     public class CacheImageConverter : IValueConverter
     {
@@ -30,7 +30,7 @@ namespace Domo_Think.Converters
             {
                 if (value == null || String.IsNullOrEmpty(value.ToString()))
                 {
-                    Uri _defaultUri = new Uri("ms-appx://Domo_Think/Assets/windows_store-512.png");
+                    Uri _defaultUri = new Uri("ms-appx://DomoThink/Assets/windows_store-512.png");
 
                     _image = new BitmapImage(_defaultUri);
                 }

@@ -14,7 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace Domo_Think.Controls
+namespace DomoThink.Controls
 {
     public partial class DomoPage : Page
     {

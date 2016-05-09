@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domo-Think", "Domo-Think\Domo-Think.csproj", "{1BAE9A43-2EE5-4B74-B0FA-247D505780A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomoThink", "Domo-Think\DomoThink.csproj", "{1BAE9A43-2EE5-4B74-B0FA-247D505780A1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expander", "Expander\Expander.csproj", "{6FFB913B-CC9C-4176-8FD5-AC5ED56AB86B}"
 EndProject

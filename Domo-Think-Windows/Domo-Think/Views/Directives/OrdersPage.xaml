@@ -1,13 +1,13 @@
 ﻿<controls:DomoPage
-    x:Class="Domo_Think.Views.Directives.OrdersPage"
+    x:Class="DomoThink.Views.Directives.OrdersPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Domo_Think.Views"
-    xmlns:controls="using:Domo_Think.Controls"
+    xmlns:local="using:DomoThink.Views"
+    xmlns:controls="using:DomoThink.Controls"
     xmlns:xp="using:Expander"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewModel="using:Domo_Think.ViewModels"
+    xmlns:viewModel="using:DomoThink.ViewModels"
     mc:Ignorable="d" OnLoaded="{Binding LoadCommand}">
 
     <!-- Page DataContext -->
@@ -56,11 +56,25 @@
                                             <ColumnDefinition Width="Auto"/>
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
 
                                         <SymbolIcon Symbol="DisconnectDrive" Margin="8,0,12,0" />
                                         <TextBlock Grid.Column="1" Text="{Binding Name}" TextWrapping="Wrap" VerticalAlignment="Center" />
-                                        <Button Content="Edit" Grid.Column="2" />
+                                        <StackPanel Grid.Column="3" Margin="2" Orientation="Horizontal">
+                                            <Button>
+                                                <Button.Content>
+                                                    <SymbolIcon Symbol="Edit" Margin="8,0,12,0" />
+                                                </Button.Content>
+                                            </Button>
+                                            <Button Margin="2,0,0,0">
+                                                <Button.Content>
+                                                    <SymbolIcon Symbol="Delete" Margin="8,0,12,0" />
+                                                </Button.Content>
+                                            </Button>
+                                        </StackPanel>
+                                        
+                                        
                                     </Grid>
                                 </xp:Expander.HeaderButtonContent>
                                 <Grid Background="#FFF5F1D9">

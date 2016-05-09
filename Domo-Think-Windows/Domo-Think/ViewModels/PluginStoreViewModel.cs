@@ -1,8 +1,8 @@
-﻿using Domo_Think.API;
-using Domo_Think.Model;
-using Domo_Think.MVVM;
-using Domo_Think.ViewModels.Interfaces;
-using Domo_Think.Views;
+﻿using DomoThink.API;
+using DomoThink.Model;
+using DomoThink.MVVM;
+using DomoThink.ViewModels.Interfaces;
+using DomoThink.Views;
 using DomoAPI.Model;
 using System;
 using System.Collections.Generic;
@@ -22,7 +22,7 @@ using System.Windows.Input;
  * Notes:
  * -------------------------------------------------------*/
 
-namespace Domo_Think.ViewModels
+namespace DomoThink.ViewModels
 {
     public class PluginStoreViewModel : ViewModelBase, ILoader
     {
@@ -115,6 +115,8 @@ namespace Domo_Think.ViewModels
         private async void SeePluginAction(Object param)
         {
             PluginModel _model = null;
+
+            await Task.Delay(100);
 
             for (Int32 i = 0; i < this.Plugins.Count; ++i)
                 if (this.Plugins[i].Id == (Int32)param)

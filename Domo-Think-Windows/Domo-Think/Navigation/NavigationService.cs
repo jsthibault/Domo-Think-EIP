@@ -16,7 +16,7 @@ using Windows.UI.Xaml.Controls;
  * Notes:
  * -------------------------------------------------------*/
 
-namespace Domo_Think.Navigation
+namespace DomoThink.Navigation
 {
     public static class NavigationService
     {

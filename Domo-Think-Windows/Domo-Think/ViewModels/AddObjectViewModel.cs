@@ -1,5 +1,5 @@
-﻿using Domo_Think.Model;
-using Domo_Think.MVVM;
+﻿using DomoThink.Model;
+using DomoThink.MVVM;
 using DomoAPI.Model;
 using System;
 using System.Collections.Generic;
@@ -20,7 +20,7 @@ using System.Windows.Input;
  * Notes:
  * -------------------------------------------------------*/
 
-namespace Domo_Think.ViewModels
+namespace DomoThink.ViewModels
 {
     public class AddObjectViewModel : ViewModelBase
     {

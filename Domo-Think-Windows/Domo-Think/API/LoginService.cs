@@ -17,7 +17,7 @@ using System.Threading.Tasks;
  * Notes:
  * -------------------------------------------------------*/
 
-namespace Domo_Think.API
+namespace DomoThink.API
 {
     public class LoginService : ApiService
     {
@@ -39,7 +39,7 @@ namespace Domo_Think.API
 
         public async Task<Boolean> SendLoginRequest(LoginModel loginModel)
         {
-            LoginResponse response = await this.api.Post<LoginModel, LoginResponse>("api/Login/UserLogin", loginModel);
+            Object response = await this.api.Post<LoginModel, Object>("api/Login/UserLogin", loginModel);
 
             // TODO: more checks...
             return response != null;

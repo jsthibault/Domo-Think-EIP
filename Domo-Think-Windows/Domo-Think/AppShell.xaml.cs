@@ -1,10 +1,10 @@
-﻿using Domo_Think.Model;
-using Domo_Think.MVVM;
-using Domo_Think.Navigation;
-using Domo_Think.ViewModels.Interfaces;
-using Domo_Think.Views;
-using Domo_Think.Views.Directives;
-using Domo_Think.Views.Objects;
+﻿using DomoThink.Model;
+using DomoThink.MVVM;
+using DomoThink.Navigation;
+using DomoThink.ViewModels.Interfaces;
+using DomoThink.Views;
+using DomoThink.Views.Directives;
+using DomoThink.Views.Objects;
 using System;
 using System.Collections.Generic;
 using System.Windows.Input;
@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 
-namespace Domo_Think
+namespace DomoThink
 {
     public sealed partial class AppShell : Page
     {
@@ -116,6 +116,7 @@ namespace Domo_Think
             this.PrimaryNavigationButtons.Add(new NavigationButton("Objects", "Objects", "\uE772", typeof(ObjectsPage)));
             this.PrimaryNavigationButtons.Add(new NavigationButton("Directives", "Directives", "\uE17D", typeof(OrdersPage)));
             this.PrimaryNavigationButtons.Add(new NavigationButton("My DomoBox", "My DomoBox", "\uE1E4", typeof(MyDomoBox)));
+            this.PrimaryNavigationButtons.Add(new NavigationButton("Plugins", "Plugins", "\uE74C", typeof(MyPlugins)));
             this.PrimaryNavigationButtons.Add(new NavigationButton("Store", "Domo Store", "\uE719", typeof(PluginStorePage)));
 
             // Initialize secondary buttons

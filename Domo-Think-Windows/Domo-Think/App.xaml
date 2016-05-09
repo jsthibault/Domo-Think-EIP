@@ -1,9 +1,9 @@
 ﻿<Application
-    x:Class="Domo_Think.App"
+    x:Class="DomoThink.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Domo_Think"
-    xmlns:converters="using:Domo_Think.Converters"
+    xmlns:local="using:DomoThink"
+    xmlns:converters="using:DomoThink.Converters"
     RequestedTheme="Light">
 
     <Application.Resources>

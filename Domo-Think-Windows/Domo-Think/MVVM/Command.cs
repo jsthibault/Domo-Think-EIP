@@ -12,7 +12,7 @@ using System.Windows.Input;
  * Notes:
  * -------------------------------------------------------*/
 
-namespace Domo_Think.MVVM
+namespace DomoThink.MVVM
 {
     public class Command : ICommand
     {

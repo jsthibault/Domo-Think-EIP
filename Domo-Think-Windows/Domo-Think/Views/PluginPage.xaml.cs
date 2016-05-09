@@ -1,6 +1,6 @@
-﻿using Domo_Think.Controls;
+﻿using DomoThink.Controls;
 
-namespace Domo_Think.Views
+namespace DomoThink.Views
 {
     public sealed partial class PluginPage : DomoPage
     {

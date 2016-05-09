@@ -20,9 +20,9 @@ namespace DomoThink.Views
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class MyDomoBox : Page
+    public sealed partial class MyPlugins : Page
     {
-        public MyDomoBox()
+        public MyPlugins()
         {
             this.InitializeComponent();
         }

@@ -3,6 +3,14 @@
   "version": 1,
   "targets": {
     "UAP,Version=v10.0": {
+      "BratchedTools.RatingControl/1.0.0": {
+        "compile": {
+          "lib/wpa81/Bratched.Tools.RatingControl_ua81.dll": {}
+        },
+        "runtime": {
+          "lib/wpa81/Bratched.Tools.RatingControl_ua81.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.0.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -1867,6 +1875,14 @@
       }
     },
     "UAP,Version=v10.0/win10-arm": {
+      "BratchedTools.RatingControl/1.0.0": {
+        "compile": {
+          "lib/wpa81/Bratched.Tools.RatingControl_ua81.dll": {}
+        },
+        "runtime": {
+          "lib/wpa81/Bratched.Tools.RatingControl_ua81.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.0.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -3584,6 +3600,14 @@
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
+      "BratchedTools.RatingControl/1.0.0": {
+        "compile": {
+          "lib/wpa81/Bratched.Tools.RatingControl_ua81.dll": {}
+        },
+        "runtime": {
+          "lib/wpa81/Bratched.Tools.RatingControl_ua81.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.0.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -5265,6 +5289,14 @@
       }
     },
     "UAP,Version=v10.0/win10-x64": {
+      "BratchedTools.RatingControl/1.0.0": {
+        "compile": {
+          "lib/wpa81/Bratched.Tools.RatingControl_ua81.dll": {}
+        },
+        "runtime": {
+          "lib/wpa81/Bratched.Tools.RatingControl_ua81.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.0.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -6988,6 +7020,14 @@
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
+      "BratchedTools.RatingControl/1.0.0": {
+        "compile": {
+          "lib/wpa81/Bratched.Tools.RatingControl_ua81.dll": {}
+        },
+        "runtime": {
+          "lib/wpa81/Bratched.Tools.RatingControl_ua81.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.0.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -8669,6 +8709,14 @@
       }
     },
     "UAP,Version=v10.0/win10-x86": {
+      "BratchedTools.RatingControl/1.0.0": {
+        "compile": {
+          "lib/wpa81/Bratched.Tools.RatingControl_ua81.dll": {}
+        },
+        "runtime": {
+          "lib/wpa81/Bratched.Tools.RatingControl_ua81.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.0.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -10392,6 +10440,14 @@
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
+      "BratchedTools.RatingControl/1.0.0": {
+        "compile": {
+          "lib/wpa81/Bratched.Tools.RatingControl_ua81.dll": {}
+        },
+        "runtime": {
+          "lib/wpa81/Bratched.Tools.RatingControl_ua81.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.0.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -12074,6 +12130,28 @@
     }
   },
   "libraries": {
+    "BratchedTools.RatingControl/1.0.0": {
+      "sha512": "Gm7UDnwB/+ddlFxJNtbA8v3X/Hch+LSA873GICXTLMgwCSnROjhw8zleizxKI1gogH7EIs32OCnY9B8AhS+IgA==",
+      "type": "package",
+      "files": [
+        "BratchedTools.RatingControl.1.0.0.nupkg.sha512",
+        "BratchedTools.RatingControl.nuspec",
+        "lib/sl4-wp71/Bratched.Tools.RatingControl_wp71.dll",
+        "lib/sl4-wp71/Bratched.Tools.RatingControl_wp71.pdb",
+        "lib/wp8/Bratched.Tools.RatingControl_wp80.dll",
+        "lib/wp8/Bratched.Tools.RatingControl_wp80.pdb",
+        "lib/wp81/Bratched.Tools.RatingControl_wp81.dll",
+        "lib/wp81/Bratched.Tools.RatingControl_wp81.pdb",
+        "lib/wpa81/Bratched.Tools.RatingControl_ua81.dll",
+        "lib/wpa81/Bratched.Tools.RatingControl_ua81.pdb",
+        "lib/wpa81/Bratched.Tools.RatingControl_ua81.pri",
+        "lib/wpa81/Bratched.Tools.RatingControl_ua81/Bratched.Tools.RatingControl_ua81.xr.xml",
+        "lib/wpa81/Bratched.Tools.RatingControl_ua81/RateItem.xaml",
+        "lib/wpa81/Bratched.Tools.RatingControl_ua81/RateItem.xbf",
+        "lib/wpa81/Bratched.Tools.RatingControl_ua81/RatingControl.xaml",
+        "lib/wpa81/Bratched.Tools.RatingControl_ua81/RatingControl.xbf"
+      ]
+    },
     "Microsoft.ApplicationInsights/1.0.0": {
       "sha512": "HZ47/thX57SOuIivSvIbsR6L9CCb/Yt3IyB2i4KHmmNlf3DO+lqFwWIKDdbDNWKX+qh0Rg20/JSMPK0dwUsYYw==",
       "type": "Package",
@@ -15699,6 +15777,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
+      "BratchedTools.RatingControl >= 1.0.0",
       "Microsoft.ApplicationInsights >= 1.0.0",
       "Microsoft.ApplicationInsights.PersistenceChannel >= 1.0.0",
       "Microsoft.ApplicationInsights.WindowsApps >= 1.0.0",
