@@ -109,6 +109,11 @@ public class DirectivesFragment extends Fragment {
                     Log.d("Directive Fragment", "Unable to find directives.");
                 }
             }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                Log.d("Directive Fragment: ", "Unable to get directives.");
+            }
         });
 
         mList = (ListView)rootView.findViewById(R.id.directivesList);

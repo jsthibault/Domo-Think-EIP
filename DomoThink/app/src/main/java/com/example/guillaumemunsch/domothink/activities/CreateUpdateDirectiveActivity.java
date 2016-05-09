@@ -1,39 +1,55 @@
 package com.example.guillaumemunsch.domothink.activities;
 
-import android.app.TimePickerDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
+import android.widget.Button;
 
 import com.example.guillaumemunsch.domothink.R;
+import com.example.guillaumemunsch.domothink.http.RestAPI;
+import com.example.guillaumemunsch.domothink.models.Directive;
+import com.example.guillaumemunsch.domothink.models.Periodicity;
+import com.google.gson.Gson;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONObject;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * Created by guillaumemunsch on 03/12/15.
  */
 public class CreateUpdateDirectiveActivity extends AppCompatActivity {
-    EditText name = null;
-    Spinner object = null;
-    Spinner action = null;
-    Spinner periodicity = null;
-    Spinner day = null;
+    boolean edit = false;
+    EditText editName = null;
+    Spinner objectSpinner = null;
+    Spinner actionSpinner = null;
+    Spinner periodicitySpinner = null;
+    Spinner daySpinner = null;
     TimePicker tp = null;
+    Directive myDirective = null;
+    Button btn = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.create_directive_activity);
-        name = (EditText)findViewById(R.id.directiveName);
-        object = (Spinner)findViewById(R.id.directiveObject);
-        periodicity = (Spinner)findViewById(R.id.directivePeriodicity);
-        day = (Spinner)findViewById(R.id.directiveDay);
+        setContentView(R.layout.create_edit_directive_activity);
+        btn = (Button)findViewById(R.id.createEditDirectiveButton);
+        if (getIntent().hasExtra("editedDirective"))
+            myDirective = (Directive)getIntent().getSerializableExtra("editedDirective");
+        editName = (EditText)findViewById(R.id.directiveName);
+        objectSpinner = (Spinner)findViewById(R.id.directiveObject);
+        actionSpinner = (Spinner)findViewById(R.id.directiveAction);
+        periodicitySpinner = (Spinner)findViewById(R.id.directivePeriodicity);
+        daySpinner = (Spinner)findViewById(R.id.directiveDay);
         tp = (TimePicker)findViewById(R.id.directiveHour);
         tp.setIs24HourView(true);
         tp.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
@@ -42,22 +58,22 @@ public class CreateUpdateDirectiveActivity extends AppCompatActivity {
 
             }
         });
-        periodicity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        periodicitySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0) {
-                    day.setVisibility(View.GONE);
+                    daySpinner.setVisibility(View.GONE);
                     tp.setVisibility(View.GONE);
                 }
                 else {
-                    day.setVisibility(View.VISIBLE);
+                    daySpinner.setVisibility(View.VISIBLE);
                     tp.setVisibility(View.VISIBLE);
                 }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                day.setVisibility(View.GONE);
+                daySpinner.setVisibility(View.GONE);
                 tp.setVisibility(View.GONE);
             }
         });
@@ -65,8 +81,63 @@ public class CreateUpdateDirectiveActivity extends AppCompatActivity {
 
         if (getIntent().hasExtra("editedDirective"))
         {
-
+            edit = true;
+            editName.setText(myDirective.getName());
+            objectSpinner.setSelection(myDirective.getObjectId());
+            actionSpinner.setSelection(myDirective.getActionId());
+            periodicitySpinner.setSelection(myDirective.getPeriodicity().getType());
+            daySpinner.setSelection(myDirective.getPeriodicity().getDay());
+            tp.setCurrentHour(myDirective.getPeriodicity().getHour());
+            tp.setCurrentMinute(myDirective.getPeriodicity().getMinute());
+            btn.setText("EDIT");
         }
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (myDirective == null) {
+                    myDirective = new Directive();
+                    myDirective.setId(0);
+                    myDirective.setCreatorId(1); //Creator id.
+                }
+                myDirective.setName(editName.getText().toString());
+                myDirective.setObjectId((int)objectSpinner.getSelectedItemId());
+                myDirective.setActionId((int)actionSpinner.getSelectedItemId());
+                Periodicity periodicity = new Periodicity();
+                periodicity.setType((int)periodicitySpinner.getSelectedItemId());
+                periodicity.setDay((int)daySpinner.getSelectedItemId());
+                periodicity.setHour(tp.getCurrentHour());
+                periodicity.setMinute(tp.getCurrentMinute());
+                myDirective.setPeriodicity(periodicity);
+                RequestParams params = new RequestParams();
+                params.put("directive", new Gson().toJson(myDirective));
+                if (!edit)
+                    RestAPI.post("/directive", params, new JsonHttpResponseHandler(){
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                            Log.d("CreateUpdateDirective: ", "Creation success");
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                            Log.d("CreateUpdateDirective: ", "Creation failure");
+                        }
+                    });
+                else
+                    RestAPI.put("/directive/" + myDirective.getId(), params, new JsonHttpResponseHandler(){
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                            Log.d("CreateUpdateDirective: ", "Edition success");
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                            Log.d("CreateUpdateDirective: ", "Edition failure");
+                        }
+                    });
+                finish();
+            }
+        });
     }
 
     @Override

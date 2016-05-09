@@ -16,6 +16,8 @@ public class Directive implements Serializable {
     private int objectId;
     private int actionId;
 
+    public Directive(){};
+
     public Directive(int id, String name, String description, int creatorId, int objectId, int actionId, Periodicity periodicity) {
         this.id = id;
         this.name = name;
@@ -26,10 +28,7 @@ public class Directive implements Serializable {
         this.periodicity = periodicity;
     }
 
-    public int getCreatorId() {
-
-        return creatorId;
-    }
+    public int getCreatorId() { return creatorId; }
 
     public void setCreatorId(int creatorId) {
         this.creatorId = creatorId;

@@ -1,5 +1,7 @@
 package com.example.guillaumemunsch.domothink.models;
 
+import android.text.format.Time;
+
 import java.io.Serializable;
 
 /**
@@ -10,12 +12,18 @@ import java.io.Serializable;
 public class Periodicity implements Serializable{
     private int type;
     private String name;
-    private String data;
+    private int day;
+    private int hour;
+    private int minute;
 
-    public Periodicity(int type, String name, String data) {
+    public Periodicity(){};
+
+    public Periodicity(int type, String name, int day, int hour, int minute) {
         this.type = type;
         this.name = name;
-        this.data = data;
+        this.day = day;
+        this.hour = hour;
+        this.minute = minute;
     }
 
     public int getType() {
@@ -34,11 +42,27 @@ public class Periodicity implements Serializable{
         this.name = name;
     }
 
-    public String getData() {
-        return data;
+    public int getDay() {
+        return day;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setDay(int day) {
+        this.day = day;
+    }
+
+    public int getHour() {
+        return hour;
+    }
+
+    public void setHour(int hour) {
+        this.hour = hour;
+    }
+
+    public int getMinute() {
+        return minute;
+    }
+
+    public void setMinute(int minute) {
+        this.minute = minute;
     }
 }
