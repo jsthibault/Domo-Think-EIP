@@ -26,13 +26,13 @@ namespace UnitTests.Tests.API
         public void LoginCorrectUsernameAndPassword()
         {
             // Connect to the API
-            ApiClient _apiClient = new ApiClient("http://89.156.151.77:4242");
+            ApiClient _apiClient = new ApiClient(DomoThink.API.APIConstants.API_URL);
 
             // Create the LoginService
             DomoThink.API.LoginService _service = new DomoThink.API.LoginService(_apiClient);
 
             // Create the data contract
-            LoginModel _model = new LoginModel("guenno_v", "1234");
+            LoginModel _model = new LoginModel("gomesp_f", "1234");
 
             // Send the login request
             Boolean _connected = _service.SendLoginRequest(_model).Result;
@@ -156,6 +156,29 @@ namespace UnitTests.Tests.API
 
             // Result should be "false" otherwise the test is not valid
             Assert.AreEqual(_connected, false);
+        }
+
+        /// <summary>
+        /// Unit test for: Login to distant API.
+        /// </summary>
+        /// <remarks>Result should be: "true"</remarks>
+        [TestMethod]
+        public void LoginToDistantAPI()
+        {
+            // Connect to the API
+            ApiClient _apiClient = new ApiClient("http://89.156.151.77:4242");
+
+            // Create the LoginService
+            DomoThink.API.LoginService _service = new DomoThink.API.LoginService(_apiClient);
+
+            // Create the data contract
+            LoginModel _model = new LoginModel("guenno_v", "1234");
+
+            // Send the login request
+            Object obj = _apiClient.Post<LoginModel, Object>("/user/connect", _model);
+
+            // Result should be "true" otherwise the test is not valid
+            Assert.AreNotEqual(obj, null);
         }
     }
 }

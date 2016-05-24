@@ -20,7 +20,7 @@ namespace DomoThink.API
     public class APIConstants
     {
 #if DEBUG
-        public const String API_URL = "http://localhost:3313/";
+        public const String API_URL = "http://89.156.151.77:4242/";
 #else
         public const String API_URL = "";
 #endif

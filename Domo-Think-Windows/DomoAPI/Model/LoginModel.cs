@@ -25,7 +25,7 @@ namespace DomoAPI.Model
         /// <summary>
         /// Gets or sets the login username.
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "login", EmitDefaultValue = false)]
         public String Id { get; set; }
 
         /// <summary>
@@ -107,7 +107,10 @@ namespace DomoAPI.Model
         #endregion
     }
 
+    [DataContract]
     public class LoginResponse
     {
+        [DataMember(Name = "token", EmitDefaultValue = false)]
+        public String Token { get; set; }
     }
 }

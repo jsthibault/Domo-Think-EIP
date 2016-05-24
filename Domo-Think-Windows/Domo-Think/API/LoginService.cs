@@ -39,7 +39,8 @@ namespace DomoThink.API
 
         public async Task<Boolean> SendLoginRequest(LoginModel loginModel)
         {
-            Object response = await this.api.Post<LoginModel, Object>("api/Login/UserLogin", loginModel);
+            LoginResponse response = 
+                await this.api.Post<LoginModel, LoginResponse>("/user/connect", loginModel);
 
             // TODO: more checks...
             return response != null;
