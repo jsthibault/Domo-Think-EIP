@@ -20,6 +20,7 @@ import com.example.guillaumemunsch.domothink.R;
 import org.json.*;
 
 import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.entity.StringEntity;
 
 /**
  * Created by guillaumemunsch on 03/12/15.
@@ -27,6 +28,7 @@ import cz.msebera.android.httpclient.Header;
 public class ConnectActivity extends AppCompatActivity {
     Context context;
     Button connectButton = null;
+    Button forgottenPassword = null;
     String token = null;
     EditText userInput, passwordInput;
 
@@ -58,19 +60,25 @@ public class ConnectActivity extends AppCompatActivity {
         connectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RequestParams params = new RequestParams();
-                params.put("username", "user");
-                params.put("password", "test");
-                RestAPI.post("user/auth", params, new JsonHttpResponseHandler() {
+                JSONObject param = new JSONObject();
+                StringEntity stringEntity = null;
+                try {
+                    param.put("login", userInput.getText().toString());
+                    param.put("password", passwordInput.getText().toString());
+                    stringEntity = new StringEntity(param.toString());
+                }
+                catch (Throwable ex)
+                {
+                    Log.d("OK", "OK");
+                }
+                RestAPI.post(ConnectActivity.this, "user/connect", stringEntity, new JsonHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                        Log.d("Ce CODE", ": " + statusCode);
                         try {
                             token = response.getString("token");
                             startActivity(new Intent(ConnectActivity.this, MainActivity.class));
-                        }
-                        catch (Throwable ex){
-                            Log.d("Connexion", "Unable to find token.");
+                        } catch (Throwable ex) {
+                            Toast.makeText(ConnectActivity.this, "Wrong username/password", Toast.LENGTH_LONG).show();
                         }
                     }
 
@@ -79,6 +87,13 @@ public class ConnectActivity extends AppCompatActivity {
                         Log.d("Connexion: ", "" + statusCode);
                     }
                 });
+            }
+        });
+        forgottenPassword = (Button)findViewById(R.id.forgotten_password_button);
+        forgottenPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ConnectActivity.this, ForgottenPassword.class));
             }
         });
     }

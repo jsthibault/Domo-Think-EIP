@@ -46,4 +46,23 @@
         android:entries="@array/themes">
     </Spinner>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Change password"
+            android:id="@+id/change_password_button"
+            android:background="@color/domoBlue"
+            android:layout_above="@+id/forgotten_password_button"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
+
+
 </LinearLayout>

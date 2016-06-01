@@ -66,5 +66,11 @@
         <activity android:name=".activities.InfosObject"
             android:label="Store">
         </activity>
+        <activity android:name=".activities.ChangePasswordActivity"
+            android:label="Change Password">
+        </activity>
+        <activity android:name=".activities.ForgottenPassword"
+            android:label="Forgotten Password">
+        </activity>
     </application>
 </manifest>

@@ -2,14 +2,17 @@ package com.example.guillaumemunsch.domothink.fragments;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.guillaumemunsch.domothink.R;
+import com.example.guillaumemunsch.domothink.activities.CreateUpdateDirectiveActivity;
 import com.example.guillaumemunsch.domothink.adapter.SwitchListAdapter;
 import com.example.guillaumemunsch.domothink.http.RestAPI;
 import com.example.guillaumemunsch.domothink.listeners.SwipeDismissListViewTouchListener;
@@ -21,6 +24,7 @@ import com.google.gson.reflect.TypeToken;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -61,12 +65,34 @@ public class MyPluginsFragment extends Fragment {
                     @Override
                     public void onDismiss(ListView listView, int[] reverseSortedPositions) {
                         Utils.confirm(context, "Removing Plugin", "Do you really want to remove this plugin ?");
-                        for (int position : reverseSortedPositions) {
+                        for (final int position : reverseSortedPositions) {
                             adapter.remove(position);
+                            RestAPI.delete("/plugin/" + pluginList.get(position).getId(), null, new JsonHttpResponseHandler() {
+                                @Override
+                                public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                                    Log.d("Success:", "removing plugin");
+                                    adapter.remove(position);
+                                    adapter.notifyDataSetChanged();
+                                }
+
+                                @Override
+                                public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                                    Log.d("Error:", "Removing plugin");
+                                }
+
+                            });
                         }
                         adapter.notifyDataSetChanged();
                     }
                 }));
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
+
     }
 
     @Override

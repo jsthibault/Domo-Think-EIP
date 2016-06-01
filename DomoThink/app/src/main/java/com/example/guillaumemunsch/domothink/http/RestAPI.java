@@ -1,12 +1,20 @@
 package com.example.guillaumemunsch.domothink.http;
 
+import android.content.Context;
+
 import com.example.guillaumemunsch.domothink.R;
 import com.loopj.android.http.*;
+
+import org.json.JSONObject;
+
+import cz.msebera.android.httpclient.entity.StringEntity;
+
 /**
  * Created by guillaumemunsch on 07/05/16.
  */
 
 public class RestAPI {
+//    private static final String BASE_URL = "http://89.156.151.77:4242/";
     private static final String BASE_URL = "http://10.0.3.2:8080/api/";
 
     private static AsyncHttpClient client = new AsyncHttpClient();
@@ -17,6 +25,10 @@ public class RestAPI {
 
     public static void post(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
         client.post(getAbsoluteUrl(url), params, responseHandler);
+    }
+
+    public static void post(Context context, String url, StringEntity entity, AsyncHttpResponseHandler responseHandler) {
+        client.post(context, getAbsoluteUrl(url), entity, "application/json", responseHandler);
     }
 
     public static void put(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
