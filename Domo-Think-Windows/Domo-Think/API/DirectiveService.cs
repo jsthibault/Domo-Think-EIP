@@ -57,7 +57,7 @@ namespace DomoThink.API
 
         public async Task<List<DirectiveModel>> GetDirectives()
         {
-            return await this.api.Get<List<DirectiveModel>>("api/Directives/GetDirectives");
+            return await this.api.Get<List<DirectiveModel>>(ApiRoutes.GET_DIRECTIVES);
         }
 
         #endregion

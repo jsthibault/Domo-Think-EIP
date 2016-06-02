@@ -25,7 +25,7 @@ namespace DomoAPI.Model
         /// <summary>
         /// Gets or sets the login username.
         /// </summary>
-        [DataMember(Name = "login", EmitDefaultValue = false)]
+        [DataMember(Name = "username", EmitDefaultValue = false)]
         public String Id { get; set; }
 
         /// <summary>

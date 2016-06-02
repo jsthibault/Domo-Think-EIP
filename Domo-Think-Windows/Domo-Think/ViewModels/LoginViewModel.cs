@@ -161,7 +161,7 @@ namespace DomoThink.ViewModels
                 this.LogingIn = true;
                 this.FieldsEnabled = false;
                 this.HideErrorMessage();
-                
+
                 Boolean _connected = await this.loginService.SendLoginRequest(this.LoginInformations);
 
                 if (_connected)

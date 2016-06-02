@@ -57,7 +57,7 @@ namespace DomoThink.API
 
         public async Task<List<ObjectModel>> GetObjects()
         {
-            return await this.api.Get<List<ObjectModel>>("api/Objects/GetObjects");
+            return await this.api.Get<List<ObjectModel>>(ApiRoutes.GET_OBJECTS);
         }
 
         #endregion

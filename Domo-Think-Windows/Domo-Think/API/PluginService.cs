@@ -44,7 +44,7 @@ namespace DomoThink.API
 
         public async Task<List<PluginModel>> GetPlugins()
         {
-            List<PluginModel> _plugins = await this.api.Get<List<PluginModel>>("/api/Plugin/GetPlugins");
+            List<PluginModel> _plugins = await this.api.Get<List<PluginModel>>(ApiRoutes.GET_PLUGINS);
 
             // TODO: Checks
 

@@ -113,6 +113,7 @@
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\ObjectModel.cs" />
     <Compile Include="Model\PluginModel.cs" />
+    <Compile Include="Model\AccountModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\DomoAPI.rd.xml" />
   </ItemGroup>
