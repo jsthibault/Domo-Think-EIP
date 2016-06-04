@@ -7,22 +7,60 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel>
-            <TextBlock Text="Application settings" FontSize="20" Margin="10" />
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="12">
+        <StackPanel Orientation="Vertical">
+            
+            <!-- Options -->
+            <StackPanel x:Name="OPTIONS_PANEL" Margin="0,0,0,8">
+                <TextBlock Text="Options" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,8"  />
 
-            <StackPanel Margin="10,20,0,0">
-                <TextBlock Text="Enable the notifications" />
-                <ToggleSwitch OffContent="Off" OnContent="On" />
-            </StackPanel>
-
-            <StackPanel Margin="10,20,0,0">
-                <TextBlock Text="Theme" />
-                <ComboBox SelectedIndex="0">
-                    <ComboBoxItem Content="Windows Generic" />
+                <TextBlock Text="Current theme" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
+                <ComboBox SelectedIndex="0" Width="256">
+                    <ComboBoxItem Content="Windows 10" />
                     <ComboBoxItem Content="DomoThink Light" />
                     <ComboBoxItem Content="DomoThink Dark" />
+                    <ComboBoxItem Content="DomoThink Pink" />
+                    <ComboBoxItem Content="Pinky theme" />
+                    <ComboBoxItem Content="Pirate theme" />
                 </ComboBox>
+
+            </StackPanel>
+
+            <!-- Separator -->
+            <Rectangle HorizontalAlignment="Stretch" Fill="LightGray" Height="1" />
+            
+            <!-- Notifications -->
+            <StackPanel x:Name="NOTIFICATION_PANEL" Margin="0,0,0,8" >
+                <TextBlock Text="Notifications" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,8"/>
+
+                <TextBlock Text="Alerts" Style="{ThemeResource BodyTextBlockStyle}" />
+                <ToggleSwitch IsOn="True" />
+                
+                <TextBlock Text="Reminders" Style="{ThemeResource BodyTextBlockStyle}" />
+                <ToggleSwitch />
+            </StackPanel>
+
+            <!-- Separator -->
+            <Rectangle HorizontalAlignment="Stretch" Fill="LightGray" Height="1" />
+
+            <!-- Delete my account -->
+            <StackPanel x:Name="DELETE_ACCOUNT_PANEL" Margin="0,0,0,8">
+                <TextBlock Text="My account" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,8" />
+
+                <TextBlock Text="This action is definitive! You can not reverse the deletion of your account." TextWrapping="Wrap" />
+                <Button x:Name="DELETE_ACCOUNT">
+                    <Button.Content>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <SymbolIcon Grid.Column="0" Symbol="Delete" Margin="0,0,4,0" />
+                            <TextBlock Grid.Column="1" Text="Delete my account" />
+                        </Grid>
+                    </Button.Content>
+                </Button>
             </StackPanel>
 
         </StackPanel>
