@@ -99,10 +99,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Separator.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Resources\Languages\Language.English.xaml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
@@ -128,17 +124,16 @@
     <Compile Include="AppShell.xaml.cs">
       <DependentUpon>AppShell.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\AlternateListView.cs" />
     <Compile Include="Controls\DomoPage.xaml.cs">
       <DependentUpon>DomoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\LoadingPanel.xaml.cs">
       <DependentUpon>LoadingPanel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Separator.xaml.cs">
-      <DependentUpon>Separator.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Converters\CacheImageConverter.cs" />
     <Compile Include="Converters\DebugConverter.cs" />
+    <Compile Include="Converters\ListViewItemBackgroundConverter.cs" />
     <Compile Include="Converters\VisibilityConverter.cs" />
     <Compile Include="Model\NavigationButton.cs" />
     <Compile Include="MVVM\Command.cs" />
