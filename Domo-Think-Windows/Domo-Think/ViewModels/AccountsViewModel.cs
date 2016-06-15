@@ -130,19 +130,24 @@ namespace DomoThink.ViewModels
         /// <param name="param"></param>
         private async void LoadAccountsAction(Object param)
         {
+            // Set Loading state to true during loading
             this.LoadingState(true);
 
+            // Clear all acounts if there is any account from before
             if (this.Accounts.Any())
                 this.Accounts.Clear();
 
+            // Load the accounts from API
             List<AccountModel> _accounts = await this.service.GetAccounts();
 
+            // Add accounts to the view
             if (_accounts != null)
             {
                 foreach (AccountModel account in _accounts)
                     this.Accounts.Add(account);
             }
 
+            // Set loading state to false when the loading is over
             this.LoadingState(false);
         }
 

@@ -47,8 +47,8 @@
             <TextBox Grid.Column="1" PlaceholderText="Search accounts" />
         </StackPanel>
 
-        <!-- Objects panel  Visibility="{Binding Display, Converter={StaticResource visibilityConverter}}" -->
-        <StackPanel Grid.Row="1" Margin="10" >
+        <!-- Objects panel -->
+        <StackPanel Grid.Row="1" Margin="10" Visibility="{Binding Display, Converter={StaticResource visibilityConverter}}">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <StackPanel>
                     <ListView SelectionMode="None" Background="LightBlue">
@@ -60,21 +60,14 @@
                             </Style>
                         </ListView.ItemContainerStyle>
 
-                        <!--<ListView.ItemTemplate>
-                        <DataTemplate>
-                            
-                        </DataTemplate>
-                    </ListView.ItemTemplate>-->
-
                         <ListViewItem>
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Grid.Column="0" Text="Username" VerticalAlignment="Center" />
-                                <TextBlock Grid.Column="2" Text="Actions" VerticalAlignment="Center" />
+                                <TextBlock Grid.Column="1" Text="Actions" VerticalAlignment="Center" />
                             </Grid>
                         </ListViewItem>
                     </ListView>
