@@ -12,6 +12,7 @@
                 <ResourceDictionary Source="Resources/Styles/DefaultTheme.xaml" />
                 <ResourceDictionary Source="Resources/Styles/SplitViewStyle.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/StoreButtonStyle.xaml" />
+                <ResourceDictionary Source="Resources/Styles/ListViewIconTextStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
             
             <converters:DebugConverter x:Key="debugConverter" />

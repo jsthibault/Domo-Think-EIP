@@ -34,4 +34,6 @@ namespace DomoThink.Views.Objects
             (this.DataContext as AddObjectViewModel).SeatchDevicesCommand.Execute(null);
         }
     }
+
+    
 }

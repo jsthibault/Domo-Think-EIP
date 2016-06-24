@@ -1,0 +1,49 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DomoThink.Resources.Styles">
+
+    <Style TargetType="ListViewItem" x:Key="IconTextStyle">
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListViewItem">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <!-- Icon and informations -->
+                        <Grid Grid.Row="0">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Icon -->
+                            <Image Grid.Column="0" Source="../../Assets/ViewBox.png" />
+
+                            <!-- Text information -->
+                            <StackPanel Grid.Column="1" Orientation="Vertical">
+                                <TextBlock Text="test 1" />
+                                <TextBlock Text="Test 2" />
+                            </StackPanel>
+
+                        </Grid>
+
+                        <!-- Edit and delete row -->
+                        <Grid Grid.Row="1">
+
+                        </Grid>
+
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+
+</ResourceDictionary>

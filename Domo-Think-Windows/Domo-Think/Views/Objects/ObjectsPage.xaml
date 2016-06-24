@@ -2,10 +2,10 @@
     x:Class="DomoThink.Views.Objects.ObjectsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:xp="using:Expander"
     xmlns:local="using:DomoThink.Views"
     xmlns:viewModel="using:DomoThink.ViewModels"
     xmlns:controls="using:DomoThink.Controls"
+    xmlns:converters="using:DomoThink.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" x:Name="OBJECTS_PAGE" OnLoaded="{Binding LoadCommand}">
@@ -45,41 +45,32 @@
         </StackPanel>
 
         <!-- Objects panel -->
-        <StackPanel Grid.Row="1" Margin="10" Visibility="{Binding Display, Converter={StaticResource visibilityConverter}}">
+        <Grid Grid.Row="1" Margin="10" Visibility="{Binding Display, Converter={StaticResource visibilityConverter}}">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <ItemsControl x:Name="OBJECTS_LIST" ItemsSource="{Binding ConnectedObjects}" HorizontalContentAlignment="Stretch">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <xp:Expander VerticalAlignment="Top" Margin="0,0,0,10" IsExpanded="False">
-                                <xp:Expander.HeaderButtonContent>
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                        </Grid.ColumnDefinitions>
+                <StackPanel>
 
-                                        <SymbolIcon Symbol="DisconnectDrive" Margin="8,0,12,0" />
-                                        <TextBlock Grid.Column="1" Text="{Binding Name}" TextWrapping="Wrap" VerticalAlignment="Center" />
-                                        <ToggleSwitch x:Name="TOGGLE_ITEM_STATE" Grid.Column="2"
-                                              IsOn="{Binding State}" OnContent="On" OffContent="Off" />
-                                        <Button Grid.Column="3" Margin="4">
-                                            <Button.Content>
-                                                <SymbolIcon Symbol="Delete" Margin="8,0,12,0" />
-                                            </Button.Content>
-                                        </Button>
-                                    </Grid>
-                                </xp:Expander.HeaderButtonContent>
-                                <Grid Background="#FFF5F1D9">
-                                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Informations about the object" VerticalAlignment="Center" />
-                                </Grid>
-                            </xp:Expander>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                    <!-- Connected objects list -->
+                    <ListView x:Name="OBJECTS_LIST"
+                              ItemsSource="{Binding ConnectedObjects}" 
+                              SelectionChanged="OBJECTS_LIST_SelectionChanged">
+
+                        <!-- Item container style -->
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+
+                        <!-- Item template -->
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <controls:ObjectListView />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
             </ScrollViewer>
-        </StackPanel>
+        </Grid>
 
         <!-- Loading panel -->
         <controls:LoadingPanel Grid.Row="1" Text="Loading conected objects..." IsVisible="{Binding Loading}" />

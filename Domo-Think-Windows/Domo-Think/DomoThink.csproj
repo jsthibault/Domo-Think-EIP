@@ -99,6 +99,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\ObjectListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Languages\Language.English.xaml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
@@ -128,8 +132,12 @@
     <Compile Include="Controls\DomoPage.xaml.cs">
       <DependentUpon>DomoPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Helper.cs" />
     <Compile Include="Controls\LoadingPanel.xaml.cs">
       <DependentUpon>LoadingPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ObjectListView.xaml.cs">
+      <DependentUpon>ObjectListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\CacheImageConverter.cs" />
     <Compile Include="Converters\DebugConverter.cs" />
@@ -156,6 +164,7 @@
     <Compile Include="Views\Directives\AddOrder.xaml.cs">
       <DependentUpon>AddOrder.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Helper.cs" />
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -195,6 +204,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\dmlogo.png" />
+    <Content Include="Assets\ViewBox.png" />
     <Content Include="Assets\windows_store-512.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -216,10 +226,6 @@
       <Project>{f4de4c78-cc93-4a4c-96ae-1ed827556a11}</Project>
       <Name>DomoAPI</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Expander\Expander.csproj">
-      <Project>{6ffb913b-cc9c-4176-8fd5-ac5ed56ab86b}</Project>
-      <Name>Expander</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Page Include="AppShell.xaml">
@@ -227,6 +233,11 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Styles\DefaultTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Resources\Styles\ListViewIconTextStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
