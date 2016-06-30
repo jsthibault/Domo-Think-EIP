@@ -13,13 +13,23 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal">
-            <Image Height="45" Width="45" Margin="0,8,0,8" Source="../../Assets/ViewBox.png" Stretch="UniformToFill"/>
-            <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="8,8,0,0">
+        <Grid Grid.Row="0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Height="45" Width="45" Margin="0,8,0,8" Source="../../Assets/ViewBox.png" Stretch="UniformToFill"/>
+            <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Top" Margin="8,8,0,0">
                 <TextBlock Text="{Binding Name}" Style="{StaticResource BaseTextBlockStyle}" />
                 <TextBlock Text="{Binding Id}" Margin="0,4,8,0" Style="{StaticResource BodyTextBlockStyle}" />
             </StackPanel>
-        </StackPanel>
+
+            <ToggleSwitch Grid.Column="2"></ToggleSwitch>
+        </Grid>
+
 
         <!-- Editor and information panel -->
         <Grid Grid.Row="1" x:Name="EDITOR_PANEL" Visibility="Collapsed">
