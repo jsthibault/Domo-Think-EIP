@@ -52,16 +52,10 @@
                     <!-- Connected objects list -->
                     <ListView x:Name="OBJECTS_LIST"
                               ItemsSource="{Binding ConnectedObjects}" 
-                              SelectionChanged="OBJECTS_LIST_SelectionChanged">
+                              SelectionChanged="OBJECTS_LIST_SelectionChanged" 
+                              ItemContainerStyle="{StaticResource ListViewItemStretch}">
 
-                        <!-- Item container style -->
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
-                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                            </Style>
-                        </ListView.ItemContainerStyle>
-
-                        <!-- Item template -->
+                        <!--Item template--> 
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <controls:ObjectListView />

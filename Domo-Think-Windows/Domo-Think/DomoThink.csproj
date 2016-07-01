@@ -128,11 +128,9 @@
     <Compile Include="AppShell.xaml.cs">
       <DependentUpon>AppShell.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\AlternateListView.cs" />
     <Compile Include="Controls\DomoPage.xaml.cs">
       <DependentUpon>DomoPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Helper.cs" />
     <Compile Include="Controls\LoadingPanel.xaml.cs">
       <DependentUpon>LoadingPanel.xaml</DependentUpon>
     </Compile>
@@ -141,7 +139,6 @@
     </Compile>
     <Compile Include="Converters\CacheImageConverter.cs" />
     <Compile Include="Converters\DebugConverter.cs" />
-    <Compile Include="Converters\ListViewItemBackgroundConverter.cs" />
     <Compile Include="Converters\VisibilityConverter.cs" />
     <Compile Include="Model\NavigationButton.cs" />
     <Compile Include="MVVM\Command.cs" />
@@ -149,12 +146,12 @@
     <Compile Include="Navigation\NavigationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AccountsViewModel.cs" />
-    <Compile Include="ViewModels\AddObjectViewModel.cs" />
+    <Compile Include="ViewModels\Objects\AddObjectViewModel.cs" />
     <Compile Include="ViewModels\DirectiveViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\ILoader.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\ObjectsViewModel.cs" />
+    <Compile Include="ViewModels\Objects\ObjectsViewModel.cs" />
     <Compile Include="ViewModels\PluginViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\PluginStoreViewModel.cs" />
@@ -164,7 +161,6 @@
     <Compile Include="Views\Directives\AddOrder.xaml.cs">
       <DependentUpon>AddOrder.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Helper.cs" />
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -237,7 +233,7 @@
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
-    <Page Include="Resources\Styles\ListViewIconTextStyle.xaml">
+    <Page Include="Resources\Styles\ListViewStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -300,6 +296,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\Directives\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
