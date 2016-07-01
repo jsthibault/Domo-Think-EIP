@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 
 /*--------------------------------------------------------
  * APIConstants.cs
@@ -22,7 +17,7 @@ namespace DomoThink.API
 #if DEBUG
         public const String API_URL = "http://localhost:2977/"; //"http://89.156.151.77:4242/";
 #else
-        public const String API_URL = "";
+        public const String API_URL = "http://89.156.151.77:4242/";
 #endif
     }
 }

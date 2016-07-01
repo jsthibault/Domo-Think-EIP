@@ -48,7 +48,7 @@ namespace DomoThink.ViewModels
 
         public ICommand EchoApiCommand { get; private set; }
 
-        public Object DomoApi { get; private set; }
+        public Object DAL { get; private set; }
 
         #endregion
 
@@ -83,7 +83,7 @@ namespace DomoThink.ViewModels
 
         private void EchoApiAction(Object param)
         {
-            //DomoAPI _api = new DomoAPI(Constants.API_ADDRESS);
+            //DAL _api = new DAL(Constants.API_ADDRESS);
             //ApiResponse _result = await _api.Get<ApiResponse>("/api/Login/GetUsername?username={0}", param.ToString());
 
             //this.EchoName = String.Format("'{0}'", _result.ObjResult.ToString());

@@ -3,7 +3,7 @@ using DomoThink.Model;
 using DomoThink.MVVM;
 using DomoThink.Navigation;
 using DomoThink.ViewModels.Interfaces;
-using DomoAPI.Model;
+using DAL.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

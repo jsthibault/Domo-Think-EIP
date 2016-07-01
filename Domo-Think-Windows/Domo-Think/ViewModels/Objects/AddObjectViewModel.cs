@@ -1,6 +1,6 @@
 ﻿using DomoThink.Model;
 using DomoThink.MVVM;
-using DomoAPI.Model;
+using DAL.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -21,7 +21,7 @@ using DomoThink.ViewModels.Interfaces;
  * Notes:
  * -------------------------------------------------------*/
 
-namespace DomoThink.ViewModels
+namespace DomoThink.ViewModels.Objects
 {
     public class AddObjectViewModel : ViewModelBase, ILoader
     {
@@ -35,7 +35,7 @@ namespace DomoThink.ViewModels
         #region PROPERTIES
         
         /// <summary>
-        /// 
+        /// Gets the availiable objects collection.
         /// </summary>
         public ObservableCollection<ObjectModel> AvailiableObjects { get; private set; }
 
@@ -99,9 +99,18 @@ namespace DomoThink.ViewModels
 
         #region ACTIONS
 
+        /// <summary>
+        /// Send an API request to the DomoBox to get the objects near.
+        /// </summary>
+        /// <param name="param"></param>
         private async void LoadAction(Object param)
         {
             this.SetLoadingState(true);
+
+            if (this.AvailiableObjects.Any())
+                this.AvailiableObjects.Clear();
+
+            // TODO: API request to get the objects near the DomoBox.
 
             await Task.Delay(3000);
 

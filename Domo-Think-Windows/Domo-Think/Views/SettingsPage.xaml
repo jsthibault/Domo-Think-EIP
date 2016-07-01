@@ -24,6 +24,8 @@
                     <ComboBoxItem Content="Pirate theme" />
                 </ComboBox>
 
+                <Button Content="Apply theme" Margin="0,8,8,0" />
+
             </StackPanel>
 
             <!-- Separator -->

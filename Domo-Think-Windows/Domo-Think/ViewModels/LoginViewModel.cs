@@ -2,7 +2,7 @@
 using DomoThink.Model;
 using DomoThink.MVVM;
 using DomoThink.Navigation;
-using DomoAPI.Model;
+using DAL.Model;
 using System;
 using System.IO;
 using System.Net;
@@ -97,7 +97,7 @@ namespace DomoThink.ViewModels
             this.LoginCommand = new Command(this.LoginCommandAction);
 
             // Initialize model
-            this.LoginInformations = new DomoAPI.Model.LoginModel();
+            this.LoginInformations = new DAL.Model.LoginModel();
 
             // Initialize properties
             this.FieldsEnabled = true;

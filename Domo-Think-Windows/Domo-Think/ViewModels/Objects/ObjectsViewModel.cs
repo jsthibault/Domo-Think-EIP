@@ -1,17 +1,13 @@
-﻿using DomoThink.API;
-using DomoThink.Model;
+﻿using DAL.Model;
+using DomoThink.API;
 using DomoThink.MVVM;
 using DomoThink.Navigation;
 using DomoThink.ViewModels.Interfaces;
-using DomoAPI.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using Windows.UI.Xaml.Controls;
 
 /*--------------------------------------------------------
  * ObjectsViewModel.cs
@@ -23,7 +19,7 @@ using Windows.UI.Xaml.Controls;
  * Notes:
  * -------------------------------------------------------*/
 
-namespace DomoThink.ViewModels
+namespace DomoThink.ViewModels.Objects
 {
     public class ObjectsViewModel : ViewModelBase, ILoader
     {

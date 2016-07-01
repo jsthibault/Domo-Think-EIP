@@ -218,12 +218,6 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DomoAPI\DomoAPI.csproj">
-      <Project>{f4de4c78-cc93-4a4c-96ae-1ed827556a11}</Project>
-      <Name>DomoAPI</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Page Include="AppShell.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -299,6 +293,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\Directives\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{4cf612d2-247a-4a65-afed-ecd52f30af61}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

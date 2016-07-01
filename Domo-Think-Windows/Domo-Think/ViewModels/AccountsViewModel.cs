@@ -1,4 +1,4 @@
-﻿using DomoAPI.Model;
+﻿using DAL.Model;
 using DomoThink.API;
 using DomoThink.MVVM;
 using DomoThink.ViewModels.Interfaces;

@@ -1,9 +1,6 @@
-﻿using DomoAPI.Client;
-using DomoAPI.Model;
-using System;
+﻿using DAL.API;
+using DAL.Model;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 /*--------------------------------------------------------

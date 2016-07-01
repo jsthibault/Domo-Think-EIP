@@ -25,7 +25,7 @@ namespace DomoThink
     /// </summary>
     sealed partial class App : Application
     {
-        public static DomoAPI.Client.ApiClient ApiClient;
+        public static DAL.API.ApiClient ApiClient;
 
         /// <summary>
         /// Initialise l'objet d'application de singleton.  Il s'agit de la première ligne du code créé
@@ -38,7 +38,7 @@ namespace DomoThink
                 Microsoft.ApplicationInsights.WindowsCollectors.Session);
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-            ApiClient = new DomoAPI.Client.ApiClient(API.APIConstants.API_URL);
+            ApiClient = new DAL.API.ApiClient(API.APIConstants.API_URL);
         }
 
         /// <summary>

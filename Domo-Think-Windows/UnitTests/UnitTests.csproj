@@ -131,10 +131,6 @@
       <Project>{1bae9a43-2ee5-4b74-b0fa-247d505780a1}</Project>
       <Name>DomoThink</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DomoAPI\DomoAPI.csproj">
-      <Project>{f4de4c78-cc93-4a4c-96ae-1ed827556a11}</Project>
-      <Name>DomoAPI</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
