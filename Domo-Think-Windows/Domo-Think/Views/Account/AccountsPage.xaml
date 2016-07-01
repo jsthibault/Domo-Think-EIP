@@ -15,7 +15,6 @@
     </Page.DataContext>
 
     <Page.Resources>
-        <converters:ListViewItemBackgroundConverter x:Key="backgroundConverter" />
     </Page.Resources>
 
     <!-- Main Grid -->

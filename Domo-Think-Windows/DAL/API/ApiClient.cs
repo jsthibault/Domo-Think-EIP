@@ -13,7 +13,7 @@ using System.Threading.Tasks;
  * Notes:
  * -------------------------------------------------------*/
 
-namespace DomoAPI.Client
+namespace DAL.API
 {
     public class ApiClient
     {
