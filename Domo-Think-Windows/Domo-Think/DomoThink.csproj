@@ -91,10 +91,6 @@
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="ApplicationInsights.config" />
     <None Include="project.json" />
-    <Page Include="Controls\DomoPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Controls\LoadingPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -127,9 +123,6 @@
     </Compile>
     <Compile Include="AppShell.xaml.cs">
       <DependentUpon>AppShell.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\DomoPage.xaml.cs">
-      <DependentUpon>DomoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\LoadingPanel.xaml.cs">
       <DependentUpon>LoadingPanel.xaml</DependentUpon>
@@ -293,6 +286,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\Directives\" />
+    <Folder Include="Views\Plugins\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

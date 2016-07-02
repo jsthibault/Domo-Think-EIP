@@ -1,8 +1,8 @@
-﻿using DomoThink.Controls;
+﻿using Windows.UI.Xaml.Controls;
 
 namespace DomoThink.Views.Directives
 {
-    public sealed partial class OrdersPage : DomoPage
+    public sealed partial class OrdersPage : Page
     {
         public OrdersPage()
         {

@@ -1,13 +1,22 @@
-﻿<controls:DomoPage
+﻿<Page
     x:Class="DomoThink.Views.Objects.AddObject"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" 
+    xmlns:Interactions="using:Microsoft.Xaml.Interactions.Core"
     xmlns:local="using:DomoThink.Views.Objects"
     xmlns:viewModel="using:DomoThink.ViewModels.Objects"
     xmlns:controls="using:DomoThink.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" OnLoaded="{Binding LoadCommand}">
+    mc:Ignorable="d">
+
+    <!-- Interactions -->
+    <Interactivity:Interaction.Behaviors>
+        <Interactions:EventTriggerBehavior EventName="Loaded">
+            <Interactions:InvokeCommandAction Command="{Binding LoadCommand}"/>
+        </Interactions:EventTriggerBehavior>
+    </Interactivity:Interaction.Behaviors>
 
     <!-- Page DataContext -->
     <Page.DataContext>
@@ -58,4 +67,4 @@
         </CommandBar>
         
     </Grid>
-</controls:DomoPage>
+</Page>

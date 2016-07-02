@@ -1,8 +1,8 @@
-﻿using DomoThink.Controls;
+﻿using Windows.UI.Xaml.Controls;
 
 namespace DomoThink.Views.Account
 {
-    public sealed partial class AccountsPage : DomoPage
+    public sealed partial class AccountsPage : Page
     {
         public AccountsPage()
         {

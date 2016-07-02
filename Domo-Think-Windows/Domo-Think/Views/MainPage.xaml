@@ -1,4 +1,4 @@
-﻿<controls:DomoPage
+﻿<Page
     x:Class="DomoThink.Views.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -7,9 +7,9 @@
     xmlns:viewModel="using:DomoThink.ViewModels"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008">
 
-    <controls:DomoPage.DataContext>
+    <Page.DataContext>
         <viewModel:MainViewModel />
-    </controls:DomoPage.DataContext>
+    </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         
@@ -39,4 +39,4 @@
         </Grid>
         
     </Grid>
-</controls:DomoPage>
+</Page>

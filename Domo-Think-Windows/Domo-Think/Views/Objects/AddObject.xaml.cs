@@ -1,8 +1,8 @@
-﻿using DomoThink.Controls;
+﻿using Windows.UI.Xaml.Controls;
 
 namespace DomoThink.Views.Objects
 {
-    public sealed partial class AddObject : DomoPage
+    public sealed partial class AddObject : Page
     {
         public AddObject()
         {

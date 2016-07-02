@@ -1,4 +1,4 @@
-﻿<controls:DomoPage
+﻿<Page
     x:Class="DomoThink.Views.PluginPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -85,4 +85,4 @@
         </Grid>
     </ScrollViewer>
 
-</controls:DomoPage>
+</Page>

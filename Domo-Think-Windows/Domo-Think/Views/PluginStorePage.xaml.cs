@@ -1,8 +1,8 @@
-﻿using DomoThink.Controls;
+﻿using Windows.UI.Xaml.Controls;
 
 namespace DomoThink.Views
 {
-    public sealed partial class PluginStorePage : DomoPage
+    public sealed partial class PluginStorePage : Page
     {
         public PluginStorePage()
         {
