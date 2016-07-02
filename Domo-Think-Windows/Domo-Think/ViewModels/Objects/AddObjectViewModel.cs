@@ -114,6 +114,9 @@ namespace DomoThink.ViewModels.Objects
 
             await Task.Delay(3000);
 
+            for (Int32 i = 0; i < 5; ++i)
+                this.AvailiableObjects.Add(new ObjectModel(i, "Availiable Object #" + i.ToString()));
+
             this.SetLoadingState(false);
         }
 

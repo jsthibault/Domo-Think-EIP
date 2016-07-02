@@ -114,7 +114,7 @@ namespace DomoThink.ViewModels
         /// <param name="param"></param>
         private void AddDirectiveCommandAction(Object param)
         {
-            NavigationService.Navigate(typeof(DomoThink.Views.Directives.AddOrder));
+            //NavigationService.Navigate(typeof(DomoThink.Views.Directives.AddOrder));
         }
 
         /// <summary>

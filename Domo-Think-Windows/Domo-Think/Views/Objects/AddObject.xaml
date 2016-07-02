@@ -39,15 +39,10 @@
                     <!-- Conntect objects availiable -->
                     <ListView x:Name="AVAILIABLE_OBJECTS_LIST" 
                               ItemsSource="{Binding AvailiableObjects}"
-                              ItemContainerStyle="{StaticResource ListViewItemStretch}">
-
-                        <!-- Item Template -->
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                              ItemContainerStyle="{StaticResource ListViewItemStretch}"
+                              ItemTemplate="{StaticResource AddObjectItemTemplate}" 
+                              />
+                    
                 </ScrollViewer>
             </StackPanel>
         </Grid>

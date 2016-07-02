@@ -148,12 +148,6 @@
     <Compile Include="ViewModels\PluginViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\PluginStoreViewModel.cs" />
-    <Compile Include="Views\Account\AccountsPage.xaml.cs">
-      <DependentUpon>AccountsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Directives\AddOrder.xaml.cs">
-      <DependentUpon>AddOrder.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -171,9 +165,6 @@
     </Compile>
     <Compile Include="Views\Objects\ObjectsPage.xaml.cs">
       <DependentUpon>ObjectsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Directives\OrdersPage.xaml.cs">
-      <DependentUpon>OrdersPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PluginPage.xaml.cs">
       <DependentUpon>PluginPage.xaml</DependentUpon>
@@ -235,14 +226,6 @@
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
-    <Page Include="Views\Account\AccountsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Directives\AddOrder.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -267,10 +250,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Directives\OrdersPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\PluginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -286,6 +265,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\Directives\" />
+    <Folder Include="Views\Account\" />
+    <Folder Include="Views\Box\" />
+    <Folder Include="Views\Directives\" />
     <Folder Include="Views\Plugins\" />
   </ItemGroup>
   <ItemGroup>

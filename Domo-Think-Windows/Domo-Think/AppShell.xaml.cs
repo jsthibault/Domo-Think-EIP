@@ -2,8 +2,8 @@
 using DomoThink.MVVM;
 using DomoThink.Navigation;
 using DomoThink.Views;
-using DomoThink.Views.Account;
-using DomoThink.Views.Directives;
+//using DomoThink.Views.Account;
+//using DomoThink.Views.Directives;
 using DomoThink.Views.Objects;
 using System;
 using System.Collections.Generic;
@@ -114,9 +114,9 @@ namespace DomoThink
             this.PrimaryNavigationButtons = new List<NavigationButton>();
             this.PrimaryNavigationButtons.Add(new NavigationButton("Home", "Home", "\uE80F", typeof(MainPage), true));
             this.PrimaryNavigationButtons.Add(new NavigationButton("Objects", "Objects", "\uE772", typeof(ObjectsPage)));
-            this.PrimaryNavigationButtons.Add(new NavigationButton("Directives", "Directives", "\uE17D", typeof(OrdersPage)));
+            //this.PrimaryNavigationButtons.Add(new NavigationButton("Directives", "Directives", "\uE17D", typeof(OrdersPage)));
             this.PrimaryNavigationButtons.Add(new NavigationButton("My DomoBox", "My DomoBox", "\uE1E4", typeof(MyDomoBox)));
-            this.PrimaryNavigationButtons.Add(new NavigationButton("Accounts", "Accounts", "\uE125", typeof(AccountsPage)));
+            //this.PrimaryNavigationButtons.Add(new NavigationButton("Accounts", "Accounts", "\uE125", typeof(AccountsPage)));
             this.PrimaryNavigationButtons.Add(new NavigationButton("Plugins", "Plugins", "\uE74C", typeof(MyPlugins)));
             this.PrimaryNavigationButtons.Add(new NavigationButton("Store", "Domo Store", "\uE719", typeof(PluginStorePage)));
 
