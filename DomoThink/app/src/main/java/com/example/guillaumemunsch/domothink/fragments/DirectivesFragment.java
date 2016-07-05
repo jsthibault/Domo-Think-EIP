@@ -61,7 +61,7 @@ public class DirectivesFragment extends Fragment {
 
                     @Override
                     public void onDismiss(ListView listView, int[] reverseSortedPositions) {
-                        Utils.confirm(getActivity(), "Deleting Directive", "Do you really want to delete this directive ?");
+                        Utils.confirm(getActivity(), getResources().getString(R.string.deleting_directive), getResources().getString(R.string.do_you_really_directive));
                         for (int position : reverseSortedPositions) {
                             pos = position;
                             RestAPI.delete("/directive/" + directives.get(position).getId(), null, new JsonHttpResponseHandler() {

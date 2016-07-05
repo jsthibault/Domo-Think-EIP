@@ -7,16 +7,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.guillaumemunsch.domothink.R;
+import com.example.guillaumemunsch.domothink.http.RestAPI;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.json.JSONObject;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * Created by guillaumemunsch on 01/06/16.
  */
 
-public class ForgottenPassword extends AppCompatActivity {
+public class ForgottenPasswordActivity extends AppCompatActivity {
     Button btn = null;
 
     @Override
@@ -29,17 +34,21 @@ public class ForgottenPassword extends AppCompatActivity {
             public void onClick(View v) {
                 //Request
                 if (true) {
-                    setContentView(R.layout.reset_password_activity);
-                    btn = (Button) findViewById(R.id.reset_password_button);
-                    btn.setOnClickListener(new View.OnClickListener() {
+                    RestAPI.post("user/forgotten_password", null, new JsonHttpResponseHandler(){
                         @Override
-                        public void onClick(View v) {
-                            Log.d("Reset", "Password");
+                        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                            Toast.makeText(ForgottenPasswordActivity.this, "An email has been sent", Toast.LENGTH_LONG).show();
+                            finish();
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                            Log.d("Forgotten password: ", "" + statusCode);
                         }
                     });
                 }
                 else {
-                    Toast.makeText(ForgottenPassword.this, "Unabe to find this account on this box", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ForgottenPasswordActivity.this, R.string.account_not_found, Toast.LENGTH_LONG).show();
                 }
             }
         });

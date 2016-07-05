@@ -60,7 +60,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="32dp"
             android:background="@color/domoBlue"
-            android:text="CREATE"
+            android:text="@string/create"
             android:textColor="@color/white"
             android:textSize="20dp" />
 

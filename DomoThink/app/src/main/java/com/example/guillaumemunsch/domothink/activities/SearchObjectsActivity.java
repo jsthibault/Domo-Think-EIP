@@ -48,7 +48,7 @@ public class SearchObjectsActivity extends AppCompatActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                Utils.confirm(context, "Adding device", "Do you really want to add this device ?");
+                Utils.confirm(context, getResources().getString(R.string.add_device), getResources().getString(R.string.do_you_really_add_device));
                 RequestParams params = new RequestParams();
                 params.put("device", foundDevices.get(position));
                 RestAPI.post("device", params, new JsonHttpResponseHandler() {

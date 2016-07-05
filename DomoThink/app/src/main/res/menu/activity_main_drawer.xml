@@ -5,35 +5,35 @@
         <item
             android:id="@+id/nav_objects"
             android:icon="@drawable/icon_grid_objects"
-            android:title="Objects" />
+            android:title="@string/objects" />
         <item
             android:id="@+id/nav_directives"
             android:icon="@drawable/icon_grid_directives"
-            android:title="Directives" />
+            android:title="@string/directives" />
         <item
             android:id="@+id/nav_plugins"
             android:icon="@drawable/icon_grid_domobox"
-            android:title="Plugins" />
+            android:title="@string/plugins" />
         <item
             android:id="@+id/nav_store"
             android:icon="@drawable/icon_grid_store"
-            android:title="Store" />
+            android:title="@string/store" />
         <item
             android:id="@+id/nav_update"
             android:icon="@drawable/icon_grid_update"
-            android:title="Mises à jour" />
+            android:title="@string/updates" />
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/icon_grid_settings"
-            android:title="Paramètres" />
+            android:title="@string/settings" />
     </group>
 
-    <item android:title="Account">
+    <item android:title="@string/account">
         <menu>
             <item
                 android:id="@+id/nav_logout"
                 android:icon="@drawable/button_delete"
-                android:title="Logout" />
+                android:title="@string/logout" />
         </menu>
     </item>
 </menu>

@@ -29,6 +29,7 @@ public class ConnectActivity extends AppCompatActivity {
     Context context;
     Button connectButton = null;
     Button forgottenPassword = null;
+    Button createAccount = null;
     String token = null;
     EditText userInput, passwordInput;
 
@@ -39,7 +40,7 @@ public class ConnectActivity extends AppCompatActivity {
     public void tryConnection(){
         try {
             if (token.equals("Error"))
-                Toast.makeText(this, "Wrong username/password", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.wrong_identifiers, Toast.LENGTH_LONG).show();
             else
                 startActivity(new Intent(ConnectActivity.this, MainActivity.class));
         }
@@ -78,7 +79,7 @@ public class ConnectActivity extends AppCompatActivity {
                             token = response.getString("token");
                             startActivity(new Intent(ConnectActivity.this, MainActivity.class));
                         } catch (Throwable ex) {
-                            Toast.makeText(ConnectActivity.this, "Wrong username/password", Toast.LENGTH_LONG).show();
+                            Toast.makeText(ConnectActivity.this, R.string.wrong_identifiers, Toast.LENGTH_LONG).show();
                         }
                     }
 
@@ -93,7 +94,14 @@ public class ConnectActivity extends AppCompatActivity {
         forgottenPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ConnectActivity.this, ForgottenPassword.class));
+                startActivity(new Intent(ConnectActivity.this, ForgottenPasswordActivity.class));
+            }
+        });
+        createAccount = (Button)findViewById(R.id.create_account_button);
+        createAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ConnectActivity.this, CreateAccountActivity.class));
             }
         });
     }

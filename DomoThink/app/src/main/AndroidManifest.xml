@@ -69,8 +69,11 @@
         <activity android:name=".activities.ChangePasswordActivity"
             android:label="Change Password">
         </activity>
-        <activity android:name=".activities.ForgottenPassword"
+        <activity android:name=".activities.ForgottenPasswordActivity"
             android:label="Forgotten Password">
+        </activity>
+        <activity android:name=".activities.CreateAccountActivity"
+            android:label="Creating Account">
         </activity>
     </application>
 </manifest>

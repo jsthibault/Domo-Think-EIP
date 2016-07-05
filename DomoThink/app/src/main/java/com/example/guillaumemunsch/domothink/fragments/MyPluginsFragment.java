@@ -64,7 +64,7 @@ public class MyPluginsFragment extends Fragment {
 
                     @Override
                     public void onDismiss(ListView listView, int[] reverseSortedPositions) {
-                        Utils.confirm(context, "Removing Plugin", "Do you really want to remove this plugin ?");
+                        Utils.confirm(context, getResources().getString(R.string.removing_plugin), getResources().getString(R.string.do_you_really_plugin));
                         for (final int position : reverseSortedPositions) {
                             adapter.remove(position);
                             RestAPI.delete("/plugin/" + pluginList.get(position).getId(), null, new JsonHttpResponseHandler() {

@@ -47,13 +47,13 @@ public class InfosObject extends AppCompatActivity {
                 RestAPI.put("/device/" + device.getId(), params, new JsonHttpResponseHandler(){
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                        Toast.makeText(context, "Updating name.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, R.string.updating_name, Toast.LENGTH_LONG).show();
                         finish();
                     }
 
                     @Override
                     public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                        Toast.makeText(context, "Unable to save new name.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, R.string.unable_save_name, Toast.LENGTH_LONG).show();
                     }
                 });
             }

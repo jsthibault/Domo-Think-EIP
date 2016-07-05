@@ -7,7 +7,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Nouvelle mise à jour disponible !"
+        android:text="@string/available_update"
         android:id="@+id/update"
         android:layout_margin="32px"
         android:textColor="@color/grey"/>

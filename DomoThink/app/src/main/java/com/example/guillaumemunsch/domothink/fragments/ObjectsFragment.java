@@ -69,7 +69,7 @@ public class ObjectsFragment extends Fragment {
 
                     @Override
                     public void onDismiss(ListView listView, int[] reverseSortedPositions) {
-                        Utils.confirm(context, "Deleting Object", "Do you really want to delete this object ?");
+                        Utils.confirm(context, getResources().getString(R.string.deleting_object), getResources().getString(R.string.do_you_really_object));
                         for (int position : reverseSortedPositions) {
                             pos = position;
                             RestAPI.delete("/device/" + devices.get(position).getId(), null, new JsonHttpResponseHandler() {

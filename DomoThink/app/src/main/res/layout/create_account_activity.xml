@@ -11,10 +11,20 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:id="@+id/old_password"
+        android:id="@+id/username"
         android:layout_marginBottom="15dp"
         android:layout_centerHorizontal="true"
-        android:hint="@string/old_password"
+        android:hint="@string/email"
+        android:textColor="@color/grey"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/password"
+        android:layout_marginBottom="15dp"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/password"
         android:inputType="textPassword"
         android:textColor="@color/grey"/>
 
@@ -22,32 +32,31 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:id="@+id/new_password"
-        android:layout_marginBottom="15dp"
-        android:layout_centerHorizontal="true"
-        android:hint="@string/new_password"
-        android:inputType="textPassword"
-        android:textColor="@color/grey"/>
-
-    <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/new_password_confirm"
+        android:id="@+id/confirm"
         android:layout_marginBottom="15dp"
         android:layout_centerHorizontal="true"
         android:hint="@string/confirm_password"
         android:inputType="textPassword"
         android:textColor="@color/grey"/>
 
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/box_key"
+        android:layout_marginBottom="15dp"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/box_key"
+        android:textColor="@color/grey"/>
+
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/change_password"
-        android:id="@+id/change_password_button"
+        android:text="@string/create_account"
+        android:id="@+id/validate"
         android:background="@color/domoBlue"
-        android:layout_above="@+id/change_password"
+        android:layout_above="@+id/box_key"
         android:textColor="@color/white"
-        android:textSize="20dp" />
+        android:textSize="15dp" />
 
 </LinearLayout>

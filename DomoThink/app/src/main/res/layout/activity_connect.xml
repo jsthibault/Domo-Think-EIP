@@ -21,7 +21,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/user"
-        android:hint="DomoBox Identifier"
+        android:hint="@string/email"
         android:layout_marginBottom="15dp"
         android:textColor="@color/grey"
         android:layout_below="@+id/connectLogo"
@@ -36,7 +36,7 @@
         android:layout_marginBottom="15dp"
         android:layout_below="@+id/user"
         android:layout_centerHorizontal="true"
-        android:hint="Password"
+        android:hint="@string/password"
         android:textColor="@color/grey"/>
 
     <EditText
@@ -47,39 +47,54 @@
         android:layout_marginBottom="45dp"
         android:layout_below="@+id/password"
         android:layout_centerHorizontal="true"
-        android:hint="Box key"
+        android:hint="@string/domobox_identifier"
         android:textColor="@color/grey"/>
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="GO"
+        android:text="@string/go"
         android:id="@+id/connection_button"
         android:background="@color/domoBlue"
-        android:layout_above="@+id/forgotten_password_button"
+        android:layout_above="@+id/buttons"
         android:layout_marginBottom="15dp"
         android:textColor="@color/white"
         android:textSize="20dp" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </LinearLayout>
-
-    <Button
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Forgotten password ?"
-        android:id="@+id/forgotten_password_button"
-        android:background="@color/grey"
-        android:layout_marginBottom="10dp"
-        android:textColor="@color/white"
-        android:textSize="10dp"
-        android:paddingRight="5dp"
-        android:paddingLeft="5dp"
-        android:paddingTop="0dp"
-        android:paddingBottom="0dp"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentBottom="true"
+        android:id="@+id/buttons">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/create_account"
+            android:id="@+id/create_account_button"
+            android:background="@color/grey"
+            android:textColor="@color/white"
+            android:textSize="10dp"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forgotten_password"
+            android:id="@+id/forgotten_password_button"
+            android:background="@color/grey"
+            android:textColor="@color/white"
+            android:textSize="10dp"
+            android:layout_alignParentRight="true"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"/>
+
+    </RelativeLayout>
+
+
 </RelativeLayout>

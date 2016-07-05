@@ -34,7 +34,7 @@ public class UpdateActivity extends AppCompatActivity {
                 new CountDownTimer(3000, 1000) {
 
                     public void onTick(long ms) {
-                        text.setText("Installation en cours: " + ms / 1000);
+                        text.setText(getResources().getString(R.string.updating) + ms / 1000);
                     }
 
                     public void onFinish() {
