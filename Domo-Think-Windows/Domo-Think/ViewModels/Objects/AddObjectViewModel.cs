@@ -62,6 +62,11 @@ namespace DomoThink.ViewModels.Objects
         /// </summary>
         public ICommand LoadCommand { get; set; }
 
+        /// <summary>
+        /// Gets the Add command.
+        /// </summary>
+        public ICommand AddObjectCommand { get; private set; }
+
         #endregion
 
         #region CONSTRUCTORS
@@ -76,6 +81,7 @@ namespace DomoThink.ViewModels.Objects
 
             // Initialize the commands
             this.LoadCommand = new Command(this.LoadAction);
+            this.AddObjectCommand = new Command(this.AddObjectAction);
 
             // Initialize the collection
             this.AvailiableObjects = new ObservableCollection<ObjectModel>();
@@ -118,6 +124,11 @@ namespace DomoThink.ViewModels.Objects
                 this.AvailiableObjects.Add(new ObjectModel(i, "Availiable Object #" + i.ToString()));
 
             this.SetLoadingState(false);
+        }
+
+        private void AddObjectAction(Object param)
+        {
+
         }
 
         #endregion

@@ -8,6 +8,7 @@
     xmlns:viewModel="using:DomoThink.ViewModels.Objects"
     xmlns:controls="using:DomoThink.Controls"
     xmlns:converters="using:DomoThink.Converters"
+    xmlns:xp="using:Expander"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" x:Name="OBJECTS_PAGE">
@@ -59,18 +60,12 @@
                 <StackPanel>
 
                     <!-- Connected objects list -->
-                    <ListView x:Name="OBJECTS_LIST"
-                              ItemsSource="{Binding ConnectedObjects}" 
-                              SelectionChanged="OBJECTS_LIST_SelectionChanged" 
-                              ItemContainerStyle="{StaticResource ListViewItemStretch}">
-
-                        <!--Item template--> 
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <controls:ObjectListView />
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                    <controls:DomoListView 
+                        x:Name="OBJECTS_LIST"
+                        ItemsSource="{Binding ConnectedObjects}"
+                        ItemContainerStyle="{StaticResource ListViewItemStretch}" 
+                        ItemTemplate="{StaticResource ObjectListItemTemplate}" />
+                    
                 </StackPanel>
             </ScrollViewer>
         </Grid>

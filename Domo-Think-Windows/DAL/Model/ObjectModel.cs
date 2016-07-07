@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 
 /*--------------------------------------------------------
@@ -38,6 +39,12 @@ namespace DAL.Model
         /// </summary>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public String Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the add command.
+        /// </summary>
+        [IgnoreDataMember]
+        public ICommand AddObjectCommand { get; set; }
 
         #endregion
 

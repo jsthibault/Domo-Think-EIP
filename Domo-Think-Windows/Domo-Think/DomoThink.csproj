@@ -95,10 +95,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\ObjectListView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Resources\Languages\Language.English.xaml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
@@ -124,11 +120,9 @@
     <Compile Include="AppShell.xaml.cs">
       <DependentUpon>AppShell.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\DomoListView.cs" />
     <Compile Include="Controls\LoadingPanel.xaml.cs">
       <DependentUpon>LoadingPanel.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\ObjectListView.xaml.cs">
-      <DependentUpon>ObjectListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\CacheImageConverter.cs" />
     <Compile Include="Converters\DebugConverter.cs" />
@@ -274,6 +268,10 @@
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{4cf612d2-247a-4a65-afed-ecd52f30af61}</Project>
       <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Expander\Expander.csproj">
+      <Project>{4244e977-bf12-4c26-8c26-a91618588a4c}</Project>
+      <Name>Expander</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
