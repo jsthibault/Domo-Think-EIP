@@ -111,20 +111,35 @@ namespace DomoThink
         /// </summary>
         private void InitializeNavigationButtons()
         {
+            var loader = new Windows.ApplicationModel.Resources.ResourceLoader();
+
+            String[] _menus = new String[]
+            {
+                loader.GetString("MenuHome"),
+                loader.GetString("MenuObjects"),
+                loader.GetString("MenuDirectives"),
+                loader.GetString("MenuBox"),
+                loader.GetString("MenuAccounts"),
+                loader.GetString("MenuPlugins"),
+                loader.GetString("MenuStore"),
+                loader.GetString("MenuLogout"),
+                loader.GetString("MenuSettings")
+            };
+
             // Initialize primary buttons
             this.PrimaryNavigationButtons = new List<NavigationButton>();
-            this.PrimaryNavigationButtons.Add(new NavigationButton("Home", "Home", "\uE80F", typeof(MainPage), true));
-            this.PrimaryNavigationButtons.Add(new NavigationButton("Objects", "Objects", "\uE772", typeof(ObjectsPage)));
-            this.PrimaryNavigationButtons.Add(new NavigationButton("Directives", "Directives", "\uE17D", typeof(Directives)));
-            this.PrimaryNavigationButtons.Add(new NavigationButton("My DomoBox", "My DomoBox", "\uE1E4", typeof(MyDomoBox)));
-            this.PrimaryNavigationButtons.Add(new NavigationButton("Accounts", "Accounts", "\uE125", typeof(Accounts)));
-            this.PrimaryNavigationButtons.Add(new NavigationButton("Plugins", "Plugins", "\uE74C", typeof(Plugins)));
-            this.PrimaryNavigationButtons.Add(new NavigationButton("Store", "Domo Store", "\uE719", typeof(PluginStorePage)));
+            this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[0], _menus[0], "\uE80F", typeof(MainPage), true));
+            this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[1], _menus[1], "\uE772", typeof(ObjectsPage)));
+            this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[2], _menus[2], "\uE17D", typeof(Directives)));
+            this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[3], _menus[3], "\uE1E4", typeof(MyDomoBox)));
+            this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[4], _menus[4], "\uE125", typeof(Accounts)));
+            this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[5], _menus[5], "\uE74C", typeof(Plugins)));
+            this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[6], _menus[6], "\uE719", typeof(PluginStorePage)));
 
             // Initialize secondary buttons
             this.SecondaryNavigationButtons = new List<NavigationButton>();
-            this.SecondaryNavigationButtons.Add(new NavigationButton("Logout", "", "\uE7E8", typeof(Boolean)));
-            this.SecondaryNavigationButtons.Add(new NavigationButton("Settings", "Application settings", "\uE713", typeof(SettingsPage)));
+            this.SecondaryNavigationButtons.Add(new NavigationButton(_menus[7], "", "\uE7E8", typeof(Boolean)));
+            this.SecondaryNavigationButtons.Add(new NavigationButton(_menus[8], _menus[8], "\uE713", typeof(SettingsPage)));
         }
 
         /// <summary>

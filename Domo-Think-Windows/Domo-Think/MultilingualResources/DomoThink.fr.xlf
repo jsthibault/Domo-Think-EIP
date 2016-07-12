@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="fr" original="DOMOTHINK/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.1605.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="DOMOTHINK/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
+        <trans-unit id="MenuAccounts" translate="yes" xml:space="preserve">
+          <source>Accounts</source>
+          <target state="translated">Utilisateurs</target>
+        </trans-unit>
+        <trans-unit id="MenuBox" translate="yes" xml:space="preserve">
+          <source>My DomoBox</source>
+          <target state="translated">Ma DomoBox</target>
+        </trans-unit>
+        <trans-unit id="MenuDirectives" translate="yes" xml:space="preserve">
+          <source>Directives</source>
+          <target state="new">Directives</target>
+        </trans-unit>
+        <trans-unit id="MenuHome" translate="yes" xml:space="preserve">
+          <source>Home</source>
+          <target state="translated">Accueil</target>
+        </trans-unit>
+        <trans-unit id="MenuLogout" translate="yes" xml:space="preserve">
+          <source>Logout</source>
+          <target state="translated">Déconnexion</target>
+        </trans-unit>
+        <trans-unit id="MenuObjects" translate="yes" xml:space="preserve">
+          <source>Objects</source>
+          <target state="needs-review-translation">Objets</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+        </trans-unit>
+        <trans-unit id="MenuPlugins" translate="yes" xml:space="preserve">
+          <source>Plugins</source>
+          <target state="translated">Plug-in</target>
+        </trans-unit>
+        <trans-unit id="MenuSettings" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="translated">Paramètres</target>
+        </trans-unit>
+        <trans-unit id="MenuStore" translate="yes" xml:space="preserve">
+          <source>Store</source>
+          <target state="new">Store</target>
+        </trans-unit>
+        <trans-unit id="DeleteButton.Content" translate="yes" xml:space="preserve">
+          <source>Delete</source>
+          <target state="translated">Supprimer</target>
+        </trans-unit>
+        <trans-unit id="EditButton.Content" translate="yes" xml:space="preserve">
+          <source>Edit</source>
+          <target state="translated">Editer</target>
+        </trans-unit>
+        <trans-unit id="UninstallButton.Content" translate="yes" xml:space="preserve">
+          <source>Uninstall</source>
+          <target state="translated">Désinstaller</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

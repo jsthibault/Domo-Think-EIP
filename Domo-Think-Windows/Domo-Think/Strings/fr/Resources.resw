@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MenuAccounts" xml:space="preserve">
+    <value>Utilisateurs</value>
+  </data>
+  <data name="MenuBox" xml:space="preserve">
+    <value>Ma DomoBox</value>
+  </data>
+  <data name="MenuHome" xml:space="preserve">
+    <value>Accueil</value>
+  </data>
+  <data name="MenuLogout" xml:space="preserve">
+    <value>Déconnexion</value>
+  </data>
+  <data name="MenuObjects" xml:space="preserve">
+    <value>Objets</value>
+  </data>
+  <data name="MenuPlugins" xml:space="preserve">
+    <value>Plug-in</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="DeleteButton.Content" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="EditButton.Content" xml:space="preserve">
+    <value>Editer</value>
+  </data>
+  <data name="UninstallButton.Content" xml:space="preserve">
+    <value>Désinstaller</value>
+  </data>
+</root>
