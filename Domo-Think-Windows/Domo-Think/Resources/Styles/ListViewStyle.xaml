@@ -9,6 +9,8 @@
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
     </Style>
 
+    <!-- OBJECTS -->
+    
     <!-- List Item Template for the connected objects list -->
     <DataTemplate x:Name="ObjectListItemTemplate">
         <xp:Expander>
@@ -77,6 +79,141 @@
                 </Button.Content>
             </Button>
         </Grid>
+    </DataTemplate>
+    
+    <!-- DIRECTIVES -->
+
+    <!-- List item template for the directives -->
+    <DataTemplate x:Name="DirectiveListItemTemplate">
+        <xp:Expander>
+            <xp:Expander.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="0" Height="45" Width="45" Margin="0,8,0,8" Source="../../Assets/ViewBox.png" Stretch="UniformToFill"/>
+                    <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Top" Margin="8,8,0,0">
+                        <TextBlock Text="{Binding Name}" Style="{StaticResource BaseTextBlockStyle}" />
+                        <!--<TextBlock Text="{Binding Id}" Margin="0,4,8,0" Style="{StaticResource BodyTextBlockStyle}" />-->
+                    </StackPanel>
+                </Grid>
+            </xp:Expander.Header>
+            <xp:Expander.Content>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <TextBlock Text="Directive informations." Margin="0,8,0,0" Style="{StaticResource BodyTextBlockStyle}" />
+                    </Grid>
+
+                    <Grid Grid.Row="1" HorizontalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="1" Margin="0,8,16,8" Orientation="Horizontal">
+                            <Button Margin="4" Width="100" Content="Edit" />
+                            <Button Margin="4" Width="100" Content="Delete" />
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </xp:Expander.Content>
+        </xp:Expander>
+    </DataTemplate>
+    
+    <!-- PLUGINS -->
+
+    <!-- List item template for the installed plugins -->
+    <DataTemplate x:Name="PluginListItemTemplate">
+        <xp:Expander>
+            <xp:Expander.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="0" Height="45" Width="45" Margin="0,8,0,8" Source="../../Assets/ViewBox.png" Stretch="UniformToFill"/>
+                    <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Top" Margin="8,8,0,0">
+                        <TextBlock Text="{Binding Name}" Style="{StaticResource BaseTextBlockStyle}" />
+                        <!--<TextBlock Text="{Binding Id}" Margin="0,4,8,0" Style="{StaticResource BodyTextBlockStyle}" />-->
+                    </StackPanel>
+                    <ToggleSwitch Grid.Column="2"></ToggleSwitch>
+                </Grid>
+            </xp:Expander.Header>
+            <xp:Expander.Content>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <TextBlock Text="Plugin informations." Margin="0,8,0,0" Style="{StaticResource BodyTextBlockStyle}" />
+                    </Grid>
+
+                    <Grid Grid.Row="1" HorizontalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="1" Margin="0,8,16,8" Orientation="Horizontal">
+                            <Button Margin="4" Width="100" Content="Uninstall" />
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </xp:Expander.Content>
+        </xp:Expander>
+    </DataTemplate>
+    
+    <!-- ACCOUNTS -->
+
+    <DataTemplate x:Name="AccountsListItemTemplate">
+        <xp:Expander>
+            <xp:Expander.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="0" Height="45" Width="45" Margin="0,8,0,8" Source="../../Assets/ViewBox.png" Stretch="UniformToFill"/>
+                    <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Top" Margin="8,8,0,0">
+                        <TextBlock Text="{Binding Name}" Style="{StaticResource BaseTextBlockStyle}" />
+                        <TextBlock Text="{Binding Id}" Margin="0,4,8,0" Style="{StaticResource BodyTextBlockStyle}" />
+                    </StackPanel>
+                </Grid>
+            </xp:Expander.Header>
+            <xp:Expander.Content>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <TextBlock Text="Account informations." Margin="0,8,0,0" Style="{StaticResource BodyTextBlockStyle}" />
+                    </Grid>
+
+                    <Grid Grid.Row="1" HorizontalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="1" Margin="0,8,16,8" Orientation="Horizontal">
+                            <Button Margin="4" Width="100" Content="Edit" />
+                            <Button Margin="4" Width="100" Content="Delete" />
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </xp:Expander.Content>
+        </xp:Expander>
     </DataTemplate>
 
 </ResourceDictionary>

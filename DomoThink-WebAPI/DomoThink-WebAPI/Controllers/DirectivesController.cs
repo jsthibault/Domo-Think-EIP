@@ -19,7 +19,7 @@ namespace DomoThink_WebAPI.Controllers
             List<DirectiveModel> _objects = new List<DirectiveModel>();
 
             for (Int32 i = 0; i < 5; ++i)
-                _objects.Add(new DirectiveModel(i, "Object API #" + i.ToString(), -1, -1, -1));
+                _objects.Add(new DirectiveModel(i, "Directive #" + i.ToString(), -1, -1, -1));
 
             return this.Ok(_objects);
         }

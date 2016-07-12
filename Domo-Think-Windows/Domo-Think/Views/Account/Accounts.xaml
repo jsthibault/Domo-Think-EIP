@@ -1,0 +1,48 @@
+﻿<Page
+    x:Class="DomoThink.Views.Account.Accounts"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" 
+    xmlns:Interactions="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:local="using:DomoThink.Views.Account"
+    xmlns:viewModel="using:DomoThink.ViewModels.Accounts"
+    xmlns:controls="using:DomoThink.Controls"
+    xmlns:converters="using:DomoThink.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <!-- Interactions -->
+    <Interactivity:Interaction.Behaviors>
+        <Interactions:EventTriggerBehavior EventName="Loaded">
+            <Interactions:InvokeCommandAction Command="{Binding LoadCommand}"/>
+        </Interactions:EventTriggerBehavior>
+    </Interactivity:Interaction.Behaviors>
+
+    <!-- Page DataContext -->
+    <Page.DataContext>
+        <viewModel:AccountsViewModel />
+    </Page.DataContext>
+
+    <!-- Main Grid -->
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="ACCOUNTS_PANEL" Grid.Row="0" Visibility="{Binding Display, Converter={StaticResource visibilityConverter}}">
+            <controls:DomoListView ItemsSource="{Binding Accounts}"
+                                   ItemContainerStyle="{StaticResource ListViewItemStretch}" 
+                                   ItemTemplate="{StaticResource AccountsListItemTemplate}"/>
+        </Grid>
+
+        <controls:LoadingPanel x:Name="LOADIN_PANEL" Grid.Row="0" Visibility="{Binding Loading, Converter={StaticResource visibilityConverter}}" />
+
+        <!-- Command bar -->
+        <CommandBar Grid.Row="1">
+            <AppBarButton Icon="Refresh" Width="48" Label="Refresh" Command="{Binding LoadCommand}" Visibility="{Binding Display, Converter={StaticResource visibilityConverter}}" />
+            <AppBarButton Icon="Add" Width="48" Label="Add" Command="{Binding AddAccountCommand}" />
+        </CommandBar>
+    </Grid>
+</Page>

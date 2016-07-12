@@ -20,7 +20,7 @@ using System.Windows.Input;
  * Notes:
  * -------------------------------------------------------*/
 
-namespace DomoThink.ViewModels
+namespace DomoThink.ViewModels.Accounts
 {
     public class AccountsViewModel : ViewModelBase, ILoader
     {

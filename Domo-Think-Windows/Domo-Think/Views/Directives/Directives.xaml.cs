@@ -15,14 +15,14 @@ using Windows.UI.Xaml.Navigation;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, voir la page http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace DomoThink.Views
+namespace DomoThink.Views.Directives
 {
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class MyPlugins : Page
+    public sealed partial class Directives : Page
     {
-        public MyPlugins()
+        public Directives()
         {
             this.InitializeComponent();
         }

@@ -1,0 +1,54 @@
+﻿<Page
+    x:Class="DomoThink.Views.Directives.Directives"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" 
+    xmlns:Interactions="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:local="using:DomoThink.Views.Directives"
+    xmlns:viewModel="using:DomoThink.ViewModels"
+    xmlns:controls="using:DomoThink.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <!-- Interactions -->
+    <Interactivity:Interaction.Behaviors>
+        <Interactions:EventTriggerBehavior EventName="Loaded">
+            <Interactions:InvokeCommandAction Command="{Binding LoadCommand}"/>
+        </Interactions:EventTriggerBehavior>
+    </Interactivity:Interaction.Behaviors>
+
+    <!-- Page DataContext -->
+    <Page.DataContext>
+        <viewModel:DirectiveViewModel />
+    </Page.DataContext>
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <!-- Grid row definitions -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Directives panel -->
+        <Grid Grid.Row="0" Visibility="{Binding Display, Converter={StaticResource visibilityConverter}}">
+            <ScrollViewer>
+                <controls:DomoListView
+                    x:Name="DIRECTIVES_LIST"
+                    ItemsSource="{Binding Directives}"
+                    ItemContainerStyle="{StaticResource ListViewItemStretch}"
+                    ItemTemplate="{StaticResource DirectiveListItemTemplate}" />
+            </ScrollViewer>
+        </Grid>
+
+        <!-- Loading panel -->
+        <controls:LoadingPanel Grid.Row="0" Text="Loading directives..." Visibility="{Binding Loading, Converter={StaticResource visibilityConverter}}" />
+
+        <!-- Command bar -->
+        <CommandBar Grid.Row="1">
+            <AppBarButton Icon="Refresh" Width="48" Label="Refresh" Command="{Binding LoadCommand}" Visibility="{Binding Display, Converter={StaticResource visibilityConverter}}" />
+            <AppBarButton Icon="Add" Width="48" Label="Add" Command="{Binding AddDirectiveCommand}" />
+        </CommandBar>
+    </Grid>
+</Page>

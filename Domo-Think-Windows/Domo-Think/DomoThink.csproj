@@ -132,16 +132,29 @@
     <Compile Include="MVVM\ViewModelBase.cs" />
     <Compile Include="Navigation\NavigationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\AccountsViewModel.cs" />
+    <Compile Include="ViewModels\Accounts\AccountsViewModel.cs" />
     <Compile Include="ViewModels\Objects\AddObjectViewModel.cs" />
     <Compile Include="ViewModels\DirectiveViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\ILoader.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\Objects\ObjectsViewModel.cs" />
+    <Compile Include="ViewModels\PluginsViewModel.cs" />
     <Compile Include="ViewModels\PluginViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\PluginStoreViewModel.cs" />
+    <Compile Include="Views\Account\AccountEditor.xaml.cs">
+      <DependentUpon>AccountEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\Accounts.xaml.cs">
+      <DependentUpon>Accounts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Directives\DirectiveEditor.xaml.cs">
+      <DependentUpon>DirectiveEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Directives\Directives.xaml.cs">
+      <DependentUpon>Directives.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -151,9 +164,6 @@
     <Compile Include="Views\MyDomoBox.xaml.cs">
       <DependentUpon>MyDomoBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MyPlugins.xaml.cs">
-      <DependentUpon>MyPlugins.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Objects\AddObject.xaml.cs">
       <DependentUpon>AddObject.xaml</DependentUpon>
     </Compile>
@@ -162,6 +172,9 @@
     </Compile>
     <Compile Include="Views\PluginPage.xaml.cs">
       <DependentUpon>PluginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Plugins\Plugins.xaml.cs">
+      <DependentUpon>Plugins.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
@@ -220,6 +233,22 @@
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
+    <Page Include="Views\Account\AccountEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Account\Accounts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Directives\DirectiveEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Directives\Directives.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -229,10 +258,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MyDomoBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\MyPlugins.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -248,6 +273,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Plugins\Plugins.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\SettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -259,10 +288,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\Directives\" />
-    <Folder Include="Views\Account\" />
+    <Folder Include="ViewModels\Store\" />
     <Folder Include="Views\Box\" />
-    <Folder Include="Views\Directives\" />
-    <Folder Include="Views\Plugins\" />
+    <Folder Include="Views\Store\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

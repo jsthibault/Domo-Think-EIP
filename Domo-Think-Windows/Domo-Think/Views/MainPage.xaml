@@ -21,7 +21,7 @@
         <Grid Grid.Row="0" Margin="10">
             <StackPanel Background="LimeGreen" BorderThickness="2" BorderBrush="Green" Orientation="Horizontal">
                 <SymbolIcon Symbol="ReportHacked" Foreground="White" Margin="10,0,0,0" />
-                <TextBlock Text="Welcome back! Everything is fine with the DomoBox!" Foreground="White" FontFamily="16" Margin="10" />
+                <TextBlock Text="Welcome back!" Foreground="White" FontFamily="16" Margin="10" TextWrapping="Wrap" />
             </StackPanel>
         </Grid>
 
