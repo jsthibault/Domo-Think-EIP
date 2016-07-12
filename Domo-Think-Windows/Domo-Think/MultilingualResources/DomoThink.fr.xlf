@@ -55,6 +55,82 @@
           <source>Uninstall</source>
           <target state="translated">Désinstaller</target>
         </trans-unit>
+        <trans-unit id="SettingsApplyTheme.Content" translate="yes" xml:space="preserve">
+          <source>Apply theme</source>
+          <target state="translated">Appliquer le thème</target>
+        </trans-unit>
+        <trans-unit id="SettingsCurrentTheme.Text" translate="yes" xml:space="preserve">
+          <source>Current theme</source>
+          <target state="translated">Thème actuel</target>
+        </trans-unit>
+        <trans-unit id="SettingsMyAccountWarning.Text" translate="yes" xml:space="preserve">
+          <source>This action is definitive! You can not reverse the deletion of your account.</source>
+          <target state="translated">Cette action est définitive! Vous ne pouvez pas inverser la suppression de votre compte.</target>
+        </trans-unit>
+        <trans-unit id="SettingsNotifications.Text" translate="yes" xml:space="preserve">
+          <source>Notifications</source>
+          <target state="new">Notifications</target>
+        </trans-unit>
+        <trans-unit id="SettingsNotificationsAlerts.Text" translate="yes" xml:space="preserve">
+          <source>Alerts</source>
+          <target state="translated">Alertes</target>
+        </trans-unit>
+        <trans-unit id="SettingsNotificationsReminders.Text" translate="yes" xml:space="preserve">
+          <source>Reminders</source>
+          <target state="translated">Rappels</target>
+        </trans-unit>
+        <trans-unit id="SettingsOptions.Text" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <target state="translated">Paramètres</target>
+        </trans-unit>
+        <trans-unit id="SettingsMyAccount.Text" translate="yes" xml:space="preserve">
+          <source>My account</source>
+          <target state="translated">Mon compte</target>
+        </trans-unit>
+        <trans-unit id="SettingsMyAccountDelete.Text" translate="yes" xml:space="preserve">
+          <source>Delete my account</source>
+          <target state="translated">Supprimer mon compte</target>
+        </trans-unit>
+        <trans-unit id="AppBarAdd.Label" translate="yes" xml:space="preserve">
+          <source>Add</source>
+          <target state="translated">Ajouter</target>
+        </trans-unit>
+        <trans-unit id="AppBarRefresh.Label" translate="yes" xml:space="preserve">
+          <source>Refresh</source>
+          <target state="translated">Actualiser</target>
+        </trans-unit>
+        <trans-unit id="LoaderAccounts.Text" translate="yes" xml:space="preserve">
+          <source>Loading accounts...</source>
+          <target state="translated">Récupération des comptes utilisateurs...</target>
+        </trans-unit>
+        <trans-unit id="LoaderDirectives.Text" translate="yes" xml:space="preserve">
+          <source>Loading directives...</source>
+          <target state="translated">Récupération des directives...</target>
+        </trans-unit>
+        <trans-unit id="LoaderObjects.Text" translate="yes" xml:space="preserve">
+          <source>Loading connected objects...</source>
+          <target state="translated">Récupération des objets connectés...</target>
+        </trans-unit>
+        <trans-unit id="LoaderPlugins.Text" translate="yes" xml:space="preserve">
+          <source>Loading installed plugins...</source>
+          <target state="translated">Récupération des plug-in installés...</target>
+        </trans-unit>
+        <trans-unit id="DialogNo" translate="yes" xml:space="preserve">
+          <source>No</source>
+          <target state="translated">Non</target>
+        </trans-unit>
+        <trans-unit id="DialogYes" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+          <target state="translated">Oui</target>
+        </trans-unit>
+        <trans-unit id="LogoutMessage" translate="yes" xml:space="preserve">
+          <source>Do you really want to logout?</source>
+          <target state="translated">Voulez-vous vraiment vous déconnecter?</target>
+        </trans-unit>
+        <trans-unit id="LoaderSearchObjects.Text" translate="yes" xml:space="preserve">
+          <source>Searching for objects near by...</source>
+          <target state="translated">Recherche d'objets à proximité...</target>
+        </trans-unit>
       </group>
     </body>
   </file>

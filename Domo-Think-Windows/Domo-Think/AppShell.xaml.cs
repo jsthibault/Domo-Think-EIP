@@ -222,12 +222,14 @@ namespace DomoThink
         /// </summary>
         private async void Logout()
         {
-            MessageDialog dialog = new MessageDialog(
-                "Do you want to logout?",
-                "Logout");
+            var loader = new Windows.ApplicationModel.Resources.ResourceLoader();
 
-            dialog.Commands.Add(new UICommand("Yes") { Id = 0 });
-            dialog.Commands.Add(new UICommand("No") { Id = 1 });
+            MessageDialog dialog = new MessageDialog(
+                loader.GetString("LogoutMessage"),
+                loader.GetString("MenuLogout"));
+
+            dialog.Commands.Add(new UICommand(loader.GetString("DialogYes")) { Id = 0 });
+            dialog.Commands.Add(new UICommand(loader.GetString("DialogNo")) { Id = 1 });
 
             dialog.DefaultCommandIndex = 0;
             dialog.CancelCommandIndex = 1;

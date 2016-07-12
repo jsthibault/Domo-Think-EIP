@@ -37,12 +37,14 @@
                                    ItemTemplate="{StaticResource AccountsListItemTemplate}"/>
         </Grid>
 
-        <controls:LoadingPanel x:Name="LOADIN_PANEL" Grid.Row="0" Visibility="{Binding Loading, Converter={StaticResource visibilityConverter}}" />
-
+        <controls:LoadingPanel x:Name="LOADIN_PANEL" 
+                               x:Uid="LoaderAccounts"
+                               Grid.Row="0" 
+                               IsVisible="{Binding Loading}" />
         <!-- Command bar -->
         <CommandBar Grid.Row="1">
-            <AppBarButton Icon="Refresh" Width="48" Label="Refresh" Command="{Binding LoadCommand}" Visibility="{Binding Display, Converter={StaticResource visibilityConverter}}" />
-            <AppBarButton Icon="Add" Width="48" Label="Add" Command="{Binding AddAccountCommand}" />
+            <AppBarButton x:Uid="AppBarRefresh" Icon="Refresh" Width="48" Label="Refresh" Command="{Binding LoadCommand}" Visibility="{Binding Display, Converter={StaticResource visibilityConverter}}" />
+            <AppBarButton x:Uid="AppBarAdd" Icon="Add" Width="48" Label="Add" Command="{Binding AddAccountCommand}" />
         </CommandBar>
     </Grid>
 </Page>

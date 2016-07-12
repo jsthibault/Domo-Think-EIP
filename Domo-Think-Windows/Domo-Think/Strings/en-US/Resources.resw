@@ -117,11 +117,41 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AppBarAdd.Label" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="AppBarRefresh.Label" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
   <data name="DeleteButton.Content" xml:space="preserve">
     <value>Delete</value>
   </data>
+  <data name="DialogNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="DialogYes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
   <data name="EditButton.Content" xml:space="preserve">
     <value>Edit</value>
+  </data>
+  <data name="LoaderAccounts.Text" xml:space="preserve">
+    <value>Loading accounts...</value>
+  </data>
+  <data name="LoaderDirectives.Text" xml:space="preserve">
+    <value>Loading directives...</value>
+  </data>
+  <data name="LoaderObjects.Text" xml:space="preserve">
+    <value>Loading connected objects...</value>
+  </data>
+  <data name="LoaderPlugins.Text" xml:space="preserve">
+    <value>Loading installed plugins...</value>
+  </data>
+  <data name="LoaderSearchObjects.Text" xml:space="preserve">
+    <value>Searching for objects near by...</value>
+  </data>
+  <data name="LogoutMessage" xml:space="preserve">
+    <value>Do you really want to logout?</value>
   </data>
   <data name="MenuAccounts" xml:space="preserve">
     <value>Accounts</value>
@@ -149,6 +179,33 @@
   </data>
   <data name="MenuStore" xml:space="preserve">
     <value>Store</value>
+  </data>
+  <data name="SettingsApplyTheme.Content" xml:space="preserve">
+    <value>Apply theme</value>
+  </data>
+  <data name="SettingsCurrentTheme.Text" xml:space="preserve">
+    <value>Current theme</value>
+  </data>
+  <data name="SettingsMyAccount.Text" xml:space="preserve">
+    <value>My account</value>
+  </data>
+  <data name="SettingsMyAccountDelete.Text" xml:space="preserve">
+    <value>Delete my account</value>
+  </data>
+  <data name="SettingsMyAccountWarning.Text" xml:space="preserve">
+    <value>This action is definitive! You can not reverse the deletion of your account.</value>
+  </data>
+  <data name="SettingsNotifications.Text" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="SettingsNotificationsAlerts.Text" xml:space="preserve">
+    <value>Alerts</value>
+  </data>
+  <data name="SettingsNotificationsReminders.Text" xml:space="preserve">
+    <value>Reminders</value>
+  </data>
+  <data name="SettingsOptions.Text" xml:space="preserve">
+    <value>Options</value>
   </data>
   <data name="UninstallButton.Content" xml:space="preserve">
     <value>Uninstall</value>

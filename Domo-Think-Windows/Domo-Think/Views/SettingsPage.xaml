@@ -12,9 +12,9 @@
             
             <!-- Options -->
             <StackPanel x:Name="OPTIONS_PANEL" Margin="0,0,0,8">
-                <TextBlock Text="Options" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,8"  />
+                <TextBlock x:Uid="SettingsOptions" Text="Options" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,8"  />
 
-                <TextBlock Text="Current theme" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
+                <TextBlock x:Uid="SettingsCurrentTheme" Text="Current theme" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
                 <ComboBox SelectedIndex="0" Width="256">
                     <ComboBoxItem Content="Windows 10" />
                     <ComboBoxItem Content="DomoThink Light" />
@@ -24,7 +24,7 @@
                     <ComboBoxItem Content="Pirate theme" />
                 </ComboBox>
 
-                <Button Content="Apply theme" Margin="0,8,8,0" />
+                <Button x:Uid="SettingsApplyTheme" Content="Apply theme" Margin="0,8,8,0" />
 
             </StackPanel>
 
@@ -33,12 +33,16 @@
             
             <!-- Notifications -->
             <StackPanel x:Name="NOTIFICATION_PANEL" Margin="0,0,0,8" >
-                <TextBlock Text="Notifications" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,8"/>
+                <TextBlock x:Uid="SettingsNotifications" Text="Notifications" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,8"/>
 
-                <TextBlock Text="Alerts" Style="{ThemeResource BodyTextBlockStyle}" />
+                <TextBlock x:Uid="SettingsNotificationsAlerts" 
+                           Text="Alerts" 
+                           Style="{ThemeResource BodyTextBlockStyle}" />
                 <ToggleSwitch IsOn="True" />
                 
-                <TextBlock Text="Reminders" Style="{ThemeResource BodyTextBlockStyle}" />
+                <TextBlock x:Uid="SettingsNotificationsReminders" 
+                           Text="Reminders" 
+                           Style="{ThemeResource BodyTextBlockStyle}" />
                 <ToggleSwitch />
             </StackPanel>
 
@@ -47,9 +51,11 @@
 
             <!-- Delete my account -->
             <StackPanel x:Name="DELETE_ACCOUNT_PANEL" Margin="0,0,0,8">
-                <TextBlock Text="My account" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,8" />
+                <TextBlock x:Uid="SettingsMyAccount" Text="My account" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,8" />
 
-                <TextBlock Text="This action is definitive! You can not reverse the deletion of your account." TextWrapping="Wrap" />
+                <TextBlock x:Uid="SettingsMyAccountWarning" 
+                           Text="Warning!" 
+                           TextWrapping="Wrap" />
                 <Button x:Name="DELETE_ACCOUNT">
                     <Button.Content>
                         <Grid>
@@ -59,7 +65,9 @@
                             </Grid.ColumnDefinitions>
 
                             <SymbolIcon Grid.Column="0" Symbol="Delete" Margin="0,0,4,0" />
-                            <TextBlock Grid.Column="1" Text="Delete my account" />
+                            <TextBlock x:Uid="SettingsMyAccountDelete" 
+                                       Grid.Column="1" 
+                                       Text="Delete my account" />
                         </Grid>
                     </Button.Content>
                 </Button>

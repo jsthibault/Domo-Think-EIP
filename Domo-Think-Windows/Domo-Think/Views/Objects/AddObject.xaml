@@ -52,15 +52,15 @@
         </Grid>
 
         <!-- Loading panel -->
-        <controls:LoadingPanel Grid.Row="0"
-            Text="Searching for objects..."
-            Visibility="{Binding Loading, Converter={StaticResource visibilityConverter}}" />
+        <controls:LoadingPanel x:Uid="LoaderSearchObjects" 
+                               Grid.Row="0" 
+                               IsVisible="{Binding Loading}" />
 
         <!-- Command bar -->
         <CommandBar Grid.Row="1">
-            <AppBarButton Icon="Refresh" 
-                          Width="48" 
-                          Label="Refresh" 
+            <AppBarButton x:Uid="AppBarRefresh" 
+                          Icon="Refresh" 
+                          Width="48"
                           Command="{Binding LoadCommand}" 
                           Visibility="{Binding Display, Converter={StaticResource visibilityConverter}}" />
         </CommandBar>

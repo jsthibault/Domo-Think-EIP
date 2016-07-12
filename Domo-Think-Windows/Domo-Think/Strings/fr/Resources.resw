@@ -42,4 +42,58 @@
   <data name="UninstallButton.Content" xml:space="preserve">
     <value>Désinstaller</value>
   </data>
+  <data name="SettingsApplyTheme.Content" xml:space="preserve">
+    <value>Appliquer le thème</value>
+  </data>
+  <data name="SettingsCurrentTheme.Text" xml:space="preserve">
+    <value>Thème actuel</value>
+  </data>
+  <data name="SettingsMyAccountWarning.Text" xml:space="preserve">
+    <value>Cette action est définitive! Vous ne pouvez pas inverser la suppression de votre compte.</value>
+  </data>
+  <data name="SettingsNotificationsAlerts.Text" xml:space="preserve">
+    <value>Alertes</value>
+  </data>
+  <data name="SettingsNotificationsReminders.Text" xml:space="preserve">
+    <value>Rappels</value>
+  </data>
+  <data name="SettingsOptions.Text" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="SettingsMyAccount.Text" xml:space="preserve">
+    <value>Mon compte</value>
+  </data>
+  <data name="SettingsMyAccountDelete.Text" xml:space="preserve">
+    <value>Supprimer mon compte</value>
+  </data>
+  <data name="AppBarAdd.Label" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="AppBarRefresh.Label" xml:space="preserve">
+    <value>Actualiser</value>
+  </data>
+  <data name="LoaderAccounts.Text" xml:space="preserve">
+    <value>Récupération des comptes utilisateurs...</value>
+  </data>
+  <data name="LoaderDirectives.Text" xml:space="preserve">
+    <value>Récupération des directives...</value>
+  </data>
+  <data name="LoaderObjects.Text" xml:space="preserve">
+    <value>Récupération des objets connectés...</value>
+  </data>
+  <data name="LoaderPlugins.Text" xml:space="preserve">
+    <value>Récupération des plug-in installés...</value>
+  </data>
+  <data name="DialogNo" xml:space="preserve">
+    <value>Non</value>
+  </data>
+  <data name="DialogYes" xml:space="preserve">
+    <value>Oui</value>
+  </data>
+  <data name="LogoutMessage" xml:space="preserve">
+    <value>Voulez-vous vraiment vous déconnecter?</value>
+  </data>
+  <data name="LoaderSearchObjects.Text" xml:space="preserve">
+    <value>Recherche d'objets à proximité...</value>
+  </data>
 </root>
