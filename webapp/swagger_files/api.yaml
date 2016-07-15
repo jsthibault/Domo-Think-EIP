@@ -100,14 +100,14 @@ definitions:
 
   connectionInfos:
     properties:
-      username:
+      login:
         type: string
       password:
         type: string
 
   changePasswordInfos:
     properties:
-      username:
+      login:
         type: string
       userId:
         type: number
@@ -120,7 +120,7 @@ definitions:
 
   accountCreation:
     properties:
-      username:
+      login:
         type: string
       password:
         type: string
@@ -129,9 +129,7 @@ definitions:
       boxKey:
         type: string
 
-host: '89.156.151.77:4242'
-
-basePath: "/api"
+host: '89.156.144.51:4242'
 
 tags:
 - name: user
@@ -168,15 +166,15 @@ paths:
             title: token
             type: string
 
-  /user/forgotten_password/{email}:
+  /user/forgotten_password/:
     post:
       tags:
         - user
       description: Envoie un mail Ã  l'utilisateur pour
       parameters:
-        - name: email
-          in: path
-          description: Email de l'utilisateur
+        - name: login
+          in: query
+          description: Login de l'utilisateur
           required: true
           type: string
       responses:
@@ -221,14 +219,14 @@ paths:
             title: token
             type: string
 
-  /user/infosBox:
+  /user/infosBox?token={token}:
     get:
       tags:
       - user
       description: Get les informations de la box de l'utilisateur
       parameters:
         - name: token
-          in: query
+          in: path
           description: Token of the logged user
           required: true
           type: string
@@ -647,4 +645,3 @@ paths:
       responses:
         200:
           description: Successful response
-    
