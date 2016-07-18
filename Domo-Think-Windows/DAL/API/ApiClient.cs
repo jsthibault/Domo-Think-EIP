@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -68,9 +69,11 @@ namespace DAL.API
         {
             HttpResponseMessage _response = await this.client.GetAsync(String.Format(url, args));
 
+            Debug.WriteLine("Message: " + _response.ReasonPhrase.ToString());
+
             if (_response.IsSuccessStatusCode)
                 return await _response.Content.ReadAsAsync<T>();
-
+            
             return default(T);
         }
 

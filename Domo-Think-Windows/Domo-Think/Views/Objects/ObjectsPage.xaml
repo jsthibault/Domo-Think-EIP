@@ -43,19 +43,12 @@
 
         <!-- Grid definitions -->
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <!-- Filters panel -->
-        <StackPanel Grid.Row="0" Margin="10">
-            <TextBlock Grid.Column="0" Text="Filters" FontSize="18" FontWeight="Bold" />
-            <TextBox Grid.Column="1" PlaceholderText="Filter" />
-        </StackPanel>
-
         <!-- Objects panel -->
-        <Grid Grid.Row="1" Margin="10" Visibility="{Binding Display, Converter={StaticResource visibilityConverter}}">
+        <Grid Grid.Row="0" Margin="10" Visibility="{Binding Display, Converter={StaticResource visibilityConverter}}">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <!-- Connected objects list -->
                 <controls:DomoListView 
@@ -73,7 +66,7 @@
                                IsVisible="{Binding Loading}" />
 
         <!-- Command bar -->
-        <CommandBar Grid.Row="2">
+        <CommandBar Grid.Row="1">
             <AppBarButton x:Uid="AppBarRefresh" Icon="Refresh" Width="48" Label="Refresh" Command="{Binding LoadCommand}" Visibility="{Binding Display, Converter={StaticResource visibilityConverter}}" />
             <AppBarButton x:Uid="AppBarAdd" Icon="Add" Width="48" Label="Add" Command="{Binding AddObjectCommand}" />
         </CommandBar>

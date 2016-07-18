@@ -41,6 +41,18 @@ namespace DAL.Model
         public String Name { get; set; }
 
         /// <summary>
+        /// Gets ro sets the description of the object.
+        /// </summary>
+        [DataMember(Name = "description", EmitDefaultValue = false)]
+        public String Description { get; set; }
+
+        /// <summary>
+        /// Gets or sets the activation state of the object.
+        /// </summary>
+        [DataMember(Name = "activate", EmitDefaultValue = false)]
+        public Boolean IsActive { get; set; }
+
+        /// <summary>
         /// Gets or sets the add command.
         /// </summary>
         [IgnoreDataMember]
@@ -79,6 +91,8 @@ namespace DAL.Model
             _sb.AppendLine("class ObjectModel {");
             _sb.Append("  Id: ").Append(this.Id).Append("\n");
             _sb.Append("  Name: ").Append(this.Name).Append("\n");
+            _sb.Append("  Description: ").Append(this.Description).Append("\n");
+            _sb.Append("  IsActive: ").Append(this.IsActive).Append("\n");
             _sb.AppendLine("}");
 
             return _sb.ToString();

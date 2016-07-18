@@ -36,6 +36,18 @@ namespace DAL.Model
         public String Name { get; set; }
 
         /// <summary>
+        /// Gets or sets the description of the plugin.
+        /// </summary>
+        [DataMember(Name = "description", EmitDefaultValue = false)]
+        public String Description { get; set; }
+
+        /// <summary>
+        /// Gets or sets the activation state of the plugin.
+        /// </summary>
+        [DataMember(Name = "activate", EmitDefaultValue = false)]
+        public Boolean IsActive { get; set; }
+
+        /// <summary>
         /// Gets or sets the Image url.
         /// </summary>
         /// <remarks>
@@ -43,12 +55,6 @@ namespace DAL.Model
         /// </remarks>
         [DataMember(Name = "image", EmitDefaultValue = false)]
         public String Image { get; set; }
-
-        /// <summary>
-        /// Gets or sets the plugin description.
-        /// </summary>
-        [DataMember(Name = "description", EmitDefaultValue = false)]
-        public String Description { get; set; }
 
         /// <summary>
         /// Gets or sets the Rating of the plugin.
@@ -100,9 +106,11 @@ namespace DAL.Model
         {
             StringBuilder _sb = new StringBuilder();
 
-            _sb.AppendLine("class Plugin {\n");
+            _sb.AppendLine("class Plugin {");
             _sb.Append("    Id: ").Append(this.Id).Append("\n");
             _sb.Append("    Name: ").Append(this.Name).Append("\n");
+            _sb.Append("    Description: ").Append(this.Description).Append("\n");
+            _sb.Append("    IsActive: ").Append(this.IsActive).Append("\n");
             _sb.Append("    Rating: ").Append(this.Rating).Append("\n");
             _sb.Append("    Installed: ").Append(this.Installed).Append("\n");
             _sb.AppendLine("}\n");
