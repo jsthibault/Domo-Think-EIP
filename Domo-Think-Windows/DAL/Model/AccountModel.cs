@@ -14,6 +14,7 @@ using System.Text;
 
 namespace DAL.Model
 {
+    [DataContract]
     public class AccountModel
     {
         #region CONSTANTS
@@ -40,13 +41,43 @@ namespace DAL.Model
         /// Gets or sets the username.
         /// </summary>
         [DataMember(Name = "username", EmitDefaultValue = false)]
-        public String Id { get; set; }
+        public String Username { get; set; }
+
+        /// <summary>
+        /// Gets or sets the user id.
+        /// </summary>
+        [DataMember(Name = "userId", EmitDefaultValue = false)]
+        public String UserId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the old password.
+        /// </summary>
+        [DataMember(Name = "oldPassword", EmitDefaultValue = false)]
+        public String OldPassword { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the new password.
+        /// </summary>
+        [DataMember(Name = "newPassword", EmitDefaultValue = false)]
+        public String NewPassword { get; set; }
 
         /// <summary>
         /// Gets or sets the password.
         /// </summary>
         [DataMember(Name = "password", EmitDefaultValue = false)]
         public String Password { get; set; }
+
+        /// <summary>
+        /// Gets or sets the password confirmation.
+        /// </summary>
+        [DataMember(Name = "confirmPassword", EmitDefaultValue = false)]
+        public String PasswordConfirmation { get; set; }
+
+        /// <summary>
+        /// Gets or sets the box key.
+        /// </summary>
+        [DataMember(Name = "boxKey", EmitDefaultValue = false)]
+        public String BoxKey { get; set; }
 
         #endregion
 
@@ -56,7 +87,7 @@ namespace DAL.Model
         /// Creates a new empty account model.
         /// </summary>
         public AccountModel()
-            : this(String.Empty, String.Empty)
+            : this(null, null)
         { }
 
         /// <summary>
@@ -66,8 +97,21 @@ namespace DAL.Model
         /// <param name="password">Account password</param>
         public AccountModel(String username, String password)
         {
-            this.Id = username;
+            this.Username = username;
             this.Password = password;
+        }
+
+        /// <summary>
+        /// Creates a new account model.
+        /// </summary>
+        /// <param name="username">Account username</param>
+        /// <param name="password">Account password</param>
+        public AccountModel(String username, String password, String passwordConfirmation, String boxKey)
+        {
+            this.Username = username;
+            this.Password = password;
+            this.PasswordConfirmation = passwordConfirmation;
+            this.BoxKey = boxKey;
         }
 
         #endregion
@@ -82,9 +126,11 @@ namespace DAL.Model
         {
             StringBuilder _sb = new StringBuilder();
 
-            _sb.AppendLine("class AccountModel {\n");
-            _sb.Append("    Id: ").Append(this.Id).Append("\n");
+            _sb.AppendLine("class AccountModel {");
+            _sb.Append("    Id: ").Append(this.Username).Append("\n");
             _sb.Append("    Password: ").Append(this.Password).Append("\n");
+            _sb.Append("    Password confirmation: ").Append(this.PasswordConfirmation).Append("\n");
+            _sb.Append("    BoxKey: ").Append(this.BoxKey).Append("\n");
             _sb.AppendLine("}\n");
 
             return _sb.ToString();
@@ -110,7 +156,7 @@ namespace DAL.Model
             if (other == null)
                 return false;
 
-            return (this.Id == other.Id) && (this.Password == other.Password);
+            return (this.Username == other.Username) && (this.Password == other.Password);
         }
 
         public override Int32 GetHashCode()

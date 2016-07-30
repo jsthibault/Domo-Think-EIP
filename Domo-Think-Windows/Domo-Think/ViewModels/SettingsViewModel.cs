@@ -1,9 +1,12 @@
 ﻿using DomoThink.MVVM;
+using DomoThink.Navigation;
+using DomoThink.Views.Account;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 /*--------------------------------------------------------
  * SettingsViewModel.cs
@@ -27,7 +30,9 @@ namespace DomoThink.ViewModels
 
         #region PROPERTIES
 
+        public ICommand ChangePasswordCommand { get; private set; }
 
+        public ICommand DeleteMyAccountCommand { get; private set; }
 
         #endregion
 
@@ -35,12 +40,30 @@ namespace DomoThink.ViewModels
 
         public SettingsViewModel()
         {
+            // Initialize the commands
+            this.ChangePasswordCommand = new Command(this.ChangePasswordAction);
+            this.DeleteMyAccountCommand = new Command(this.DeleteMyAccountAction);
         }
 
         #endregion
 
         #region METHODS
 
+
+
+        #endregion
+
+        #region ACTIONS
+
+        private void ChangePasswordAction(Object param)
+        {
+            NavigationService.Navigate(typeof(ChangePassword));
+        }
+
+        private void DeleteMyAccountAction(Object param)
+        {
+            NavigationService.Navigate(typeof(DeleteAccount));
+        }
 
 
         #endregion

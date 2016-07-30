@@ -58,6 +58,18 @@ namespace DAL.Model
         [IgnoreDataMember]
         public ICommand AddObjectCommand { get; set; }
 
+        /// <summary>
+        /// Gets or sets the edit command.
+        /// </summary>
+        [IgnoreDataMember]
+        public ICommand EditObjectCommand { get; set; }
+
+        /// <summary>
+        /// Gets or sets the delete command.
+        /// </summary>
+        [IgnoreDataMember]
+        public ICommand DeleteObjectCommand { get; set; }
+
         #endregion
 
         #region CONSTRUCTORS

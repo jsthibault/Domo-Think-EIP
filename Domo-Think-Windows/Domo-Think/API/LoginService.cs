@@ -38,8 +38,19 @@ namespace DomoThink.API
             LoginResponse response =
                 await this.api.Post<LoginModel, LoginResponse>(ApiRoutes.USER_CONNECT, loginModel);
 
+            App.LoginToken = response?.Token;
+            App.UserId = response?.Id;
+
             // TODO: more checks...
             return response != null;
+        }
+
+        public async Task<Boolean> SendForgotPasswordRequest(LoginModel loginModel)
+        {
+            LoginResponse response =
+                await this.api.Post<LoginModel, LoginResponse>(ApiRoutes.USER_FORGOT_PASSWORD, loginModel);
+
+            return true;
         }
 
         #endregion

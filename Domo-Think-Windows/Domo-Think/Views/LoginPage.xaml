@@ -7,33 +7,38 @@
     xmlns:controls="using:DomoThink.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Background="{StaticResource DPrimaryColor}">
 
+    <!-- Page data context -->
     <Page.DataContext>
         <viewModel:LoginViewModel />
     </Page.DataContext>
 
-    <Grid x:Name="MAIN_GRID" Background="{StaticResource DPrimaryColor}">
+    <!-- Page resources -->
+    <Page.Resources>
+    </Page.Resources>
 
+    <!-- Main Grid -->
+    <Grid x:Name="MAIN_GRID" Margin="12">
+        
         <!-- Visual states -->
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="WindowsPlatforme">
                 <VisualState x:Name="WindowsMobile">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="500"></AdaptiveTrigger>
+                        <AdaptiveTrigger MinWindowWidth="400"></AdaptiveTrigger>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="WindowsDesktopGrid.Visibility" Value="Collapsed" />
-                        <Setter Target="WindowsMobileGrid.Visibility" Value="Visible" />
+                        <Setter Target="MAIN_GRID.Width" Value="Auto" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="WindowsDesktop1">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="700"></AdaptiveTrigger>
+                        <AdaptiveTrigger MinWindowWidth="500"></AdaptiveTrigger>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="WindowsDesktopGrid.Visibility" Value="Visible" />
-                        <Setter Target="WindowsMobileGrid.Visibility" Value="Collapsed" />
+                        <Setter Target="MAIN_GRID.Width" Value="400" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="WindowsDesktop2">
@@ -41,111 +46,81 @@
                         <AdaptiveTrigger MinWindowWidth="900"></AdaptiveTrigger>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="WindowsDesktopGrid.Visibility" Value="Visible" />
-                        <Setter Target="WindowsMobileGrid.Visibility" Value="Collapsed" />
+                        <Setter Target="MAIN_GRID.Width" Value="400" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-        <Grid x:Name="WindowsDesktopGrid" Visibility="Collapsed">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.5*" />
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="0.5*" />
-            </Grid.ColumnDefinitions>
+        <!-- Grid definitions -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-            <StackPanel Grid.Column="1">
-
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="1*"/>
-                    </Grid.RowDefinitions>
-
-                    <!-- Title row -->
-                    <StackPanel Grid.Row="0">
-                        <StackPanel>
-                            <Image Source="ms-appx:///Assets/dmlogo.png" Stretch="Fill" MaxWidth="400" />
-                        </StackPanel>
-                    </StackPanel>
-
-                    <!-- Connection informations row -->
-                    <StackPanel Grid.Row="1" Margin="20,-16,20,0">
-
-                        <!-- Box identifier field -->
-                        <StackPanel>
-                            <TextBlock Text="Box identifier" FontSize="16" Margin="0,0,0,10" />
-                            <TextBox BorderThickness="0" Text="{Binding LoginInformations.Id, Mode=TwoWay}" IsEnabled="{Binding FieldsEnabled}" />
-                        </StackPanel>
-
-                        <!-- Box password field -->
-                        <StackPanel Margin="0,15,0,0">
-                            <TextBlock Text="Password" FontSize="16" Margin="0,0,0,10" />
-                            <PasswordBox BorderThickness="0" Password="{Binding LoginInformations.Password, Mode=TwoWay}" IsEnabled="{Binding FieldsEnabled}" />
-                        </StackPanel>
-
-                        <!-- Save informations field -->
-                        <StackPanel Margin="0,15,0,0">
-                            <CheckBox Content="Save my informations" FontSize="16" BorderThickness="0" IsEnabled="{Binding FieldsEnabled}" />
-                        </StackPanel>
-
-                        <!-- Login button -->
-                        <StackPanel Margin="0,15,0,0" Orientation="Horizontal">
-                            <Button Content="GO" Height="48" Width="92" Command="{Binding LoginCommand}" IsEnabled="{Binding FieldsEnabled}" />
-                            <ProgressRing Margin="30,0,0,0" Width="36" Height="36" VerticalAlignment="Center" IsActive="{Binding LogingIn}" />
-                            <TextBlock Margin="10,0,0,0" FontSize="16" Text="Loging in..." VerticalAlignment="Center" Visibility="{Binding LogingIn, Converter={StaticResource visibilityConverter}}" />
-                            <TextBlock Margin="10,0,0,0" FontSize="16" Foreground="Red" Text="{Binding ErrorText}" VerticalAlignment="Center" Visibility="{Binding ErrorFieldEnabled, Converter={StaticResource visibilityConverter}}" />
-                        </StackPanel>
-
-                    </StackPanel>
-                </Grid>
-
-            </StackPanel>
-        </Grid>
-
-        <Grid x:Name="WindowsMobileGrid" Visibility="Visible">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-
-            <!-- Title row -->
-            <StackPanel Grid.Row="0">
-                <StackPanel>
-                    <Image Source="ms-appx:///Assets/dmlogo.png" Stretch="Fill" MaxWidth="400" />
-                </StackPanel>
+        <!-- Login panel -->
+        <StackPanel Grid.Row="0">
+            <!-- Logo -->
+            <Image Source="../Assets/dmlogo.png" Width="300" />
+            
+            <!-- Username -->
+            <StackPanel x:Name="USERNAME_PANEL" Margin="0,0,0,8">
+                <TextBlock x:Uid="Username" Text="[Username]" />
+                <TextBox Text="{Binding LoginInformations.Id}" IsEnabled="{Binding FieldsEnabled}" />
             </StackPanel>
 
-            <!-- Connection informations row -->
-            <StackPanel Grid.Row="1" Margin="20,-16,20,0">
-
-                <!-- Box identifier field -->
-                <StackPanel>
-                    <TextBlock Text="Box identifier" FontSize="16" Margin="0,0,0,10" />
-                    <TextBox BorderThickness="0" Text="{Binding LoginInformations.Id, Mode=TwoWay}" IsEnabled="{Binding FieldsEnabled}" />
-                </StackPanel>
-
-                <!-- Box password field -->
-                <StackPanel Margin="0,15,0,0">
-                    <TextBlock Text="Password" FontSize="16" Margin="0,0,0,10" />
-                    <PasswordBox BorderThickness="0" Password="{Binding LoginInformations.Password, Mode=TwoWay}" IsEnabled="{Binding FieldsEnabled}" />
-                </StackPanel>
-
-                <!-- Save informations field -->
-                <StackPanel Margin="0,15,0,0">
-                    <CheckBox Content="Save my informations" FontSize="16" BorderThickness="0" IsEnabled="{Binding FieldsEnabled}" />
-                </StackPanel>
-
-                <!-- Login button -->
-                <StackPanel Margin="0,15,0,0" Orientation="Horizontal">
-                    <Button Content="Login" Height="48" Width="92" Command="{Binding LoginCommand}" IsEnabled="{Binding FieldsEnabled}" />
-                    <ProgressRing Margin="30,0,0,0" Width="36" Height="36" VerticalAlignment="Center" IsActive="{Binding LogingIn}" />
-                    <TextBlock Margin="10,0,0,0" FontSize="16" Text="Loging in..." VerticalAlignment="Center" Visibility="{Binding LogingIn, Converter={StaticResource visibilityConverter}}" />
-                </StackPanel>
-
+            <!-- Password -->
+            <StackPanel x:Name="PASSWORD_PANEL" Margin="0,0,0,8">
+                <TextBlock x:Uid="Password" Text="[Password]" />
+                <PasswordBox Password="{Binding LoginInformations.Password}" IsEnabled="{Binding FieldsEnabled}" />
             </StackPanel>
-        </Grid>
 
+            <!-- Save informations -->
+            <CheckBox x:Uid="SaveInformations" Content="[SaveInformations]" Margin="0,0,0,8" />
+
+            <!-- Connect and Register button -->
+            <Grid Margin="0,0,0,8">
+                <!-- Grid column definitons -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button x:Uid="LoginButton" 
+                        Grid.Column="0"
+                        IsEnabled="{Binding FieldsEnabled}"
+                        Command="{Binding LoginCommand}"
+                        Content="[LoginButton]"
+                        HorizontalContentAlignment="Center" 
+                        HorizontalAlignment="Stretch"
+                        Margin="0,0,8,0"/>
+                <ProgressRing Grid.Column="1" IsActive="{Binding LogingIn}" Margin="8" />
+                <Button x:Uid="RegisterButton" 
+                        Grid.Column="2" 
+                        IsEnabled="{Binding FieldsEnabled}"
+                        Content="[RegisterButton]"
+                        Command="{Binding RegisterCommand}"
+                        HorizontalContentAlignment="Center" 
+                        HorizontalAlignment="Stretch" 
+                        Margin="8,0,0,0"/>
+            </Grid>
+
+            <!-- Message -->
+            <StackPanel VerticalAlignment="Stretch">
+                <TextBlock TextWrapping="Wrap" 
+                           Text="{Binding ErrorText}" 
+                           Visibility="{Binding ErrorFieldEnabled, Converter={StaticResource visibilityConverter}}" />
+            </StackPanel>
+            
+        </StackPanel>
+
+        <!-- Forgot password panel -->
+        <StackPanel Grid.Row="1" Margin="12" >
+            <HyperlinkButton x:Uid="ForgotPassword" 
+                             Content="[ForgotPassword]" 
+                             HorizontalAlignment="Center"
+                             Command="{Binding ForgotPasswordCommand}" />
+        </StackPanel>
     </Grid>
 </Page>

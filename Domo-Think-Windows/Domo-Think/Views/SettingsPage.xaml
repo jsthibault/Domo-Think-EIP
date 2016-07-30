@@ -3,9 +3,14 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:DomoThink.Views"
+    xmlns:viewModel="using:DomoThink.ViewModels"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+
+    <Page.DataContext>
+        <viewModel:SettingsViewModel />
+    </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel Orientation="Vertical" Margin="12">
@@ -53,10 +58,29 @@
             <StackPanel x:Name="DELETE_ACCOUNT_PANEL" Margin="0,0,0,8">
                 <TextBlock x:Uid="SettingsMyAccount" Text="My account" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,8" />
 
+                <TextBlock x:Uid="SettingsChangePassword"
+                           Text="[CHANGE_PASSWORD]" />
+
+                <Button Command="{Binding ChangePasswordCommand}">
+                    <Button.Content>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <SymbolIcon Grid.Column="0" Symbol="Edit" Margin="0,0,4,0" />
+                            <TextBlock x:Uid="SettingsChangePassword" 
+                                       Grid.Column="1" 
+                                       Text="[CHANGE_PASSWORD]" />
+                        </Grid>
+                    </Button.Content>
+                </Button>
+
                 <TextBlock x:Uid="SettingsMyAccountWarning" 
                            Text="Warning!" 
                            TextWrapping="Wrap" />
-                <Button x:Name="DELETE_ACCOUNT">
+                <Button x:Name="DELETE_ACCOUNT" Command="{Binding DeleteMyAccountCommand}">
                     <Button.Content>
                         <Grid>
                             <Grid.ColumnDefinitions>

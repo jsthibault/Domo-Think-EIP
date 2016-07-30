@@ -131,6 +131,58 @@
           <source>Searching for objects near by...</source>
           <target state="translated">Recherche d'objets à proximité...</target>
         </trans-unit>
+        <trans-unit id="ForgotPassword.Content" translate="yes" xml:space="preserve">
+          <source>Forgot password</source>
+          <target state="translated">Mot de passe oublié</target>
+        </trans-unit>
+        <trans-unit id="LoginButton.Content" translate="yes" xml:space="preserve">
+          <source>Login</source>
+          <target state="translated">Connexion</target>
+        </trans-unit>
+        <trans-unit id="Password.Text" translate="yes" xml:space="preserve">
+          <source>Password</source>
+          <target state="translated">Mot de passe</target>
+        </trans-unit>
+        <trans-unit id="SaveInformations.Content" translate="yes" xml:space="preserve">
+          <source>Save my informations</source>
+          <target state="translated">Sauvegarder mes informations</target>
+        </trans-unit>
+        <trans-unit id="Username.Text" translate="yes" xml:space="preserve">
+          <source>Username</source>
+          <target state="translated">Nom d'utilisateur</target>
+        </trans-unit>
+        <trans-unit id="LogginIn.Text" translate="yes" xml:space="preserve">
+          <source>Loggin in...</source>
+          <target state="translated">Connexion...</target>
+        </trans-unit>
+        <trans-unit id="SettingsChangePassword.Text" translate="yes" xml:space="preserve">
+          <source>Change my password</source>
+          <target state="translated">Changer mon mot de passe</target>
+        </trans-unit>
+        <trans-unit id="NewPassword.Text" translate="yes" xml:space="preserve">
+          <source>New password</source>
+          <target state="translated">Nouveau mot de passe</target>
+        </trans-unit>
+        <trans-unit id="OldPassword.Text" translate="yes" xml:space="preserve">
+          <source>Old password</source>
+          <target state="translated">Ancien mot de passe</target>
+        </trans-unit>
+        <trans-unit id="PasswordConfirmation.Text" translate="yes" xml:space="preserve">
+          <source>Password confirmation</source>
+          <target state="translated">Confirmation du mot de passe</target>
+        </trans-unit>
+        <trans-unit id="ChangePasswordButton.Content" translate="yes" xml:space="preserve">
+          <source>Change password</source>
+          <target state="translated">Changer de mot de passe</target>
+        </trans-unit>
+        <trans-unit id="UserId.Text" translate="yes" xml:space="preserve">
+          <source>User Id</source>
+          <target state="new">User Id</target>
+        </trans-unit>
+        <trans-unit id="RegisterButton.Content" translate="yes" xml:space="preserve">
+          <source>Register</source>
+          <target state="translated">S'enregistrer</target>
+        </trans-unit>
       </group>
     </body>
   </file>

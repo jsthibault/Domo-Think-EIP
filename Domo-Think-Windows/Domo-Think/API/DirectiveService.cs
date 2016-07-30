@@ -1,5 +1,6 @@
 ﻿using DAL.API;
 using DAL.Model;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -53,7 +54,35 @@ namespace DomoThink.API
 
         public async Task<List<DirectiveModel>> GetDirectives()
         {
-            return await this.api.Get<List<DirectiveModel>>(ApiRoutes.GET_DIRECTIVES);
+            try
+            {
+                return await this.api.Get<List<DirectiveModel>>("/api/" + ApiRoutes.GET_DIRECTIVES);
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public async Task<Boolean> AddDirective(DirectiveModel model)
+        {
+            await this.api.Post<DirectiveModel, Object>("/api/directive", model);
+
+            return true;
+        }
+
+        public async Task<Boolean> UpdateDirective(DirectiveModel model)
+        {
+            await this.api.Put<DirectiveModel>("/api/directive/" + model.Id, model);
+
+            return true;
+        }
+
+        public async Task<Boolean> DeleteDirective(DirectiveModel directive)
+        {
+            await this.api.Delete<DirectiveModel>("/api/directive/{0}", directive.Id);
+
+            return true;
         }
 
         #endregion

@@ -11,6 +11,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Popups;
+using DomoThink.Views.Directives;
 
 /*--------------------------------------------------------
  * DirectiveViewModel.cs
@@ -87,7 +89,7 @@ namespace DomoThink.ViewModels
             this.Directives = new ObservableCollection<DirectiveModel>();
 
             // Initialize service
-            this.directiveService = new DirectiveService(App.ApiClient);
+            this.directiveService = new DirectiveService(new DAL.API.ApiClient("http://127.0.0.1:8080"));
         }
 
         #endregion
@@ -114,7 +116,7 @@ namespace DomoThink.ViewModels
         /// <param name="param"></param>
         private void AddDirectiveCommandAction(Object param)
         {
-            //NavigationService.Navigate(typeof(DomoThink.Views.Directives.AddOrder));
+            NavigationService.Navigate(typeof(DirectiveEditor));
         }
 
         /// <summary>
@@ -137,11 +139,48 @@ namespace DomoThink.ViewModels
             if (_directives != null)
             {
                 for (Int32 i = 0; i < _directives.Count; ++i)
+                {
+                    _directives[i].EditCommand = new Command(this.EditDirectiveAction);
+                    _directives[i].DeleteCommand = new Command(this.DeleteDirectiveAction);
                     this.Directives.Add(_directives[i]);
+                }
             }
 
             // Deactivate loading state
             this.LoadingState(false);
+        }
+
+        private void EditDirectiveAction(Object param)
+        {
+            NavigationService.Navigate(typeof(DirectiveEditor), param);
+        }
+
+        private async void DeleteDirectiveAction(Object param)
+        {
+            DirectiveModel _directive = param as DirectiveModel;
+
+            if (_directive == null)
+                return;
+
+            var loader = new Windows.ApplicationModel.Resources.ResourceLoader();
+
+            MessageDialog dialog = new MessageDialog(
+                "Do you want to delete this directive?",
+                "Delete Directive");
+
+            dialog.Commands.Add(new UICommand(loader.GetString("DialogYes")) { Id = 0 });
+            dialog.Commands.Add(new UICommand(loader.GetString("DialogNo")) { Id = 1 });
+
+            dialog.DefaultCommandIndex = 0;
+            dialog.CancelCommandIndex = 1;
+
+            var result = await dialog.ShowAsync();
+
+            if ((Int32)result.Id == 0) // remove object
+            {
+                await this.directiveService.DeleteDirective(_directive);
+                this.LoadDirectivesCommandAction(null);
+            }
         }
 
         #endregion

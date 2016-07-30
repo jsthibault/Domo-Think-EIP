@@ -25,7 +25,7 @@ namespace DAL.Model
         /// <summary>
         /// Gets or sets the login username.
         /// </summary>
-        [DataMember(Name = "username", EmitDefaultValue = false)]
+        [DataMember(Name = "login", EmitDefaultValue = false)]
         public String Id { get; set; }
 
         /// <summary>
@@ -112,5 +112,8 @@ namespace DAL.Model
     {
         [DataMember(Name = "token", EmitDefaultValue = false)]
         public String Token { get; set; }
+
+        [DataMember(Name = "userId", EmitDefaultValue = false)]
+        public String Id { get; set; }
     }
 }

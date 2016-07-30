@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using DomoThink.ViewModels.Interfaces;
+using DomoThink.API;
+using DomoThink.Navigation;
 
 
 /*--------------------------------------------------------
@@ -111,24 +113,40 @@ namespace DomoThink.ViewModels.Objects
         /// <param name="param"></param>
         private async void LoadAction(Object param)
         {
-            this.SetLoadingState(true);
+            try
+            {
+                this.SetLoadingState(true);
 
-            if (this.AvailiableObjects.Any())
-                this.AvailiableObjects.Clear();
+                if (this.AvailiableObjects.Any())
+                    this.AvailiableObjects.Clear();
 
-            // TODO: API request to get the objects near the DomoBox.
+                // TODO: API request to get the objects near the DomoBox.
 
-            await Task.Delay(3000);
+                await Task.Delay(3000);
 
-            for (Int32 i = 0; i < 5; ++i)
-                this.AvailiableObjects.Add(new ObjectModel(i, "Availiable Object #" + i.ToString()));
+                for (Int32 i = 0; i < 5; ++i)
+                    this.AvailiableObjects.Add(new ObjectModel(i, "Availiable Object #" + i.ToString()));
 
-            this.SetLoadingState(false);
+                for (Int32 i = 0; i < 5; ++i)
+                    this.AvailiableObjects[i].AddObjectCommand = new Command(this.AddObjectAction);
+
+                this.SetLoadingState(false);
+            }
+            catch { }
         }
 
-        private void AddObjectAction(Object param)
+        private async void AddObjectAction(Object param)
         {
+            try
+            {
+                ObjectService service = new ObjectService(
+                        new DAL.API.ApiClient("http://127.0.0.1:8080/"));
 
+                await service.AddObject(param as ObjectModel);
+
+                NavigationService.GoBack();
+            }
+            catch { }
         }
 
         #endregion

@@ -51,7 +51,7 @@
         <Grid Grid.Row="0" Margin="10" Visibility="{Binding Display, Converter={StaticResource visibilityConverter}}">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <!-- Connected objects list -->
-                <controls:DomoListView 
+                <controls:DomoListView
                         x:Name="OBJECTS_LIST"
                         ItemsSource="{Binding ConnectedObjects}"
                         ItemContainerStyle="{StaticResource ListViewItemStretch}" 
@@ -62,7 +62,7 @@
         <!-- Loading panel -->
         <controls:LoadingPanel x:Name="LOADING_PANEL"
                                x:Uid="LoaderObjects" 
-                               Grid.Row="1" 
+                               Grid.Row="0" 
                                IsVisible="{Binding Loading}" />
 
         <!-- Command bar -->

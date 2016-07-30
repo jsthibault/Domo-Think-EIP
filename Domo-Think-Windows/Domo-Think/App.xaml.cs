@@ -26,6 +26,8 @@ namespace DomoThink
     sealed partial class App : Application
     {
         public static DAL.API.ApiClient ApiClient;
+        public static String LoginToken;
+        public static String UserId;
 
         /// <summary>
         /// Initialise l'objet d'application de singleton.  Il s'agit de la première ligne du code créé

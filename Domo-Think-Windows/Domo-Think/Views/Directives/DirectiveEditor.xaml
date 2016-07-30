@@ -8,6 +8,19 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Vertical" Margin="12">
 
+            <!-- Options -->
+            <StackPanel x:Name="OPTIONS_PANEL" Margin="0,0,0,8">
+                <TextBlock x:Name="METHOD" Text="Add directive" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,8"  />
+
+                <TextBlock Text="Name" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
+                <TextBox x:Name="DIRECTIVE_NAME" Margin="0,0,409,0" />
+                <TextBox x:Name="DIRECTIVE_ID" Visibility="Collapsed" />
+
+                <Button x:Name="ADD_EDIT_BUTTON" Content="Add directive" Margin="0,8,8,0" Click="ADD_EDIT_BUTTON_Click" />
+
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

@@ -15,7 +15,10 @@ namespace DomoThink.API
     public class ApiRoutes
     {
         public const String API_PREFIX = "";
+
+        // Users
         public const String USER_CONNECT = API_PREFIX + "/user/auth";
+        public const String USER_FORGOT_PASSWORD = API_PREFIX + "/user/forgotten_password/";
 
         // Objects
         public const String GET_OBJECTS = API_PREFIX + "/device";

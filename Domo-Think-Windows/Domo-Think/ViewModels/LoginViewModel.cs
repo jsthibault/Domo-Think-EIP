@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using DomoThink.Helper;
 
 /*--------------------------------------------------------
  * LoginViewModel.cs
@@ -42,6 +43,16 @@ namespace DomoThink.ViewModels
         /// Gets the Login command.
         /// </summary>
         public ICommand LoginCommand { get; private set; }
+
+        /// <summary>
+        /// Gets the Register command.
+        /// </summary>
+        public ICommand RegisterCommand { get; private set; }
+
+        /// <summary>
+        /// Gets the Forgot password command which sends an email to the user with a new password.
+        /// </summary>
+        public ICommand ForgotPasswordCommand { get; private set; }
 
         /// <summary>
         /// Gets the login informations.
@@ -95,6 +106,8 @@ namespace DomoThink.ViewModels
         {
             // Initialize commands
             this.LoginCommand = new Command(this.LoginCommandAction);
+            this.RegisterCommand = new Command(this.RegisterAction);
+            this.ForgotPasswordCommand = new Command(this.ForgotPasswordAction);
 
             // Initialize model
             this.LoginInformations = new DAL.Model.LoginModel();
@@ -181,6 +194,40 @@ namespace DomoThink.ViewModels
 
                 // Remove the error message
                 this.HideErrorMessage();
+            }
+        }
+
+        private async void ForgotPasswordAction(Object param)
+        {
+            try
+            {
+                String _message = "Please enter username.";
+
+                if (String.IsNullOrEmpty(this.LoginInformations?.Id) == false)
+                    _message = "An email as been sent to you.";
+
+                this.DisplayErrorMessage(_message);
+
+                // Wait 3 seconds
+                await Task.Delay(3000);
+
+                // Remove the error message
+                this.HideErrorMessage();
+            }
+            catch
+            {
+            }
+        }
+
+        private async void RegisterAction(Object param)
+        {
+            try
+            {
+
+                await Task.Delay(1000);
+            }
+            catch
+            {
             }
         }
 

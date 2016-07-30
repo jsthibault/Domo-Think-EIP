@@ -101,16 +101,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\Languages\Language.English.xaml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Languages\Language.French.xaml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\AccountService.cs" />
@@ -133,6 +123,7 @@
     <Compile Include="Converters\CacheImageConverter.cs" />
     <Compile Include="Converters\DebugConverter.cs" />
     <Compile Include="Converters\VisibilityConverter.cs" />
+    <Compile Include="Helper\WindowHelper.cs" />
     <Compile Include="Model\NavigationButton.cs" />
     <Compile Include="MVVM\Command.cs" />
     <Compile Include="MVVM\ViewModelBase.cs" />
@@ -155,6 +146,12 @@
     <Compile Include="Views\Account\Accounts.xaml.cs">
       <DependentUpon>Accounts.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Account\ChangePassword.xaml.cs">
+      <DependentUpon>ChangePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\DeleteAccount.xaml.cs">
+      <DependentUpon>DeleteAccount.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Directives\DirectiveEditor.xaml.cs">
       <DependentUpon>DirectiveEditor.xaml</DependentUpon>
     </Compile>
@@ -172,6 +169,9 @@
     </Compile>
     <Compile Include="Views\Objects\AddObject.xaml.cs">
       <DependentUpon>AddObject.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Objects\ObjectEditor.xaml.cs">
+      <DependentUpon>ObjectEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Objects\ObjectsPage.xaml.cs">
       <DependentUpon>ObjectsPage.xaml</DependentUpon>
@@ -247,6 +247,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Account\ChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Account\DeleteAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Directives\DirectiveEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -268,6 +276,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Objects\AddObject.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Objects\ObjectEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

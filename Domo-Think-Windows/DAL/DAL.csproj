@@ -109,17 +109,17 @@
   <ItemGroup>
     <Compile Include="API\ApiClient.cs" />
     <Compile Include="API\ApiService.cs" />
+    <Compile Include="IO\Settings.cs" />
     <Compile Include="Model\AccountModel.cs" />
     <Compile Include="Model\DirectiveModel.cs" />
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\ObjectModel.cs" />
+    <Compile Include="Model\PeriodicityModel.cs" />
     <Compile Include="Model\PluginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\DAL.rd.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="IO\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

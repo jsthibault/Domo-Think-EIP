@@ -103,10 +103,18 @@ namespace DomoThink.ViewModels
             this.Loading = true;
             this.Display = false;
 
-            List<PluginModel> _plugins = await this.service.GetPlugins();
+            //List<PluginModel> _plugins = await this.service.GetPlugins();
 
-            foreach (PluginModel plugin in _plugins)
-                this.Plugins.Add(plugin);
+            //if (_plugins != null)
+            //    foreach (PluginModel plugin in _plugins)
+            //        this.Plugins.Add(plugin);
+
+            await Task.Delay(1000);
+
+            for (Int32 i = 0; i < 5; ++i)
+            {
+                this.Plugins.Add(new PluginModel(i, "Plugin #" + i.ToString(), i, false));
+            }
 
             this.Loading = false;
             this.Display = true;

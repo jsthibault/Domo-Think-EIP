@@ -3,11 +3,13 @@ using DomoThink.API;
 using DomoThink.MVVM;
 using DomoThink.Navigation;
 using DomoThink.ViewModels.Interfaces;
+using DomoThink.Views.Objects;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using Windows.UI.Popups;
 
 /*--------------------------------------------------------
  * ObjectsViewModel.cs
@@ -95,7 +97,7 @@ namespace DomoThink.ViewModels.Objects
             this.ConnectedObjects = new ObservableCollection<ObjectModel>();
 
             // Initialize API service
-            this.objectService = new ObjectService(App.ApiClient);
+            this.objectService = new ObjectService(new DAL.API.ApiClient("http://127.0.0.1:8080"));
         }
 
         #endregion
@@ -140,25 +142,80 @@ namespace DomoThink.ViewModels.Objects
         /// <param name="param"></param>
         private async void LoadObjectsAction(Object param)
         {
-            // Activate loading state
-            this.LoadingState(true);
-
-            // Clear the connected objects if there's any
-            if (this.ConnectedObjects.Any())
-                this.ConnectedObjects.Clear();
-
-            // Send the request to the API
-            List<ObjectModel> _objects = await this.objectService.GetObjects();
-
-            // Fill list with the data we recieve from the box
-            if (_objects != null)
+            try
             {
-                for (Int32 i = 0; i < _objects.Count; ++i)
-                    this.ConnectedObjects.Add(_objects[i]);
+                // Activate loading state
+                this.LoadingState(true);
+
+                // Clear the connected objects if there's any
+                if (this.ConnectedObjects.Any())
+                    this.ConnectedObjects.Clear();
+
+                // Send the request to the API
+                List<ObjectModel> _objects = await this.objectService.GetObjects();
+
+                // Fill list with the data we recieve from the box
+                if (_objects != null)
+                {
+                    for (Int32 i = 0; i < _objects.Count; ++i)
+                    {
+                        _objects[i].EditObjectCommand = new Command(this.EditObjectAction);
+                        _objects[i].DeleteObjectCommand = new Command(this.DeleteObjectAction);
+                        this.ConnectedObjects.Add(_objects[i]);
+                    }
+                }
+
+                // Deactivate loading state
+                this.LoadingState(false);
             }
-            
-            // Deactivate loading state
-            this.LoadingState(false);
+            catch (Exception e)
+            {
+            }
+        }
+
+        private void EditObjectAction(Object param)
+        {
+            //var loader = new Windows.ApplicationModel.Resources.ResourceLoader();
+
+            //MessageDialog dialog = new MessageDialog(
+            //    "This feature is not implemented yet.",
+            //    "Not implemented");
+
+            //dialog.Commands.Add(new UICommand("OK") { Id = 0 });
+
+            //dialog.DefaultCommandIndex = 0;
+
+            //var result = await dialog.ShowAsync();
+
+            NavigationService.Navigate(typeof(ObjectEditor), param as ObjectModel);
+        }
+
+        private async void DeleteObjectAction(Object param)
+        {
+            ObjectModel _object = param as ObjectModel;
+
+            if (_object == null)
+                return;
+
+            var loader = new Windows.ApplicationModel.Resources.ResourceLoader();
+
+            MessageDialog dialog = new MessageDialog(
+                "Do you want to delete this object?", 
+                "Delete Object");
+
+            dialog.Commands.Add(new UICommand(loader.GetString("DialogYes")) { Id = 0 });
+            dialog.Commands.Add(new UICommand(loader.GetString("DialogNo")) { Id = 1 });
+
+            dialog.DefaultCommandIndex = 0;
+            dialog.CancelCommandIndex = 1;
+
+            var result = await dialog.ShowAsync();
+
+            if ((Int32)result.Id == 0) // remove object
+            {
+                await this.objectService.DeleteObject(_object);
+                this.LoadObjectsAction(null);
+            }
         }
 
         #endregion

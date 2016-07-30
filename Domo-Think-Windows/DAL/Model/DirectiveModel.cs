@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 
 /*--------------------------------------------------------
@@ -57,6 +58,27 @@ namespace DAL.Model
         [DataMember(Name = "actionId", EmitDefaultValue = false)]
         public Double? ActionId { get; set; }
 
+        [DataMember(Name = "periodicity", EmitDefaultValue = false)]
+        public PeriodicityModel Periodicity { get; set; }
+
+        /// <summary>
+        /// Gets or sets the add command.
+        /// </summary>
+        [IgnoreDataMember]
+        public ICommand AddCommand { get; set; }
+
+        /// <summary>
+        /// Gets or sets the edit command.
+        /// </summary>
+        [IgnoreDataMember]
+        public ICommand EditCommand { get; set; }
+
+        /// <summary>
+        /// Gets or sets the delete command.
+        /// </summary>
+        [IgnoreDataMember]
+        public ICommand DeleteCommand { get; set; }
+
         #endregion
 
         #region CONSTRUCTORS
@@ -71,6 +93,7 @@ namespace DAL.Model
             this.CreatorId = creatorId;
             this.ObjectId = objectId;
             this.ActionId = actionId;
+            this.Periodicity = new PeriodicityModel();
         }
 
         #endregion
@@ -91,6 +114,7 @@ namespace DAL.Model
             _sb.Append("  CreatorId: ").Append(CreatorId).Append("\n");
             _sb.Append("  ObjectId: ").Append(ObjectId).Append("\n");
             _sb.Append("  ActionId: ").Append(ActionId).Append("\n");
+            _sb.Append("  Periodicity: ").Append(this.Periodicity.ToString()).Append("\n");
             _sb.AppendLine("}");
 
             return _sb.ToString();

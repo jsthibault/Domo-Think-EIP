@@ -1,7 +1,9 @@
 ﻿using DAL.Model;
 using DomoThink.API;
 using DomoThink.MVVM;
+using DomoThink.Navigation;
 using DomoThink.ViewModels.Interfaces;
+using DomoThink.Views.Account;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -137,15 +139,25 @@ namespace DomoThink.ViewModels.Accounts
             if (this.Accounts.Any())
                 this.Accounts.Clear();
 
+            await Task.Delay(2000);
+
             // Load the accounts from API
-            List<AccountModel> _accounts = await this.service.GetAccounts();
+            //List<AccountModel> _accounts = await this.service.GetAccounts();
 
             // Add accounts to the view
-            if (_accounts != null)
-            {
-                foreach (AccountModel account in _accounts)
-                    this.Accounts.Add(account);
-            }
+            //if (_accounts != null)
+            //{
+            //    foreach (AccountModel account in _accounts)
+            //        this.Accounts.Add(account);
+            //}
+
+            this.Accounts.Add(new AccountModel("Papa", "yolo"));
+            this.Accounts.Add(new AccountModel("Maman", "yolo"));
+            this.Accounts.Add(new AccountModel("Jean-Pierre", "yolo"));
+            this.Accounts.Add(new AccountModel("Simone", "yolo"));
+            this.Accounts.Add(new AccountModel("Le Chien", "yolo"));
+            this.Accounts.Add(new AccountModel("Le Chat", "yolo"));
+            this.Accounts.Add(new AccountModel("La Poule Domestique", "yolo"));
 
             // Set loading state to false when the loading is over
             this.LoadingState(false);
@@ -157,6 +169,7 @@ namespace DomoThink.ViewModels.Accounts
         /// <param name="param"></param>
         private void AddAccountAction(Object param)
         {
+            NavigationService.Navigate(typeof(AccountEditor));
         }
 
         /// <summary>

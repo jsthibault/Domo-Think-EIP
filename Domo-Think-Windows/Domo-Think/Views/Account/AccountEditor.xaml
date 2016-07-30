@@ -8,6 +8,31 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Vertical" Margin="12">
 
+            <!-- Options -->
+            <StackPanel x:Name="OPTIONS_PANEL" Margin="0,0,0,8">
+                <TextBlock x:Name="METHOD" Text="Add account" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,8"  />
+
+                <TextBox x:Name="DIRECTIVE_ID" Visibility="Collapsed" />
+                
+                <TextBlock Text="Username" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
+                <TextBox x:Name="USERNAME" Margin="0,0,409,0" />
+
+                <TextBlock Text="Password" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
+                <PasswordBox x:Name="PASSWORD" Margin="0,0,409,0" />
+                
+                <TextBlock Text="Password confirmation" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
+                <PasswordBox x:Name="PASSWORD_CONFIRM" Margin="0,0,409,0" />
+
+                <TextBlock Text="Box key" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
+                <TextBox x:Name="BOX_KEY" Margin="0,0,409,0" />
+
+                <Button x:Name="ADD_EDIT_BUTTON" Content="Add account" Margin="0,12,8,0" Click="ADD_EDIT_BUTTON_Click" />
+
+                <TextBlock x:Name="ERROR_FIELD" Foreground="Red" Text="Passwords doesn't match." Visibility="Collapsed" />
+
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

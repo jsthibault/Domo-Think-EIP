@@ -67,24 +67,54 @@ namespace DAL.API
 
         public async Task<T> Get<T>(String url, params Object[] args)
         {
-            HttpResponseMessage _response = await this.client.GetAsync(String.Format(url, args));
+            try
+            {
+                HttpResponseMessage _response = await this.client.GetAsync(String.Format(url, args));
 
-            Debug.WriteLine("Message: " + _response.ReasonPhrase.ToString());
+                Debug.WriteLine("Message: " + _response.ReasonPhrase.ToString());
 
-            if (_response.IsSuccessStatusCode)
-                return await _response.Content.ReadAsAsync<T>();
-            
+                if (_response.IsSuccessStatusCode)
+                    return await _response.Content.ReadAsAsync<T>();
+            }
+            catch (Exception e) { }
+
             return default(T);
         }
 
         public async Task<U> Post<T, U>(String url, T value)
         {
-            HttpResponseMessage _response = await this.client.PostAsJsonAsync(url, value);
+            try
+            {
+                HttpResponseMessage _response = await this.client.PostAsJsonAsync(url, value);
 
-            if (_response.IsSuccessStatusCode)
-                return await _response.Content.ReadAsAsync<U>();
+                if (_response.IsSuccessStatusCode)
+                    return await _response.Content.ReadAsAsync<U>();
+            }
+            catch (Exception e) { }
 
             return default(U);
+        }
+
+        public async Task<T> Put<T>(String url, T value)
+        {
+            try
+            {
+                HttpResponseMessage _response = await this.client.PutAsJsonAsync(url, value);
+            }
+            catch (Exception e) { }
+
+            return default(T);
+        }
+
+        public async Task<T> Delete<T>(String url, params Object[] args)
+        {
+            try
+            {
+                HttpResponseMessage _response = await this.client.DeleteAsync(String.Format(url, args));
+            }
+            catch (Exception e) { }
+
+            return default(T);
         }
 
         #endregion

@@ -1,4 +1,5 @@
-﻿using DomoThink.Model;
+﻿using DAL.Model;
+using DomoThink.Model;
 using DomoThink.MVVM;
 using DomoThink.Navigation;
 using DomoThink.Views;
@@ -238,8 +239,12 @@ namespace DomoThink
 
             if ((Int32)result.Id == 0)
             {
-                // Process logout here
+                try
+                {
+                    await App.ApiClient.Post<LoginResponse, Object>("/user/logout", new LoginResponse() { Token = App.LoginToken });
 
+                }
+                catch { }
                 Window.Current.Content = new LoginPage();
                 Window.Current.Activate();
             }
