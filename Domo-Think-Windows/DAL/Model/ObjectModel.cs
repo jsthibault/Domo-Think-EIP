@@ -56,19 +56,19 @@ namespace DAL.Model
         /// Gets or sets the add command.
         /// </summary>
         [IgnoreDataMember]
-        public ICommand AddObjectCommand { get; set; }
+        public ICommand AddCommand { get; set; }
 
         /// <summary>
         /// Gets or sets the edit command.
         /// </summary>
         [IgnoreDataMember]
-        public ICommand EditObjectCommand { get; set; }
+        public ICommand EditCommand { get; set; }
 
         /// <summary>
         /// Gets or sets the delete command.
         /// </summary>
         [IgnoreDataMember]
-        public ICommand DeleteObjectCommand { get; set; }
+        public ICommand DeleteCommand { get; set; }
 
         #endregion
 

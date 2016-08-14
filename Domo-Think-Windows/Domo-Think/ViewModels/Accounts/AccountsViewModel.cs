@@ -151,7 +151,11 @@ namespace DomoThink.ViewModels.Accounts
             //        this.Accounts.Add(account);
             //}
 
-            this.Accounts.Add(new AccountModel("Papa", "yolo"));
+            this.Accounts.Add(new AccountModel("Papa", "yolo")
+            {
+                EditCommand = new Command(this.EditAccountAction),
+                DeleteCommand = new Command(this.DeleteAccountAction)
+            });
             this.Accounts.Add(new AccountModel("Maman", "yolo"));
             this.Accounts.Add(new AccountModel("Jean-Pierre", "yolo"));
             this.Accounts.Add(new AccountModel("Simone", "yolo"));
@@ -178,6 +182,15 @@ namespace DomoThink.ViewModels.Accounts
         /// <param name="param"></param>
         private void DeleteAccountAction(Object param)
         {
+        }
+
+        /// <summary>
+        /// Navigate to the AccountEditor page with the selected account.
+        /// </summary>
+        /// <param name="param"></param>
+        private void EditAccountAction(Object param)
+        {
+            NavigationService.Navigate(typeof(AccountEditor), param);
         }
 
         #endregion

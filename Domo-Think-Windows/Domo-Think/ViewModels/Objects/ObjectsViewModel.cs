@@ -159,8 +159,8 @@ namespace DomoThink.ViewModels.Objects
                 {
                     for (Int32 i = 0; i < _objects.Count; ++i)
                     {
-                        _objects[i].EditObjectCommand = new Command(this.EditObjectAction);
-                        _objects[i].DeleteObjectCommand = new Command(this.DeleteObjectAction);
+                        _objects[i].EditCommand = new Command(this.EditObjectAction);
+                        _objects[i].DeleteCommand = new Command(this.DeleteObjectAction);
                         this.ConnectedObjects.Add(_objects[i]);
                     }
                 }

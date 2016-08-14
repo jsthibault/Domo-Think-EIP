@@ -211,6 +211,10 @@
           <source>Password doesn't match. Please try again.</source>
           <target state="new">Password doesn't match. Please try again.</target>
         </trans-unit>
+        <trans-unit id="ApiError" translate="yes" xml:space="preserve">
+          <source>An error occured while sending the request to the API.</source>
+          <target state="new">An error occured while sending the request to the API.</target>
+        </trans-unit>
       </group>
     </body>
   </file>

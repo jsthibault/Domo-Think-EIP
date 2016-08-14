@@ -207,8 +207,10 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="1" Margin="0,8,16,8" Orientation="Horizontal">
-                            <Button x:Uid="EditButton" Margin="4" Width="100" Content="!Edit" />
-                            <Button x:Uid="DeleteButton" Margin="4" Width="100" Content="!Delete" />
+                            <Button x:Uid="EditButton" Margin="4" Width="100" Content="!Edit"
+                                    Command="{Binding EditCommand}" CommandParameter="{Binding}"/>
+                            <Button x:Uid="DeleteButton" Margin="4" Width="100" Content="!Delete"
+                                    Command="{Binding DeleteCommand}" CommandParameter="{Binding}"/>
                         </StackPanel>
                     </Grid>
                 </Grid>

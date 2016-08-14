@@ -128,7 +128,7 @@ namespace DomoThink.ViewModels.Objects
                     this.AvailiableObjects.Add(new ObjectModel(i, "Availiable Object #" + i.ToString()));
 
                 for (Int32 i = 0; i < 5; ++i)
-                    this.AvailiableObjects[i].AddObjectCommand = new Command(this.AddObjectAction);
+                    this.AvailiableObjects[i].AddCommand = new Command(this.AddObjectAction);
 
                 this.SetLoadingState(false);
             }

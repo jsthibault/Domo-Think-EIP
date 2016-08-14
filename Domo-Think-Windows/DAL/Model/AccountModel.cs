@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Windows.Input;
 
 /*--------------------------------------------------------
  * UserModel.cs
@@ -84,6 +85,24 @@ namespace DAL.Model
         /// </summary>
         [DataMember(Name = "boxKey", EmitDefaultValue = false)]
         public String BoxKey { get; set; }
+
+        /// <summary>
+        /// Gets or sets the add command.
+        /// </summary>
+        [IgnoreDataMember]
+        public ICommand AddCommand { get; set; }
+
+        /// <summary>
+        /// Gets or sets the edit command.
+        /// </summary>
+        [IgnoreDataMember]
+        public ICommand EditCommand { get; set; }
+
+        /// <summary>
+        /// Gets or sets the delete command.
+        /// </summary>
+        [IgnoreDataMember]
+        public ICommand DeleteCommand { get; set; }
 
         #endregion
 
