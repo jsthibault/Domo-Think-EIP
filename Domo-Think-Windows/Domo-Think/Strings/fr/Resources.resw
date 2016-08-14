@@ -132,4 +132,19 @@
   <data name="RegisterButton.Content" xml:space="preserve">
     <value>S'enregistrer</value>
   </data>
+  <data name="CancelButton.Content" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="RegisterAccount.Text" xml:space="preserve">
+    <value>Enregistrer un compte</value>
+  </data>
+  <data name="AddAccount.Content" xml:space="preserve">
+    <value>Ajouter un compte utilisateur</value>
+  </data>
+  <data name="AddAccountMode.Text" xml:space="preserve">
+    <value>Créer un compte utilisateur</value>
+  </data>
+  <data name="EditAccountMode.Text" xml:space="preserve">
+    <value>Editer un compte utilisateur</value>
+  </data>
 </root>

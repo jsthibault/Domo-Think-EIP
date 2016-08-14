@@ -1,10 +1,12 @@
 ﻿using DAL.Model;
+using DomoThink.Helper;
 using DomoThink.Model;
 using DomoThink.MVVM;
 using DomoThink.Navigation;
 using DomoThink.Views;
 using DomoThink.Views.Account;
 using DomoThink.Views.Directives;
+using DomoThink.Views.Login;
 using DomoThink.Views.Objects;
 using DomoThink.Views.Plugins;
 using System;
@@ -112,19 +114,17 @@ namespace DomoThink
         /// </summary>
         private void InitializeNavigationButtons()
         {
-            var loader = new Windows.ApplicationModel.Resources.ResourceLoader();
-
             String[] _menus = new String[]
             {
-                loader.GetString("MenuHome"),
-                loader.GetString("MenuObjects"),
-                loader.GetString("MenuDirectives"),
-                loader.GetString("MenuBox"),
-                loader.GetString("MenuAccounts"),
-                loader.GetString("MenuPlugins"),
-                loader.GetString("MenuStore"),
-                loader.GetString("MenuLogout"),
-                loader.GetString("MenuSettings")
+                ResourceHelper.GetString("MenuHome"),
+                ResourceHelper.GetString("MenuObjects"),
+                ResourceHelper.GetString("MenuDirectives"),
+                ResourceHelper.GetString("MenuBox"),
+                ResourceHelper.GetString("MenuAccounts"),
+                ResourceHelper.GetString("MenuPlugins"),
+                ResourceHelper.GetString("MenuStore"),
+                ResourceHelper.GetString("MenuLogout"),
+                ResourceHelper.GetString("MenuSettings")
             };
 
             // Initialize primary buttons
@@ -223,14 +223,12 @@ namespace DomoThink
         /// </summary>
         private async void Logout()
         {
-            var loader = new Windows.ApplicationModel.Resources.ResourceLoader();
-
             MessageDialog dialog = new MessageDialog(
-                loader.GetString("LogoutMessage"),
-                loader.GetString("MenuLogout"));
+                ResourceHelper.GetString("LogoutMessage"),
+                ResourceHelper.GetString("MenuLogout"));
 
-            dialog.Commands.Add(new UICommand(loader.GetString("DialogYes")) { Id = 0 });
-            dialog.Commands.Add(new UICommand(loader.GetString("DialogNo")) { Id = 1 });
+            dialog.Commands.Add(new UICommand(ResourceHelper.GetString("DialogYes")) { Id = 0 });
+            dialog.Commands.Add(new UICommand(ResourceHelper.GetString("DialogNo")) { Id = 1 });
 
             dialog.DefaultCommandIndex = 0;
             dialog.CancelCommandIndex = 1;

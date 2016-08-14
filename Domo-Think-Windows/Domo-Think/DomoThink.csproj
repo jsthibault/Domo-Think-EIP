@@ -120,16 +120,23 @@
     <Compile Include="Controls\LoadingPanel.xaml.cs">
       <DependentUpon>LoadingPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Panel.xaml.cs">
+      <DependentUpon>Panel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\AccountModeConverter.cs" />
     <Compile Include="Converters\CacheImageConverter.cs" />
     <Compile Include="Converters\DebugConverter.cs" />
     <Compile Include="Converters\VisibilityConverter.cs" />
-    <Compile Include="Helper\WindowHelper.cs" />
+    <Compile Include="Helper\NotificationHelper.cs" />
+    <Compile Include="Helper\ResourceHelper.cs" />
     <Compile Include="Model\NavigationButton.cs" />
     <Compile Include="MVVM\Command.cs" />
     <Compile Include="MVVM\ViewModelBase.cs" />
     <Compile Include="Navigation\NavigationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Accounts\AccountsViewModel.cs" />
+    <Compile Include="ViewModels\Accounts\AddEditAccountViewModel.cs" />
+    <Compile Include="ViewModels\Accounts\RegisterViewModel.cs" />
     <Compile Include="ViewModels\Objects\AddObjectViewModel.cs" />
     <Compile Include="ViewModels\DirectiveViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\ILoader.cs" />
@@ -158,7 +165,7 @@
     <Compile Include="Views\Directives\Directives.xaml.cs">
       <DependentUpon>Directives.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\LoginPage.xaml.cs">
+    <Compile Include="Views\Login\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
@@ -181,6 +188,9 @@
     </Compile>
     <Compile Include="Views\Plugins\Plugins.xaml.cs">
       <DependentUpon>Plugins.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login\RegisterDialog.xaml.cs">
+      <DependentUpon>RegisterDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
@@ -216,6 +226,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="AppShell.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Panel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -263,7 +277,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\LoginPage.xaml">
+    <Page Include="Views\Login\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -292,6 +306,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Plugins\Plugins.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Login\RegisterDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -14,6 +14,12 @@ using System.Text;
 
 namespace DAL.Model
 {
+    public enum AccountMode
+    {
+        Create,
+        Edit
+    }
+
     [DataContract]
     public class AccountModel
     {

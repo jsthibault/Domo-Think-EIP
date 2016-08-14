@@ -13,16 +13,13 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// Pour plus d'informations sur le modèle d'élément Page vierge, voir la page http://go.microsoft.com/fwlink/?LinkId=234238
+// The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace DomoThink.Views
+namespace DomoThink.Controls
 {
-    /// <summary>
-    /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
-    /// </summary>
-    public sealed partial class LoginPage : Page
+    public sealed partial class Panel : UserControl
     {
-        public LoginPage()
+        public Panel()
         {
             this.InitializeComponent();
         }

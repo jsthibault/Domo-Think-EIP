@@ -87,7 +87,7 @@ namespace DomoThink
             //frame.BackStack.Clear();
 
             if (rootFrame.Content == null)
-                rootFrame.Navigate(typeof(Views.LoginPage), e.Arguments);
+                rootFrame.Navigate(typeof(Views.Login.LoginPage), e.Arguments);
 
             // Vérifiez que la fenêtre actuelle est active
             Window.Current.Activate();

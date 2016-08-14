@@ -23,31 +23,31 @@ namespace DomoThink.Views.Account
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class AccountEditor : Page
+    public sealed partial class ChangePassword : Page
     {
-        AccountModel model;
-        Boolean editMode = false;
-
-        public AccountEditor()
+        public ChangePassword()
         {
             this.InitializeComponent();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        private async void CHANGE_PASSWORD_Click(Object sender, RoutedEventArgs e)
         {
-            this.model = e.Parameter as AccountModel;
-
-            this.editMode = model != null;
-
-            if (this.editMode == true)
+            try
             {
-                //this.METHOD.Text = "Edit directive";
-                //this.ADD_EDIT_BUTTON.Content = "Edit";
-                //this.DIRECTIVE_ID.Text = model.Id.ToString();
-                //this.DIRECTIVE_NAME.Text = model.Name;
-            }
+                AccountService _service = new AccountService(App.ApiClient);
+                AccountModel _model = new AccountModel();
 
-            base.OnNavigatedTo(e);
+                _model.Username = this.USERNAME.Text;
+                _model.UserId = App.UserId;
+                _model.OldPassword = this.OLD_PASSWORD.Password;
+                _model.NewPassword = this.PASSWORD.Password;
+                _model.PasswordConfirmation = this.PASSWORD_CONFIRM.Password;
+
+                await App.ApiClient.Post<AccountModel, Object>("/user/change_password", _model);
+
+                NavigationService.GoBack();
+            }
+            catch { }
         }
     }
 }

@@ -175,12 +175,12 @@ namespace DomoThink.ViewModels
                 this.FieldsEnabled = false;
                 this.HideErrorMessage();
 
-                Boolean _connected = await this.loginService.SendLoginRequest(this.LoginInformations);
+                //Boolean _connected = await this.loginService.SendLoginRequest(this.LoginInformations);
 
-                if (_connected)
+                //if (_connected)
                     this.SwitchToMainPage();
-                else
-                    throw new Exception("Cannot connect to the DomoBox.");
+                //else
+                //    throw new Exception("Cannot connect to the DomoBox.");
             }
             catch (Exception e)
             {
@@ -225,6 +225,10 @@ namespace DomoThink.ViewModels
             {
 
                 await Task.Delay(1000);
+
+                Views.Login.RegisterDialog _register = new Views.Login.RegisterDialog();
+
+                await _register.ShowAsync();
             }
             catch
             {

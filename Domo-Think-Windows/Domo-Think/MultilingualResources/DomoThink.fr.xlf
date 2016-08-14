@@ -183,6 +183,34 @@
           <source>Register</source>
           <target state="translated">S'enregistrer</target>
         </trans-unit>
+        <trans-unit id="CancelButton.Content" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="translated">Annuler</target>
+        </trans-unit>
+        <trans-unit id="OkButton.Content" translate="yes" xml:space="preserve">
+          <source>Ok</source>
+          <target state="new">Ok</target>
+        </trans-unit>
+        <trans-unit id="RegisterAccount.Text" translate="yes" xml:space="preserve">
+          <source>Register Account</source>
+          <target state="translated">Enregistrer un compte</target>
+        </trans-unit>
+        <trans-unit id="AddAccount.Content" translate="yes" xml:space="preserve">
+          <source>Add account</source>
+          <target state="translated">Ajouter un compte utilisateur</target>
+        </trans-unit>
+        <trans-unit id="AddAccountMode.Text" translate="yes" xml:space="preserve">
+          <source>Create account</source>
+          <target state="translated">Créer un compte utilisateur</target>
+        </trans-unit>
+        <trans-unit id="EditAccountMode.Text" translate="yes" xml:space="preserve">
+          <source>Edit account</source>
+          <target state="translated">Editer un compte utilisateur</target>
+        </trans-unit>
+        <trans-unit id="PasswordDoesntMatch" translate="yes" xml:space="preserve">
+          <source>Password doesn't match. Please try again.</source>
+          <target state="new">Password doesn't match. Please try again.</target>
+        </trans-unit>
       </group>
     </body>
   </file>
