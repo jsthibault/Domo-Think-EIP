@@ -1,5 +1,6 @@
 ﻿using DAL.API;
 using DAL.Model;
+using DomoThink.Helper;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -54,25 +55,70 @@ namespace DomoThink.API
 
         public async Task<List<AccountModel>> GetAccounts()
         {
-            List<AccountModel> _accounts = await this.api.Get<List<AccountModel>>(ApiRoutes.GET_ACCOUNTS);
+            try
+            {
+                List<AccountModel> _accounts = await this.api.Get<List<AccountModel>>(ApiRoutes.GET_ACCOUNTS);
 
-            return _accounts;
+                return _accounts;
+            }
+            catch
+            {
+                NotificationHelper.ShowToastNotification(
+                    ResourceHelper.GetString("Error"),
+                    ResourceHelper.GetString("ApiError"));
+
+                return null;
+            }
         }
 
         public async Task<Boolean> AddAccount(AccountModel model)
         {
-            var test = await this.api.Post<AccountModel, Object>("/user/create_account", model);
+            try
+            {
+                await this.api.Post<AccountModel, Object>("/user/create_account", model);
+            }
+            catch
+            {
+                NotificationHelper.ShowToastNotification(
+                    ResourceHelper.GetString("Error"),
+                    ResourceHelper.GetString("ApiError"));
+
+                return false;
+            }
 
             return true;
         }
 
         public async Task<Boolean> UpdateAccount(AccountModel model)
         {
+            try
+            {
+            }
+            catch
+            {
+                NotificationHelper.ShowToastNotification(
+                    ResourceHelper.GetString("Error"),
+                    ResourceHelper.GetString("ApiError"));
+
+                return false;
+            }
+
             return true;
         }
 
         public async Task<Boolean> DeleteAccount(AccountModel model)
         {
+            try
+            {
+            }
+            catch
+            {
+                NotificationHelper.ShowToastNotification(
+                    ResourceHelper.GetString("Error"),
+                    ResourceHelper.GetString("ApiError"));
+
+                return false;
+            }
             return true;
         }
 

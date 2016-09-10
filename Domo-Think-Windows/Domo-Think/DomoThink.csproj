@@ -107,9 +107,9 @@
     <Compile Include="API\APIConstants.cs" />
     <Compile Include="API\ApiRoutes.cs" />
     <Compile Include="API\DirectiveService.cs" />
-    <Compile Include="API\LoginService.cs" />
     <Compile Include="API\ObjectService.cs" />
     <Compile Include="API\PluginService.cs" />
+    <Compile Include="API\UserService.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -123,7 +123,7 @@
     <Compile Include="Controls\Panel.xaml.cs">
       <DependentUpon>Panel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Converters\AccountModeConverter.cs" />
+    <Compile Include="Converters\EditorModeConverter.cs" />
     <Compile Include="Converters\CacheImageConverter.cs" />
     <Compile Include="Converters\DebugConverter.cs" />
     <Compile Include="Converters\VisibilityConverter.cs" />
@@ -132,38 +132,47 @@
     <Compile Include="Model\NavigationButton.cs" />
     <Compile Include="MVVM\Command.cs" />
     <Compile Include="MVVM\ViewModelBase.cs" />
-    <Compile Include="Navigation\NavigationService.cs" />
+    <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ViewFactory.cs" />
     <Compile Include="ViewModels\Accounts\AccountsViewModel.cs" />
     <Compile Include="ViewModels\Accounts\AddEditAccountViewModel.cs" />
+    <Compile Include="ViewModels\Accounts\ChangePasswordViewModel.cs" />
+    <Compile Include="ViewModels\Accounts\DeleteAccountViewModel.cs" />
     <Compile Include="ViewModels\Accounts\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\Box\DomoBoxViewModel.cs" />
+    <Compile Include="ViewModels\Directives\DirectiveEditorViewModel.cs" />
     <Compile Include="ViewModels\Objects\AddObjectViewModel.cs" />
-    <Compile Include="ViewModels\DirectiveViewModel.cs" />
+    <Compile Include="ViewModels\Directives\DirectiveViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\ILoader.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\Objects\EditObjectViewModel.cs" />
     <Compile Include="ViewModels\Objects\ObjectsViewModel.cs" />
     <Compile Include="ViewModels\PluginsViewModel.cs" />
     <Compile Include="ViewModels\PluginViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\PluginStoreViewModel.cs" />
-    <Compile Include="Views\Account\AccountEditor.xaml.cs">
-      <DependentUpon>AccountEditor.xaml</DependentUpon>
+    <Compile Include="Views\Account\AccountEditorPage.xaml.cs">
+      <DependentUpon>AccountEditorPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Account\Accounts.xaml.cs">
-      <DependentUpon>Accounts.xaml</DependentUpon>
+    <Compile Include="Views\Account\AccountsPage.xaml.cs">
+      <DependentUpon>AccountsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Account\ChangePassword.xaml.cs">
-      <DependentUpon>ChangePassword.xaml</DependentUpon>
+    <Compile Include="Views\Account\ChangePasswordPage.xaml.cs">
+      <DependentUpon>ChangePasswordPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Account\DeleteAccount.xaml.cs">
-      <DependentUpon>DeleteAccount.xaml</DependentUpon>
+    <Compile Include="Views\Account\DeleteAccountPage.xaml.cs">
+      <DependentUpon>DeleteAccountPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Box\DomoBoxPage.xaml.cs">
+      <DependentUpon>DomoBoxPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Directives\DirectiveEditor.xaml.cs">
       <DependentUpon>DirectiveEditor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Directives\Directives.xaml.cs">
-      <DependentUpon>Directives.xaml</DependentUpon>
+    <Compile Include="Views\Directives\DirectivesPage.xaml.cs">
+      <DependentUpon>DirectivesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Login\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -171,14 +180,11 @@
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MyDomoBox.xaml.cs">
-      <DependentUpon>MyDomoBox.xaml</DependentUpon>
+    <Compile Include="Views\Objects\AddObjectPage.xaml.cs">
+      <DependentUpon>AddObjectPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Objects\AddObject.xaml.cs">
-      <DependentUpon>AddObject.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Objects\ObjectEditor.xaml.cs">
-      <DependentUpon>ObjectEditor.xaml</DependentUpon>
+    <Compile Include="Views\Objects\EditObjectPage.xaml.cs">
+      <DependentUpon>EditObjectPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Objects\ObjectsPage.xaml.cs">
       <DependentUpon>ObjectsPage.xaml</DependentUpon>
@@ -253,19 +259,23 @@
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
-    <Page Include="Views\Account\AccountEditor.xaml">
+    <Page Include="Views\Account\AccountEditorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Account\Accounts.xaml">
+    <Page Include="Views\Account\AccountsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Account\ChangePassword.xaml">
+    <Page Include="Views\Account\ChangePasswordPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Account\DeleteAccount.xaml">
+    <Page Include="Views\Account\DeleteAccountPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Box\DomoBoxPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -273,7 +283,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Directives\Directives.xaml">
+    <Page Include="Views\Directives\DirectivesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -285,15 +295,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MyDomoBox.xaml">
+    <Page Include="Views\Objects\AddObjectPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Objects\AddObject.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Objects\ObjectEditor.xaml">
+    <Page Include="Views\Objects\EditObjectPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -324,9 +330,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Strings\fr-FR\" />
-    <Folder Include="ViewModels\Directives\" />
     <Folder Include="ViewModels\Store\" />
-    <Folder Include="Views\Box\" />
     <Folder Include="Views\Store\" />
   </ItemGroup>
   <ItemGroup>

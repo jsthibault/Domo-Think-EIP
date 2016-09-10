@@ -1,9 +1,7 @@
 ﻿using DAL.Model;
+using DomoThink.API;
 using DomoThink.MVVM;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
@@ -24,6 +22,10 @@ namespace DomoThink.ViewModels.Accounts
     {
         #region FIELDS
 
+        private Boolean loadingState;
+        private Boolean displayState;
+        private AccountService accountService;
+
         #endregion
 
         #region PROPERTIES
@@ -43,6 +45,24 @@ namespace DomoThink.ViewModels.Accounts
         /// </summary>
         public ICommand CancelCommand { get; private set; }
 
+        /// <summary>
+        /// Gets or sets the loading state.
+        /// </summary>
+        public Boolean LoadingState
+        {
+            get { return this.loadingState; }
+            set { this.NotifyPropertyChanged(ref this.loadingState, value); }
+        }
+
+        /// <summary>
+        /// Gets or sets the display state.
+        /// </summary>
+        public Boolean DisplayState
+        {
+            get { return this.displayState; }
+            set { this.NotifyPropertyChanged(ref this.displayState, value); }
+        }
+
         #endregion
 
         #region CONSTRUCTORS
@@ -52,6 +72,13 @@ namespace DomoThink.ViewModels.Accounts
         /// </summary>
         public RegisterViewModel()
         {
+            // Initialize API service
+            this.accountService = new AccountService(App.ApiClient);
+
+            // Initialize properties
+            this.LoadingState = false;
+            this.DisplayState = true;
+
             // Initialize models
             this.AccountInformations = new AccountModel();
 
@@ -65,6 +92,31 @@ namespace DomoThink.ViewModels.Accounts
         #region METHODS
 
         /// <summary>
+        /// Set the loading state.
+        /// </summary>
+        /// <param name="state"></param>
+        private void SetLoadingState(Boolean state)
+        {
+            this.LoadingState = state;
+            this.DisplayState = !state;
+        }
+
+        /// <summary>
+        /// Close the dialog box.
+        /// </summary>
+        /// <param name="dialog"></param>
+        private void CloseDialod(Object dialog)
+        {
+            ContentDialog _dialog = dialog as ContentDialog;
+
+            _dialog?.Hide();
+        }
+
+        #endregion
+
+        #region ACTIONS
+
+        /// <summary>
         /// Register a new account.
         /// </summary>
         /// <param name="param"></param>
@@ -72,12 +124,10 @@ namespace DomoThink.ViewModels.Accounts
         {
             try
             {
-                await Task.Delay(1000);
-                // TODO: call API
-
-                ContentDialog _dialog = param as ContentDialog;
-
-                _dialog?.Hide();
+                this.SetLoadingState(true);
+                await this.accountService.AddAccount(this.AccountInformations);
+                this.SetLoadingState(false);
+                this.CloseDialod(param);
             }
             catch { }
         }
@@ -86,13 +136,9 @@ namespace DomoThink.ViewModels.Accounts
         /// Cancel the registration.
         /// </summary>
         /// <param name="param"></param>
-        private async void CancelAction(Object param)
+        private void CancelAction(Object param)
         {
-            try
-            {
-                await Task.Delay(1000);
-            }
-            catch { }
+            this.CloseDialod(param);
         }
 
         #endregion

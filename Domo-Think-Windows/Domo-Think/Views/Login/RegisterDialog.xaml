@@ -27,17 +27,22 @@
         <StackPanel Grid.Row="0">
             <StackPanel>
                 <TextBlock x:Uid ="Username" Text="[Username]" />
-                <TextBox Text="{Binding AccountInformations.Username}" />
+                <TextBox Text="{Binding AccountInformations.Username}" IsEnabled="{Binding DisplayState}" />
             </StackPanel>
 
             <StackPanel>
                 <TextBlock x:Uid="Password" Text="[Password]" />
-                <PasswordBox Password="{Binding AccountInformations.Password}" />
+                <PasswordBox Password="{Binding AccountInformations.Password}" IsEnabled="{Binding DisplayState}" />
             </StackPanel>
 
             <StackPanel>
                 <TextBlock x:Uid="PasswordConfirmation" Text="[Password confirmation]" />
-                <PasswordBox Password="{Binding AccountInformations.PasswordConfirmation}"/>
+                <PasswordBox Password="{Binding AccountInformations.PasswordConfirmation}" IsEnabled="{Binding DisplayState}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,8,0,0" Visibility="{Binding LoadingState, Converter={StaticResource visibilityConverter}}">
+                <ProgressRing FontSize="42" IsActive="True" />
+                <TextBlock x:Uid="CreatingAccount" Text="[Creating account]" />
             </StackPanel>
 
         </StackPanel>
@@ -55,6 +60,7 @@
                         Content="[Ok]" 
                         HorizontalAlignment="Stretch" 
                         Margin="0,0,8,0"
+                        IsEnabled="{Binding DisplayState}"
                         Command="{Binding RegisterCommand}"
                         CommandParameter="{Binding ElementName=REGISTER_DIALOG}" />
                 
@@ -63,6 +69,7 @@
                         Content="[Cancel]" 
                         HorizontalAlignment="Stretch" 
                         Margin="8,0,0,0" 
+                        IsEnabled="{Binding DisplayState}"
                         Command="{Binding CancelCommand}"
                         CommandParameter="{Binding ElementName=REGISTER_DIALOG}"/>
             </Grid>

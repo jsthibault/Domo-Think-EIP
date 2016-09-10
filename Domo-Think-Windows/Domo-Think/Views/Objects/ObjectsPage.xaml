@@ -48,7 +48,7 @@
         </Grid.RowDefinitions>
 
         <!-- Objects panel -->
-        <Grid Grid.Row="0" Margin="10" Visibility="{Binding Display, Converter={StaticResource visibilityConverter}}">
+        <Grid Grid.Row="0" Visibility="{Binding Display, Converter={StaticResource visibilityConverter}}">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <!-- Connected objects list -->
                 <controls:DomoListView

@@ -117,11 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Account" xml:space="preserve">
+    <value>Account</value>
+  </data>
   <data name="AddAccount.Content" xml:space="preserve">
     <value>Add account</value>
   </data>
   <data name="AddAccountMode.Text" xml:space="preserve">
     <value>Create account</value>
+  </data>
+  <data name="AddDirective.Content" xml:space="preserve">
+    <value>Add directive</value>
+  </data>
+  <data name="AddObject" xml:space="preserve">
+    <value>Add object</value>
+  </data>
+  <data name="AddObjectError" xml:space="preserve">
+    <value>An error occured while adding the object to the DomoBox.</value>
+  </data>
+  <data name="AddObjectSuccess" xml:space="preserve">
+    <value>The object has been added to the DomoBox.</value>
   </data>
   <data name="ApiError" xml:space="preserve">
     <value>An error occured while sending the request to the API.</value>
@@ -138,6 +153,12 @@
   <data name="ChangePasswordButton.Content" xml:space="preserve">
     <value>Change password</value>
   </data>
+  <data name="CreatingAccount.Text" xml:space="preserve">
+    <value>Creating account. Please wait.</value>
+  </data>
+  <data name="DeleteAccount" xml:space="preserve">
+    <value>Delete account</value>
+  </data>
   <data name="DeleteButton.Content" xml:space="preserve">
     <value>Delete</value>
   </data>
@@ -147,11 +168,23 @@
   <data name="DialogYes" xml:space="preserve">
     <value>Yes</value>
   </data>
+  <data name="EditAccount.Content" xml:space="preserve">
+    <value>Edit account</value>
+  </data>
   <data name="EditAccountMode.Text" xml:space="preserve">
     <value>Edit account</value>
   </data>
   <data name="EditButton.Content" xml:space="preserve">
     <value>Edit</value>
+  </data>
+  <data name="EditDirective.Content" xml:space="preserve">
+    <value>Edit directive</value>
+  </data>
+  <data name="EditObject.Content" xml:space="preserve">
+    <value>Edit object</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
   </data>
   <data name="ForgotPassword.Content" xml:space="preserve">
     <value>Forgot password</value>
@@ -210,6 +243,9 @@
   <data name="NewPassword.Text" xml:space="preserve">
     <value>New password</value>
   </data>
+  <data name="ObjectName.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
   <data name="OkButton.Content" xml:space="preserve">
     <value>Ok</value>
   </data>
@@ -218,6 +254,9 @@
   </data>
   <data name="Password.Text" xml:space="preserve">
     <value>Password</value>
+  </data>
+  <data name="PasswordChanged" xml:space="preserve">
+    <value>Your password has been changed with success.</value>
   </data>
   <data name="PasswordConfirmation.Text" xml:space="preserve">
     <value>Password confirmation</value>
@@ -264,6 +303,15 @@
   <data name="SettingsOptions.Text" xml:space="preserve">
     <value>Options</value>
   </data>
+  <data name="TitleAddDirective.Text" xml:space="preserve">
+    <value>Add directive</value>
+  </data>
+  <data name="TitleEditDirective.Text" xml:space="preserve">
+    <value>Edit directive</value>
+  </data>
+  <data name="TitleEditObject.Text" xml:space="preserve">
+    <value>Edit object</value>
+  </data>
   <data name="UninstallButton.Content" xml:space="preserve">
     <value>Uninstall</value>
   </data>
@@ -272,5 +320,8 @@
   </data>
   <data name="Username.Text" xml:space="preserve">
     <value>Username</value>
+  </data>
+  <data name="YourAccountWillBeDeleted" xml:space="preserve">
+    <value>Your account will be deleted. Do you want to proceed?</value>
   </data>
 </root>

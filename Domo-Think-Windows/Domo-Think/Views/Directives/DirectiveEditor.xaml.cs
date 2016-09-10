@@ -1,6 +1,7 @@
 ﻿using DAL.Model;
 using DomoThink.API;
 using DomoThink.Navigation;
+using DomoThink.ViewModels.Directives;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -35,17 +36,9 @@ namespace DomoThink.Views.Directives
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            this.model = e.Parameter as DirectiveModel;
+            DirectiveEditorViewModel _viewModel = this.DataContext as DirectiveEditorViewModel;
 
-            this.editMode = model != null;
-
-            if (this.editMode == true)
-            {
-                this.METHOD.Text = "Edit directive";
-                this.ADD_EDIT_BUTTON.Content = "Edit";
-                this.DIRECTIVE_ID.Text = model.Id.ToString();
-                this.DIRECTIVE_NAME.Text = model.Name;
-            }
+            _viewModel.DirectiveInformations = e.Parameter as DirectiveModel;
         }
 
         private async void ADD_EDIT_BUTTON_Click(Object sender, RoutedEventArgs e)

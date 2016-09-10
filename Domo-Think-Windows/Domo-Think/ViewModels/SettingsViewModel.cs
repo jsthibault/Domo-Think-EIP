@@ -1,5 +1,6 @@
 ﻿using DomoThink.MVVM;
 using DomoThink.Navigation;
+using DomoThink.ViewModels.Accounts;
 using DomoThink.Views.Account;
 using System;
 using System.Collections.Generic;
@@ -54,15 +55,15 @@ namespace DomoThink.ViewModels
         #endregion
 
         #region ACTIONS
-
+        
         private void ChangePasswordAction(Object param)
         {
-            NavigationService.Navigate(typeof(ChangePassword));
+            NavigationService.Navigate<ChangePasswordViewModel>();
         }
 
         private void DeleteMyAccountAction(Object param)
         {
-            NavigationService.Navigate(typeof(DeleteAccount));
+            NavigationService.Navigate<DeleteAccountViewModel>();
         }
 
 

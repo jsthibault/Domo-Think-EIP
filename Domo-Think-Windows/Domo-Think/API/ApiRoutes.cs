@@ -22,6 +22,7 @@ namespace DomoThink.API
 
         // Objects
         public const String GET_OBJECTS = API_PREFIX + "/device";
+        public const String GET_NEAR_OBJECTS = API_PREFIX + "/nearDevice";
         public const String GET_OBJECT = API_PREFIX + "/objects/getObject";
         public const String ADD_OBJECT = API_PREFIX + "/objects/addObject";
         public const String UPDATE_OBJECT = API_PREFIX + "/objects/updateObject";

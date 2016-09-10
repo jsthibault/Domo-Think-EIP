@@ -85,9 +85,6 @@ namespace DAL.Model
 
         public DirectiveModel(Double id, String name, Double creatorId, Double objectId, Double actionId)
         {
-            if (String.IsNullOrEmpty(name))
-                throw new InvalidDataException("The name of the directive cannot by empty.");
-
             this.Id = id;
             this.Name = name;
             this.CreatorId = creatorId;

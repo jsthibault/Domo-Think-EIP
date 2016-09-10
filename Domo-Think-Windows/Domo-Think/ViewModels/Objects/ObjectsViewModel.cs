@@ -124,7 +124,7 @@ namespace DomoThink.ViewModels.Objects
         /// <param name="param"></param>
         private void AddObjectAction(Object param)
         {
-            NavigationService.Navigate(typeof(Views.Objects.AddObject));
+            NavigationService.Navigate<AddObjectViewModel>();
         }
 
         /// <summary>
@@ -154,6 +154,10 @@ namespace DomoThink.ViewModels.Objects
                 // Send the request to the API
                 List<ObjectModel> _objects = await this.objectService.GetObjects();
 
+                _objects = new List<ObjectModel>();
+                for (Int32 i = 0; i < 5; i++)
+                    _objects.Add(new ObjectModel(i, "hello"));
+
                 // Fill list with the data we recieve from the box
                 if (_objects != null)
                 {
@@ -168,26 +172,14 @@ namespace DomoThink.ViewModels.Objects
                 // Deactivate loading state
                 this.LoadingState(false);
             }
-            catch (Exception e)
+            catch
             {
             }
         }
 
         private void EditObjectAction(Object param)
         {
-            //var loader = new Windows.ApplicationModel.Resources.ResourceLoader();
-
-            //MessageDialog dialog = new MessageDialog(
-            //    "This feature is not implemented yet.",
-            //    "Not implemented");
-
-            //dialog.Commands.Add(new UICommand("OK") { Id = 0 });
-
-            //dialog.DefaultCommandIndex = 0;
-
-            //var result = await dialog.ShowAsync();
-
-            NavigationService.Navigate(typeof(ObjectEditor), param as ObjectModel);
+            NavigationService.Navigate<EditObjectViewModel>(param);
         }
 
         private async void DeleteObjectAction(Object param)

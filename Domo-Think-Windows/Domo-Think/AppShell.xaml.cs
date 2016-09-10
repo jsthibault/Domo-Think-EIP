@@ -3,8 +3,15 @@ using DomoThink.Helper;
 using DomoThink.Model;
 using DomoThink.MVVM;
 using DomoThink.Navigation;
+using DomoThink.Services;
+using DomoThink.ViewModels;
+using DomoThink.ViewModels.Accounts;
+using DomoThink.ViewModels.Box;
+using DomoThink.ViewModels.Directives;
+using DomoThink.ViewModels.Objects;
 using DomoThink.Views;
 using DomoThink.Views.Account;
+using DomoThink.Views.Box;
 using DomoThink.Views.Directives;
 using DomoThink.Views.Login;
 using DomoThink.Views.Objects;
@@ -71,6 +78,23 @@ namespace DomoThink
         {
             this.InitializeComponent();
             this.DataContext = this;
+
+            // Initialize the ViewFactory
+            ViewFactory.Register<MainViewModel, MainPage>();
+            ViewFactory.Register<SettingsViewModel, SettingsPage>();
+            ViewFactory.Register<ObjectsViewModel, ObjectsPage>();
+            ViewFactory.Register<AddObjectViewModel, AddObjectPage>();
+            ViewFactory.Register<EditObjectViewModel, EditObjectPage>();
+            // TODO: add directives
+            ViewFactory.Register<DirectiveViewModel, DirectivesPage>();
+            ViewFactory.Register<DirectiveEditorViewModel, DirectiveEditor>();
+            ViewFactory.Register<DomoBoxViewModel, DomoBoxPage>();
+            ViewFactory.Register<AccountsViewModel, AccountsPage>();
+            ViewFactory.Register<AddEditAccountViewModel, AccountEditorPage>();
+            ViewFactory.Register<ChangePasswordViewModel, ChangePasswordPage>();
+            ViewFactory.Register<DeleteAccountViewModel, DeleteAccountPage>();
+            // TODO: add plugins
+            // TODO: add store
             
             // Initialize the commands
             this.NavigationCommand = new Command(this.NavigateAction);
@@ -129,18 +153,18 @@ namespace DomoThink
 
             // Initialize primary buttons
             this.PrimaryNavigationButtons = new List<NavigationButton>();
-            this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[0], _menus[0], "\uE80F", typeof(MainPage), true));
-            this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[1], _menus[1], "\uE772", typeof(ObjectsPage)));
-            this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[2], _menus[2], "\uE17D", typeof(Directives)));
-            this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[3], _menus[3], "\uE1E4", typeof(MyDomoBox)));
-            this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[4], _menus[4], "\uE125", typeof(Accounts)));
-            this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[5], _menus[5], "\uE74C", typeof(Plugins)));
-            this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[6], _menus[6], "\uE719", typeof(PluginStorePage)));
+            this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[0], _menus[0], "\uE80F", typeof(MainPage), typeof(MainViewModel), true));
+            this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[1], _menus[1], "\uE772", typeof(ObjectsPage), typeof(ObjectsViewModel)));
+            this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[2], _menus[2], "\uE17D", typeof(DirectivesPage), typeof(DirectiveViewModel)));
+            this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[3], _menus[3], "\uE1E4", typeof(DomoBoxPage), typeof(DomoBoxViewModel)));
+            this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[4], _menus[4], "\uE125", typeof(AccountsPage), typeof(AccountsViewModel)));
+            this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[5], _menus[5], "\uE74C", typeof(Plugins), typeof(PluginsViewModel)));
+            this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[6], _menus[6], "\uE719", typeof(PluginStorePage), typeof(PluginStoreViewModel)));
 
             // Initialize secondary buttons
             this.SecondaryNavigationButtons = new List<NavigationButton>();
-            this.SecondaryNavigationButtons.Add(new NavigationButton(_menus[7], "", "\uE7E8", typeof(Boolean)));
-            this.SecondaryNavigationButtons.Add(new NavigationButton(_menus[8], _menus[8], "\uE713", typeof(SettingsPage)));
+            this.SecondaryNavigationButtons.Add(new NavigationButton(_menus[7], "", "\uE7E8", typeof(Boolean), null));
+            this.SecondaryNavigationButtons.Add(new NavigationButton(_menus[8], _menus[8], "\uE713", typeof(SettingsPage), typeof(SettingsViewModel)));
         }
 
         /// <summary>
@@ -152,7 +176,7 @@ namespace DomoThink
                 this.ShellSplitView.IsPaneOpen = false;
 
             this.UpdateBackButtonVisibility();
-            
+
             if (this.IsCurrentFrameInMenu())
             {
                 this.UpdateCurrentRadioButton(this.PRIMARY_ITEMS);
@@ -178,7 +202,7 @@ namespace DomoThink
                 if (_target == null)
                     continue;
 
-                radioButton.IsChecked = _target.Type.Equals(_type);
+                radioButton.IsChecked = _target.ViewType.Equals(_type);
 
                 if (radioButton.IsChecked.Value)
                     this.currentNavigationButton = _target;
@@ -214,8 +238,8 @@ namespace DomoThink
         {
             Type _type = this.contentFrame.CurrentSourcePageType;
 
-            return this.PrimaryNavigationButtons.Find(x => x.Type == _type) != null ||
-                this.SecondaryNavigationButtons.Find(x => x.Type == _type) != null;
+            return this.PrimaryNavigationButtons.Find(x => x.ViewType == _type) != null ||
+                this.SecondaryNavigationButtons.Find(x => x.ViewType == _type) != null;
         }
 
         /// <summary>
@@ -284,12 +308,12 @@ namespace DomoThink
         {
             NavigationButton _navigationButton = param as NavigationButton;
 
-            if (this.currentNavigationButton != null && this.currentNavigationButton.Type != _navigationButton.Type)
+            if (this.currentNavigationButton?.ViewType != _navigationButton.ViewType)
             {
-                if (_navigationButton.Type == typeof(Boolean))
+                if (_navigationButton.ViewType == typeof(Boolean))
                     this.Logout();
                 else
-                    NavigationService.Navigate(_navigationButton.Type, param);
+                    NavigationService.Navigate(_navigationButton.ViewModelType, param);
             }
             
             this.currentNavigationButton = _navigationButton;

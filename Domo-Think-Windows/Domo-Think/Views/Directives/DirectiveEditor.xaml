@@ -3,22 +3,48 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:DomoThink.Views.Directives"
+    xmlns:viewModel="using:DomoThink.ViewModels.Directives"
+    xmlns:converters="using:DomoThink.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    
+    <!-- Page DataContext -->
+    <Page.DataContext>
+        <viewModel:DirectiveEditorViewModel />
+    </Page.DataContext>
+    
+    <!-- Page resources -->
+    <Page.Resources>
+        <converters:EditorModeConverter x:Key="editorModeConv" />
+    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel Orientation="Vertical" Margin="12">
 
             <!-- Options -->
             <StackPanel x:Name="OPTIONS_PANEL" Margin="0,0,0,8">
-                <TextBlock x:Name="METHOD" Text="Add directive" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,8"  />
+                <TextBlock x:Uid="TitleAddDirective" Text="[Add directive]" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,8" Visibility="{Binding Mode, Converter={StaticResource editorModeConv}, ConverterParameter='Create'}" />
+                <TextBlock x:Uid="TitleEditDirective" Text="[Edit directive]" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,8" Visibility="{Binding Mode, Converter={StaticResource editorModeConv}, ConverterParameter='Edit'}" />
 
-                <TextBlock Text="Name" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
-                <TextBox x:Name="DIRECTIVE_NAME" Margin="0,0,409,0" />
-                <TextBox x:Name="DIRECTIVE_ID" Visibility="Collapsed" />
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Name" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
+                    <TextBox x:Name="DIRECTIVE_NAME" Text="{Binding DirectiveInformations.Name}" Width="350" HorizontalAlignment="Left" />
+                    <TextBox x:Name="DIRECTIVE_ID" Text="{Binding DirectivesInformations.Id}" Visibility="Collapsed" />
+                </StackPanel>
 
-                <Button x:Name="ADD_EDIT_BUTTON" Content="Add directive" Margin="0,8,8,0" Click="ADD_EDIT_BUTTON_Click" />
+                <StackPanel Orientation="Vertical" Margin="0,8,0,0">
+                    <TextBlock Text="Object" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
+                    <ComboBox ItemsSource="{Binding ObjectList}" Width="350" HorizontalAlignment="Left" />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Margin="0,8,0,0">
+                    <TextBlock Text="Time" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
+                    <DatePicker />
+                </StackPanel>
+                
+                <Button x:Uid="AddDirective" Content="[Add directive]" Margin="0,8,8,0" Command="{Binding AddDirectiveCommand}" Visibility="{Binding Mode, Converter={StaticResource editorModeConv}, ConverterParameter='Create'}" />
+                <Button x:Uid="EditDirective" Content="[Edit directive]" Margin="0,8,8,0" Command="{Binding EditDirectiveCommand}" Visibility="{Binding Mode, Converter={StaticResource editorModeConv}, ConverterParameter='Edit'}" />
 
             </StackPanel>
         </StackPanel>

@@ -129,11 +129,17 @@
   <data name="ChangePasswordButton.Content" xml:space="preserve">
     <value>Changer de mot de passe</value>
   </data>
+  <data name="UserId.Text" xml:space="preserve">
+    <value>Id utilisateur</value>
+  </data>
   <data name="RegisterButton.Content" xml:space="preserve">
     <value>S'enregistrer</value>
   </data>
   <data name="CancelButton.Content" xml:space="preserve">
     <value>Annuler</value>
+  </data>
+  <data name="OkButton.Content" xml:space="preserve">
+    <value>Ok</value>
   </data>
   <data name="RegisterAccount.Text" xml:space="preserve">
     <value>Enregistrer un compte</value>
@@ -146,5 +152,50 @@
   </data>
   <data name="EditAccountMode.Text" xml:space="preserve">
     <value>Editer un compte utilisateur</value>
+  </data>
+  <data name="PasswordDoesntMatch" xml:space="preserve">
+    <value>Les mots de passe ne sont pas identiques.</value>
+  </data>
+  <data name="ApiError" xml:space="preserve">
+    <value>Une erreur est survenue pendant la requête API.</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>Compte utilisateur</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Erreur</value>
+  </data>
+  <data name="PasswordChanged" xml:space="preserve">
+    <value>Votre mot de passe a bien été modifié.</value>
+  </data>
+  <data name="DeleteAccount" xml:space="preserve">
+    <value>Supprimmer mon compte</value>
+  </data>
+  <data name="YourAccountWillBeDeleted" xml:space="preserve">
+    <value>Votre compte sera supprimé. Voulez-vous continuer?</value>
+  </data>
+  <data name="EditAccount.Content" xml:space="preserve">
+    <value>Editer un compte utilisateur</value>
+  </data>
+  <data name="CreatingAccount.Text" xml:space="preserve">
+    <value>Création du compte. Veuillez patienter.</value>
+  </data>
+  <data name="AddObject" xml:space="preserve">
+    <value>Ajouter objet</value>
+  </data>
+  <data name="AddObjectError" xml:space="preserve">
+    <value>Une erreur est survenue pendant l'ajout de l'objet à la DomoBox.</value>
+  </data>
+  <data name="AddObjectSuccess" xml:space="preserve">
+    <value>L'objet a bien été ajouté à la DomoBox.</value>
+  </data>
+  <data name="ObjectName.Text" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="EditObject.Content" xml:space="preserve">
+    <value>Editer objet</value>
+  </data>
+  <data name="TitleEditObject.Text" xml:space="preserve">
+    <value>Editer un objet</value>
   </data>
 </root>

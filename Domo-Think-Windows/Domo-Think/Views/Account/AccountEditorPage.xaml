@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="DomoThink.Views.Account.AccountEditor"
+    x:Class="DomoThink.Views.Account.AccountEditorPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"    
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" 
@@ -19,7 +19,7 @@
     
     <!-- Page resources -->
     <Page.Resources>
-        <converters:AccountModeConverter x:Key="accountModeConv" />
+        <converters:EditorModeConverter x:Key="accountModeConv" />
     </Page.Resources>
 
     <!-- Main Grid -->
@@ -74,7 +74,8 @@
                 <TextBlock Text="Box key" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
                 <TextBox x:Name="BOX_KEY" />
 
-                <Button x:Uid="AddAccount" Content="[Add Account]" Margin="0,12,8,8" Command="{Binding CreateEditCommand}" />
+                <Button x:Uid="AddAccount" Content="[Add Account]" Margin="0,12,8,8" Command="{Binding CreateEditCommand}" Visibility="{Binding Mode, Converter={StaticResource accountModeConv}, ConverterParameter='Create'}"  />
+                <Button x:Uid="EditAccount" Content="[Edit Account]" Margin="0,12,8,8" Command="{Binding CreateEditCommand}" Visibility="{Binding Mode, Converter={StaticResource accountModeConv}, ConverterParameter='Edit'}"  />
 
                 <TextBlock Foreground="Red" Text="{Binding ErrorMessage}" Visibility="{Binding ErrorVisibility, Converter={StaticResource visibilityConverter}}" />
 

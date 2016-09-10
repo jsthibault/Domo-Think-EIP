@@ -1,5 +1,6 @@
 ﻿using DAL.API;
 using DAL.Model;
+using DomoThink.Helper;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -41,11 +42,22 @@ namespace DomoThink.API
 
         public async Task<List<PluginModel>> GetPlugins()
         {
-            List<PluginModel> _plugins = await this.api.Get<List<PluginModel>>(ApiRoutes.GET_PLUGINS);
+            try
+            {
+                List<PluginModel> _plugins = await this.api.Get<List<PluginModel>>(ApiRoutes.GET_PLUGINS);
 
-            // TODO: Checks
+                // TODO: Checks
 
-            return _plugins;
+                return _plugins;
+            }
+            catch
+            {
+                NotificationHelper.ShowToastNotification(
+                    ResourceHelper.GetString("Error"),
+                    ResourceHelper.GetString("ApiError"));
+
+                return null;
+            }
         }
 
         #endregion

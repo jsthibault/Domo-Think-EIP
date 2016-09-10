@@ -14,9 +14,9 @@
           <source>My DomoBox</source>
           <target state="translated">Ma DomoBox</target>
         </trans-unit>
-        <trans-unit id="MenuDirectives" translate="yes" xml:space="preserve">
+        <trans-unit id="MenuDirectives" translate="no" xml:space="preserve">
           <source>Directives</source>
-          <target state="new">Directives</target>
+          <target state="final">Directives</target>
         </trans-unit>
         <trans-unit id="MenuHome" translate="yes" xml:space="preserve">
           <source>Home</source>
@@ -28,8 +28,7 @@
         </trans-unit>
         <trans-unit id="MenuObjects" translate="yes" xml:space="preserve">
           <source>Objects</source>
-          <target state="needs-review-translation">Objets</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="final">Objets</target>
         </trans-unit>
         <trans-unit id="MenuPlugins" translate="yes" xml:space="preserve">
           <source>Plugins</source>
@@ -39,9 +38,9 @@
           <source>Settings</source>
           <target state="translated">Paramètres</target>
         </trans-unit>
-        <trans-unit id="MenuStore" translate="yes" xml:space="preserve">
+        <trans-unit id="MenuStore" translate="no" xml:space="preserve">
           <source>Store</source>
-          <target state="new">Store</target>
+          <target state="final">Store</target>
         </trans-unit>
         <trans-unit id="DeleteButton.Content" translate="yes" xml:space="preserve">
           <source>Delete</source>
@@ -67,9 +66,9 @@
           <source>This action is definitive! You can not reverse the deletion of your account.</source>
           <target state="translated">Cette action est définitive! Vous ne pouvez pas inverser la suppression de votre compte.</target>
         </trans-unit>
-        <trans-unit id="SettingsNotifications.Text" translate="yes" xml:space="preserve">
+        <trans-unit id="SettingsNotifications.Text" translate="no" xml:space="preserve">
           <source>Notifications</source>
-          <target state="new">Notifications</target>
+          <target state="final">Notifications</target>
         </trans-unit>
         <trans-unit id="SettingsNotificationsAlerts.Text" translate="yes" xml:space="preserve">
           <source>Alerts</source>
@@ -177,7 +176,7 @@
         </trans-unit>
         <trans-unit id="UserId.Text" translate="yes" xml:space="preserve">
           <source>User Id</source>
-          <target state="new">User Id</target>
+          <target state="translated">Id utilisateur</target>
         </trans-unit>
         <trans-unit id="RegisterButton.Content" translate="yes" xml:space="preserve">
           <source>Register</source>
@@ -189,7 +188,7 @@
         </trans-unit>
         <trans-unit id="OkButton.Content" translate="yes" xml:space="preserve">
           <source>Ok</source>
-          <target state="new">Ok</target>
+          <target state="final">Ok</target>
         </trans-unit>
         <trans-unit id="RegisterAccount.Text" translate="yes" xml:space="preserve">
           <source>Register Account</source>
@@ -209,11 +208,79 @@
         </trans-unit>
         <trans-unit id="PasswordDoesntMatch" translate="yes" xml:space="preserve">
           <source>Password doesn't match. Please try again.</source>
-          <target state="new">Password doesn't match. Please try again.</target>
+          <target state="translated">Les mots de passe ne sont pas identiques.</target>
         </trans-unit>
         <trans-unit id="ApiError" translate="yes" xml:space="preserve">
           <source>An error occured while sending the request to the API.</source>
-          <target state="new">An error occured while sending the request to the API.</target>
+          <target state="translated">Une erreur est survenue pendant la requête API.</target>
+        </trans-unit>
+        <trans-unit id="Account" translate="yes" xml:space="preserve">
+          <source>Account</source>
+          <target state="translated">Compte utilisateur</target>
+        </trans-unit>
+        <trans-unit id="Error" translate="yes" xml:space="preserve">
+          <source>Error</source>
+          <target state="translated">Erreur</target>
+        </trans-unit>
+        <trans-unit id="PasswordChanged" translate="yes" xml:space="preserve">
+          <source>Your password has been changed with success.</source>
+          <target state="translated">Votre mot de passe a bien été modifié.</target>
+        </trans-unit>
+        <trans-unit id="DeleteAccount" translate="yes" xml:space="preserve">
+          <source>Delete account</source>
+          <target state="translated">Supprimmer mon compte</target>
+        </trans-unit>
+        <trans-unit id="YourAccountWillBeDeleted" translate="yes" xml:space="preserve">
+          <source>Your account will be deleted. Do you want to proceed?</source>
+          <target state="translated">Votre compte sera supprimé. Voulez-vous continuer?</target>
+        </trans-unit>
+        <trans-unit id="EditAccount.Content" translate="yes" xml:space="preserve">
+          <source>Edit account</source>
+          <target state="translated">Editer un compte utilisateur</target>
+        </trans-unit>
+        <trans-unit id="CreatingAccount.Text" translate="yes" xml:space="preserve">
+          <source>Creating account. Please wait.</source>
+          <target state="translated">Création du compte. Veuillez patienter.</target>
+        </trans-unit>
+        <trans-unit id="AddObject" translate="yes" xml:space="preserve">
+          <source>Add object</source>
+          <target state="translated">Ajouter objet</target>
+        </trans-unit>
+        <trans-unit id="AddObjectError" translate="yes" xml:space="preserve">
+          <source>An error occured while adding the object to the DomoBox.</source>
+          <target state="translated">Une erreur est survenue pendant l'ajout de l'objet à la DomoBox.</target>
+        </trans-unit>
+        <trans-unit id="AddObjectSuccess" translate="yes" xml:space="preserve">
+          <source>The object has been added to the DomoBox.</source>
+          <target state="translated">L'objet a bien été ajouté à la DomoBox.</target>
+        </trans-unit>
+        <trans-unit id="ObjectName.Text" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="translated">Nom</target>
+        </trans-unit>
+        <trans-unit id="EditObject.Content" translate="yes" xml:space="preserve">
+          <source>Edit object</source>
+          <target state="translated">Editer objet</target>
+        </trans-unit>
+        <trans-unit id="TitleEditObject.Text" translate="yes" xml:space="preserve">
+          <source>Edit object</source>
+          <target state="translated">Editer un objet</target>
+        </trans-unit>
+        <trans-unit id="AddDirective.Content" translate="yes" xml:space="preserve">
+          <source>Add directive</source>
+          <target state="new">Add directive</target>
+        </trans-unit>
+        <trans-unit id="EditDirective.Content" translate="yes" xml:space="preserve">
+          <source>Edit directive</source>
+          <target state="new">Edit directive</target>
+        </trans-unit>
+        <trans-unit id="TitleAddDirective.Text" translate="yes" xml:space="preserve">
+          <source>Add directive</source>
+          <target state="new">Add directive</target>
+        </trans-unit>
+        <trans-unit id="TitleEditDirective.Text" translate="yes" xml:space="preserve">
+          <source>Edit directive</source>
+          <target state="new">Edit directive</target>
         </trans-unit>
       </group>
     </body>

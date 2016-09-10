@@ -2,9 +2,9 @@
 
 namespace DomoThink.Views.Objects
 {
-    public sealed partial class AddObject : Page
+    public sealed partial class AddObjectPage : Page
     {
-        public AddObject()
+        public AddObjectPage()
         {
             this.InitializeComponent();
         }

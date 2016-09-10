@@ -33,7 +33,7 @@ namespace DomoThink.ViewModels
         private Boolean errorFieldEnabled;
         private String errorText;
 
-        private LoginService loginService;
+        private UserService userApiService;
 
         #endregion
 
@@ -119,7 +119,7 @@ namespace DomoThink.ViewModels
             this.ErrorText = String.Empty;
 
             // Initialize API service
-            this.loginService = new LoginService(App.ApiClient);
+            this.userApiService = new UserService();
         }
 
         #endregion
@@ -135,7 +135,7 @@ namespace DomoThink.ViewModels
 
             Window.Current.Content = new AppShell(frame);
             NavigationService.InitializeContentFrame(frame);
-            NavigationService.Navigate(typeof(Views.MainPage));
+            NavigationService.Navigate<MainViewModel>();
             Window.Current.Activate();
             frame.BackStack.Clear();
         }

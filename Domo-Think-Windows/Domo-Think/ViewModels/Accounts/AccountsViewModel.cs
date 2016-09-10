@@ -173,7 +173,7 @@ namespace DomoThink.ViewModels.Accounts
         /// <param name="param"></param>
         private void AddAccountAction(Object param)
         {
-            NavigationService.Navigate(typeof(AccountEditor));
+            NavigationService.Navigate<AddEditAccountViewModel>(null);
         }
 
         /// <summary>
@@ -190,7 +190,7 @@ namespace DomoThink.ViewModels.Accounts
         /// <param name="param"></param>
         private void EditAccountAction(Object param)
         {
-            NavigationService.Navigate(typeof(AccountEditor), param);
+            NavigationService.Navigate<AddEditAccountViewModel>(param);
         }
 
         #endregion

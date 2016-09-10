@@ -1,5 +1,6 @@
 ﻿using DAL.API;
 using DAL.Model;
+using DomoThink.Helper;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -54,26 +55,86 @@ namespace DomoThink.API
 
         public async Task<List<ObjectModel>> GetObjects()
         {
-            return await this.api.Get<List<ObjectModel>>("/api/" + ApiRoutes.GET_OBJECTS);
+            try
+            {
+                return await this.api.Get<List<ObjectModel>>("/api/" + ApiRoutes.GET_OBJECTS);
+            }
+            catch
+            {
+                NotificationHelper.ShowToastNotification(
+                    ResourceHelper.GetString("Error"),
+                    ResourceHelper.GetString("ApiError"));
+
+                return null;
+            }
+        }
+
+        public async Task<List<ObjectModel>> GetNearObjects()
+        {
+            try
+            {
+                return await this.api.Get<List<ObjectModel>>("/api/" + ApiRoutes.GET_NEAR_OBJECTS);
+            }
+            catch
+            {
+                NotificationHelper.ShowToastNotification(
+                    ResourceHelper.GetString("Error"),
+                    ResourceHelper.GetString("ApiError"));
+
+                return null;
+            }
         }
 
         public async Task<Boolean> DeleteObject(ObjectModel obj)
         {
-            await this.api.Delete<ObjectModel>("/api/device/{0}", obj.Id);
+            try
+            {
+                await this.api.Delete<ObjectModel>("/api/device/{0}", obj.Id);
+            }
+            catch
+            {
+                NotificationHelper.ShowToastNotification(
+                    ResourceHelper.GetString("Error"),
+                    ResourceHelper.GetString("ApiError"));
+
+                return false;
+            }
 
             return true;
         }
 
         public async Task<Boolean> AddObject(ObjectModel obj)
         {
-            await this.api.Post<ObjectModel, Object>("/api/device", obj);
+            try
+            {
+                await this.api.Post<ObjectModel, Object>("/api/device", obj);
+            }
+            catch
+            {
+                NotificationHelper.ShowToastNotification(
+                    ResourceHelper.GetString("Error"),
+                    ResourceHelper.GetString("ApiError"));
+
+                return false;
+            }
 
             return true;
         }
 
         public async Task<Boolean> UpdateObject(ObjectModel obj)
         {
-            await this.api.Put<ObjectModel>("/api/device/" + obj.Id.ToString(), obj);
+            try
+            {
+                await this.api.Put("/api/device/" + obj.Id.ToString(), obj);
+            }
+            catch
+            {
+                NotificationHelper.ShowToastNotification(
+                    ResourceHelper.GetString("Error"),
+                    ResourceHelper.GetString("ApiError"));
+
+                return false;
+            }
 
             return true;
         }

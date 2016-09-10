@@ -25,9 +25,14 @@ namespace DomoThink.Model
         public String Icon { get; set; }
 
         /// <summary>
-        /// Gets or sets the destination page type.
+        /// Gets or sets the destination view model type.
         /// </summary>
-        public Type Type { get; set; }
+        public Type ViewModelType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the destination view type.
+        /// </summary>
+        public Type ViewType { get; set; }
 
         /// <summary>
         /// Gets or sets the display text.
@@ -49,7 +54,7 @@ namespace DomoThink.Model
         /// Creates a new Navigation button.
         /// </summary>
         public NavigationButton()
-            : this("NULL", "NULL", "NULL", null, false)
+            : this("NULL", "NULL", "NULL", null, null, false)
         { }
 
         /// <summary>
@@ -57,14 +62,15 @@ namespace DomoThink.Model
         /// </summary>
         /// <param name="text">Display text</param>
         /// <param name="icon">Display icon</param>
-        /// <param name="type">Destination page type</param>
+        /// <param name="viewType">Destination page type</param>
         /// <param name="isChecked">State</param>
-        public NavigationButton(String text, String title, String icon, Type type, Boolean isChecked = false)
+        public NavigationButton(String text, String title, String icon, Type viewType, Type viewModelType, Boolean isChecked = false)
         {
             this.Text = text;
             this.Title = title;
             this.Icon = icon;
-            this.Type = type;
+            this.ViewType = viewType;
+            this.ViewModelType = viewModelType;
             this.IsChecked = isChecked;
         }
     }

@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Windows.UI.Notifications;
 
 /*--------------------------------------------------------
  * AddEditAccountViewModel.cs
@@ -37,7 +36,7 @@ namespace DomoThink.ViewModels.Accounts
 
         #region FIELDS
 
-        private AccountMode mode;
+        private EditorMode mode;
         private AccountModel accountInformations;
         private AccountService service;
 
@@ -51,7 +50,7 @@ namespace DomoThink.ViewModels.Accounts
         /// <summary>
         /// Gets or sets the accout editor mode.
         /// </summary>
-        public AccountMode Mode
+        public EditorMode Mode
         {
             get { return this.mode; }
             set { this.NotifyPropertyChanged(ref this.mode, value); }
@@ -99,7 +98,7 @@ namespace DomoThink.ViewModels.Accounts
         public AddEditAccountViewModel()
         {
             // Initialize properties
-            this.Mode = AccountMode.Create;
+            this.Mode = EditorMode.Create;
             this.AccountInformations = new AccountModel();
 
             // Initialize API service
@@ -186,7 +185,7 @@ namespace DomoThink.ViewModels.Accounts
         {
             Boolean _result = false;
 
-            if (this.Mode == AccountMode.Create)
+            if (this.Mode == EditorMode.Create)
                 _result = await this.CreateAccount(param);
             else
                 _result = await this.EditAccount(param);

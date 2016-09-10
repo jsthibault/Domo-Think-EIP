@@ -15,7 +15,7 @@ using System.Windows.Input;
 
 namespace DAL.Model
 {
-    public enum AccountMode
+    public enum EditorMode
     {
         Create,
         Edit

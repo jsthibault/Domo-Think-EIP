@@ -24,7 +24,7 @@ using DomoThink.Views.Directives;
  * Notes:
  * -------------------------------------------------------*/
 
-namespace DomoThink.ViewModels
+namespace DomoThink.ViewModels.Directives
 {
     public class DirectiveViewModel : ViewModelBase, ILoader
     {
@@ -116,7 +116,40 @@ namespace DomoThink.ViewModels
         /// <param name="param"></param>
         private void AddDirectiveCommandAction(Object param)
         {
-            NavigationService.Navigate(typeof(DirectiveEditor));
+            NavigationService.Navigate<DirectiveEditorViewModel>(null);
+        }
+
+        private void EditDirectiveAction(Object param)
+        {
+            NavigationService.Navigate<DirectiveEditorViewModel>(param);
+        }
+
+        private async void DeleteDirectiveAction(Object param)
+        {
+            DirectiveModel _directive = param as DirectiveModel;
+
+            if (_directive == null)
+                return;
+
+            var loader = new Windows.ApplicationModel.Resources.ResourceLoader();
+
+            MessageDialog dialog = new MessageDialog(
+                "Do you want to delete this directive?",
+                "Delete Directive");
+
+            dialog.Commands.Add(new UICommand(loader.GetString("DialogYes")) { Id = 0 });
+            dialog.Commands.Add(new UICommand(loader.GetString("DialogNo")) { Id = 1 });
+
+            dialog.DefaultCommandIndex = 0;
+            dialog.CancelCommandIndex = 1;
+
+            var result = await dialog.ShowAsync();
+
+            if ((Int32)result.Id == 0) // remove object
+            {
+                await this.directiveService.DeleteDirective(_directive);
+                this.LoadDirectivesCommandAction(null);
+            }
         }
 
         /// <summary>
@@ -148,39 +181,6 @@ namespace DomoThink.ViewModels
 
             // Deactivate loading state
             this.LoadingState(false);
-        }
-
-        private void EditDirectiveAction(Object param)
-        {
-            NavigationService.Navigate(typeof(DirectiveEditor), param);
-        }
-
-        private async void DeleteDirectiveAction(Object param)
-        {
-            DirectiveModel _directive = param as DirectiveModel;
-
-            if (_directive == null)
-                return;
-
-            var loader = new Windows.ApplicationModel.Resources.ResourceLoader();
-
-            MessageDialog dialog = new MessageDialog(
-                "Do you want to delete this directive?",
-                "Delete Directive");
-
-            dialog.Commands.Add(new UICommand(loader.GetString("DialogYes")) { Id = 0 });
-            dialog.Commands.Add(new UICommand(loader.GetString("DialogNo")) { Id = 1 });
-
-            dialog.DefaultCommandIndex = 0;
-            dialog.CancelCommandIndex = 1;
-
-            var result = await dialog.ShowAsync();
-
-            if ((Int32)result.Id == 0) // remove object
-            {
-                await this.directiveService.DeleteDirective(_directive);
-                this.LoadDirectivesCommandAction(null);
-            }
         }
 
         #endregion

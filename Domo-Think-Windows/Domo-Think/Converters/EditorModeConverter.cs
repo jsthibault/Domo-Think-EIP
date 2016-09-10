@@ -15,12 +15,12 @@ using Windows.UI.Xaml.Data;
 
 namespace DomoThink.Converters
 {
-    public class AccountModeConverter : IValueConverter
+    public class EditorModeConverter : IValueConverter
     {
         public Object Convert(Object value, Type targetType, Object parameter, String language)
         {
-            AccountMode _mode = (AccountMode)value;
-            AccountMode _modeWanted = (AccountMode)Enum.Parse(typeof(AccountMode), parameter.ToString());
+            EditorMode _mode = (EditorMode)value;
+            EditorMode _modeWanted = (EditorMode)Enum.Parse(typeof(EditorMode), parameter.ToString());
 
             if (_mode == _modeWanted)
                 return Visibility.Visible;

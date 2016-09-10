@@ -5,9 +5,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace DomoThink.Views.Account
 {
-    public sealed partial class AccountEditor : Page
+    public sealed partial class AccountEditorPage : Page
     {
-        public AccountEditor()
+        public AccountEditorPage()
         {
             this.InitializeComponent();
         }
@@ -19,6 +19,7 @@ namespace DomoThink.Views.Account
 
             AddEditAccountViewModel _dataContext = this.DataContext as AddEditAccountViewModel;
             _dataContext.AccountInformations = e.Parameter as AccountModel;
+            _dataContext.Mode = EditorMode.Edit;
 
             base.OnNavigatedTo(e);
         }

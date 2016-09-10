@@ -11,6 +11,7 @@ using System.Windows.Input;
 using DomoThink.ViewModels.Interfaces;
 using DomoThink.API;
 using DomoThink.Navigation;
+using DomoThink.Helper;
 
 
 /*--------------------------------------------------------
@@ -31,6 +32,8 @@ namespace DomoThink.ViewModels.Objects
         
         private Boolean loading;
         private Boolean display;
+
+        private ObjectService objectService;
 
         #endregion
 
@@ -78,6 +81,9 @@ namespace DomoThink.ViewModels.Objects
         /// </summary>
         public AddObjectViewModel()
         {
+            // Initialize the API service
+            this.objectService = new ObjectService(App.ApiClient);
+
             // Set the loading state to true (default at the begining)
             this.SetLoadingState(true);
 
@@ -121,28 +127,50 @@ namespace DomoThink.ViewModels.Objects
                     this.AvailiableObjects.Clear();
 
                 // TODO: API request to get the objects near the DomoBox.
+                List<ObjectModel> _objects = await this.objectService.GetObjects();
 
-                await Task.Delay(3000);
+                if (_objects != null)
+                {
+                    for (Int32 i = 0; i < _objects.Count; ++i)
+                        this.AvailiableObjects.Add(_objects[i]);
 
-                for (Int32 i = 0; i < 5; ++i)
-                    this.AvailiableObjects.Add(new ObjectModel(i, "Availiable Object #" + i.ToString()));
+                    // FAKE
+                    //await Task.Delay(3000);
 
-                for (Int32 i = 0; i < 5; ++i)
-                    this.AvailiableObjects[i].AddCommand = new Command(this.AddObjectAction);
+                    //for (Int32 i = 0; i < 5; ++i)
+                    //    this.AvailiableObjects.Add(new ObjectModel(i, "Availiable Object #" + i.ToString()));
+
+                    for (Int32 i = 0; i < 5; ++i)
+                        this.AvailiableObjects[i].AddCommand = new Command(this.AddObjectAction);
+                }
 
                 this.SetLoadingState(false);
             }
             catch { }
         }
 
+        /// <summary>
+        /// Add the selected object to the DomoBox.
+        /// </summary>
+        /// <param name="param"></param>
         private async void AddObjectAction(Object param)
         {
             try
             {
-                ObjectService service = new ObjectService(
-                        new DAL.API.ApiClient("http://127.0.0.1:8080/"));
+                Boolean _result = await this.objectService.AddObject(param as ObjectModel);
 
-                await service.AddObject(param as ObjectModel);
+                if (_result)
+                {
+                    NotificationHelper.ShowToastNotification(
+                        ResourceHelper.GetString("AddObject"),
+                        ResourceHelper.GetString("AddObjectSuccess"));
+                }
+                else
+                {
+                    NotificationHelper.ShowToastNotification(
+                        ResourceHelper.GetString("AddObject"),
+                        ResourceHelper.GetString("AddObjectError"));
+                }
 
                 NavigationService.GoBack();
             }

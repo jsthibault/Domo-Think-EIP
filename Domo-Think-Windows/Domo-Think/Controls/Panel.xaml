@@ -17,7 +17,7 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0" Background="LightGray">
-                <TextBlock Style="{ThemeResource TitleTextBlockStyle}" Text="Hello!" Margin="12,4,4,4"></TextBlock>
+                <TextBlock Style="{ThemeResource TitleTextBlockStyle}" Text="{Binding Title}" Margin="12,4,4,4"></TextBlock>
             </Grid>
 
             <Grid Grid.Row="1">
