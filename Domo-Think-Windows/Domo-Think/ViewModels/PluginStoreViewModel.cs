@@ -134,5 +134,13 @@ namespace DomoThink.ViewModels
         }
 
         #endregion
+
+        /// <summary>
+        /// Refresh the ViewModel data.
+        /// </summary>
+        /// <param name="parameter"></param>
+        public override void Refresh(Object parameter)
+        {
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using DomoThink.Services;
+﻿using DomoThink.MVVM;
+using DomoThink.Services;
 using System;
 using Windows.UI.Xaml.Controls;
 
@@ -29,36 +30,52 @@ namespace DomoThink.Navigation
         }
 
         /// <summary>
-        /// Navigate to the TViewModel.
-        /// </summary>
-        /// <typeparam name="TViewModel"></typeparam>
-        /// <param name="parameter"></param>
-        public static void Navigate<TViewModel>(Object parameter = null)
-        {
-            Navigate(typeof(TViewModel), parameter);
-        }
-
-        /// <summary>
         /// Navigate to the type passed as parameter.
         /// </summary>
         /// <param name="type"></param>
         /// <param name="parameter"></param>
-        public static void Navigate(Type type, Object parameter = null)
+        public static Frame Navigate(Type type, Object parameter = null)
         {
-            Type _viewType = ViewFactory.Get(type);
+            frame.Navigate(type, parameter);
 
-            frame.Navigate(_viewType, parameter);
+            return frame;
+        }
+
+        /// <summary>
+        /// Gets the current frame.
+        /// </summary>
+        /// <returns></returns>
+        public static Frame GetFrame()
+        {
+            lock (syncRoot)
+            {
+                return frame;
+            }
+        }
+
+        /// <summary>
+        /// Gets the current view model.
+        /// </summary>
+        /// <returns></returns>
+        public static ViewModelBase GetCurrentViewModel()
+        {
+            lock (syncRoot)
+            {
+                return (frame.Content as Page).DataContext as ViewModelBase;
+            }
         }
 
         /// <summary>
         /// Go back to the previous page.
         /// </summary>
-        public static void GoBack()
+        public static Frame GoBack()
         {
             lock (syncRoot)
             {
                 if (CanGoBack())
                     frame.GoBack();
+
+                return frame;
             }
         }
 

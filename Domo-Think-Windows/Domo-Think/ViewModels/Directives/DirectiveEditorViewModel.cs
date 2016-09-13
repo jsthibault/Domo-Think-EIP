@@ -60,7 +60,7 @@ namespace DomoThink.ViewModels.Directives
         /// <summary>
         /// Creates a new DirectiveEditor view model instance.
         /// </summary>
-        public DirectiveEditorViewModel()
+        public DirectiveEditorViewModel(EditorMode mode)
         {
             // Initialize API services
             this.objectService = new ObjectService(App.ApiClient);
@@ -69,18 +69,11 @@ namespace DomoThink.ViewModels.Directives
             // Initialize properties
             this.ObjectList = new ObservableCollection<ObjectModel>();
             this.directiveModel = new DirectiveModel(-1, null, -1, -1, -1);
-            this.mode = EditorMode.Create;
+            this.Mode = mode;
 
             // Initialize the commands
             this.AddDirectiveCommand = new Command(this.AddDirectiveAction);
             this.EditDirectiveCommand = new Command(this.EditDirectiveAction);
-
-            // Load the objects
-            //var objList = this.objectService.GetObjects().Result;
-
-            //if (objList != null)
-            //    foreach (ObjectModel obj in objList)
-            //        this.ObjectList.Add(obj);
         }
 
         #endregion
@@ -95,9 +88,27 @@ namespace DomoThink.ViewModels.Directives
 
         private async void AddDirectiveAction(Object param)
         {
+            // TODO: add directive with API
+
+            this.Pop();
         }
 
         private async void EditDirectiveAction(Object param)
+        {
+            // TODO: edit directive with API
+
+            this.Pop();
+        }
+
+        #endregion
+
+        #region ABSTRACT
+
+        /// <summary>
+        /// Refresh the ViewModel data.
+        /// </summary>
+        /// <param name="parameter"></param>
+        public override void Refresh(Object parameter)
         {
         }
 

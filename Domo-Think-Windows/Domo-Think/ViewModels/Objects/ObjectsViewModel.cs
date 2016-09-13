@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Popups;
 
@@ -89,7 +90,6 @@ namespace DomoThink.ViewModels.Objects
         public ObjectsViewModel()
         {
             // Initialiaze the commands
-            this.LoadCommand = new Command(this.LoadObjectsAction);
             this.AddObjectCommand = new Command(this.AddObjectAction);
             this.SwitchObjectStateCommand = new Command(this.SwitchObjectStateAction);
 
@@ -114,33 +114,10 @@ namespace DomoThink.ViewModels.Objects
             this.Display = !state;
         }
 
-        #endregion
-
-        #region ACTIONS
-
         /// <summary>
-        /// Switch to the page to add a new object.
+        /// Loads the connected objects.
         /// </summary>
-        /// <param name="param"></param>
-        private void AddObjectAction(Object param)
-        {
-            NavigationService.Navigate<AddObjectViewModel>();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="param"></param>
-        private void SwitchObjectStateAction(Object param)
-        {
-            // Change object state here
-        }
-
-        /// <summary>
-        /// Loads or reloads the object list.
-        /// </summary>
-        /// <param name="param"></param>
-        private async void LoadObjectsAction(Object param)
+        private async Task LoadObjects()
         {
             try
             {
@@ -177,11 +154,43 @@ namespace DomoThink.ViewModels.Objects
             }
         }
 
-        private void EditObjectAction(Object param)
+        #endregion
+
+        #region ACTIONS
+
+        /// <summary>
+        /// Switch to the page to add a new object.
+        /// </summary>
+        /// <param name="param"></param>
+        private void AddObjectAction(Object param)
         {
-            NavigationService.Navigate<EditObjectViewModel>(param);
+            new AddObjectViewModel().Push();
+            //NavigationService.Navigate<AddObjectViewModel>();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="param"></param>
+        private void SwitchObjectStateAction(Object param)
+        {
+            // Change object state here
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="param"></param>
+        private void EditObjectAction(Object param)
+        {
+            new EditObjectViewModel().Push(param);
+            //NavigationService.Navigate<EditObjectViewModel>(param);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="param"></param>
         private async void DeleteObjectAction(Object param)
         {
             ObjectModel _object = param as ObjectModel;
@@ -206,10 +215,19 @@ namespace DomoThink.ViewModels.Objects
             if ((Int32)result.Id == 0) // remove object
             {
                 await this.objectService.DeleteObject(_object);
-                this.LoadObjectsAction(null);
+                await this.LoadObjects();
             }
         }
 
         #endregion
+
+        /// <summary>
+        /// Refresh the ViewModel data.
+        /// </summary>
+        /// <param name="parameter"></param>
+        public override void Refresh(Object parameter)
+        {
+            this.LoadObjects();
+        }
     }
 }

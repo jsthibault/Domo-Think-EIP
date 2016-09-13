@@ -95,10 +95,10 @@ namespace DomoThink.ViewModels.Accounts
         /// <summary>
         /// Creates a new instance.
         /// </summary>
-        public AddEditAccountViewModel()
+        public AddEditAccountViewModel(EditorMode mode)
         {
             // Initialize properties
-            this.Mode = EditorMode.Create;
+            this.Mode = mode;
             this.AccountInformations = new AccountModel();
 
             // Initialize API service
@@ -191,9 +191,19 @@ namespace DomoThink.ViewModels.Accounts
                 _result = await this.EditAccount(param);
 
             if (_result)
-                NavigationService.GoBack();
+                this.Pop();
         }
-        
+
         #endregion
+
+        /// <summary>
+        /// Refresh the data.
+        /// </summary>
+        /// <param name="parameter"></param>
+        public override void Refresh(Object parameter)
+        {
+            if (parameter != null && parameter is AccountModel)
+                this.AccountInformations = parameter as AccountModel;
+        }
     }
 }

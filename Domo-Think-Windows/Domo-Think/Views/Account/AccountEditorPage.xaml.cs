@@ -1,7 +1,4 @@
-﻿using DAL.Model;
-using DomoThink.ViewModels.Accounts;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Navigation;
+﻿using Windows.UI.Xaml.Controls;
 
 namespace DomoThink.Views.Account
 {
@@ -10,18 +7,6 @@ namespace DomoThink.Views.Account
         public AccountEditorPage()
         {
             this.InitializeComponent();
-        }
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            if (e.Parameter == null)
-                return;
-
-            AddEditAccountViewModel _dataContext = this.DataContext as AddEditAccountViewModel;
-            _dataContext.AccountInformations = e.Parameter as AccountModel;
-            _dataContext.Mode = EditorMode.Edit;
-
-            base.OnNavigatedTo(e);
         }
     }
 }

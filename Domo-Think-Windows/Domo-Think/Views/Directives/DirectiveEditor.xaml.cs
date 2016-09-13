@@ -17,56 +17,48 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// Pour plus d'informations sur le modèle d'élément Page vierge, voir la page http://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace DomoThink.Views.Directives
 {
-    /// <summary>
-    /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
-    /// </summary>
     public sealed partial class DirectiveEditor : Page
     {
-        private Boolean editMode = false;
-        private DirectiveModel model;
-
         public DirectiveEditor()
         {
             this.InitializeComponent();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            DirectiveEditorViewModel _viewModel = this.DataContext as DirectiveEditorViewModel;
+        //protected override void OnNavigatedTo(NavigationEventArgs e)
+        //{
+        //    DirectiveEditorViewModel _viewModel = this.DataContext as DirectiveEditorViewModel;
 
-            _viewModel.DirectiveInformations = e.Parameter as DirectiveModel;
-        }
+        //    _viewModel.DirectiveInformations = e.Parameter as DirectiveModel;
+        //}
 
-        private async void ADD_EDIT_BUTTON_Click(Object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                DirectiveService service = new DirectiveService(
-                    new DAL.API.ApiClient("http://127.0.0.1:8080/"));
+        //private async void ADD_EDIT_BUTTON_Click(Object sender, RoutedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        DirectiveService service = new DirectiveService(
+        //            new DAL.API.ApiClient("http://127.0.0.1:8080/"));
 
-                if (String.IsNullOrEmpty(this.DIRECTIVE_NAME.Text))
-                    NavigationService.GoBack();
+        //        if (String.IsNullOrEmpty(this.DIRECTIVE_NAME.Text))
+        //            NavigationService.GoBack();
 
-                if (this.editMode == true)
-                {
-                    this.model.Name = this.DIRECTIVE_NAME.Text;
+        //        if (this.editMode == true)
+        //        {
+        //            this.model.Name = this.DIRECTIVE_NAME.Text;
 
-                    await service.UpdateDirective(this.model);
-                }
-                else
-                {
-                    DirectiveModel _model = new DirectiveModel(-1, this.DIRECTIVE_NAME.Text, -1, -1, -1);
+        //            await service.UpdateDirective(this.model);
+        //        }
+        //        else
+        //        {
+        //            DirectiveModel _model = new DirectiveModel(-1, this.DIRECTIVE_NAME.Text, -1, -1, -1);
 
-                    await service.AddDirective(_model);
-                }
+        //            await service.AddDirective(_model);
+        //        }
 
-                NavigationService.GoBack();
-            }
-            catch { }
-        }
+        //        NavigationService.GoBack();
+        //    }
+        //    catch { }
+        //}
     }
 }

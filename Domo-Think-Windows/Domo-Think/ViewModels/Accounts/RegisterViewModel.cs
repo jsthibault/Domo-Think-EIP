@@ -142,5 +142,17 @@ namespace DomoThink.ViewModels.Accounts
         }
 
         #endregion
+
+        #region ABSTRACT
+
+        /// <summary>
+        /// Refresh the ViewModel data.
+        /// </summary>
+        /// <param name="parameter"></param>
+        public override void Refresh(Object parameter)
+        {
+        }
+
+        #endregion
     }
 }

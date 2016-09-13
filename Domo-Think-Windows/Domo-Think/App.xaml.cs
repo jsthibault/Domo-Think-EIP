@@ -98,7 +98,7 @@ namespace DomoThink
             if (NavigationService.CanGoBack())
             {
                 e.Handled = true;
-                NavigationService.GoBack();
+                NavigationService.GetCurrentViewModel().Pop();
             }
         }
 

@@ -1,10 +1,14 @@
-﻿using System;
+﻿using DomoThink.Navigation;
+using DomoThink.Services;
+using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 
 namespace DomoThink.MVVM
 {
-    public class ViewModelBase : INotifyPropertyChanged
+    public abstract class ViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -36,5 +40,42 @@ namespace DomoThink.MVVM
 
             return true;
         }
+
+        private Object previousDataContext;
+
+        /// <summary>
+        /// Push the View assosiated with this ViewModel.
+        /// </summary>
+        /// <param name="parameter"></param>
+        public void Push(object parameter = null)
+        {
+            Type _pageType = ViewFactory.Get(this.GetType());
+
+            Page _currentPage = NavigationService.GetFrame().Content as Page;
+            this.previousDataContext = _currentPage?.DataContext;
+
+            Page _page = NavigationService.Navigate(_pageType).Content as Page;
+            _page.NavigationCacheMode = NavigationCacheMode.Required;
+            _page.DataContext = this;
+            _page.ApplyTemplate();
+
+            this.Refresh(parameter);
+        }
+
+        /// <summary>
+        /// Pop the actual view and refresh the data.
+        /// </summary>
+        /// <param name="parameter"></param>
+        public void Pop(Object parameter = null)
+        {
+            (NavigationService.GoBack().Content as Page).DataContext = previousDataContext;
+            (previousDataContext as ViewModelBase).Refresh(parameter);
+        }
+
+        /// <summary>
+        /// Refresh the ViewModel data.
+        /// </summary>
+        /// <param name="parameter"></param>
+        public abstract void Refresh(object parameter);
     }
 }

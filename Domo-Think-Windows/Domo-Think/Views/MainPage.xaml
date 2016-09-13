@@ -7,10 +7,6 @@
     xmlns:viewModel="using:DomoThink.ViewModels"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008">
 
-    <Page.DataContext>
-        <viewModel:MainViewModel />
-    </Page.DataContext>
-
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         
         <Grid.RowDefinitions>

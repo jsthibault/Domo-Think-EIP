@@ -1,12 +1,7 @@
 ﻿using DAL.Model;
 using DomoThink.API;
 using DomoThink.MVVM;
-using DomoThink.Navigation;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 /*--------------------------------------------------------
@@ -85,7 +80,7 @@ namespace DomoThink.ViewModels.Objects
                 {
                 }
 
-                NavigationService.GoBack();
+                this.Pop();
             }
             catch
             {
@@ -93,5 +88,15 @@ namespace DomoThink.ViewModels.Objects
         }
 
         #endregion
+
+        /// <summary>
+        /// Refresh the ViewModel data.
+        /// </summary>
+        /// <param name="parameter"></param>
+        public override void Refresh(Object parameter)
+        {
+            if (parameter != null && parameter is ObjectModel)
+                this.ObjectInformations = parameter as ObjectModel;
+        }
     }
 }

@@ -18,11 +18,6 @@
         </Interactions:EventTriggerBehavior>
     </Interactivity:Interaction.Behaviors>
 
-    <!-- Page DataContext -->
-    <Page.DataContext>
-        <viewModel:DirectiveViewModel />
-    </Page.DataContext>
-    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <!-- Grid row definitions -->

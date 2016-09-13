@@ -58,15 +58,25 @@ namespace DomoThink.ViewModels
         
         private void ChangePasswordAction(Object param)
         {
-            NavigationService.Navigate<ChangePasswordViewModel>();
+            new ChangePasswordViewModel().Push();
+            //NavigationService.Navigate<ChangePasswordViewModel>();
         }
 
         private void DeleteMyAccountAction(Object param)
         {
-            NavigationService.Navigate<DeleteAccountViewModel>();
+            new DeleteAccountViewModel().Push();
+            //NavigationService.Navigate<DeleteAccountViewModel>();
         }
 
 
         #endregion
+
+        /// <summary>
+        /// Refresh the ViewModel data.
+        /// </summary>
+        /// <param name="parameter"></param>
+        public override void Refresh(Object parameter)
+        {
+        }
     }
 }

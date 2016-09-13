@@ -19,11 +19,6 @@
         </Interactions:EventTriggerBehavior>
     </Interactivity:Interaction.Behaviors>
 
-    <!-- Page DataContext -->
-    <Page.DataContext>
-        <viewModel:AccountsViewModel />
-    </Page.DataContext>
-
     <!-- Main Grid -->
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>

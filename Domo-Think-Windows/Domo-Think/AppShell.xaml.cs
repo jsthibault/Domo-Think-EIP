@@ -313,7 +313,12 @@ namespace DomoThink
                 if (_navigationButton.ViewType == typeof(Boolean))
                     this.Logout();
                 else
-                    NavigationService.Navigate(_navigationButton.ViewModelType, param);
+                {
+                    ViewModelBase _base = Activator.CreateInstance(_navigationButton.ViewModelType) as ViewModelBase;
+
+                    _base.Push(param);
+                    //NavigationService.Navigate(_navigationButton.ViewModelType, param);
+                }
             }
             
             this.currentNavigationButton = _navigationButton;

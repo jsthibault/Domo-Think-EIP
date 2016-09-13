@@ -88,7 +88,6 @@ namespace DomoThink.ViewModels.Objects
             this.SetLoadingState(true);
 
             // Initialize the commands
-            this.LoadCommand = new Command(this.LoadAction);
             this.AddObjectCommand = new Command(this.AddObjectAction);
 
             // Initialize the collection
@@ -109,15 +108,10 @@ namespace DomoThink.ViewModels.Objects
             this.Display = !state;
         }
 
-        #endregion
-
-        #region ACTIONS
-
         /// <summary>
-        /// Send an API request to the DomoBox to get the objects near.
+        /// Load objects.
         /// </summary>
-        /// <param name="param"></param>
-        private async void LoadAction(Object param)
+        private async void LoadObjects()
         {
             try
             {
@@ -149,6 +143,10 @@ namespace DomoThink.ViewModels.Objects
             catch { }
         }
 
+        #endregion
+
+        #region ACTIONS
+
         /// <summary>
         /// Add the selected object to the DomoBox.
         /// </summary>
@@ -172,11 +170,20 @@ namespace DomoThink.ViewModels.Objects
                         ResourceHelper.GetString("AddObjectError"));
                 }
 
-                NavigationService.GoBack();
+                this.Pop();
             }
             catch { }
         }
 
         #endregion
+
+        /// <summary>
+        /// Refresh the ViewModel data.
+        /// </summary>
+        /// <param name="parameter"></param>
+        public override void Refresh(Object parameter)
+        {
+            this.LoadObjects();
+        }
     }
 }

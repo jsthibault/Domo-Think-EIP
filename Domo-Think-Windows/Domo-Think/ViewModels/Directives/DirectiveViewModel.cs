@@ -111,19 +111,29 @@ namespace DomoThink.ViewModels.Directives
         #region ACTIONS
 
         /// <summary>
-        /// Switch to the page to add a new object.
+        /// Switch to the Directive editor in order to add a new directive.
         /// </summary>
         /// <param name="param"></param>
         private void AddDirectiveCommandAction(Object param)
         {
-            NavigationService.Navigate<DirectiveEditorViewModel>(null);
+            new DirectiveEditorViewModel(EditorMode.Create).Push();
+            //NavigationService.Navigate<DirectiveEditorViewModel>(null);
         }
 
+        /// <summary>
+        /// Switch to the Directive editor in order to edit the selected directive.
+        /// </summary>
+        /// <param name="param"></param>
         private void EditDirectiveAction(Object param)
         {
-            NavigationService.Navigate<DirectiveEditorViewModel>(param);
+            new DirectiveEditorViewModel(EditorMode.Edit).Push(param);
+            //NavigationService.Navigate<DirectiveEditorViewModel>(param);
         }
 
+        /// <summary>
+        /// Delete the selected directive.
+        /// </summary>
+        /// <param name="param"></param>
         private async void DeleteDirectiveAction(Object param)
         {
             DirectiveModel _directive = param as DirectiveModel;
@@ -184,5 +194,13 @@ namespace DomoThink.ViewModels.Directives
         }
 
         #endregion
+
+        /// <summary>
+        /// Refresh the ViewModel data.
+        /// </summary>
+        /// <param name="parameter"></param>
+        public override void Refresh(Object parameter)
+        {
+        }
     }
 }

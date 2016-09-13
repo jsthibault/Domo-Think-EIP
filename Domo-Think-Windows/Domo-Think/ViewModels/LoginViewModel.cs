@@ -135,7 +135,7 @@ namespace DomoThink.ViewModels
 
             Window.Current.Content = new AppShell(frame);
             NavigationService.InitializeContentFrame(frame);
-            NavigationService.Navigate<MainViewModel>();
+            new MainViewModel().Push();
             Window.Current.Activate();
             frame.BackStack.Clear();
         }
@@ -236,5 +236,13 @@ namespace DomoThink.ViewModels
         }
 
         #endregion
+
+        /// <summary>
+        /// Refresh the ViewModel data.
+        /// </summary>
+        /// <param name="parameter"></param>
+        public override void Refresh(Object parameter)
+        {
+        }
     }
 }

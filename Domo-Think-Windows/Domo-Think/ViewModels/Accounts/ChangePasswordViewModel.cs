@@ -124,10 +124,22 @@ namespace DomoThink.ViewModels.Accounts
                 NotificationHelper.ShowToastNotification(
                     ResourceHelper.GetString("Account"), 
                     ResourceHelper.GetString("PasswordChanged"));
-                NavigationService.GoBack();
+                this.Pop();
             }
 
             this.SetLoadingState(false);
+        }
+
+        #endregion
+
+        #region ABSTRACT
+
+        /// <summary>
+        /// Refresh the ViewModel data.
+        /// </summary>
+        /// <param name="parameter"></param>
+        public override void Refresh(Object parameter)
+        {
         }
 
         #endregion

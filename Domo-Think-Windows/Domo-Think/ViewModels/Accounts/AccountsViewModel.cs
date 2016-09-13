@@ -122,17 +122,8 @@ namespace DomoThink.ViewModels.Accounts
             this.Display = !state;
         }
 
-        #endregion
-
-        #region ACTIONS
-
-        /// <summary>
-        /// Loads the accounts.
-        /// </summary>
-        /// <param name="param"></param>
-        private async void LoadAccountsAction(Object param)
-        {
-            // Set Loading state to true during loading
+        private async void LoadAccounts()
+        {// Set Loading state to true during loading
             this.LoadingState(true);
 
             // Clear all acounts if there is any account from before
@@ -167,13 +158,26 @@ namespace DomoThink.ViewModels.Accounts
             this.LoadingState(false);
         }
 
+        #endregion
+
+        #region ACTIONS
+
+        /// <summary>
+        /// Loads the accounts.
+        /// </summary>
+        /// <param name="param"></param>
+        private async void LoadAccountsAction(Object param)
+        {
+            
+        }
+
         /// <summary>
         /// Add a new account.
         /// </summary>
         /// <param name="param"></param>
         private void AddAccountAction(Object param)
         {
-            NavigationService.Navigate<AddEditAccountViewModel>(null);
+            new AddEditAccountViewModel(EditorMode.Create).Push(null);
         }
 
         /// <summary>
@@ -190,7 +194,20 @@ namespace DomoThink.ViewModels.Accounts
         /// <param name="param"></param>
         private void EditAccountAction(Object param)
         {
-            NavigationService.Navigate<AddEditAccountViewModel>(param);
+            new AddEditAccountViewModel(EditorMode.Edit).Push(param);
+        }
+
+        #endregion
+
+        #region ABSTRACT
+
+        /// <summary>
+        /// Refresh the ViewModel data.
+        /// </summary>
+        /// <param name="parameter"></param>
+        public override void Refresh(Object parameter)
+        {
+            this.LoadAccounts();
         }
 
         #endregion

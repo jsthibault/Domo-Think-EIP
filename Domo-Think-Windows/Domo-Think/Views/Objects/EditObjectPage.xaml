@@ -8,11 +8,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <!-- Page data context -->
-    <Page.DataContext>
-        <viewModel:EditObjectViewModel />
-    </Page.DataContext>
-
     <!-- Main grid -->
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel Orientation="Vertical" Margin="12">
