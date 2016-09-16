@@ -53,6 +53,9 @@ namespace DomoThink.API
         {
             try
             {
+                if (App.ApiClient.IsActive == false)
+                    return true;
+
                 LoginResponse response =
                     await this.api.Post<LoginModel, LoginResponse>(ApiRoutes.USER_CONNECT, loginModel);
 

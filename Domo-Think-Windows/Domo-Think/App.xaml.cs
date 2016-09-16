@@ -1,24 +1,28 @@
 ﻿using DomoThink.Navigation;
+using DomoThink.Services;
+using DomoThink.ViewModels;
+using DomoThink.ViewModels.Accounts;
+using DomoThink.ViewModels.Box;
+using DomoThink.ViewModels.Directives;
+using DomoThink.ViewModels.Objects;
+using DomoThink.ViewModels.Plugins;
+using DomoThink.ViewModels.Store;
+using DomoThink.Views;
+using DomoThink.Views.Account;
+using DomoThink.Views.Box;
+using DomoThink.Views.Directives;
+using DomoThink.Views.Objects;
+using DomoThink.Views.Plugins;
+using DomoThink.Views.Store;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 namespace DomoThink
@@ -44,6 +48,7 @@ namespace DomoThink
             this.InitializeComponent();
             this.Suspending += OnSuspending;
             ApiClient = new DAL.API.ApiClient(API.APIConstants.API_URL);
+            ApiClient.IsActive = false;
         }
 
         /// <summary>
@@ -90,6 +95,7 @@ namespace DomoThink
             //frame.BackStack.Clear();
 
             this.HideTitleBar();
+            this.InitializeViewFactory();
 
             if (rootFrame.Content == null)
                 rootFrame.Navigate(typeof(Views.Login.LoginPage), e.Arguments);
@@ -145,6 +151,29 @@ namespace DomoThink
             formattableTitleBar.ButtonBackgroundColor = null;
             CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = false;
+        }
+
+        private void InitializeViewFactory()
+        {
+            // Initialize the ViewFactory
+            ViewFactory.Register<MainViewModel, MainPage>();
+            ViewFactory.Register<SettingsViewModel, SettingsPage>();
+            ViewFactory.Register<ObjectsViewModel, ObjectsPage>();
+            ViewFactory.Register<AddObjectViewModel, AddObjectPage>();
+            ViewFactory.Register<EditObjectViewModel, EditObjectPage>();
+            // TODO: add directives
+            ViewFactory.Register<DirectiveViewModel, DirectivesPage>();
+            ViewFactory.Register<DirectiveEditorViewModel, DirectiveEditor>();
+            ViewFactory.Register<DomoBoxViewModel, DomoBoxPage>();
+            ViewFactory.Register<AccountsViewModel, AccountsPage>();
+            ViewFactory.Register<AddEditAccountViewModel, AccountEditorPage>();
+            ViewFactory.Register<ChangePasswordViewModel, ChangePasswordPage>();
+            ViewFactory.Register<DeleteAccountViewModel, DeleteAccountPage>();
+            // TODO: add plugins
+            ViewFactory.Register<PluginsViewModel, Plugins>();
+            // TODO: add store
+            ViewFactory.Register<PluginStoreViewModel, PluginStorePage>();
+            ViewFactory.Register<PluginViewModel, PluginPage>();
         }
     }
 }

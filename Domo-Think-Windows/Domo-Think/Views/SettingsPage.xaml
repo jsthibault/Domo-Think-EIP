@@ -25,7 +25,7 @@
                     <ComboBoxItem Content="Pirate theme" />
                 </ComboBox>
 
-                <Button x:Uid="SettingsApplyTheme" Content="Apply theme" Margin="0,8,8,0" />
+                <Button x:Uid="SettingsApplyTheme" Content="Apply theme" Margin="0,8,8,0" Style="{StaticResource DomoButton}" />
 
             </StackPanel>
 

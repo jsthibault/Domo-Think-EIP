@@ -43,6 +43,11 @@ namespace DAL.API
         /// </summary>
         public String BaseUrl { get; private set; }
 
+        /// <summary>
+        /// Gets or sets the ApiClient active state.
+        /// </summary>
+        public Boolean IsActive { get; set; }
+
         #endregion
 
         #region CONSTRUCTORS
@@ -53,6 +58,7 @@ namespace DAL.API
         /// <param name="baseUrl">API url.</param>
         public ApiClient(String baseUrl)
         {
+            this.IsActive = true;
             this.BaseUrl = baseUrl;
             this.client = new HttpClient();
             this.client.BaseAddress = new Uri(this.BaseUrl);
@@ -69,12 +75,15 @@ namespace DAL.API
         {
             try
             {
-                HttpResponseMessage _response = await this.client.GetAsync(String.Format(url, args));
+                if (this.IsActive)
+                {
+                    HttpResponseMessage _response = await this.client.GetAsync(String.Format(url, args));
 
-                Debug.WriteLine("Message: " + _response.ReasonPhrase.ToString());
+                    Debug.WriteLine("Message: " + _response.ReasonPhrase.ToString());
 
-                if (_response.IsSuccessStatusCode)
-                    return await _response.Content.ReadAsAsync<T>();
+                    if (_response.IsSuccessStatusCode)
+                        return await _response.Content.ReadAsAsync<T>();
+                }
             }
             catch (Exception e) { }
 
@@ -85,10 +94,13 @@ namespace DAL.API
         {
             try
             {
-                HttpResponseMessage _response = await this.client.PostAsJsonAsync(url, value);
+                if (this.IsActive)
+                {
+                    HttpResponseMessage _response = await this.client.PostAsJsonAsync(url, value);
 
-                if (_response.IsSuccessStatusCode)
-                    return await _response.Content.ReadAsAsync<U>();
+                    if (_response.IsSuccessStatusCode)
+                        return await _response.Content.ReadAsAsync<U>();
+                }
             }
             catch (Exception e) { }
 
@@ -99,7 +111,10 @@ namespace DAL.API
         {
             try
             {
-                HttpResponseMessage _response = await this.client.PutAsJsonAsync(url, value);
+                if (this.IsActive)
+                {
+                    HttpResponseMessage _response = await this.client.PutAsJsonAsync(url, value);
+                }
             }
             catch (Exception e) { }
 
@@ -110,7 +125,10 @@ namespace DAL.API
         {
             try
             {
-                HttpResponseMessage _response = await this.client.DeleteAsync(String.Format(url, args));
+                if (this.IsActive)
+                {
+                    HttpResponseMessage _response = await this.client.DeleteAsync(String.Format(url, args));
+                }
             }
             catch (Exception e) { }
 

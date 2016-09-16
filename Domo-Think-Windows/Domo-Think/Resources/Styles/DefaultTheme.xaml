@@ -6,7 +6,7 @@
     <SolidColorBrush x:Key="LoginBackgroundColor">#F1F3F5</SolidColorBrush>
 
     <SolidColorBrush x:Key="DBackgroundColor" Color="LightGray"></SolidColorBrush>
-    <SolidColorBrush x:Key="DPrimaryColor" Color="#03A9F4"></SolidColorBrush>
+    <SolidColorBrush x:Key="DPrimaryColor" Color="#049BE5"></SolidColorBrush>
     <SolidColorBrush x:Key="DPrimaryColorDark" Color="#0288D1"></SolidColorBrush>
     <SolidColorBrush x:Key="SplitViewPaneColor">#FF2B2B2B</SolidColorBrush>
     <SolidColorBrush x:Key="SplitViewPaneItemColor">White</SolidColorBrush>

@@ -82,26 +82,6 @@ namespace DomoThink
             this.InitializeComponent();
             this.DataContext = this;
 
-            // Initialize the ViewFactory
-            ViewFactory.Register<MainViewModel, MainPage>();
-            ViewFactory.Register<SettingsViewModel, SettingsPage>();
-            ViewFactory.Register<ObjectsViewModel, ObjectsPage>();
-            ViewFactory.Register<AddObjectViewModel, AddObjectPage>();
-            ViewFactory.Register<EditObjectViewModel, EditObjectPage>();
-            // TODO: add directives
-            ViewFactory.Register<DirectiveViewModel, DirectivesPage>();
-            ViewFactory.Register<DirectiveEditorViewModel, DirectiveEditor>();
-            ViewFactory.Register<DomoBoxViewModel, DomoBoxPage>();
-            ViewFactory.Register<AccountsViewModel, AccountsPage>();
-            ViewFactory.Register<AddEditAccountViewModel, AccountEditorPage>();
-            ViewFactory.Register<ChangePasswordViewModel, ChangePasswordPage>();
-            ViewFactory.Register<DeleteAccountViewModel, DeleteAccountPage>();
-            // TODO: add plugins
-            ViewFactory.Register<PluginsViewModel, Plugins>();
-            // TODO: add store
-            ViewFactory.Register<PluginStoreViewModel, PluginStorePage>();
-            ViewFactory.Register<PluginViewModel, PluginPage>();
-            
             // Initialize the commands
             this.NavigationCommand = new Command(this.NavigateAction);
             this.MenuCommand = new Command(this.MenuAction);

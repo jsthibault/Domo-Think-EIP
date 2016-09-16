@@ -61,7 +61,7 @@
         <!-- Login panel -->
         <StackPanel Grid.Row="0" Margin="0,70,0,0">
             <!-- Logo -->
-            <Image Source="../../Assets/DomoThink.png" Width="300" />
+            <Image Source="../../Assets/DomoThink.png" Width="350" />
             
             <!-- Username -->
             <StackPanel x:Name="USERNAME_PANEL" Margin="0,32,0,0">
