@@ -22,7 +22,7 @@ using System.Windows.Input;
  * Notes:
  * -------------------------------------------------------*/
 
-namespace DomoThink.ViewModels
+namespace DomoThink.ViewModels.Store
 {
     public class PluginStoreViewModel : ViewModelBase, ILoader
     {
@@ -80,7 +80,6 @@ namespace DomoThink.ViewModels
             this.service = new PluginService(App.ApiClient);
 
             // Initialize commands
-            this.LoadCommand = new Command(this.LoadPluginsAction);
             this.SeePluginCommand = new Command(this.SeePluginAction);
         }
 
@@ -88,17 +87,20 @@ namespace DomoThink.ViewModels
 
         #region METHODS
 
-
-
-        #endregion
-
-        #region ACTIONS
+        /// <summary>
+        /// Sets the loading state.
+        /// </summary>
+        /// <param name="state">Loading state.</param>
+        private void LoadingState(Boolean state)
+        {
+            this.Loading = state;
+            this.Display = !state;
+        }
 
         /// <summary>
-        /// Load the plugin list.
+        /// Loads the store plugins.
         /// </summary>
-        /// <param name="param"></param>
-        private async void LoadPluginsAction(Object param)
+        public async void LoadStorePlugins()
         {
             this.Loading = true;
             this.Display = false;
@@ -120,6 +122,10 @@ namespace DomoThink.ViewModels
             this.Display = true;
         }
 
+        #endregion
+
+        #region ACTIONS
+
         private async void SeePluginAction(Object param)
         {
             PluginModel _model = null;
@@ -130,7 +136,8 @@ namespace DomoThink.ViewModels
                 if (this.Plugins[i].Id == (Int32)param)
                     _model = this.Plugins[i];
 
-            Navigation.NavigationService.Navigate(typeof(PluginPage), _model);
+            new PluginViewModel().Push(_model);
+            //Navigation.NavigationService.Navigate(typeof(PluginPage), _model);
         }
 
         #endregion
@@ -141,6 +148,7 @@ namespace DomoThink.ViewModels
         /// <param name="parameter"></param>
         public override void Refresh(Object parameter)
         {
+            this.LoadStorePlugins();
         }
     }
 }

@@ -9,6 +9,8 @@ using DomoThink.ViewModels.Accounts;
 using DomoThink.ViewModels.Box;
 using DomoThink.ViewModels.Directives;
 using DomoThink.ViewModels.Objects;
+using DomoThink.ViewModels.Plugins;
+using DomoThink.ViewModels.Store;
 using DomoThink.Views;
 using DomoThink.Views.Account;
 using DomoThink.Views.Box;
@@ -16,6 +18,7 @@ using DomoThink.Views.Directives;
 using DomoThink.Views.Login;
 using DomoThink.Views.Objects;
 using DomoThink.Views.Plugins;
+using DomoThink.Views.Store;
 using System;
 using System.Collections.Generic;
 using System.Windows.Input;
@@ -94,7 +97,10 @@ namespace DomoThink
             ViewFactory.Register<ChangePasswordViewModel, ChangePasswordPage>();
             ViewFactory.Register<DeleteAccountViewModel, DeleteAccountPage>();
             // TODO: add plugins
+            ViewFactory.Register<PluginsViewModel, Plugins>();
             // TODO: add store
+            ViewFactory.Register<PluginStoreViewModel, PluginStorePage>();
+            ViewFactory.Register<PluginViewModel, PluginPage>();
             
             // Initialize the commands
             this.NavigationCommand = new Command(this.NavigateAction);
@@ -317,7 +323,6 @@ namespace DomoThink
                     ViewModelBase _base = Activator.CreateInstance(_navigationButton.ViewModelType) as ViewModelBase;
 
                     _base.Push(param);
-                    //NavigationService.Navigate(_navigationButton.ViewModelType, param);
                 }
             }
             

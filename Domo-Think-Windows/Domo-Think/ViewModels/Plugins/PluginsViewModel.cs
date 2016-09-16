@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace DomoThink.ViewModels
+namespace DomoThink.ViewModels.Plugins
 {
     public class PluginsViewModel : ViewModelBase, ILoader
     {
@@ -61,9 +61,6 @@ namespace DomoThink.ViewModels
         {
             // Create the collection
             this.Plugins = new ObservableCollection<PluginModel>();
-
-            // Initialize the commands
-            this.LoadCommand = new Command(this.LoadAction);
         }
 
         #endregion
@@ -80,15 +77,10 @@ namespace DomoThink.ViewModels
             this.Display = !state;
         }
 
-        #endregion
-
-        #region ACTIONS
-
         /// <summary>
-        /// Load the plugins.
+        /// Loads the plugins.
         /// </summary>
-        /// <param name="param"></param>
-        private void LoadAction(Object param)
+        private void LoadPlugins()
         {
             // Set loading state to true during loading
             this.LoadingState(true);
@@ -107,12 +99,17 @@ namespace DomoThink.ViewModels
 
         #endregion
 
+        #region ACTIONS
+
+        #endregion
+
         /// <summary>
         /// Refresh the ViewModel data.
         /// </summary>
         /// <param name="parameter"></param>
         public override void Refresh(Object parameter)
         {
+            this.LoadPlugins();
         }
     }
 }

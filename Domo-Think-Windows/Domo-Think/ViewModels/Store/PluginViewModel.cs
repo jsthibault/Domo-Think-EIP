@@ -19,7 +19,7 @@ using System.Windows.Input;
  * Notes:
  * -------------------------------------------------------*/
 
-namespace DomoThink.ViewModels
+namespace DomoThink.ViewModels.Store
 {
     public class PluginViewModel : ViewModelBase, ILoader
     {
@@ -76,9 +76,6 @@ namespace DomoThink.ViewModels
         public PluginViewModel()
         {
             this.model = new PluginModel();
-
-            // Initialize commands
-            this.LoadCommand = new Command(this.LoadPluginInformationAction);
         }
 
         #endregion
@@ -90,11 +87,6 @@ namespace DomoThink.ViewModels
         #endregion
 
         #region ACTIONS
-
-        private async void LoadPluginInformationAction(Object parameter)
-        {
-            await Task.Delay(2000);
-        }
 
         #endregion
 

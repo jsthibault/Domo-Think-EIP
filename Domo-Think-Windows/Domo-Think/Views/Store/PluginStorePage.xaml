@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="DomoThink.Views.PluginStorePage"
+    x:Class="DomoThink.Views.Store.PluginStorePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" 
@@ -11,13 +11,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:rating="using:Bratched.Tools.RatingControl"
     mc:Ignorable="d" x:Name="PLUGIN_STORE_PAGE">
-
-    <!-- Interactions -->
-    <Interactivity:Interaction.Behaviors>
-        <Interactions:EventTriggerBehavior EventName="Loaded">
-            <Interactions:InvokeCommandAction Command="{Binding LoadCommand}"/>
-        </Interactions:EventTriggerBehavior>
-    </Interactivity:Interaction.Behaviors>
 
     <!-- Main Grid -->
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">

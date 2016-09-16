@@ -1,6 +1,6 @@
 ﻿using Windows.UI.Xaml.Controls;
 
-namespace DomoThink.Views
+namespace DomoThink.Views.Store
 {
     public sealed partial class PluginStorePage : Page
     {

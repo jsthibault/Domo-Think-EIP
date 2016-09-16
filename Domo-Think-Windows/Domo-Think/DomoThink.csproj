@@ -149,10 +149,10 @@
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\Objects\EditObjectViewModel.cs" />
     <Compile Include="ViewModels\Objects\ObjectsViewModel.cs" />
-    <Compile Include="ViewModels\PluginsViewModel.cs" />
-    <Compile Include="ViewModels\PluginViewModel.cs" />
+    <Compile Include="ViewModels\Plugins\PluginsViewModel.cs" />
+    <Compile Include="ViewModels\Store\PluginViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
-    <Compile Include="ViewModels\PluginStoreViewModel.cs" />
+    <Compile Include="ViewModels\Store\PluginStoreViewModel.cs" />
     <Compile Include="Views\Account\AccountEditorPage.xaml.cs">
       <DependentUpon>AccountEditorPage.xaml</DependentUpon>
     </Compile>
@@ -189,7 +189,7 @@
     <Compile Include="Views\Objects\ObjectsPage.xaml.cs">
       <DependentUpon>ObjectsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PluginPage.xaml.cs">
+    <Compile Include="Views\Store\PluginPage.xaml.cs">
       <DependentUpon>PluginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Plugins\Plugins.xaml.cs">
@@ -201,7 +201,7 @@
     <Compile Include="Views\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PluginStorePage.xaml.cs">
+    <Compile Include="Views\Store\PluginStorePage.xaml.cs">
       <DependentUpon>PluginStorePage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -322,7 +322,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PluginPage.xaml">
+    <Page Include="Views\Store\PluginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -338,15 +338,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PluginStorePage.xaml">
+    <Page Include="Views\Store\PluginStorePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Strings\fr-FR\" />
-    <Folder Include="ViewModels\Store\" />
-    <Folder Include="Views\Store\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
