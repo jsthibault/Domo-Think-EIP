@@ -20,7 +20,7 @@
                 <TextBox x:Name="OBJECT_NAME" Text="{Binding ObjectInformations.Name}" Margin="0,0,409,0" />
                 <TextBox x:Name="OBJECT_ID" Text="{Binding ObjectInformations.Id}" Visibility="Collapsed" />
 
-                <Button x:Name="EDIT_BUTTON" x:Uid="EditObject" Content="[Edit object]" Margin="0,8,8,0" Command="{Binding EditObjectCommand}"/>
+                <Button x:Name="EDIT_BUTTON" x:Uid="EditObject" Content="[Edit object]" Margin="0,8,8,0" Command="{Binding EditObjectCommand}" Style="{StaticResource DomoButton}" />
 
             </StackPanel>
         </StackPanel>

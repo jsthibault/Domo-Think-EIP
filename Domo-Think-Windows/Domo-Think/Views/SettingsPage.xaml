@@ -55,9 +55,9 @@
                 <TextBlock x:Uid="SettingsMyAccount" Text="My account" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,8" />
 
                 <TextBlock x:Uid="SettingsChangePassword"
-                           Text="[CHANGE_PASSWORD]" />
+                           Text="[CHANGE_PASSWORD]" Margin="0,10,0,4" />
 
-                <Button Command="{Binding ChangePasswordCommand}">
+                <Button Command="{Binding ChangePasswordCommand}" Style="{StaticResource DomoButton}">
                     <Button.Content>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -74,9 +74,9 @@
                 </Button>
 
                 <TextBlock x:Uid="SettingsMyAccountWarning" 
-                           Text="Warning!" 
+                           Text="Warning!" Margin="0,10,0,4"
                            TextWrapping="Wrap" />
-                <Button x:Name="DELETE_ACCOUNT" Command="{Binding DeleteMyAccountCommand}">
+                <Button x:Name="DELETE_ACCOUNT" Command="{Binding DeleteMyAccountCommand}" Style="{StaticResource DomoButton}">
                     <Button.Content>
                         <Grid>
                             <Grid.ColumnDefinitions>

@@ -282,6 +282,14 @@
           <source>Edit directive</source>
           <target state="new">Edit directive</target>
         </trans-unit>
+        <trans-unit id="LoginPassword.PlaceholderText" translate="yes" xml:space="preserve">
+          <source>Password</source>
+          <target state="new">Password</target>
+        </trans-unit>
+        <trans-unit id="LoginUsername.PlaceholderText" translate="yes" xml:space="preserve">
+          <source>Username</source>
+          <target state="new">Username</target>
+        </trans-unit>
       </group>
     </body>
   </file>

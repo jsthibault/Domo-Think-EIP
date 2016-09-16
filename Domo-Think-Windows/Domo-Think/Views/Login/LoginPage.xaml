@@ -8,7 +8,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{StaticResource DPrimaryColor}">
+    Background="{StaticResource LoginBackgroundColor}">
 
     <!-- Page data context -->
     <Page.DataContext>
@@ -27,7 +27,7 @@
             <VisualStateGroup x:Name="WindowsPlatforme">
                 <VisualState x:Name="WindowsMobile">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="400"></AdaptiveTrigger>
+                        <AdaptiveTrigger MinWindowWidth="350"></AdaptiveTrigger>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="MAIN_GRID.Width" Value="Auto" />
@@ -38,7 +38,7 @@
                         <AdaptiveTrigger MinWindowWidth="500"></AdaptiveTrigger>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="MAIN_GRID.Width" Value="400" />
+                        <Setter Target="MAIN_GRID.Width" Value="350" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="WindowsDesktop2">
@@ -46,7 +46,7 @@
                         <AdaptiveTrigger MinWindowWidth="900"></AdaptiveTrigger>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="MAIN_GRID.Width" Value="400" />
+                        <Setter Target="MAIN_GRID.Width" Value="350" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -59,24 +59,28 @@
         </Grid.RowDefinitions>
 
         <!-- Login panel -->
-        <StackPanel Grid.Row="0">
+        <StackPanel Grid.Row="0" Margin="0,70,0,0">
             <!-- Logo -->
-            <Image Source="../../Assets/dmlogo.png" Width="300" />
+            <Image Source="../../Assets/DomoThink.png" Width="300" />
             
             <!-- Username -->
-            <StackPanel x:Name="USERNAME_PANEL" Margin="0,0,0,8">
-                <TextBlock x:Uid="Username" Text="[Username]" />
-                <TextBox Text="{Binding LoginInformations.Id}" IsEnabled="{Binding FieldsEnabled}" />
+            <StackPanel x:Name="USERNAME_PANEL" Margin="0,32,0,0">
+                <!--<TextBlock x:Uid="Username" Text="[Username]" />-->
+                <TextBox x:Uid="LoginUsername" Text="{Binding LoginInformations.Id, Mode=TwoWay}" IsEnabled="{Binding FieldsEnabled}" 
+                         BorderThickness="0.5,0.5,0.5,0" PlaceholderText="Email address"
+                         VerticalContentAlignment="Center" Height="40" Style="{StaticResource VAlignTextBox}" />
             </StackPanel>
 
             <!-- Password -->
-            <StackPanel x:Name="PASSWORD_PANEL" Margin="0,0,0,8">
-                <TextBlock x:Uid="Password" Text="[Password]" />
-                <PasswordBox Password="{Binding LoginInformations.Password}" IsEnabled="{Binding FieldsEnabled}" />
+            <StackPanel x:Name="PASSWORD_PANEL" >
+                <!--<TextBlock x:Uid="Password" Text="[Password]" />-->
+                <PasswordBox x:Uid="LoginPassword" Password="{Binding LoginInformations.Password, Mode=TwoWay}" IsEnabled="{Binding FieldsEnabled}"
+                             BorderThickness="0.5" PlaceholderText="Password"
+                             VerticalContentAlignment="Center" Height="40" Style="{StaticResource VAlignPasswordBox}" />
             </StackPanel>
 
             <!-- Save informations -->
-            <CheckBox x:Uid="SaveInformations" Content="[SaveInformations]" Margin="0,0,0,8" />
+            <CheckBox x:Uid="SaveInformations" Content="[SaveInformations]" Margin="0,16,0,8" Foreground="Gray" />
 
             <!-- Connect and Register button -->
             <Grid Margin="0,0,0,8">
@@ -89,6 +93,7 @@
 
                 <Button x:Uid="LoginButton" 
                         Grid.Column="0"
+                        Style="{StaticResource DomoButton}"
                         IsEnabled="{Binding FieldsEnabled}"
                         Command="{Binding LoginCommand}"
                         Content="[LoginButton]"
@@ -98,6 +103,7 @@
                 <ProgressRing Grid.Column="1" IsActive="{Binding LogingIn}" Margin="8" />
                 <Button x:Uid="RegisterButton" 
                         Grid.Column="2" 
+                        Style="{StaticResource DomoButton}"
                         IsEnabled="{Binding FieldsEnabled}"
                         Content="[RegisterButton]"
                         Command="{Binding RegisterCommand}"
@@ -109,6 +115,7 @@
             <!-- Message -->
             <StackPanel VerticalAlignment="Stretch">
                 <TextBlock TextWrapping="Wrap" 
+                           Foreground="Red"
                            Text="{Binding ErrorText}" 
                            Visibility="{Binding ErrorFieldEnabled, Converter={StaticResource visibilityConverter}}" />
             </StackPanel>
@@ -116,11 +123,13 @@
         </StackPanel>
 
         <!-- Forgot password panel -->
-        <StackPanel Grid.Row="1" Margin="12" >
+        <StackPanel Grid.Row="1" Margin="12" Orientation="Horizontal" HorizontalAlignment="Center">
             <HyperlinkButton x:Uid="ForgotPassword" 
                              Content="[ForgotPassword]" 
-                             HorizontalAlignment="Center"
+                             HorizontalAlignment="Center" Foreground="Gray"
                              Command="{Binding ForgotPasswordCommand}" />
+            <TextBlock Text="|" VerticalAlignment="Center" Margin="8"  Foreground="Gray"/>
+            <TextBlock Text="© 2016 DomoThink" VerticalAlignment="Center" Foreground="Gray" />
         </StackPanel>
     </Grid>
 </Page>

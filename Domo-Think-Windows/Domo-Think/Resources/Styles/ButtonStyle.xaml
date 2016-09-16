@@ -1,0 +1,11 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DomoThink.Resources.Styles">
+
+    <Style x:Key="DomoButton" TargetType="Button">
+        <Setter Property="Background" Value="#03A9F4" />
+        <Setter Property="BorderThickness" Value="0" />
+    </Style>
+    
+</ResourceDictionary>

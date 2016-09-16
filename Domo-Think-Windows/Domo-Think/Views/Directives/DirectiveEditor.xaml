@@ -37,9 +37,9 @@
                     <TextBlock Text="Time" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
                     <DatePicker />
                 </StackPanel>
-                
-                <Button x:Uid="AddDirective" Content="[Add directive]" Margin="0,8,8,0" Command="{Binding AddDirectiveCommand}" Visibility="{Binding Mode, Converter={StaticResource editorModeConv}, ConverterParameter='Create'}" />
-                <Button x:Uid="EditDirective" Content="[Edit directive]" Margin="0,8,8,0" Command="{Binding EditDirectiveCommand}" Visibility="{Binding Mode, Converter={StaticResource editorModeConv}, ConverterParameter='Edit'}" />
+
+                <Button x:Uid="AddDirective" Content="[Add directive]" Margin="0,8,8,0" Command="{Binding AddDirectiveCommand}" Visibility="{Binding Mode, Converter={StaticResource editorModeConv}, ConverterParameter='Create'}" Style="{StaticResource DomoButton}" />
+                <Button x:Uid="EditDirective" Content="[Edit directive]" Margin="0,8,8,0" Command="{Binding EditDirectiveCommand}" Visibility="{Binding Mode, Converter={StaticResource editorModeConv}, ConverterParameter='Edit'}" Style="{StaticResource DomoButton}" />
 
             </StackPanel>
         </StackPanel>

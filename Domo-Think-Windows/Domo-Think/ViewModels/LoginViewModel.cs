@@ -138,6 +138,7 @@ namespace DomoThink.ViewModels
             new MainViewModel().Push();
             Window.Current.Activate();
             frame.BackStack.Clear();
+            App.ShowTitleBar();
         }
 
         /// <summary>

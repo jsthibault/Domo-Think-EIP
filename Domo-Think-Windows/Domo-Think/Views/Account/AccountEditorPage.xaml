@@ -69,8 +69,8 @@
                 <TextBlock Text="Box key" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
                 <TextBox x:Name="BOX_KEY" />
 
-                <Button x:Uid="AddAccount" Content="[Add Account]" Margin="0,12,8,8" Command="{Binding CreateEditCommand}" Visibility="{Binding Mode, Converter={StaticResource accountModeConv}, ConverterParameter='Create'}"  />
-                <Button x:Uid="EditAccount" Content="[Edit Account]" Margin="0,12,8,8" Command="{Binding CreateEditCommand}" Visibility="{Binding Mode, Converter={StaticResource accountModeConv}, ConverterParameter='Edit'}"  />
+                <Button x:Uid="AddAccount" Content="[Add Account]" Margin="0,12,8,8" Command="{Binding CreateEditCommand}" Visibility="{Binding Mode, Converter={StaticResource accountModeConv}, ConverterParameter='Create'}" Style="{StaticResource DomoButton}" />
+                <Button x:Uid="EditAccount" Content="[Edit Account]" Margin="0,12,8,8" Command="{Binding CreateEditCommand}" Visibility="{Binding Mode, Converter={StaticResource accountModeConv}, ConverterParameter='Edit'}" Style="{StaticResource DomoButton}" />
 
                 <TextBlock Foreground="Red" Text="{Binding ErrorMessage}" Visibility="{Binding ErrorVisibility, Converter={StaticResource visibilityConverter}}" />
 

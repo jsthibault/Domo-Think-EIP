@@ -48,8 +48,8 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="1" Margin="0,8,16,8" Orientation="Horizontal">
-                            <Button x:Uid="EditButton" Margin="4" Width="100" Content="!Edit" Command="{Binding EditCommand}" CommandParameter="{Binding}" />
-                            <Button x:Uid="DeleteButton" Margin="4" Width="100" Content="!Delete" Command="{Binding DeleteCommand}" CommandParameter="{Binding}" />
+                            <Button x:Uid="EditButton" Margin="4" Width="100" Content="!Edit" Command="{Binding EditCommand}" CommandParameter="{Binding}" Style="{StaticResource DomoButton}" />
+                            <Button x:Uid="DeleteButton" Margin="4" Width="100" Content="!Delete" Command="{Binding DeleteCommand}" CommandParameter="{Binding}" Style="{StaticResource DomoButton}" />
                         </StackPanel>
                     </Grid>
                 </Grid>
@@ -73,7 +73,7 @@
             </StackPanel>
 
             <!-- Add button -->
-            <Button Grid.Column="1" Margin="4" Command="{Binding AddObjectCommand}" CommandParameter="{Binding}">
+            <Button Grid.Column="1" Margin="4" Command="{Binding AddObjectCommand}" CommandParameter="{Binding}" Style="{StaticResource DomoButton}">
                 <Button.Content>
                     <SymbolIcon Symbol="Add" />
                 </Button.Content>
@@ -117,8 +117,8 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="1" Margin="0,8,16,8" Orientation="Horizontal">
-                            <Button x:Uid="EditButton" Margin="4" Width="100" Content="!Edit" Command="{Binding EditCommand}" CommandParameter="{Binding}" />
-                            <Button x:Uid="DeleteButton" Margin="4" Width="100" Content="!Delete" Command="{Binding DeleteCommand}" CommandParameter="{Binding}" />
+                            <Button x:Uid="EditButton" Margin="4" Width="100" Content="!Edit" Command="{Binding EditCommand}" CommandParameter="{Binding}" Style="{StaticResource DomoButton}" />
+                            <Button x:Uid="DeleteButton" Margin="4" Width="100" Content="!Delete" Command="{Binding DeleteCommand}" CommandParameter="{Binding}" Style="{StaticResource DomoButton}" />
                         </StackPanel>
                     </Grid>
                 </Grid>
@@ -164,7 +164,7 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="1" Margin="0,8,16,8" Orientation="Horizontal">
-                            <Button x:Uid="UninstallButton" Margin="4" Width="100" Content="!Uninstall" />
+                            <Button x:Uid="UninstallButton" Margin="4" Width="100" Content="!Uninstall" Style="{StaticResource DomoButton}" />
                         </StackPanel>
                     </Grid>
                 </Grid>
@@ -208,9 +208,9 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="1" Margin="0,8,16,8" Orientation="Horizontal">
                             <Button x:Uid="EditButton" Margin="4" Width="100" Content="!Edit"
-                                    Command="{Binding EditCommand}" CommandParameter="{Binding}"/>
+                                    Command="{Binding EditCommand}" CommandParameter="{Binding}" Style="{StaticResource DomoButton}"/>
                             <Button x:Uid="DeleteButton" Margin="4" Width="100" Content="!Delete"
-                                    Command="{Binding DeleteCommand}" CommandParameter="{Binding}"/>
+                                    Command="{Binding DeleteCommand}" CommandParameter="{Binding}" Style="{StaticResource DomoButton}"/>
                         </StackPanel>
                     </Grid>
                 </Grid>
