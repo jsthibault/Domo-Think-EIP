@@ -49,6 +49,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin">
 
@@ -57,6 +58,25 @@
             android:layout_height="wrap_content"
             android:text="@string/change_password"
             android:id="@+id/change_password_button"
+            android:background="@color/domoBlue"
+            android:layout_above="@+id/forgotten_password_button"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/delete_account"
+            android:id="@+id/delete_account_button"
             android:background="@color/domoBlue"
             android:layout_above="@+id/forgotten_password_button"
             android:textColor="@color/white"

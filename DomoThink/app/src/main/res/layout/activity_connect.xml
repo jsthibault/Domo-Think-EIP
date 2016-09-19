@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/connectLogo"
-        android:src="@drawable/logo"/>
+        android:src="@drawable/logo_new"/>
 
     <EditText
         android:layout_width="fill_parent"
@@ -48,7 +48,8 @@
         android:layout_below="@+id/password"
         android:layout_centerHorizontal="true"
         android:hint="@string/domobox_identifier"
-        android:textColor="@color/grey"/>
+        android:textColor="@color/grey"
+        android:visibility="invisible"/>
 
     <Button
         android:layout_width="fill_parent"

@@ -2,6 +2,7 @@ package com.example.guillaumemunsch.domothink.fragments;
 
 
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.guillaumemunsch.domothink.R;
 import com.example.guillaumemunsch.domothink.activities.CreateUpdateDirectiveActivity;
@@ -39,6 +41,7 @@ public class DirectivesFragment extends Fragment {
     FloatingActionButton add = null;
     List<Directive> directives = null;
     ListView mList = null;
+    Context context = null;
     int pos;
 
     public DirectivesFragment(){}
@@ -48,6 +51,8 @@ public class DirectivesFragment extends Fragment {
     }
 
     public void loadContent() {
+        if (directives.size() == 0)
+            Toast.makeText(context, R.string.no_directive_found, Toast.LENGTH_LONG).show();
         final EditAdapter adapter = new EditAdapter(this.getActivity(),
                 (List<String>)(Object)Utils.transform(directives, "name"));
         mList.setAdapter(adapter);
@@ -61,15 +66,16 @@ public class DirectivesFragment extends Fragment {
 
                     @Override
                     public void onDismiss(ListView listView, int[] reverseSortedPositions) {
-                        Utils.confirm(getActivity(), getResources().getString(R.string.deleting_directive), getResources().getString(R.string.do_you_really_directive));
                         for (int position : reverseSortedPositions) {
                             pos = position;
-                            RestAPI.delete("/directive/" + directives.get(position).getId(), null, new JsonHttpResponseHandler() {
+                            RestAPI.deleteApiTest("/directive/" + directives.get(position).getId(), null, new JsonHttpResponseHandler() {
                                 @Override
                                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                                     Log.d("Success:", "Deleting directive");
                                     adapter.remove(pos);
                                     adapter.notifyDataSetChanged();
+                                    if (adapter.getCount() == 0)
+                                        Toast.makeText(context, R.string.no_device_found, Toast.LENGTH_LONG).show();
                                 }
 
                                 @Override
@@ -86,6 +92,7 @@ public class DirectivesFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Intent intent = new Intent(getActivity(), CreateUpdateDirectiveActivity.class);
+                Log.d("POSITION", position + "");
                 intent.putExtra("editedDirective", directives.get(position));
                 startActivity(intent);
             }
@@ -95,10 +102,10 @@ public class DirectivesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        context = getActivity();
         View rootView = inflater.inflate(R.layout.fragment_directives, container, false);
 
-        RestAPI.get("/directive", null, new JsonHttpResponseHandler() {
+        RestAPI.getApiTest("/directive", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 try {
@@ -112,6 +119,7 @@ public class DirectivesFragment extends Fragment {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                Toast.makeText(context, R.string.request_failed, Toast.LENGTH_LONG).show();
                 Log.d("Directive Fragment: ", "Unable to get directives.");
             }
         });
@@ -126,5 +134,28 @@ public class DirectivesFragment extends Fragment {
         });
 
         return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        RestAPI.getApiTest("/directive", null, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                try {
+                    directives = new Gson().fromJson(response.toString(), new TypeToken<List<Directive>>() {
+                    }.getType());
+                    loadContent();
+                } catch (Throwable ex) {
+                    Log.d("Directive Fragment", "Unable to find directives.");
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                Toast.makeText(context, R.string.request_failed, Toast.LENGTH_LONG).show();
+                Log.d("Directive Fragment: ", "Unable to get directives.");
+            }
+        });
     }
 }

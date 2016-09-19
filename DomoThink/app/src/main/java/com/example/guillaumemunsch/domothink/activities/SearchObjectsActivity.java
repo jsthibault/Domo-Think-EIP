@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.guillaumemunsch.domothink.R;
 import com.example.guillaumemunsch.domothink.adapter.CheckboxListAdapter;
@@ -28,6 +29,7 @@ import org.json.JSONObject;
 import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.entity.StringEntity;
 
 /**
  * Created by guillaumemunsch on 03/12/15.
@@ -42,26 +44,38 @@ public class SearchObjectsActivity extends AppCompatActivity {
     {
         setContentView(R.layout.found_objects_activity);
         list = (ListView)findViewById(R.id.listFoundObjects);
-
         final ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, Utils.transform(foundDevices, "name"));
         list.setAdapter(adapter);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                Utils.confirm(context, getResources().getString(R.string.add_device), getResources().getString(R.string.do_you_really_add_device));
                 RequestParams params = new RequestParams();
-                params.put("device", foundDevices.get(position));
-                RestAPI.post("device", params, new JsonHttpResponseHandler() {
+                JSONObject param = new JSONObject();
+                StringEntity stringEntity = null;
+                try {
+                    param.put("id", foundDevices.get(position).getId());
+                    param.put("name", foundDevices.get(position).getName());
+                    param.put("description", foundDevices.get(position).getDescription());
+                    param.put("state", foundDevices.get(position).isActivate());
+                    stringEntity = new StringEntity(param.toString());
+                }
+                catch (Throwable ex)
+                {
+                    Log.d("OK", "OK");
+                }
+                RestAPI.postApiTest(SearchObjectsActivity.this, "device", stringEntity, new JsonHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                        Log.d("SearchObjects: ", "Added object @ pos" + position);
                         adapter.remove(adapter.getItem(position));
                         adapter.notifyDataSetChanged();
+                        Toast.makeText(SearchObjectsActivity.this, R.string.add_device, Toast.LENGTH_LONG).show();
+                        finish();
                     }
 
                     @Override
-                    public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                        Log.d("SearchObjects: ", "Unable to add object.");
+                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                        Toast.makeText(SearchObjectsActivity.this, R.string.unable_create_account, Toast.LENGTH_LONG).show();
+                        finish();
                     }
                 });
             }
@@ -76,8 +90,7 @@ public class SearchObjectsActivity extends AppCompatActivity {
         context = SearchObjectsActivity.this;
 
         text = (TextView)findViewById(R.id.searchObjectId);
-
-        RestAPI.get("device/search", null, new JsonHttpResponseHandler() {
+        RestAPI.getApiTest("installDevice", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 foundDevices = new Gson().fromJson(response.toString(), new TypeToken<List<Device>>() {
@@ -87,7 +100,7 @@ public class SearchObjectsActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                Log.d("SearchObjects:", "Unable to detect objects.");
+                Log.d("Fail:", "Unable to detect objects.");
             }
         });
     }

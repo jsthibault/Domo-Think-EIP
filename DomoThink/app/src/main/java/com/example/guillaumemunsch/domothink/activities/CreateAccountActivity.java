@@ -42,10 +42,10 @@ public class CreateAccountActivity extends AppCompatActivity {
                 JSONObject param = new JSONObject();
                 StringEntity stringEntity = null;
                 try {
-                    param.put("login", userInput.getText().toString());
+                    param.put("username", userInput.getText().toString());
                     param.put("password", passwordInput.getText().toString());
-                    param.put("confirm", confirmInput.getText().toString());
-                    param.put("box_key", confirmInput.getText().toString());
+                    param.put("confirmPassword", confirmInput.getText().toString());
+                    param.put("boxKey", boxKeyInput.getText().toString());
                     stringEntity = new StringEntity(param.toString());
                 }
                 catch (Throwable ex)
@@ -60,8 +60,10 @@ public class CreateAccountActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                        Log.d("Create Account: ", "" + statusCode);
+                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                        Toast.makeText(CreateAccountActivity.this, R.string.unable_create_account, Toast.LENGTH_LONG).show();
+                        Log.d("Create account: ", "" + statusCode);
+                        finish();
                     }
                 });
             }

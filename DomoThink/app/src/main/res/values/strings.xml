@@ -62,4 +62,17 @@
     <string name="unable_save_name">Unable to save the name</string>
     <string name="add_device">Adding device</string>
     <string name="do_you_really_add_device">Do you really want to add this device ?</string>
+    <string name="unable_create_account">Unable to create account</string>
+    <string name="unable_connect">Unable to connect. Identifiers may be wrong.</string>
+    <string name="unable_change_password">Unable to change password</string>
+    <string name="plugin_detail">Plugin detail</string>
+    <string name="delete_account">Delete account</string>
+    <string name="do_you_really_delete_account">Do you really want to delete your account ?</string>
+    <string name="no_directive_found">No directive found</string>
+    <string name="no_device_found">No device found</string>
+    <string name="request_failed">Request failed</string>
+    <string name="directive_name_empty">Directive name is empty</string>
+    <string name="new_confirm_password_differ">New and confirm password aren\'t the same</string>
+    <string name="old_new_password_differ">Old and new password are the same</string>
+    <string name="already_current_password">This is already your current password</string>
 </resources>

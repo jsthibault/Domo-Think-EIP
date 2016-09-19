@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.guillaumemunsch.domothink.R;
 import com.example.guillaumemunsch.domothink.activities.InfosObject;
@@ -42,7 +43,7 @@ public class ObjectsFragment extends Fragment {
     boolean listLoaded = false;
     FloatingActionButton search = null;
     ListView list = null;
-    List<Device> devices;
+    List<Device> devices = null;
     int pos;
 
     public ObjectsFragment(){}
@@ -53,6 +54,8 @@ public class ObjectsFragment extends Fragment {
     }
 
     public void loadContent(){
+        if (devices.size() == 0)
+            Toast.makeText(context, R.string.no_directive_found, Toast.LENGTH_LONG).show();
         List<String> names = Utils.transform(devices, "name");
         list = (ListView)rootView.findViewById(R.id.listView);
         final SwitchListAdapter adapter = new SwitchListAdapter(this.getActivity(),
@@ -69,15 +72,16 @@ public class ObjectsFragment extends Fragment {
 
                     @Override
                     public void onDismiss(ListView listView, int[] reverseSortedPositions) {
-                        Utils.confirm(context, getResources().getString(R.string.deleting_object), getResources().getString(R.string.do_you_really_object));
                         for (int position : reverseSortedPositions) {
                             pos = position;
-                            RestAPI.delete("/device/" + devices.get(position).getId(), null, new JsonHttpResponseHandler() {
+                            RestAPI.deleteApiTest("/device/" + devices.get(position).getId(), null, new JsonHttpResponseHandler() {
                                 @Override
                                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                                     Log.d("Success:", "Deleting device");
                                     adapter.remove(pos);
                                     adapter.notifyDataSetChanged();
+                                    if (adapter.getCount() == 0)
+                                        Toast.makeText(context, R.string.no_directive_found, Toast.LENGTH_LONG).show();
                                 }
 
                                 @Override
@@ -104,19 +108,28 @@ public class ObjectsFragment extends Fragment {
                              Bundle savedInstanceState) {
         context = this.getActivity();
         rootView = inflater.inflate(R.layout.fragment_objects, container, false);
-        RestAPI.get("/device", null, new JsonHttpResponseHandler(){
+        RestAPI.getApiTest("device", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 try {
-                    devices = new Gson().fromJson(response.toString(), new TypeToken<List<Device>>(){}.getType());
+                    devices = new Gson().fromJson(response.toString(), new TypeToken<List<Device>>() {
+                    }.getType());
                     loadContent();
-                }
-                catch (Throwable ex){
+                } catch (Throwable ex) {
                     Log.d("Devices Fragment", "Unable to find devices.");
                 }
             }
-        });
 
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Log.d("Fail", errorResponse.toString());
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                Log.d("Error", responseString);
+            }
+        });
         search = (FloatingActionButton)rootView.findViewById(R.id.searchObjectsButton);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,5 +138,39 @@ public class ObjectsFragment extends Fragment {
             }
         });
         return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        RestAPI.getApiTest("device", null, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                try {
+                    devices = new Gson().fromJson(response.toString(), new TypeToken<List<Device>>() {
+                    }.getType());
+                    loadContent();
+                } catch (Throwable ex) {
+                    Log.d("Devices Fragment", "Unable to find devices.");
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Log.d("Fail", errorResponse.toString());
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                Log.d("Error", responseString);
+            }
+        });
+        search = (FloatingActionButton)rootView.findViewById(R.id.searchObjectsButton);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), SearchObjectsActivity.class));
+            }
+        });
     }
 }

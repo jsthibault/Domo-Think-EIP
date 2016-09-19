@@ -3,6 +3,8 @@ package com.example.guillaumemunsch.domothink.utils;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.example.guillaumemunsch.domothink.R;
@@ -59,5 +61,33 @@ public class Utils {
         // show it
         alertDialog.show();
         return confirmation;
+    }
+
+    public static boolean storeToken(Context c, String token) {
+        SharedPreferences settings = PreferenceManager
+                .getDefaultSharedPreferences(c);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString("token", token);
+        editor.commit();
+        return true;
+    }
+
+    public static String getToken(Context c) {
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(c);
+        return (settings.getString("token", ""));
+    }
+
+    public static boolean storeInfo(Context c, String info, String token) {
+        SharedPreferences settings = PreferenceManager
+                .getDefaultSharedPreferences(c);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString(info, token);
+        editor.commit();
+        return true;
+    }
+
+    public static String getInfo(Context c, String info) {
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(c);
+        return (settings.getString(info, ""));
     }
 }

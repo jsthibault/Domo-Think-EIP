@@ -2,20 +2,15 @@ package com.example.guillaumemunsch.domothink.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.guillaumemunsch.domothink.R;
-import com.example.guillaumemunsch.domothink.activities.ConnectedObjectsActivity;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**

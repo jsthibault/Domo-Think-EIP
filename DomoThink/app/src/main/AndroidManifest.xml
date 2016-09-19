@@ -33,47 +33,35 @@
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
-        <activity android:name=".activities.ConnectedObjectsActivity"
-            android:label="Objets connectés">
-        </activity>
         <activity android:name=".activities.SearchObjectsActivity"
-            android:label="Recherche">
-        </activity>
-        <activity android:name=".activities.DirectivesActivity"
-            android:label="Directives">
-        </activity>
-        <activity android:name=".activities.MyPluginsActivity"
-            android:label="DomoBox">
+            android:label="@string/research">
         </activity>
         <activity android:name=".activities.StoreActivity"
-            android:label="Store">
+            android:label="@string/store">
         </activity>
         <activity android:name=".activities.UpdateActivity"
-            android:label="Mises à jour">
-        </activity>
-        <activity android:name=".activities.SettingsActivity"
-            android:label="Paramètres">
+            android:label="@string/updates">
         </activity>
         <activity android:name=".activities.CreateUpdateDirectiveActivity"
-            android:label="Edition d'une directive">
+            android:label="@string/directive_edition">
         </activity>
         <activity android:name=".activities.PluginDetailActivity"
-            android:label="Détail d'un plugin">
+            android:label="@string/plugin_detail">
         </activity>
         <activity android:name=".activities.TabsActivity"
-            android:label="Store">
+            android:label="@string/store">
         </activity>
         <activity android:name=".activities.InfosObject"
-            android:label="Store">
+            android:label="@string/store">
         </activity>
         <activity android:name=".activities.ChangePasswordActivity"
-            android:label="Change Password">
+            android:label="@string/change_password">
         </activity>
         <activity android:name=".activities.ForgottenPasswordActivity"
-            android:label="Forgotten Password">
+            android:label="@string/forgotten_password">
         </activity>
         <activity android:name=".activities.CreateAccountActivity"
-            android:label="Creating Account">
+            android:label="@string/create_account">
         </activity>
     </application>
 </manifest>

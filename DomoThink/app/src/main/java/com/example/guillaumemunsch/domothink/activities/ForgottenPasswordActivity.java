@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.guillaumemunsch.domothink.R;
@@ -16,6 +17,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.entity.StringEntity;
 
 /**
  * Created by guillaumemunsch on 01/06/16.
@@ -23,33 +25,44 @@ import cz.msebera.android.httpclient.Header;
 
 public class ForgottenPasswordActivity extends AppCompatActivity {
     Button btn = null;
+    EditText userInput, boxKeyInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.forgotten_password_activity);
+        userInput = (EditText)findViewById(R.id.login);
+        boxKeyInput = (EditText)findViewById(R.id.box_key);
         btn = (Button)findViewById(R.id.button);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Request
-                if (true) {
-                    RestAPI.post("user/forgotten_password", null, new JsonHttpResponseHandler(){
-                        @Override
-                        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                            Toast.makeText(ForgottenPasswordActivity.this, "An email has been sent", Toast.LENGTH_LONG).show();
-                            finish();
-                        }
+                JSONObject param = new JSONObject();
+                StringEntity stringEntity = null;
+                try {
+                    param.put("email", userInput.getText().toString());
+//                    param.put("boxKey", boxKeyInput.getText().toString());
+                    stringEntity = new StringEntity(param.toString());
+                }
+                catch (Throwable ex)
+                {
+                    Log.d("OK", "OK");
+                }
+                RestAPI.post(ForgottenPasswordActivity.this, "user/forgotten_password", stringEntity, new JsonHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                        Toast.makeText(ForgottenPasswordActivity.this, R.string.email_sent, Toast.LENGTH_LONG).show();
+                        finish();
+                    }
 
-                        @Override
-                        public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                            Log.d("Forgotten password: ", "" + statusCode);
-                        }
-                    });
-                }
-                else {
-                    Toast.makeText(ForgottenPasswordActivity.this, R.string.account_not_found, Toast.LENGTH_LONG).show();
-                }
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                        Toast.makeText(ForgottenPasswordActivity.this, R.string.account_not_found, Toast.LENGTH_LONG).show();
+                        Log.d("Forgotten password: ", "" + statusCode);
+                        finish();
+                    }
+                });
             }
         });
     }

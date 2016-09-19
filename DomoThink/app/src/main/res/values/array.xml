@@ -38,4 +38,13 @@
         <item>@drawable/icon_grid_update</item>
         <item>@drawable/icon_grid_settings</item>
     </string-array>
+    <string-array name="nav_drawer_title">
+        <item>@string/objects</item>
+        <item>@string/directives</item>
+        <item>@string/plugins</item>
+        <item>@string/store</item>
+        <item>@string/updates</item>
+        <item>@string/settings</item>
+        <item>@string/logout</item>
+    </string-array>
 </resources>

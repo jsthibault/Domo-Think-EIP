@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.guillaumemunsch.domothink.http.RestAPI;
+import com.example.guillaumemunsch.domothink.utils.*;
 import com.loopj.android.http.*;
 
 import com.example.guillaumemunsch.domothink.R;
@@ -31,24 +32,8 @@ public class ConnectActivity extends AppCompatActivity {
     Button forgottenPassword = null;
     Button createAccount = null;
     String token = null;
+    String id = null;
     EditText userInput, passwordInput;
-
-    public void setToken(String t) {
-        token = t;
-    }
-
-    public void tryConnection(){
-        try {
-            if (token.equals("Error"))
-                Toast.makeText(this, R.string.wrong_identifiers, Toast.LENGTH_LONG).show();
-            else
-                startActivity(new Intent(ConnectActivity.this, MainActivity.class));
-        }
-        catch (NullPointerException ex)
-        {
-            throw ex;
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,25 +52,34 @@ public class ConnectActivity extends AppCompatActivity {
                     param.put("login", userInput.getText().toString());
                     param.put("password", passwordInput.getText().toString());
                     stringEntity = new StringEntity(param.toString());
+
                 }
                 catch (Throwable ex)
                 {
-                    Log.d("OK", "OK");
+                    Log.d("Connection", ex.getMessage());
                 }
-                RestAPI.post(ConnectActivity.this, "user/connect", stringEntity, new JsonHttpResponseHandler() {
+                RestAPI.post(ConnectActivity.this, "user/auth", stringEntity, new JsonHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                         try {
+                            Log.d("Log", statusCode + "");
+                            Log.d("Log", response.toString());
                             token = response.getString("token");
+                            id = response.getString("userId");
+                            Utils.storeToken(context, token);
+                            Utils.storeInfo(context, "login", userInput.getText().toString());
+                            Utils.storeInfo(context, "userId", id);
+                            Utils.storeInfo(context, "password", passwordInput.getText().toString());
                             startActivity(new Intent(ConnectActivity.this, MainActivity.class));
                         } catch (Throwable ex) {
-                            Toast.makeText(ConnectActivity.this, R.string.wrong_identifiers, Toast.LENGTH_LONG).show();
+                            Toast.makeText(ConnectActivity.this, ex.getMessage(), Toast.LENGTH_LONG).show();
                         }
                     }
 
                     @Override
-                    public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                        Log.d("Connexion: ", "" + statusCode);
+                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                        Toast.makeText(ConnectActivity.this, R.string.unable_connect, Toast.LENGTH_LONG).show();
+                        Log.d("Connect: ", "" + statusCode);
                     }
                 });
             }

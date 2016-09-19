@@ -62,4 +62,17 @@
     <string name="unable_save_name">Impossible de sauvegarder le nom</string>
     <string name="add_device">Ajout d\'un objet</string>
     <string name="do_you_really_add_device">Voulez-vous vraiment ajouter cet objet ?</string>
+    <string name="unable_create_account">Impossible de créer un compte</string>
+    <string name="unable_connect">Impossible de se connecter. Les identifiants peuvent être faux.</string>
+    <string name="unable_change_password">Impossible de changer le mot de passe</string>
+    <string name="plugin_detail">Détail du plugin</string>
+    <string name="delete_account">Supprimer compte</string>
+    <string name="do_you_really_delete_account">Voulez vous vraiment supprimer votre compte ?</string>
+    <string name="no_directive_found">Aucune directive trouvée</string>
+    <string name="no_device_found">Aucun objet trouvé</string>
+    <string name="request_failed">Requête échouée</string>
+    <string name="directive_name_empty">Nom de la directive vide</string>
+    <string name="new_confirm_password_differ">Les champs du nouveau mot de passe different</string>
+    <string name="old_new_password_differ">L\'ancien et le nouveau mot de passe sont les mêmes</string>
+    <string name="already_current_password">Ceci est déjà votre mot de passe actuel</string>
 </resources>

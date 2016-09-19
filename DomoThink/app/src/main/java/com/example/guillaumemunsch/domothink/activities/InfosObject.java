@@ -3,6 +3,7 @@ package com.example.guillaumemunsch.domothink.activities;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +21,7 @@ import com.loopj.android.http.RequestParams;
 import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.entity.StringEntity;
 
 /**
  * Created by guillaumemunsch on 21/04/16.
@@ -42,18 +44,27 @@ public class InfosObject extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 device.setName(name.getText().toString());
-                RequestParams params = new RequestParams();
-                params.put("device", device);
-                RestAPI.put("/device/" + device.getId(), params, new JsonHttpResponseHandler(){
+                JSONObject param = new JSONObject();
+                StringEntity stringEntity = null;
+                try {
+                    param.put("name", device.getName());
+                    stringEntity = new StringEntity(param.toString());
+                }
+                catch (Throwable ex)
+                {
+                    Log.d("OK", "OK");
+                }
+                RestAPI.putApiTest(InfosObject.this, "device/" + device.getId(), stringEntity, new JsonHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                        Toast.makeText(context, R.string.updating_name, Toast.LENGTH_LONG).show();
+                        Toast.makeText(InfosObject.this, R.string.yes, Toast.LENGTH_LONG).show();
                         finish();
                     }
 
                     @Override
-                    public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                        Toast.makeText(context, R.string.unable_save_name, Toast.LENGTH_LONG).show();
+                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                        Toast.makeText(InfosObject.this, R.string.no, Toast.LENGTH_LONG).show();
+                        Log.d("Edit object: ", "" + statusCode);
                     }
                 });
             }
