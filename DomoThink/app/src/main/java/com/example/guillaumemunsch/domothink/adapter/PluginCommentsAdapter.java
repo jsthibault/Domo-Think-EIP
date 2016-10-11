@@ -67,12 +67,12 @@ public class PluginCommentsAdapter extends BaseAdapter {
         View rowView;
 
         rowView = inflater.inflate(R.layout.list_item_plugin_comments, null);
-        holder.i=(ImageView) rowView.findViewById(R.id.userIcon);
+//        holder.i=(ImageView) rowView.findViewById(R.id.userIcon);
         holder.n=(TextView) rowView.findViewById(R.id.userName);
         holder.c=(TextView) rowView.findViewById(R.id.userComment);
         holder.r=(RatingBar) rowView.findViewById(R.id.userRate);
 
-        holder.i.setImageResource(icons[position]);
+//        holder.i.setImageResource(icons[position]);
         holder.n.setText(names[position]);
         holder.c.setText(comments[position]);
         holder.r.setRating(rates[position]);

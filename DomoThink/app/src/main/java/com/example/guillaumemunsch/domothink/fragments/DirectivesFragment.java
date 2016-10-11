@@ -68,7 +68,7 @@ public class DirectivesFragment extends Fragment {
                     public void onDismiss(ListView listView, int[] reverseSortedPositions) {
                         for (int position : reverseSortedPositions) {
                             pos = position;
-                            RestAPI.deleteApiTest("/directive/" + directives.get(position).getId(), null, new JsonHttpResponseHandler() {
+                            RestAPI.deleteApiTest("/directives/" + directives.get(position).getId(), null, new JsonHttpResponseHandler() {
                                 @Override
                                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                                     Log.d("Success:", "Deleting directive");
@@ -105,7 +105,7 @@ public class DirectivesFragment extends Fragment {
         context = getActivity();
         View rootView = inflater.inflate(R.layout.fragment_directives, container, false);
 
-        RestAPI.getApiTest("/directive", null, new JsonHttpResponseHandler() {
+        RestAPI.getApiTest("/directives", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 try {
@@ -139,7 +139,7 @@ public class DirectivesFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        RestAPI.getApiTest("/directive", null, new JsonHttpResponseHandler() {
+        RestAPI.getApiTest("/directives", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 try {

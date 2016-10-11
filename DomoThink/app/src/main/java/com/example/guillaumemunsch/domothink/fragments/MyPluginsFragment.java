@@ -67,7 +67,7 @@ public class MyPluginsFragment extends Fragment {
                         Utils.confirm(context, getResources().getString(R.string.removing_plugin), getResources().getString(R.string.do_you_really_plugin));
                         for (final int position : reverseSortedPositions) {
                             adapter.remove(position);
-                            RestAPI.delete("/plugin/" + pluginList.get(position).getId(), null, new JsonHttpResponseHandler() {
+                            RestAPI.delete("/plugins/" + pluginList.get(position).getIdPlugin(), null, new JsonHttpResponseHandler() {
                                 @Override
                                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                                     Log.d("Success:", "removing plugin");
@@ -101,7 +101,7 @@ public class MyPluginsFragment extends Fragment {
         context = this.getActivity();
         rootView = inflater.inflate(R.layout.fragment_my_plugins, container, false);
 
-        RestAPI.get("/plugin", null, new JsonHttpResponseHandler() {
+        RestAPI.get("/plugins", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 try {

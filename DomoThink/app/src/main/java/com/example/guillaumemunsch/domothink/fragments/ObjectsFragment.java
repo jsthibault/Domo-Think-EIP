@@ -74,7 +74,7 @@ public class ObjectsFragment extends Fragment {
                     public void onDismiss(ListView listView, int[] reverseSortedPositions) {
                         for (int position : reverseSortedPositions) {
                             pos = position;
-                            RestAPI.deleteApiTest("/device/" + devices.get(position).getId(), null, new JsonHttpResponseHandler() {
+                            RestAPI.deleteApiTest("/devices/" + devices.get(position).getId(), null, new JsonHttpResponseHandler() {
                                 @Override
                                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                                     Log.d("Success:", "Deleting device");
@@ -97,6 +97,7 @@ public class ObjectsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getActivity(), InfosObject.class);
+                Log.d("WTF ?", "WTF ????");
                 intent.putExtra("device", devices.get(position));
                 startActivity(intent);
             }
@@ -108,7 +109,7 @@ public class ObjectsFragment extends Fragment {
                              Bundle savedInstanceState) {
         context = this.getActivity();
         rootView = inflater.inflate(R.layout.fragment_objects, container, false);
-        RestAPI.getApiTest("device", null, new JsonHttpResponseHandler() {
+        RestAPI.getApiTest("devices", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 try {
@@ -143,7 +144,7 @@ public class ObjectsFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        RestAPI.getApiTest("device", null, new JsonHttpResponseHandler() {
+        RestAPI.getApiTest("devices", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 try {

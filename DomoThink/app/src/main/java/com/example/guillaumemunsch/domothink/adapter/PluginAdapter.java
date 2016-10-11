@@ -73,9 +73,9 @@ public class PluginAdapter extends BaseAdapter {
         holder.n=(TextView) rowView.findViewById(R.id.pluginName);
         holder.d=(TextView) rowView.findViewById(R.id.pluginDescription);
         holder.r=(RatingBar) rowView.findViewById(R.id.pluginRate);
-        holder.i.setImageResource((mPlugins.get(position)).getIcon());
+//        holder.i.setImageResource((mPlugins.get(position)).getIcon());
         holder.n.setText((mPlugins.get(position)).getName());
-        holder.d.setText((mPlugins.get(position)).getDescription());
+//        holder.d.setText((mPlugins.get(position)).getDescription());
         holder.r.setRating((mPlugins.get(position)).getRate());
         rowView.setOnClickListener(new View.OnClickListener() {
             @Override

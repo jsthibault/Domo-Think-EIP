@@ -26,13 +26,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Plugin Name"
+                android:id="@+id/pluginName"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Plugin Name"
+                android:text="Plugin Desc"
+                android:id="@+id/pluginDescription"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <RatingBar

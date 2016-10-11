@@ -54,7 +54,7 @@ public class InfosObject extends AppCompatActivity {
                 {
                     Log.d("OK", "OK");
                 }
-                RestAPI.putApiTest(InfosObject.this, "device/" + device.getId(), stringEntity, new JsonHttpResponseHandler() {
+                RestAPI.putApiTest(InfosObject.this, "devices/" + device.getId(), stringEntity, new JsonHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                         Toast.makeText(InfosObject.this, R.string.yes, Toast.LENGTH_LONG).show();

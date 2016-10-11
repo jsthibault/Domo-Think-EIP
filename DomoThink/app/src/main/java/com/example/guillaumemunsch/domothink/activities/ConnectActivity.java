@@ -58,7 +58,7 @@ public class ConnectActivity extends AppCompatActivity {
                 {
                     Log.d("Connection", ex.getMessage());
                 }
-                RestAPI.post(ConnectActivity.this, "user/auth", stringEntity, new JsonHttpResponseHandler() {
+                RestAPI.post(ConnectActivity.this, /*"user/auth"*/ "/login", stringEntity, new JsonHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                         try {
@@ -70,6 +70,7 @@ public class ConnectActivity extends AppCompatActivity {
                             Utils.storeInfo(context, "login", userInput.getText().toString());
                             Utils.storeInfo(context, "userId", id);
                             Utils.storeInfo(context, "password", passwordInput.getText().toString());
+                            RestAPI.addHeader("login-token", token);
                             startActivity(new Intent(ConnectActivity.this, MainActivity.class));
                         } catch (Throwable ex) {
                             Toast.makeText(ConnectActivity.this, ex.getMessage(), Toast.LENGTH_LONG).show();
