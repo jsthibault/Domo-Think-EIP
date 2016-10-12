@@ -18,6 +18,8 @@ import com.example.guillaumemunsch.domothink.activities.PluginDetailActivity;
 /**
  * Created by guillaumemunsch on 04/12/15.
  */
+
+/*
 public class PluginCommentsAdapter extends BaseAdapter {
     int [] icons;
     String [] names;
@@ -80,3 +82,4 @@ public class PluginCommentsAdapter extends BaseAdapter {
         return rowView;
     }
 }
+*/

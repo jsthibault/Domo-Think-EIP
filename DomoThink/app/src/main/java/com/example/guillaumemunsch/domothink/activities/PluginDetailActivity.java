@@ -1,36 +1,56 @@
 package com.example.guillaumemunsch.domothink.activities;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
+import android.view.View;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.guillaumemunsch.domothink.R;
-import com.example.guillaumemunsch.domothink.adapter.PluginCommentsAdapter;
+import com.example.guillaumemunsch.domothink.adapter.StoreCommentsAdapter;
+import com.example.guillaumemunsch.domothink.http.RestAPI;
 import com.example.guillaumemunsch.domothink.models.Comment;
 import com.example.guillaumemunsch.domothink.models.Plugin;
+import com.example.guillaumemunsch.domothink.recycler.DividerItemDecoration;
+import com.example.guillaumemunsch.domothink.recycler.RecyclerItemClickListener;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.loopj.android.http.JsonHttpResponseHandler;
 
+import org.json.JSONArray;
+
+import java.util.ArrayList;
 import java.util.List;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * Created by guillaumemunsch on 04/12/15.
  */
 public class PluginDetailActivity extends AppCompatActivity {
-    ListView commentsList = null;
+    RecyclerView recyclerView = null;
     TextView pluginName = null;
     TextView pluginDesc = null;
     RatingBar pluginRate = null;
     Plugin plugin = null;
-    List<Comment> comments;
+    List<Comment> commentList = new ArrayList<>();
+    Context context;
+    private StoreCommentsAdapter mAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        context = this;
         setContentView(R.layout.plugin_detail_activity);
 
         if (getIntent().hasExtra("storePlugin"))
@@ -46,11 +66,50 @@ public class PluginDetailActivity extends AppCompatActivity {
         pluginName = (TextView)findViewById(R.id.pluginName);
         pluginName.setText(plugin.getName());
         pluginDesc = (TextView)findViewById(R.id.pluginDescription);
-        pluginDesc.setText(plugin.getRepository()); // ? A voir
+        pluginDesc.setText(plugin.getRepository());
         pluginRate = (RatingBar)findViewById(R.id.pluginRate);
         pluginRate.setRating(plugin.getRate());
-        commentsList = (ListView)findViewById(R.id.pluginCommentsList);
-        commentsList.setAdapter(new PluginCommentsAdapter(this, null, names, comments, rates));
+        recyclerView = (RecyclerView) findViewById(R.id.commentsRecyclerList);
+        recyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(context, recyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+                        Toast.makeText(context, "Click", Toast.LENGTH_LONG).show();
+
+                    }
+
+                    @Override public void onLongItemClick(View view, int position) {
+                        // do whatever
+                    }
+                })
+        );
+
+        mAdapter = new StoreCommentsAdapter(commentList);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+        recyclerView.setAdapter(mAdapter);
+
+        RestAPI.getApiTest("store/" + plugin.getIdPlugin() + "/comments", null, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                try {
+                    commentList.addAll((List<Comment>)(new Gson().fromJson(response.toString(), new TypeToken<List<Comment>>() {
+                    }.getType())));
+                    mAdapter.notifyDataSetChanged();
+                } catch (Throwable ex) {
+
+                    Log.d("Store Fragment", ex.getMessage());
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                Toast.makeText(context, R.string.request_failed, Toast.LENGTH_LONG).show();
+                Log.d("Store Fragment: ", "Unable to get store.");
+            }
+        });
+
     }
 
     @Override

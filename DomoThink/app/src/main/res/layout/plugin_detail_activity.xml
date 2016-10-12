@@ -23,14 +23,14 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Plugin Name"
                 android:id="@+id/pluginName"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Plugin Desc"
@@ -41,7 +41,7 @@
                 android:id="@+id/pluginRate"
                 style="?android:attr/ratingBarStyleSmall"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
                 android:isIndicator="true"
                 android:numStars="5"
@@ -55,12 +55,11 @@
         android:text="@string/install"
         android:textColor="@color/white"
         android:backgroundTint="@color/domoBlueLight"/>
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/commentsRecyclerList"
         android:layout_margin="8dp"
-        android:id="@+id/pluginCommentsList">
-
-    </ListView>
-
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical" />
 </LinearLayout>
