@@ -47,6 +47,7 @@ public class InfosObject extends AppCompatActivity {
                 JSONObject param = new JSONObject();
                 StringEntity stringEntity = null;
                 try {
+                    param.put("idDevice", device.getId());
                     param.put("name", device.getName());
                     stringEntity = new StringEntity(param.toString());
                 }
@@ -54,7 +55,7 @@ public class InfosObject extends AppCompatActivity {
                 {
                     Log.d("OK", "OK");
                 }
-                RestAPI.putApiTest(InfosObject.this, "devices/" + device.getId(), stringEntity, new JsonHttpResponseHandler() {
+                RestAPI.putApiTest(InfosObject.this, "devices", stringEntity, new JsonHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                         Toast.makeText(InfosObject.this, R.string.yes, Toast.LENGTH_LONG).show();

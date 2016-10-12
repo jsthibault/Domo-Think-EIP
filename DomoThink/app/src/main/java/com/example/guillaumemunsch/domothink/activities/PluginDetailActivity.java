@@ -3,6 +3,7 @@ package com.example.guillaumemunsch.domothink.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -45,6 +46,7 @@ public class PluginDetailActivity extends AppCompatActivity {
     List<Comment> commentList = new ArrayList<>();
     Context context;
     private StoreCommentsAdapter mAdapter;
+    FloatingActionButton addComment = null;
 
 
     @Override
@@ -52,6 +54,14 @@ public class PluginDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         context = this;
         setContentView(R.layout.plugin_detail_activity);
+
+        addComment = (FloatingActionButton)findViewById(R.id.addCommentButton);
+        addComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PluginDetailActivity.this, PostCommentActivity.class));
+            }
+        });
 
         if (getIntent().hasExtra("storePlugin"))
             plugin = (Plugin)getIntent().getSerializableExtra("storePlugin");

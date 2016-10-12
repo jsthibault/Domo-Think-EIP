@@ -36,7 +36,9 @@
                 android:layout_height="wrap_content"
                 android:text="Plugin description"
                 android:layout_alignParentLeft="true"
-                android:id="@+id/pluginDescription"/>
+                android:id="@+id/pluginDescription"
+                android:maxLines="1"
+                android:ellipsize="end"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -46,7 +48,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rate : "/>
+                    android:text="Rate : "
+                    android:id="@+id/pluginRateText"/>
 
                 <RatingBar
                     android:id="@+id/pluginRate"

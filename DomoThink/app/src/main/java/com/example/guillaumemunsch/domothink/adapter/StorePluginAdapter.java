@@ -1,6 +1,7 @@
 package com.example.guillaumemunsch.domothink.adapter;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +24,7 @@ public class StorePluginAdapter extends RecyclerView.Adapter<StorePluginAdapter.
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public ImageView icon;
-        public TextView name, description;
+        public TextView name, description, rateText;
         public RatingBar rate;
 
         public MyViewHolder(View view) {
@@ -31,6 +32,7 @@ public class StorePluginAdapter extends RecyclerView.Adapter<StorePluginAdapter.
             icon = (ImageView) view.findViewById(R.id.pluginIcon);
             name = (TextView) view.findViewById(R.id.pluginName);
             description = (TextView) view.findViewById(R.id.pluginDescription);
+            rateText = (TextView)view.findViewById(R.id.pluginRateText);
             rate = (RatingBar) view.findViewById(R.id.pluginRate);
         }
     }
@@ -52,8 +54,13 @@ public class StorePluginAdapter extends RecyclerView.Adapter<StorePluginAdapter.
         Plugin plugin = pluginList.get(position);
         //holder.icon.setImageIcon(plugin.getIcon());
         holder.name.setText(plugin.getName());
-        holder.description.setText(plugin.getDescription());
-        holder.rate.setRating(plugin.getRate());
+        holder.description.setText(plugin.getRepository());
+        if (plugin.getRate() == -1f) {
+            holder.rateText.setText("No rate");
+            holder.rate.setVisibility(View.INVISIBLE);
+        }
+        else
+            holder.rate.setRating(plugin.getRate());
     }
 
     @Override

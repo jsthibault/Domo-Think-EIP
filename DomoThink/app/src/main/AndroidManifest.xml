@@ -63,5 +63,9 @@
         <activity android:name=".activities.CreateAccountActivity"
             android:label="@string/create_account">
         </activity>
+        <activity android:name=".activities.PostCommentActivity"
+            android:label="Post comment">
+        </activity>
+        PostCommentActivity
     </application>
 </manifest>

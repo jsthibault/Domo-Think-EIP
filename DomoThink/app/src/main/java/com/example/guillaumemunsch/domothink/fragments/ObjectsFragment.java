@@ -97,7 +97,6 @@ public class ObjectsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getActivity(), InfosObject.class);
-                Log.d("WTF ?", "WTF ????");
                 intent.putExtra("device", devices.get(position));
                 startActivity(intent);
             }
