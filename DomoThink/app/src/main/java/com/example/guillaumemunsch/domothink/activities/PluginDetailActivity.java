@@ -36,13 +36,7 @@ public class PluginDetailActivity extends AppCompatActivity {
         if (getIntent().hasExtra("storePlugin"))
             plugin = (Plugin)getIntent().getSerializableExtra("storePlugin");
         else
-            Log.d("Error", "No plugin in extras ?! Oo");
-        if (plugin == null) {
-            Log.d("Error", "No plugin");
-        }
-        else {
-            Log.d("Success", "Plugin");
-        }
+            finish();
 
         int[] icons = new int[]{R.drawable.plugin_logo, R.drawable.plugin_logo, R.drawable.plugin_logo};
         String[] names = new String[]{"User 1", "User 2", "User 3"};
@@ -50,11 +44,11 @@ public class PluginDetailActivity extends AppCompatActivity {
         float[] rates = new float[]{5f, 2f, 3.5f};
 
         pluginName = (TextView)findViewById(R.id.pluginName);
-        //pluginName.setText(plugin.getName());
+        pluginName.setText(plugin.getName());
         pluginDesc = (TextView)findViewById(R.id.pluginDescription);
-        //pluginDesc.setText(plugin.getRepository()); // ? A voir
+        pluginDesc.setText(plugin.getRepository()); // ? A voir
         pluginRate = (RatingBar)findViewById(R.id.pluginRate);
-        //pluginRate.setRating(plugin.getRate());
+        pluginRate.setRating(plugin.getRate());
         commentsList = (ListView)findViewById(R.id.pluginCommentsList);
         commentsList.setAdapter(new PluginCommentsAdapter(this, null, names, comments, rates));
     }
