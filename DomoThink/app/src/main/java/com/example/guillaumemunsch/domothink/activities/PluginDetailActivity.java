@@ -15,11 +15,13 @@ import android.view.View;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Button;
 
 import com.example.guillaumemunsch.domothink.R;
 import com.example.guillaumemunsch.domothink.adapter.StoreCommentsAdapter;
 import com.example.guillaumemunsch.domothink.http.RestAPI;
 import com.example.guillaumemunsch.domothink.models.Comment;
+import com.example.guillaumemunsch.domothink.models.Device;
 import com.example.guillaumemunsch.domothink.models.Plugin;
 import com.example.guillaumemunsch.domothink.recycler.DividerItemDecoration;
 import com.example.guillaumemunsch.domothink.recycler.RecyclerItemClickListener;
@@ -28,11 +30,13 @@ import com.google.gson.reflect.TypeToken;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.entity.StringEntity;
 
 /**
  * Created by guillaumemunsch on 04/12/15.
@@ -42,9 +46,11 @@ public class PluginDetailActivity extends AppCompatActivity {
     TextView pluginName = null;
     TextView pluginDesc = null;
     RatingBar pluginRate = null;
+    TextView pluginRateText = null;
     Plugin plugin = null;
     List<Comment> commentList = new ArrayList<>();
     Context context;
+    Button pluginInstallButton = null;
     private StoreCommentsAdapter mAdapter;
     FloatingActionButton addComment = null;
 
@@ -79,6 +85,52 @@ public class PluginDetailActivity extends AppCompatActivity {
         pluginDesc.setText(plugin.getRepository());
         pluginRate = (RatingBar)findViewById(R.id.pluginRate);
         pluginRate.setRating(plugin.getRate());
+        pluginRateText = (TextView)findViewById(R.id.pluginRateText);
+        if (plugin.getRate() == -1f) {
+            pluginRateText.setText("No rate");
+            pluginRate.setVisibility(View.INVISIBLE);
+        }
+        else {
+            pluginRate.setRating(plugin.getRate());
+            pluginRateText.setVisibility(View.INVISIBLE);
+        }
+        pluginInstallButton = (Button)findViewById(R.id.pluginInstallButton);
+        pluginInstallButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                JSONObject param = new JSONObject();
+                StringEntity stringEntity = null;
+                try {
+                    param.put("idPlugin", plugin.getIdPlugin());
+                    param.put("name", plugin.getName());
+                    param.put("repository", plugin.getRepository());
+                    param.put("status", true);
+                    stringEntity = new StringEntity(param.toString());
+                }
+                catch (Throwable ex)
+                {
+                    Log.d("PluginDetailActivity", ex.getMessage());
+                }
+                RestAPI.post(PluginDetailActivity.this, "plugins/install", stringEntity, new JsonHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                        Log.d("Coucou", "Success");
+                        Toast.makeText(context, "Plugin installed", Toast.LENGTH_LONG).show();
+                        finish();
+                    }
+
+
+
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                        Log.d("Coucou", "Success");
+                        Toast.makeText(context, "Unable to install. Already installed ?", Toast.LENGTH_LONG).show();
+                        finish();
+                    }
+                });
+            }
+        });
+
         recyclerView = (RecyclerView) findViewById(R.id.commentsRecyclerList);
         recyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(context, recyclerView ,new RecyclerItemClickListener.OnItemClickListener() {

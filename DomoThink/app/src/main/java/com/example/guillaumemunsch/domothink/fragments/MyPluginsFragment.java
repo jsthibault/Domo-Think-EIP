@@ -52,7 +52,7 @@ public class MyPluginsFragment extends Fragment {
         list = (ListView)rootView.findViewById(R.id.myPluginsList);
         final SwitchListAdapter adapter = new SwitchListAdapter(this.getActivity(),
                 (List<String>)(Object)Utils.transform(pluginList, "name"),
-                (List<Boolean>)(Object)Utils.transform(pluginList, "activate"));
+                (List<Boolean>)(Object)Utils.transform(pluginList, "status"));
         list.setAdapter(adapter);
         list.setOnTouchListener(new SwipeDismissListViewTouchListener(
                 list,
@@ -101,10 +101,11 @@ public class MyPluginsFragment extends Fragment {
         context = this.getActivity();
         rootView = inflater.inflate(R.layout.fragment_my_plugins, container, false);
 
-        RestAPI.get("/plugins", null, new JsonHttpResponseHandler() {
+        RestAPI.get("plugins", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 try {
+                    Log.d("RESPONSE", response.toString());
                     pluginList = new Gson().fromJson(response.toString(), new TypeToken<List<Plugin>>() {
                     }.getType());
                     loadContent();

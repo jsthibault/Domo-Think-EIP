@@ -46,19 +46,35 @@
                     android:maxLines="2"
                     android:ellipsize="end"/>
 
-                <RatingBar
-                    android:id="@+id/pluginRate"
-                    style="?android:attr/ratingBarStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="8dp"
-                    android:isIndicator="true"
-                    android:numStars="5"
-                    android:rating="4.4"
-                    android:stepSize="0.1" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:minHeight="15dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rate : "
+                        android:id="@+id/pluginRateText"/>
+
+                    <RatingBar
+                        android:id="@+id/pluginRate"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="15dp"
+                        android:layout_marginTop="8dp"
+                        android:isIndicator="true"
+                        android:numStars="5"
+                        android:rating="4.4"
+                        android:stepSize="0.1" />
+
+                </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
         <Button
+            android:id="@+id/pluginInstallButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/install"
