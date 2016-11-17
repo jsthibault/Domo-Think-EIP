@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace DomoThink.API
 {
-    public class ObjectService : ApiService
+    public class DeviceService : ApiService
     {
         #region CONSTANTS
 
@@ -45,7 +45,7 @@ namespace DomoThink.API
 
         #region CONSTRUCTORS
 
-        public ObjectService(ApiClient api)
+        public DeviceService(ApiClient api)
             : base(api)
         { }
 
@@ -53,11 +53,11 @@ namespace DomoThink.API
 
         #region METHODS
 
-        public async Task<List<ObjectModel>> GetObjects()
+        public async Task<List<DeviceModel>> GetDevices()
         {
             try
             {
-                return await this.api.Get<List<ObjectModel>>("/api/" + ApiRoutes.GET_OBJECTS);
+                return await this.api.Get<List<DeviceModel>>(ApiRoutes.DEVICE_ROUTE);
             }
             catch
             {
@@ -69,11 +69,77 @@ namespace DomoThink.API
             }
         }
 
-        public async Task<List<ObjectModel>> GetNearObjects()
+        public async Task<DeviceModel> GetDeviceById(int id)
         {
             try
             {
-                return await this.api.Get<List<ObjectModel>>("/api/" + ApiRoutes.GET_NEAR_OBJECTS);
+                return await this.api.Get<DeviceModel>(ApiRoutes.DEVICE_ROUTE, new { id = id });
+            }
+            catch
+            {
+                NotificationHelper.ShowToastNotification(
+                    ResourceHelper.GetString("Error"),
+                    ResourceHelper.GetString("ApiError"));
+                return null;
+            }
+        }
+
+        public async Task<Boolean> AddDevice(DeviceModel obj)
+        {
+            try
+            {
+                await this.api.Post<DeviceModel, Object>(ApiRoutes.DEVICE_ROUTE, obj);
+            }
+            catch
+            {
+                NotificationHelper.ShowToastNotification(
+                    ResourceHelper.GetString("Error"),
+                    ResourceHelper.GetString("ApiError"));
+
+                return false;
+            }
+
+            return true;
+        }
+
+        public async Task<Boolean> UpdateDevice(DeviceModel model)
+        {
+            try
+            {
+                return await this.api.Put(ApiRoutes.DEVICE_ROUTE, model) != null;
+            }
+            catch
+            {
+                NotificationHelper.ShowToastNotification(
+                    ResourceHelper.GetString("Error"),
+                    ResourceHelper.GetString("ApiError"));
+
+                return false;
+            }
+        }
+
+        public async Task<Boolean> RemoveDevice(DeviceModel model)
+        {
+            try
+            {
+                return await this.api.Delete<DeviceModel>(ApiRoutes.DEVICE_ROUTE, model) != null;
+            }
+            catch
+            {
+                NotificationHelper.ShowToastNotification(
+                    ResourceHelper.GetString("Error"),
+                    ResourceHelper.GetString("ApiError"));
+
+                return false;
+            }
+        }
+
+        public async Task<List<DeviceModel>> GetNearObjects()
+        {
+            try
+            {
+                throw new NotImplementedException();
+                //return await this.api.Get<List<ObjectModel>>("/api/" + ApiRoutes.GET_NEAR_OBJECTS);
             }
             catch
             {
@@ -83,60 +149,6 @@ namespace DomoThink.API
 
                 return null;
             }
-        }
-
-        public async Task<Boolean> DeleteObject(ObjectModel obj)
-        {
-            try
-            {
-                await this.api.Delete<ObjectModel>("/api/device/{0}", obj.Id);
-            }
-            catch
-            {
-                NotificationHelper.ShowToastNotification(
-                    ResourceHelper.GetString("Error"),
-                    ResourceHelper.GetString("ApiError"));
-
-                return false;
-            }
-
-            return true;
-        }
-
-        public async Task<Boolean> AddObject(ObjectModel obj)
-        {
-            try
-            {
-                await this.api.Post<ObjectModel, Object>("/api/device", obj);
-            }
-            catch
-            {
-                NotificationHelper.ShowToastNotification(
-                    ResourceHelper.GetString("Error"),
-                    ResourceHelper.GetString("ApiError"));
-
-                return false;
-            }
-
-            return true;
-        }
-
-        public async Task<Boolean> UpdateObject(ObjectModel obj)
-        {
-            try
-            {
-                await this.api.Put("/api/device/" + obj.Id.ToString(), obj);
-            }
-            catch
-            {
-                NotificationHelper.ShowToastNotification(
-                    ResourceHelper.GetString("Error"),
-                    ResourceHelper.GetString("ApiError"));
-
-                return false;
-            }
-
-            return true;
         }
 
         #endregion

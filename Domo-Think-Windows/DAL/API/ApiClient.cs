@@ -71,6 +71,11 @@ namespace DAL.API
 
         #region METHODS
 
+        public void AddHeader(String header, String value)
+        {
+            this.client.DefaultRequestHeaders.Add(header, value);
+        }
+
         public async Task<T> Get<T>(String url, params Object[] args)
         {
             try

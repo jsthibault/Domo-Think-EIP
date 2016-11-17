@@ -17,7 +17,7 @@
         <Grid Grid.Row="0" Margin="10">
             <StackPanel Background="LimeGreen" BorderThickness="2" BorderBrush="Green" Orientation="Horizontal">
                 <SymbolIcon Symbol="ReportHacked" Foreground="White" Margin="10,0,0,0" />
-                <TextBlock x:Uid="Message" Text="Welcome back Eastrall" Foreground="White" FontFamily="16" Margin="10" TextWrapping="Wrap" />
+                <TextBlock x:Uid="Message" Text="Welcome back Eastrall El mariachi" Foreground="White" FontFamily="16" Margin="10" TextWrapping="Wrap" />
             </StackPanel>
         </Grid>
 

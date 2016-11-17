@@ -26,6 +26,11 @@
         <!-- Account informations panel -->
         <StackPanel Grid.Row="0">
             <StackPanel>
+                <TextBlock x:Uid ="BoxKey" Text="[BoxKey]" />
+                <TextBox Text="" IsEnabled="{Binding DisplayState}" />
+            </StackPanel>
+            
+            <StackPanel>
                 <TextBlock x:Uid ="Username" Text="[Username]" />
                 <TextBox Text="{Binding AccountInformations.Username}" IsEnabled="{Binding DisplayState}" />
             </StackPanel>

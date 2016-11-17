@@ -147,6 +147,9 @@
   <data name="AppBarRefresh.Label" xml:space="preserve">
     <value>Refresh</value>
   </data>
+  <data name="BoxKey.Text" xml:space="preserve">
+    <value>Box key</value>
+  </data>
   <data name="CancelButton.Content" xml:space="preserve">
     <value>Cancel</value>
   </data>
@@ -275,6 +278,9 @@
   </data>
   <data name="RegisterButton.Content" xml:space="preserve">
     <value>Register</value>
+  </data>
+  <data name="RegistrationDialogTitle" xml:space="preserve">
+    <value>Register Account</value>
   </data>
   <data name="SaveInformations.Content" xml:space="preserve">
     <value>Save my informations</value>

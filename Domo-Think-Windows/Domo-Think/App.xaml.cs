@@ -11,7 +11,7 @@ using DomoThink.Views;
 using DomoThink.Views.Account;
 using DomoThink.Views.Box;
 using DomoThink.Views.Directives;
-using DomoThink.Views.Objects;
+using DomoThink.Views.Devices;
 using DomoThink.Views.Plugins;
 using DomoThink.Views.Store;
 using System;
@@ -47,8 +47,8 @@ namespace DomoThink
                 Microsoft.ApplicationInsights.WindowsCollectors.Session);
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-            ApiClient = new DAL.API.ApiClient(API.APIConstants.API_URL);
-            ApiClient.IsActive = false;
+            ApiClient = new DAL.API.ApiClient(API.APIConstants.API_URL_FILIPE_PI);
+            ApiClient.IsActive = true;
         }
 
         /// <summary>
@@ -158,9 +158,9 @@ namespace DomoThink
             // Initialize the ViewFactory
             ViewFactory.Register<MainViewModel, MainPage>();
             ViewFactory.Register<SettingsViewModel, SettingsPage>();
-            ViewFactory.Register<ObjectsViewModel, ObjectsPage>();
-            ViewFactory.Register<AddObjectViewModel, AddObjectPage>();
-            ViewFactory.Register<EditObjectViewModel, EditObjectPage>();
+            ViewFactory.Register<ObjectsViewModel, DevicesPage>();
+            ViewFactory.Register<AddObjectViewModel, AddDevicePage>();
+            ViewFactory.Register<EditObjectViewModel, EditDevicePage>();
             // TODO: add directives
             ViewFactory.Register<DirectiveViewModel, DirectivesPage>();
             ViewFactory.Register<DirectiveEditorViewModel, DirectiveEditor>();

@@ -57,7 +57,7 @@ namespace DomoThink.API
         {
             try
             {
-                return await this.api.Get<List<DirectiveModel>>("/api/" + ApiRoutes.GET_DIRECTIVES);
+                return await this.api.Get<List<DirectiveModel>>(ApiRoutes.GET_DIRECTIVES);
             }
             catch
             {

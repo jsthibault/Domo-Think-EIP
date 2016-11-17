@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml.Controls;
+﻿using DomoThink.Helper;
+using Windows.UI.Xaml.Controls;
 
 namespace DomoThink.Views.Login
 {
@@ -7,6 +8,7 @@ namespace DomoThink.Views.Login
         public RegisterDialog()
         {
             this.InitializeComponent();
+            this.Title = ResourceHelper.GetString("RegistrationDialogTitle");
         }
     }
 }

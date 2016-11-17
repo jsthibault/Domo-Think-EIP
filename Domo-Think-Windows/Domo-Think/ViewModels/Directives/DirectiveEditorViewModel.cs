@@ -28,7 +28,7 @@ namespace DomoThink.ViewModels.Directives
         private DirectiveModel directiveModel;
         private EditorMode mode;
 
-        private ObjectService objectService;
+        private DeviceService deviceService;
         private DirectiveService directiveService;
 
         #endregion
@@ -47,7 +47,7 @@ namespace DomoThink.ViewModels.Directives
             set { this.NotifyPropertyChanged(ref this.mode, value); }
         }
 
-        public ObservableCollection<ObjectModel> ObjectList { get; set; }
+        public ObservableCollection<DeviceModel> ObjectList { get; set; }
 
         public ICommand AddDirectiveCommand { get; private set; }
 
@@ -63,11 +63,11 @@ namespace DomoThink.ViewModels.Directives
         public DirectiveEditorViewModel(EditorMode mode)
         {
             // Initialize API services
-            this.objectService = new ObjectService(App.ApiClient);
+            this.deviceService = new DeviceService(App.ApiClient);
             this.directiveService = new DirectiveService(App.ApiClient);
 
             // Initialize properties
-            this.ObjectList = new ObservableCollection<ObjectModel>();
+            this.ObjectList = new ObservableCollection<DeviceModel>();
             this.directiveModel = new DirectiveModel(-1, null, -1, -1, -1);
             this.Mode = mode;
 

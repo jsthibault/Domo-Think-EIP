@@ -89,7 +89,7 @@ namespace DomoThink.ViewModels.Directives
             this.Directives = new ObservableCollection<DirectiveModel>();
 
             // Initialize service
-            this.directiveService = new DirectiveService(new DAL.API.ApiClient("http://127.0.0.1:8080"));
+            this.directiveService = new DirectiveService(App.ApiClient);
         }
 
         #endregion

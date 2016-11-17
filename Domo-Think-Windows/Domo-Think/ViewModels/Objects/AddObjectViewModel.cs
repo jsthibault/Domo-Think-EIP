@@ -33,8 +33,6 @@ namespace DomoThink.ViewModels.Objects
         private Boolean loading;
         private Boolean display;
 
-        private ObjectService objectService;
-
         #endregion
 
         #region PROPERTIES
@@ -42,7 +40,7 @@ namespace DomoThink.ViewModels.Objects
         /// <summary>
         /// Gets the availiable objects collection.
         /// </summary>
-        public ObservableCollection<ObjectModel> AvailiableObjects { get; private set; }
+        public ObservableCollection<DeviceModel> AvailiableObjects { get; private set; }
 
         /// <summary>
         /// Gets or sets the loading state.
@@ -81,9 +79,6 @@ namespace DomoThink.ViewModels.Objects
         /// </summary>
         public AddObjectViewModel()
         {
-            // Initialize the API service
-            this.objectService = new ObjectService(App.ApiClient);
-
             // Set the loading state to true (default at the begining)
             this.SetLoadingState(true);
 
@@ -91,7 +86,7 @@ namespace DomoThink.ViewModels.Objects
             this.AddObjectCommand = new Command(this.AddObjectAction);
 
             // Initialize the collection
-            this.AvailiableObjects = new ObservableCollection<ObjectModel>();
+            this.AvailiableObjects = new ObservableCollection<DeviceModel>();
         }
 
         #endregion
@@ -121,7 +116,7 @@ namespace DomoThink.ViewModels.Objects
                     this.AvailiableObjects.Clear();
 
                 // TODO: API request to get the objects near the DomoBox.
-                List<ObjectModel> _objects = await this.objectService.GetObjects();
+                List<DeviceModel> _objects = await AppContext.DeviceService.GetDevices();
 
                 if (_objects != null)
                 {
@@ -155,7 +150,7 @@ namespace DomoThink.ViewModels.Objects
         {
             try
             {
-                Boolean _result = await this.objectService.AddObject(param as ObjectModel);
+                Boolean _result = await AppContext.DeviceService.AddDevice(param as DeviceModel);
 
                 if (_result)
                 {

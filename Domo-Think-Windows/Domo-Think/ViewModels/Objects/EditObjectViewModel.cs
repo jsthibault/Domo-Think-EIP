@@ -20,8 +20,7 @@ namespace DomoThink.ViewModels.Objects
     {
         #region FIELDS
 
-        private ObjectModel objectInformations;
-        private ObjectService objectService;
+        private DeviceModel deviceInformations;
 
         #endregion
 
@@ -30,10 +29,10 @@ namespace DomoThink.ViewModels.Objects
         /// <summary>
         /// Gets or sets the Object informations.
         /// </summary>
-        public ObjectModel ObjectInformations
+        public DeviceModel ObjectInformations
         {
-            get { return this.objectInformations; }
-            set { this.NotifyPropertyChanged(ref this.objectInformations, value); }
+            get { return this.deviceInformations; }
+            set { this.NotifyPropertyChanged(ref this.deviceInformations, value); }
         }
 
         /// <summary>
@@ -50,9 +49,6 @@ namespace DomoThink.ViewModels.Objects
         /// </summary>
         public EditObjectViewModel()
         {
-            // Initialize API service
-            this.objectService = new ObjectService(App.ApiClient);
-
             // Initialize the commands
             this.EditObjectCommand = new Command(this.EditObjectAction);
         }
@@ -71,7 +67,7 @@ namespace DomoThink.ViewModels.Objects
         {
             try
             {
-                Boolean result = await this.objectService.UpdateObject(this.ObjectInformations);
+                Boolean result = await AppContext.DeviceService.UpdateDevice(this.ObjectInformations);
 
                 if (result)
                 {
@@ -95,8 +91,8 @@ namespace DomoThink.ViewModels.Objects
         /// <param name="parameter"></param>
         public override void Refresh(Object parameter)
         {
-            if (parameter != null && parameter is ObjectModel)
-                this.ObjectInformations = parameter as ObjectModel;
+            if (parameter != null && parameter is DeviceModel)
+                this.ObjectInformations = parameter as DeviceModel;
         }
     }
 }

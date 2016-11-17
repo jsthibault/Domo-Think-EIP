@@ -268,27 +268,35 @@
         </trans-unit>
         <trans-unit id="AddDirective.Content" translate="yes" xml:space="preserve">
           <source>Add directive</source>
-          <target state="new">Add directive</target>
+          <target state="translated">Ajouter une directive</target>
         </trans-unit>
         <trans-unit id="EditDirective.Content" translate="yes" xml:space="preserve">
           <source>Edit directive</source>
-          <target state="new">Edit directive</target>
+          <target state="translated">Editer une directive</target>
         </trans-unit>
         <trans-unit id="TitleAddDirective.Text" translate="yes" xml:space="preserve">
           <source>Add directive</source>
-          <target state="new">Add directive</target>
+          <target state="translated">Ajouter une directive</target>
         </trans-unit>
         <trans-unit id="TitleEditDirective.Text" translate="yes" xml:space="preserve">
           <source>Edit directive</source>
-          <target state="new">Edit directive</target>
+          <target state="translated">Edition d'une directive</target>
         </trans-unit>
         <trans-unit id="LoginPassword.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Password</source>
-          <target state="new">Password</target>
+          <target state="translated">Mot de passe</target>
         </trans-unit>
         <trans-unit id="LoginUsername.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Username</source>
-          <target state="new">Username</target>
+          <target state="translated">Nom d'utilisateur</target>
+        </trans-unit>
+        <trans-unit id="BoxKey.Text" translate="yes" xml:space="preserve">
+          <source>Box key</source>
+          <target state="translated">Clé de la box</target>
+        </trans-unit>
+        <trans-unit id="RegistrationDialogTitle" translate="yes" xml:space="preserve">
+          <source>Register Account</source>
+          <target state="new">Register Account</target>
         </trans-unit>
       </group>
     </body>

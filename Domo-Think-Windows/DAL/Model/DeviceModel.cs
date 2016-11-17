@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
-
 /*--------------------------------------------------------
- * ObjectModel.cs
+ * DeviceModel.cs
  * 
  * Version: 1.0
  * Author: Filipe
@@ -21,7 +17,7 @@ using System.Windows.Input;
 namespace DAL.Model
 {
     [DataContract]
-    public class ObjectModel : IEquatable<ObjectModel>
+    public class DeviceModel : IEquatable<DeviceModel>
     {
         #region FIELDS
         #endregion
@@ -79,7 +75,7 @@ namespace DAL.Model
         /// </summary>
         /// <param name="id"></param>
         /// <param name="name"></param>
-        public ObjectModel(Int32 id, String name)
+        public DeviceModel(Int32 id, String name)
         {
             if (String.IsNullOrEmpty(name))
                 throw new InvalidDataException("The name of the directive cannot by empty.");
@@ -125,7 +121,7 @@ namespace DAL.Model
         /// </summary>
         /// <param name="other">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public Boolean Equals(ObjectModel other)
+        public Boolean Equals(DeviceModel other)
         {
             if (other == null)
                 return false;

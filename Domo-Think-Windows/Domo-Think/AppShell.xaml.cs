@@ -16,7 +16,7 @@ using DomoThink.Views.Account;
 using DomoThink.Views.Box;
 using DomoThink.Views.Directives;
 using DomoThink.Views.Login;
-using DomoThink.Views.Objects;
+using DomoThink.Views.Devices;
 using DomoThink.Views.Plugins;
 using DomoThink.Views.Store;
 using System;
@@ -140,7 +140,7 @@ namespace DomoThink
             // Initialize primary buttons
             this.PrimaryNavigationButtons = new List<NavigationButton>();
             this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[0], _menus[0], "\uE80F", typeof(MainPage), typeof(MainViewModel), true));
-            this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[1], _menus[1], "\uE772", typeof(ObjectsPage), typeof(ObjectsViewModel)));
+            this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[1], _menus[1], "\uE772", typeof(DevicesPage), typeof(ObjectsViewModel)));
             this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[2], _menus[2], "\uE17D", typeof(DirectivesPage), typeof(DirectiveViewModel)));
             this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[3], _menus[3], "\uE1E4", typeof(DomoBoxPage), typeof(DomoBoxViewModel)));
             this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[4], _menus[4], "\uE125", typeof(AccountsPage), typeof(AccountsViewModel)));

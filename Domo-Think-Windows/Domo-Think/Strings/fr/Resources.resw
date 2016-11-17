@@ -198,4 +198,25 @@
   <data name="TitleEditObject.Text" xml:space="preserve">
     <value>Editer un objet</value>
   </data>
+  <data name="AddDirective.Content" xml:space="preserve">
+    <value>Ajouter une directive</value>
+  </data>
+  <data name="EditDirective.Content" xml:space="preserve">
+    <value>Editer une directive</value>
+  </data>
+  <data name="TitleAddDirective.Text" xml:space="preserve">
+    <value>Ajouter une directive</value>
+  </data>
+  <data name="TitleEditDirective.Text" xml:space="preserve">
+    <value>Edition d'une directive</value>
+  </data>
+  <data name="LoginPassword.PlaceholderText" xml:space="preserve">
+    <value>Mot de passe</value>
+  </data>
+  <data name="LoginUsername.PlaceholderText" xml:space="preserve">
+    <value>Nom d'utilisateur</value>
+  </data>
+  <data name="BoxKey.Text" xml:space="preserve">
+    <value>Clé de la box</value>
+  </data>
 </root>

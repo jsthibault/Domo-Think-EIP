@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="DomoThink.Views.Objects.EditObjectPage"
+    x:Class="DomoThink.Views.Devices.EditDevicePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:DomoThink.Views.Objects"
@@ -17,7 +17,7 @@
                 <TextBlock x:Name="METHOD" x:Uid="TitleEditObject" Text="[Edit object]" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,8"  />
 
                 <TextBlock x:Uid="ObjectName" Text="[Name]" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
-                <TextBox x:Name="OBJECT_NAME" Text="{Binding ObjectInformations.Name}" Margin="0,0,409,0" />
+                <TextBox x:Name="OBJECT_NAME" Text="{Binding ObjectInformations.Name, Mode=TwoWay}" Margin="0,0,409,0" />
                 <TextBox x:Name="OBJECT_ID" Text="{Binding ObjectInformations.Id}" Visibility="Collapsed" />
 
                 <Button x:Name="EDIT_BUTTON" x:Uid="EditObject" Content="[Edit object]" Margin="0,8,8,0" Command="{Binding EditObjectCommand}" Style="{StaticResource DomoButton}" />

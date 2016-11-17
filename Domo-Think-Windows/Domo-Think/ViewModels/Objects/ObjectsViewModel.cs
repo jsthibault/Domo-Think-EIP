@@ -1,9 +1,7 @@
 ﻿using DAL.Model;
-using DomoThink.API;
+using DomoThink.Helper;
 using DomoThink.MVVM;
-using DomoThink.Navigation;
 using DomoThink.ViewModels.Interfaces;
-using DomoThink.Views.Objects;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -31,8 +29,6 @@ namespace DomoThink.ViewModels.Objects
         private Boolean loading;
         private Boolean display;
 
-        private ObjectService objectService;
-
         #endregion
 
         #region PROPERTIES
@@ -55,7 +51,7 @@ namespace DomoThink.ViewModels.Objects
         /// <summary>
         /// Gets the connected objects list.
         /// </summary>
-        public ObservableCollection<ObjectModel> ConnectedObjects { get; private set; }
+        public ObservableCollection<DeviceModel> ConnectedObjects { get; private set; }
 
         /// <summary>
         /// Gets or sets the loading state.
@@ -90,14 +86,12 @@ namespace DomoThink.ViewModels.Objects
         public ObjectsViewModel()
         {
             // Initialiaze the commands
-            this.AddObjectCommand = new Command(this.AddObjectAction);
-            this.SwitchObjectStateCommand = new Command(this.SwitchObjectStateAction);
+            this.AddObjectCommand = new Command(this.AddDeviceAction);
+            this.SwitchObjectStateCommand = new Command(this.SwitchDeviceStateAction);
+            this.LoadCommand = new Command(this.LoadDevicesAction);
 
             // Initialize connected objets collection
-            this.ConnectedObjects = new ObservableCollection<ObjectModel>();
-
-            // Initialize API service
-            this.objectService = new ObjectService(new DAL.API.ApiClient("http://127.0.0.1:8080"));
+            this.ConnectedObjects = new ObservableCollection<DeviceModel>();
         }
 
         #endregion
@@ -129,19 +123,19 @@ namespace DomoThink.ViewModels.Objects
                     this.ConnectedObjects.Clear();
 
                 // Send the request to the API
-                List<ObjectModel> _objects = await this.objectService.GetObjects();
-
-                _objects = new List<ObjectModel>();
-                for (Int32 i = 0; i < 5; i++)
-                    _objects.Add(new ObjectModel(i, "hello"));
+                List<DeviceModel> _objects = await AppContext.DeviceService.GetDevices();
+                
+                //_objects = new List<ObjectModel>();
+                //for (Int32 i = 0; i < 5; i++)
+                //    _objects.Add(new ObjectModel(i, "Object #" + i.ToString()));
 
                 // Fill list with the data we recieve from the box
                 if (_objects != null)
                 {
                     for (Int32 i = 0; i < _objects.Count; ++i)
                     {
-                        _objects[i].EditCommand = new Command(this.EditObjectAction);
-                        _objects[i].DeleteCommand = new Command(this.DeleteObjectAction);
+                        _objects[i].EditCommand = new Command(this.EditDeviceAction);
+                        _objects[i].DeleteCommand = new Command(this.DeleteDeviceAction);
                         this.ConnectedObjects.Add(_objects[i]);
                     }
                 }
@@ -159,53 +153,49 @@ namespace DomoThink.ViewModels.Objects
         #region ACTIONS
 
         /// <summary>
-        /// Switch to the page to add a new object.
+        /// Switch to the page to add a new device.
         /// </summary>
         /// <param name="param"></param>
-        private void AddObjectAction(Object param)
+        private void AddDeviceAction(Object param)
         {
             new AddObjectViewModel().Push();
-            //NavigationService.Navigate<AddObjectViewModel>();
         }
 
         /// <summary>
-        /// 
+        /// Switch device activity sate.
         /// </summary>
         /// <param name="param"></param>
-        private void SwitchObjectStateAction(Object param)
+        private void SwitchDeviceStateAction(Object param)
         {
             // Change object state here
         }
 
         /// <summary>
-        /// 
+        /// Opens the device editor.
         /// </summary>
         /// <param name="param"></param>
-        private void EditObjectAction(Object param)
+        private void EditDeviceAction(Object param)
         {
             new EditObjectViewModel().Push(param);
-            //NavigationService.Navigate<EditObjectViewModel>(param);
         }
 
         /// <summary>
-        /// 
+        /// Deletes the selected device.
         /// </summary>
         /// <param name="param"></param>
-        private async void DeleteObjectAction(Object param)
+        private async void DeleteDeviceAction(Object param)
         {
-            ObjectModel _object = param as ObjectModel;
+            DeviceModel _device = param as DeviceModel;
 
-            if (_object == null)
+            if (_device == null)
                 return;
-
-            var loader = new Windows.ApplicationModel.Resources.ResourceLoader();
-
+            
             MessageDialog dialog = new MessageDialog(
                 "Do you want to delete this object?", 
                 "Delete Object");
 
-            dialog.Commands.Add(new UICommand(loader.GetString("DialogYes")) { Id = 0 });
-            dialog.Commands.Add(new UICommand(loader.GetString("DialogNo")) { Id = 1 });
+            dialog.Commands.Add(new UICommand(ResourceHelper.GetString("DialogYes")) { Id = 0 });
+            dialog.Commands.Add(new UICommand(ResourceHelper.GetString("DialogNo")) { Id = 1 });
 
             dialog.DefaultCommandIndex = 0;
             dialog.CancelCommandIndex = 1;
@@ -214,9 +204,18 @@ namespace DomoThink.ViewModels.Objects
 
             if ((Int32)result.Id == 0) // remove object
             {
-                await this.objectService.DeleteObject(_object);
+                await AppContext.DeviceService.RemoveDevice(_device);
                 await this.LoadObjects();
             }
+        }
+
+        /// <summary>
+        /// Loads all devices.
+        /// </summary>
+        /// <param name="param"></param>
+        private async void LoadDevicesAction(Object param)
+        {
+            await this.LoadObjects();
         }
 
         #endregion
@@ -227,7 +226,7 @@ namespace DomoThink.ViewModels.Objects
         /// <param name="parameter"></param>
         public override void Refresh(Object parameter)
         {
-            this.LoadObjects();
+            this.LoadDevicesAction(null);
         }
     }
 }

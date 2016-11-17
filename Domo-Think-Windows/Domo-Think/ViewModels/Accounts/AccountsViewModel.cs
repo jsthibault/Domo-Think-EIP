@@ -181,20 +181,20 @@ namespace DomoThink.ViewModels.Accounts
         }
 
         /// <summary>
-        /// Ask the user if he want to delete the selected account.
-        /// </summary>
-        /// <param name="param"></param>
-        private void DeleteAccountAction(Object param)
-        {
-        }
-
-        /// <summary>
         /// Navigate to the AccountEditor page with the selected account.
         /// </summary>
         /// <param name="param"></param>
         private void EditAccountAction(Object param)
         {
             new AddEditAccountViewModel(EditorMode.Edit).Push(param);
+        }
+
+        /// <summary>
+        /// Ask the user if he want to delete the selected account.
+        /// </summary>
+        /// <param name="param"></param>
+        private void DeleteAccountAction(Object param)
+        {
         }
 
         #endregion

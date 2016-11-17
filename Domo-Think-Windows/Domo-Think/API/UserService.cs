@@ -59,8 +59,12 @@ namespace DomoThink.API
                 LoginResponse response =
                     await this.api.Post<LoginModel, LoginResponse>(ApiRoutes.USER_CONNECT, loginModel);
 
+                if (String.IsNullOrEmpty(response.Id) || String.IsNullOrEmpty(response.Token))
+                    return false;
+
                 App.LoginToken = response?.Token;
-                App.UserId = response?.Id;
+
+                App.ApiClient.AddHeader("login-token", App.LoginToken);
 
                 // TODO: more checks...
                 if (response == null)

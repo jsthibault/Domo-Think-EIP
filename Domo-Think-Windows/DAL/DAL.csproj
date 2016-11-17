@@ -115,7 +115,7 @@
     <Compile Include="Model\AccountModel.cs" />
     <Compile Include="Model\DirectiveModel.cs" />
     <Compile Include="Model\LoginModel.cs" />
-    <Compile Include="Model\ObjectModel.cs" />
+    <Compile Include="Model\DeviceModel.cs" />
     <Compile Include="Model\PeriodicityModel.cs" />
     <Compile Include="Model\PluginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

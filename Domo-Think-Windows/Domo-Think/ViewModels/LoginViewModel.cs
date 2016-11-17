@@ -33,8 +33,6 @@ namespace DomoThink.ViewModels
         private Boolean errorFieldEnabled;
         private String errorText;
 
-        private UserService userApiService;
-
         #endregion
 
         #region PROPERTIES
@@ -117,9 +115,6 @@ namespace DomoThink.ViewModels
             this.LogingIn = false;
             this.ErrorFieldEnabled = false;
             this.ErrorText = String.Empty;
-
-            // Initialize API service
-            this.userApiService = new UserService();
         }
 
         #endregion
@@ -176,7 +171,7 @@ namespace DomoThink.ViewModels
                 this.FieldsEnabled = false;
                 this.HideErrorMessage();
 
-                Boolean _connected = await this.userApiService.SendLoginRequest(this.LoginInformations);
+                Boolean _connected = await AppContext.UserService.SendLoginRequest(this.LoginInformations);
 
                 if (_connected)
                     this.SwitchToMainPage();
@@ -191,10 +186,10 @@ namespace DomoThink.ViewModels
                 this.DisplayErrorMessage(e.Message);
 
                 // Wait 3 seconds
-                await Task.Delay(3000);
+                //await Task.Delay(3000);
 
                 // Remove the error message
-                this.HideErrorMessage();
+                //this.HideErrorMessage();
             }
         }
 
@@ -202,18 +197,11 @@ namespace DomoThink.ViewModels
         {
             try
             {
-                String _message = "Please enter username.";
+                await Task.Delay(1000);
 
-                if (String.IsNullOrEmpty(this.LoginInformations?.Id) == false)
-                    _message = "An email as been sent to you.";
+                Views.Login.ForgotPasswordDialog forgotPass = new Views.Login.ForgotPasswordDialog();
 
-                this.DisplayErrorMessage(_message);
-
-                // Wait 3 seconds
-                await Task.Delay(3000);
-
-                // Remove the error message
-                this.HideErrorMessage();
+                await forgotPass.ShowAsync();
             }
             catch
             {
@@ -224,7 +212,6 @@ namespace DomoThink.ViewModels
         {
             try
             {
-
                 await Task.Delay(1000);
 
                 Views.Login.RegisterDialog _register = new Views.Login.RegisterDialog();
