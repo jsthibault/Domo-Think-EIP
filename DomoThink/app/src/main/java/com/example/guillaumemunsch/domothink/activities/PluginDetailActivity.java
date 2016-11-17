@@ -65,7 +65,9 @@ public class PluginDetailActivity extends AppCompatActivity {
         addComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PluginDetailActivity.this, PostCommentActivity.class));
+                Intent intent = new Intent(PluginDetailActivity.this, PostCommentActivity.class);
+                intent.putExtra("pluginId", plugin.getIdPlugin());
+                startActivity(intent);
             }
         });
 
@@ -135,7 +137,7 @@ public class PluginDetailActivity extends AppCompatActivity {
         recyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(context, recyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
-                        Toast.makeText(context, "Click", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(context, "Click", Toast.LENGTH_LONG).show();
 
                     }
 
@@ -152,6 +154,33 @@ public class PluginDetailActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(mAdapter);
 
+        RestAPI.getApiTest("store/" + plugin.getIdPlugin() + "/comments", null, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                try {
+                    commentList.clear();
+                    commentList.addAll((List<Comment>)(new Gson().fromJson(response.toString(), new TypeToken<List<Comment>>() {
+                    }.getType())));
+                    mAdapter.notifyDataSetChanged();
+                } catch (Throwable ex) {
+
+                    Log.d("Store Fragment", ex.getMessage());
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                Toast.makeText(context, R.string.request_failed, Toast.LENGTH_LONG).show();
+                Log.d("Store Fragment: ", "Unable to get store.");
+            }
+        });
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("LA", "CA RESUME");
         RestAPI.getApiTest("store/" + plugin.getIdPlugin() + "/comments", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {

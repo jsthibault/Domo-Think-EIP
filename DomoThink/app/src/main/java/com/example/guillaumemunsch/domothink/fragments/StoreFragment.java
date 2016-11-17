@@ -79,6 +79,7 @@ public class StoreFragment extends Fragment {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 try {
+                    pluginList.clear();
                     pluginList.addAll((List<Plugin>)(new Gson().fromJson(response.toString(), new TypeToken<List<Plugin>>() {
                     }.getType())));
                     mAdapter.notifyDataSetChanged();

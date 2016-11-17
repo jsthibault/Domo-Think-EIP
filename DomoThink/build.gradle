@@ -109,3 +109,9 @@ task clean(type: Delete) {
 artifacts {
     archives sourcesJar
 }
+
+allprojects {
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
+}

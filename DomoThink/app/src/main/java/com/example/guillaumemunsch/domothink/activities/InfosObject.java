@@ -15,10 +15,20 @@ import android.widget.Toast;
 import com.example.guillaumemunsch.domothink.R;
 import com.example.guillaumemunsch.domothink.http.RestAPI;
 import com.example.guillaumemunsch.domothink.models.Device;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.LimitLine;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 import cz.msebera.android.httpclient.entity.StringEntity;
@@ -40,6 +50,24 @@ public class InfosObject extends AppCompatActivity {
         device = (Device)getIntent().getSerializableExtra("device");
         button = (Button)findViewById(R.id.editDeviceNameBtn);
         name.setText(device.getName(), TextView.BufferType.EDITABLE);
+
+        LineChart mChart = (LineChart) findViewById(R.id.chart);
+
+        List<Entry> entries = new ArrayList<Entry>();
+
+        for (int i = 1; i < 10; i++) {
+            entries.add(new Entry(i, i + 2));
+        }
+
+        LineDataSet dataSet = new LineDataSet(entries, "DataSet 1");
+
+        ArrayList<ILineDataSet> dataSets = new ArrayList<ILineDataSet>();
+        dataSets.add(dataSet);
+
+        LineData data = new LineData(dataSets);
+
+        mChart.setData(data);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

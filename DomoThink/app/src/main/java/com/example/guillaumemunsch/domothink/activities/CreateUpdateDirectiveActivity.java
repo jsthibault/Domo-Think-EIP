@@ -88,10 +88,10 @@ public class CreateUpdateDirectiveActivity extends AppCompatActivity {
             editName.setText(myDirective.getName());
             objectSpinner.setSelection(myDirective.getObjectId());
             actionSpinner.setSelection(myDirective.getActionId());
-            periodicitySpinner.setSelection(myDirective.getPeriodicity().getType());
+            /*periodicitySpinner.setSelection(myDirective.getPeriodicity().getType());
             daySpinner.setSelection(myDirective.getPeriodicity().getDay());
             tp.setCurrentHour(myDirective.getPeriodicity().getHour());
-            tp.setCurrentMinute(myDirective.getPeriodicity().getMinute());
+            tp.setCurrentMinute(myDirective.getPeriodicity().getMinute());*/
             btn.setText("EDIT");
         }
 
