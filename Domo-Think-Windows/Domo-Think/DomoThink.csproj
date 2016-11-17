@@ -95,6 +95,10 @@
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="ApplicationInsights.config" />
     <None Include="project.json" />
+    <Page Include="Views\Store\AddComment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Store\StorePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -113,6 +117,7 @@
     <Compile Include="API\DirectiveService.cs" />
     <Compile Include="API\DeviceService.cs" />
     <Compile Include="API\PluginService.cs" />
+    <Compile Include="API\StoreService.cs" />
     <Compile Include="API\UserService.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -157,7 +162,7 @@
     <Compile Include="ViewModels\Plugins\PluginsViewModel.cs" />
     <Compile Include="ViewModels\Store\PluginViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
-    <Compile Include="ViewModels\Store\PluginStoreViewModel.cs" />
+    <Compile Include="ViewModels\Store\StoreViewModel.cs" />
     <Compile Include="Views\Account\AccountEditorPage.xaml.cs">
       <DependentUpon>AccountEditorPage.xaml</DependentUpon>
     </Compile>
@@ -197,6 +202,9 @@
     <Compile Include="Views\Devices\DevicesPage.xaml.cs">
       <DependentUpon>DevicesPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Store\AddComment.xaml.cs">
+      <DependentUpon>AddComment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Store\PluginPage.xaml.cs">
       <DependentUpon>PluginPage.xaml</DependentUpon>
     </Compile>
@@ -208,9 +216,6 @@
     </Compile>
     <Compile Include="Views\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Store\PluginStorePage.xaml.cs">
-      <DependentUpon>PluginStorePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Store\StorePage.xaml.cs">
       <DependentUpon>StorePage.xaml</DependentUpon>
@@ -350,10 +355,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SettingsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Store\PluginStorePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

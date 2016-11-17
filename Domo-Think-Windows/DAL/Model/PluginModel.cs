@@ -26,7 +26,7 @@ namespace DAL.Model
         /// <summary>
         /// Gets or sets the Id of the plugin.
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "idPlugin", EmitDefaultValue = false)]
         public Int32 Id { get; set; }
 
         /// <summary>

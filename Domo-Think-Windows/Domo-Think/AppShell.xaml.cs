@@ -145,7 +145,7 @@ namespace DomoThink
             this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[3], _menus[3], "\uE1E4", typeof(DomoBoxPage), typeof(DomoBoxViewModel)));
             this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[4], _menus[4], "\uE125", typeof(AccountsPage), typeof(AccountsViewModel)));
             this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[5], _menus[5], "\uE74C", typeof(Plugins), typeof(PluginsViewModel)));
-            this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[6], _menus[6], "\uE719", typeof(PluginStorePage), typeof(PluginStoreViewModel)));
+            this.PrimaryNavigationButtons.Add(new NavigationButton(_menus[6], _menus[6], "\uE719", typeof(StorePage), typeof(StoreViewModel)));
 
             // Initialize secondary buttons
             this.SecondaryNavigationButtons = new List<NavigationButton>();

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Collections.ObjectModel;
+using DomoThink.Views.Store;
 
 
 /*--------------------------------------------------------
@@ -57,6 +59,10 @@ namespace DomoThink.ViewModels.Store
         /// </summary>
         public ICommand LoadCommand { get; set; }
 
+        public ICommand InstallCommand { get; set; }
+
+        public ICommand CommentCommand { get; set; }
+
         /// <summary>
         /// Gets or sets the model.
         /// </summary>
@@ -66,27 +72,59 @@ namespace DomoThink.ViewModels.Store
             set { this.NotifyPropertyChanged(ref this.model, value); }
         }
 
+        /// <summary>
+        /// Gets or sets the plugin's comment collection.
+        /// </summary>
+        public ObservableCollection<PluginComment> Comments { get; set; }
+
         #endregion
 
         #region CONSTRUCTORS
 
         /// <summary>
-        /// Creates the 
+        /// Creates the Plugin view model instance.
         /// </summary>
         public PluginViewModel()
         {
             this.model = new PluginModel();
+            this.Comments = new ObservableCollection<PluginComment>();
+
+            this.CommentCommand = new Command(this.OnCommentAction);
         }
 
         #endregion
 
         #region METHODS
 
+        /// <summary>
+        /// Load plugin comments.
+        /// </summary>
+        private async void LoadPluginComments()
+        {
+            var pluginComments = await AppContext.StoreService.GetPluginComments(this.Model.Id);
 
+            if (pluginComments == null)
+                return;
+
+            if (this.Comments.Any())
+                this.Comments.Clear();
+
+            foreach (PluginComment comment in pluginComments)
+                this.Comments.Add(comment);
+        }
 
         #endregion
 
         #region ACTIONS
+
+        private async void OnCommentAction(object param)
+        {
+            var commentDialog = new AddComment(this.model.Id);
+
+            await commentDialog.ShowAsync();
+
+            this.LoadPluginComments();
+        }
 
         #endregion
 
@@ -94,8 +132,10 @@ namespace DomoThink.ViewModels.Store
         /// Refresh the ViewModel data.
         /// </summary>
         /// <param name="parameter"></param>
-        public override void Refresh(Object parameter)
+        public override void Refresh(object parameter)
         {
+            this.Model = parameter as PluginModel;
+            this.LoadPluginComments();
         }
     }
 }

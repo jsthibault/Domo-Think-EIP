@@ -23,6 +23,7 @@ namespace DomoThink
         private static DeviceService deviceService;
         private static DirectiveService directiveService;
         private static PluginService pluginService;
+        private static StoreService storeService;
 
         public static UserService UserService
         {
@@ -65,6 +66,17 @@ namespace DomoThink
                     pluginService = new PluginService(App.ApiClient);
 
                 return pluginService;
+            }
+        }
+
+        public static StoreService StoreService
+        {
+            get
+            {
+                if (storeService == null)
+                    storeService = new StoreService(App.ApiClient);
+
+                return storeService;
             }
         }
 

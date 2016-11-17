@@ -14,22 +14,28 @@ namespace DomoThink.API
 {
     public class ApiRoutes
     {
-        public const String API_PREFIX = "";
+        public const string API_PREFIX = "";
 
         // Users
-        public const String USER_CONNECT = API_PREFIX + "/login";
-        public const String USER_FORGOT_PASSWORD = API_PREFIX + "/user/forgotten_password/";
+        public const string USER_CONNECT = API_PREFIX + "/login";
+        public const string USER_FORGOT_PASSWORD = API_PREFIX + "/user/forgotten_password/";
 
         // Devices
-        public const String DEVICE_ROUTE = API_PREFIX + "/devices";
+        public const string DEVICE_ROUTE = API_PREFIX + "/devices";
 
         // Directives
-        public const String GET_DIRECTIVES = API_PREFIX + "/directives";
+        public const string GET_DIRECTIVES = API_PREFIX + "/directives";
 
         // Plugins
-        public const String GET_PLUGINS = API_PREFIX + "/plugin";
+        public const string GET_PLUGINS = API_PREFIX + "/plugin";
 
         // Users
-        public const String GET_ACCOUNTS = API_PREFIX + "/users";
+        public const string GET_ACCOUNTS = API_PREFIX + "/users";
+
+        // Store
+        public const string GET_PLUGINS_STORE = API_PREFIX + "/store";
+
+        public const string GET_PLUGINS_STORE_COMMENTS = API_PREFIX + "/store/{0}/comments";
+        public const string POST_PLUGINS_STORE_COMMENTS = API_PREFIX + "/store/{0}/comments";
     }
 }

@@ -172,7 +172,7 @@ namespace DomoThink
             // TODO: add plugins
             ViewFactory.Register<PluginsViewModel, Plugins>();
             // TODO: add store
-            ViewFactory.Register<PluginStoreViewModel, PluginStorePage>();
+            ViewFactory.Register<StoreViewModel, StorePage>();
             ViewFactory.Register<PluginViewModel, PluginPage>();
         }
     }

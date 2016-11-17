@@ -117,6 +117,7 @@
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\DeviceModel.cs" />
     <Compile Include="Model\PeriodicityModel.cs" />
+    <Compile Include="Model\PluginComment.cs" />
     <Compile Include="Model\PluginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\DAL.rd.xml" />
