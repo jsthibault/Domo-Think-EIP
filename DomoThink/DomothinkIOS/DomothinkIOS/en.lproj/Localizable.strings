@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  DomothinkIOS
+
+  Created by Guillaume Wehrling on 20/07/2016.
+  Copyright (c) 2016 DomoThink. All rights reserved.
+*/
+
+"INFO" = "Information";
+"MESSAGE_WRONGPASSLOG" = "Wrong Password/Login";
+"MESSAGE" = "Fill the field email";
+"MESSAGE_REG_LOG" = "login already exist";
+"MESSAGE_REG_MDP" = "Passwords are different";
+"MESSAGE_REG_ELEM" = "Some fields are empty";
+"MESSAGE_CHANGE_WRONGCONF" = "Passwords are different";
+"MESSAGE_CHANGE_DONE" = "Password is changed";
+"MESSAGE_CHANGE_WRONG" = "Old password is wrong";
+"RETURN" = "Dismiss";
+"DELETE_ACCOUNT" = "account is delete";
+"UPDATE_SEARCH" = "Looking for update...";
+"UPDATE_NEW" = "New update available !";
+"UPDATE_MESSAGE" = "Version: 1.6 \n\nBuild: 1.1.342.54\n\nNews: At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.";
+"UPDATE_LOADING" = "installing...";
+"UPDATE_INSTALLED" = "Update installed";
+"MESSAGE_LIST_EMPTY" = "Nothing to show";
+"MESSAGE_EXPLICATIF" = "Enter your Email adress in the field then click on the button \"change your password\", an email will be send on your email address with your new password.";
+"MESSAGE_EMAILSEND" = "An email was send";

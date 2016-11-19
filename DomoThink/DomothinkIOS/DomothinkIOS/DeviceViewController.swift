@@ -16,6 +16,7 @@ class DeviceViewController: UIViewController, UISearchResultsUpdating, UITableVi
     
     @IBOutlet weak var menuBtn: UIBarButtonItem!
     
+    @IBOutlet weak var emptyMessage: UILabel!
     
     private var allDevice = [Device]()
     private var filtredDevice = [Device]()
@@ -29,6 +30,7 @@ class DeviceViewController: UIViewController, UISearchResultsUpdating, UITableVi
             menuBtn.target = self.revealViewController()
             menuBtn.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            emptyMessage.hidden = true
             
         }
         
@@ -75,11 +77,19 @@ class DeviceViewController: UIViewController, UISearchResultsUpdating, UITableVi
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         // count of all directive
+        var count: Int!
+        // count of all directive
         if (resultSeachController.active) {
-            return self.filtredDevice.count
+            count =  self.filtredDevice.count
         } else {
-            return self.allDevice.count;
+            count = self.allDevice.count;
         }
+        if (count <= 0) {
+            emptyMessage.hidden = false
+        } else {
+            emptyMessage.hidden = true
+        }
+        return count
     }
     
     func tableView(tableView: UITableView,
@@ -125,13 +135,15 @@ class DeviceViewController: UIViewController, UISearchResultsUpdating, UITableVi
                 {
                     i = i + 1
                 }
+                LibraryAPI.sharedInstance.deleteDevice(tmp._id, index: i)
                 allDevice.removeAtIndex(i)
-                LibraryAPI.sharedInstance.deleteDevice(i)
+                
                 filtredDevice.removeAtIndex(indexPath.row)
                 
             } else {
+                LibraryAPI.sharedInstance.deleteDevice(allDevice[indexPath.row]._id, index: indexPath.row)
                 allDevice.removeAtIndex(indexPath.row)
-                LibraryAPI.sharedInstance.deleteDevice(indexPath.row)
+                
             }
             
             self.deviceTableView.reloadData()
@@ -154,8 +166,49 @@ class DeviceViewController: UIViewController, UISearchResultsUpdating, UITableVi
         
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "formDevice" {
+            let deviceDetailViewController = segue.destinationViewController as! FormDeviceViewController
+            
+            // Get the cell that generated this segue.
+            if let selectedDeviceCell = sender as? ObjectCell {
+                let indexPath = deviceTableView.indexPathForCell(selectedDeviceCell)!
+                println("index = \(indexPath.row)")
+                let selectedDevice: Device!
+                if (resultSeachController.active) {
+                    selectedDevice = filtredDevice[indexPath.row]
+                } else {
+                    selectedDevice = allDevice[indexPath.row]
+                }
+                deviceDetailViewController.device = selectedDevice
+            }
+        }
+    }
+
+    
     @IBAction func cancelToDeviceViewController(segue:UIStoryboardSegue) {
-        
+        allDevice = LibraryAPI.sharedInstance.getDevice()
+        self.deviceTableView.reloadData()
+    }
+    
+    @IBAction func saveToDeviceViewController(segue:UIStoryboardSegue) {
+        if let FormObjetViewController = segue.sourceViewController as? FormDeviceViewController {
+            if let device = FormObjetViewController.device {
+                let updating = FormObjetViewController.updating
+                
+                
+                if (updating == false) {
+                   // LibraryAPI.sharedInstance.addDirective(directive, index: LibraryAPI.sharedInstance.countDirectives())
+                    println("Ajout device : je ne marche pas")
+                }
+                else {
+                    LibraryAPI.sharedInstance.updateDevice(device, id: device._id)
+                }
+                
+            }
+            allDevice = LibraryAPI.sharedInstance.getDevice()
+            self.deviceTableView.reloadData()
+        }
     }
 
 }

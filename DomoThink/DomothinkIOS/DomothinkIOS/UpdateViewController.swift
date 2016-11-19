@@ -28,15 +28,17 @@ class UpdateViewController: UIViewController {
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
         }
+        
+        updateButton.layer.cornerRadius = 5
 
         progressView.hidden = true
         descriptionUpdate.hidden = true
         updateButton.hidden = true
         spinner.hidesWhenStopped = true
         
-        infoLabel.text = "Recherche de mise à jour..."
+        infoLabel.text = NSLocalizedString("UPDATE_SEARCH", comment: "information")
         spinner.startAnimating()
-        descriptionUpdate.text = "Version: 1.6 \n\nBuild: 1.1.342.54\n\nNouveautés: At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+        descriptionUpdate.text = NSLocalizedString("UPDATE_MESSAGE", comment: "information")
         timer = NSTimer.scheduledTimerWithTimeInterval(0.25, target: self, selector: "searching", userInfo: nil, repeats: true)
         updateButton.addTarget(self, action: "update", forControlEvents: .TouchUpInside)
         // Do any additional setup after loading the view.
@@ -54,7 +56,7 @@ class UpdateViewController: UIViewController {
             spinner.stopAnimating()
             timer.invalidate()
             timer = nil
-            infoLabel.text = "Nouvelle Mise à jour disponible !"
+            infoLabel.text = NSLocalizedString("UPDATE_NEW", comment: "information")
             descriptionUpdate.hidden = false
             updateButton.hidden = false
         }
@@ -65,7 +67,7 @@ class UpdateViewController: UIViewController {
         descriptionUpdate.hidden = true
         updateButton.hidden = true
         progressView.hidden = false
-        infoLabel.text = "instalation en cours..."
+        infoLabel.text = NSLocalizedString("UPDATE_LOADING", comment: "information")
         timer = NSTimer.scheduledTimerWithTimeInterval(0.25, target: self, selector: "updateProgress", userInfo: nil, repeats: true)
     }
     
@@ -76,7 +78,7 @@ class UpdateViewController: UIViewController {
             timer = nil
             progressView.progress = 0
             progressView.hidden = true
-            infoLabel.text = "Mise à jour installée"
+            infoLabel.text = NSLocalizedString("UPDATE_INSTALLED", comment: "information")
         }
         progressView.progress += 0.1
     }

@@ -12,6 +12,7 @@ let reuseIdentifierDirective = "DirectiveCellId"
 
 class DirectiveViewController: UIViewController, UISearchResultsUpdating, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var emptyMessage: UILabel!
     @IBOutlet weak var tableViewObject: UITableView!
     
     @IBOutlet weak var menuBtn: UIBarButtonItem!
@@ -24,12 +25,12 @@ class DirectiveViewController: UIViewController, UISearchResultsUpdating, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        //gestion du Menu
         if self.revealViewController() != nil {
             menuBtn.target = self.revealViewController()
             menuBtn.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            
+            emptyMessage.hidden = true
         }
 
         
@@ -77,12 +78,19 @@ class DirectiveViewController: UIViewController, UISearchResultsUpdating, UITabl
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
+        var count: Int!
         // count of all directive
         if (resultSeachController.active) {
-            return self.filtredDirective.count
+            count =  self.filtredDirective.count
         } else {
-            return self.allDirective.count;
+            count = self.allDirective.count;
         }
+        if (count <= 0) {
+            emptyMessage.hidden = false
+        } else {
+            emptyMessage.hidden = true
+        }
+        return count
     }
     
     //add all directive in the table view
@@ -91,7 +99,6 @@ class DirectiveViewController: UIViewController, UISearchResultsUpdating, UITabl
     {
         
         let cell: DirectiveCell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifierDirective, forIndexPath: indexPath) as! DirectiveCell
-        
         //add directive in the table view
         if (resultSeachController.active) {
             cell.labelText.text = filtredDirective[indexPath.row]._title
@@ -117,6 +124,7 @@ class DirectiveViewController: UIViewController, UISearchResultsUpdating, UITabl
             dateFormatter.dateFormat = "hh:mm"
             
             cell.dateLabel.text = dateFormatter.stringFromDate(allDirective[indexPath.row]._dateApply)
+            
         }
         
         
@@ -128,6 +136,7 @@ class DirectiveViewController: UIViewController, UISearchResultsUpdating, UITabl
         return true
     }
     
+    //remove a directive
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             
@@ -142,20 +151,21 @@ class DirectiveViewController: UIViewController, UISearchResultsUpdating, UITabl
                 {
                     i = i + 1
                 }
+                
+                LibraryAPI.sharedInstance.deleteDirective(tmp._id, index: i)
                 allDirective.removeAtIndex(i)
-                LibraryAPI.sharedInstance.deleteDirective(i)
                 filtredDirective.removeAtIndex(indexPath.row)
                 
             } else {
+                LibraryAPI.sharedInstance.deleteDirective(allDirective[indexPath.row]._id, index: indexPath.row)
                 allDirective.removeAtIndex(indexPath.row)
-                LibraryAPI.sharedInstance.deleteDirective(indexPath.row)
             }
             
             self.tableViewObject.reloadData()
             
         }
     }
-    
+    //add or edit a directive
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "editDir" {
             let directiveDetailViewController = segue.destinationViewController as! AddDirectiveViewController
@@ -163,13 +173,19 @@ class DirectiveViewController: UIViewController, UISearchResultsUpdating, UITabl
             // Get the cell that generated this segue.
             if let selectedDirectiveCell = sender as? DirectiveCell {
                 let indexPath = tableViewObject.indexPathForCell(selectedDirectiveCell)!
-                let selectedDirective = allDirective[indexPath.row]
+                println("index = \(indexPath.row)")
+                let selectedDirective: Directive!
+                if (resultSeachController.active) {
+                    selectedDirective = filtredDirective[indexPath.row]
+                } else {
+                    selectedDirective = allDirective[indexPath.row]
+                }
                 println(selectedDirective._title)
                 directiveDetailViewController.directive = selectedDirective
             }
         }
         else if segue.identifier == "addDir" {
-            print("Adding new meal.")
+            print("Adding new directive.")
         }
     }
     
@@ -188,18 +204,23 @@ class DirectiveViewController: UIViewController, UISearchResultsUpdating, UITabl
         
     }
     
-    @IBAction func cancelToDeviceViewController(segue:UIStoryboardSegue) {
+    @IBAction func cancelToDirectiveViewController(segue:UIStoryboardSegue) {
     }
     
-    @IBAction func saveToDeviceViewController(segue:UIStoryboardSegue) {
+    
+    @IBAction func saveToDirectiveViewController(segue:UIStoryboardSegue) {
         if let addDirectiveViewController = segue.sourceViewController as? AddDirectiveViewController {
             if let directive = addDirectiveViewController.directive {
-                if (directive._id == LibraryAPI.sharedInstance.countDirectives()) {
+                let updating = addDirectiveViewController.updating
+                
+                
+                if (updating == false) {
                     LibraryAPI.sharedInstance.addDirective(directive, index: LibraryAPI.sharedInstance.countDirectives())
                 }
                 else {
                     LibraryAPI.sharedInstance.updateDirective(directive, id: directive._id)
                 }
+                
             }
             allDirective = LibraryAPI.sharedInstance.getDirectives()
             self.tableViewObject.reloadData()

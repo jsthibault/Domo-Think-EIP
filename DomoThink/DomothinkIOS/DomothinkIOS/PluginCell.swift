@@ -12,8 +12,9 @@ class PluginCell: UITableViewCell {
 
 
     @IBOutlet weak var pluginTitle: UILabel!
-    @IBOutlet weak var pluginAutor: UILabel!
+    @IBOutlet weak var pluginAuthor: UILabel!
     @IBOutlet weak var pluginRate: UILabel!
     @IBOutlet weak var pluginImg: UIImageView!
     @IBOutlet weak var pluginIndex: UILabel!
+    @IBOutlet weak var pluginActivate: UISwitch!
    }

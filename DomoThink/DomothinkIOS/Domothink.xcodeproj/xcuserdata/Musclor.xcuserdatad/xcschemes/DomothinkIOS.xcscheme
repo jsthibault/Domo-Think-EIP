@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2FD98BFD1BC6A38300913F25"
-               BuildableName = "DomothinkIOS.app"
-               BlueprintName = "DomothinkIOS"
-               ReferencedContainer = "container:DomothinkIOS.xcodeproj">
+               BuildableName = "Domothink.app"
+               BlueprintName = "Domothink.temp_caseinsensitive_renameIOSIOS"
+               ReferencedContainer = "container:Domothink.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2FD98C121BC6A38300913F25"
-               BuildableName = "DomothinkIOSTests.xctest"
-               BlueprintName = "DomothinkIOSTests"
-               ReferencedContainer = "container:DomothinkIOS.xcodeproj">
+               BuildableName = "Domothink.temp_caseinsensitive_renameIOSIOSTests.xctest"
+               BlueprintName = "Domothink.temp_caseinsensitive_renameIOSIOSTests"
+               ReferencedContainer = "container:Domothink.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2FD98C121BC6A38300913F25"
-               BuildableName = "DomothinkIOSTests.xctest"
-               BlueprintName = "DomothinkIOSTests"
-               ReferencedContainer = "container:DomothinkIOS.xcodeproj">
+               BuildableName = "Domothink.temp_caseinsensitive_renameIOSIOSTests.xctest"
+               BlueprintName = "Domothink.temp_caseinsensitive_renameIOSIOSTests"
+               ReferencedContainer = "container:Domothink.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2FD98BFD1BC6A38300913F25"
-            BuildableName = "DomothinkIOS.app"
-            BlueprintName = "DomothinkIOS"
-            ReferencedContainer = "container:DomothinkIOS.xcodeproj">
+            BuildableName = "Domothink.app"
+            BlueprintName = "Domothink.temp_caseinsensitive_renameIOSIOS"
+            ReferencedContainer = "container:Domothink.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -71,15 +71,17 @@
       buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
-      allowLocationSimulation = "YES">
+      allowLocationSimulation = "YES"
+      language = "fr"
+      region = "FR">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2FD98BFD1BC6A38300913F25"
-            BuildableName = "DomothinkIOS.app"
-            BlueprintName = "DomothinkIOS"
-            ReferencedContainer = "container:DomothinkIOS.xcodeproj">
+            BuildableName = "Domothink.app"
+            BlueprintName = "Domothink.temp_caseinsensitive_renameIOSIOS"
+            ReferencedContainer = "container:Domothink.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +98,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2FD98BFD1BC6A38300913F25"
-            BuildableName = "DomothinkIOS.app"
-            BlueprintName = "DomothinkIOS"
-            ReferencedContainer = "container:DomothinkIOS.xcodeproj">
+            BuildableName = "Domothink.app"
+            BlueprintName = "Domothink.temp_caseinsensitive_renameIOSIOS"
+            ReferencedContainer = "container:Domothink.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

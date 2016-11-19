@@ -25,14 +25,13 @@ class PluginInstallViewController: UIViewController {
     
         imgPlugin.image = UIImage(named: pluginView._imgName)
         titlePlugin.text = pluginView._name
-        autorPlugin.text = pluginView._autor
+        autorPlugin.text = pluginView._author
         ratePlugin.text = NSString(format: "%.1f/5", pluginView._rate) as String
         desPlugin.text = pluginView._description
         
         installButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         
         if (pluginView._installed == true) {
-            installButton.backgroundColor = UIColor.grayColor()
             installButton.addTarget(self, action: "uninstallPlugin", forControlEvents: .TouchUpInside)
             installButton.setTitle("Désinstaller", forState: UIControlState.Normal)
             
@@ -52,15 +51,15 @@ class PluginInstallViewController: UIViewController {
 
     func installPlugin() {
         LibraryAPI.sharedInstance.installPlugin(pluginView, value: true)
-        installButton.backgroundColor = UIColor.grayColor()
-        installButton.setTitle("Désinstaller", forState: UIControlState.Normal)
+        installButton.hidden = true
+        self.performSegueWithIdentifier("returnToPlugin", sender: pluginView)
+        /*installButton.setTitle("Désinstaller", forState: UIControlState.Normal)
         installButton.removeTarget(self, action: "installPlugin", forControlEvents: .TouchUpInside)
-        installButton.addTarget(self, action: "uninstallPlugin", forControlEvents: .TouchUpInside)
+        installButton.addTarget(self, action: "uninstallPlugin", forControlEvents: .TouchUpInside)*/
     }
     
     func uninstallPlugin() {
-        LibraryAPI.sharedInstance.installPlugin(pluginView, value: false)
-        installButton.backgroundColor = UIColor.grayColor()
+        //LibraryAPI.sharedInstance.uninstallPlugin(pluginView, value: false)
         installButton.setTitle("installer", forState: UIControlState.Normal)
         installButton.removeTarget(self, action: "uninstallPlugin", forControlEvents: .TouchUpInside)
         installButton.addTarget(self, action: "installPlugin", forControlEvents: .TouchUpInside)

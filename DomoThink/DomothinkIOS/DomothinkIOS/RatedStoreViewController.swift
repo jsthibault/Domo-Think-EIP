@@ -8,7 +8,7 @@
 
 import UIKit
 
-//let reuseIdentifierPluginRated = "PluginRatedCell"
+let reuseIdentifierPluginRated = "PluginRatedCell"
 
 class RatedStoreViewController: UIViewController, UISearchResultsUpdating, UITableViewDataSource, UITableViewDelegate {
     
@@ -28,17 +28,19 @@ class RatedStoreViewController: UIViewController, UISearchResultsUpdating, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
+        
         if self.revealViewController() != nil {
             menuBtn.target = self.revealViewController()
             menuBtn.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
         }
-        
+
         indexSelected = -1
-        
-        allPlugin = LibraryAPI.sharedInstance.getPluginsRated()
-        
+
+        allPlugin = LibraryAPI.sharedInstance.getPluginRated()
+
         // l'initialisation de SeachController avec un UISearchController vide
         self.resultSeachController = UISearchController(searchResultsController: nil)
         
@@ -91,18 +93,17 @@ class RatedStoreViewController: UIViewController, UISearchResultsUpdating, UITab
     func tableView(tableView: UITableView,
         cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        
-        let cell: PluginCell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifierPlugin, forIndexPath: indexPath) as! PluginCell
+        let cell: PluginCell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifierPluginRated, forIndexPath: indexPath) as! PluginCell
         //add plugin in the table view
         if (resultSeachController.active) {
             cell.pluginTitle.text = filtredPlugin[indexPath.row]._name
-            cell.pluginAutor.text = filtredPlugin[indexPath.row]._autor
+            cell.pluginAuthor.text = filtredPlugin[indexPath.row]._author
             cell.pluginImg.image = UIImage(named: filtredPlugin[indexPath.row]._imgName)
             cell.pluginRate.text = NSString(format: "%.1f/5", filtredPlugin[indexPath.row]._rate) as String
             cell.pluginIndex.text = NSString(format: "%d", indexPath.row + 1) as String
         } else {
             cell.pluginTitle.text = allPlugin[indexPath.row]._name
-            cell.pluginAutor.text = allPlugin[indexPath.row]._autor
+            cell.pluginAuthor.text = allPlugin[indexPath.row]._author
             cell.pluginImg.image = UIImage(named: allPlugin[indexPath.row]._imgName)
             cell.pluginRate.text = NSString(format: "%.1f/5", allPlugin[indexPath.row]._rate) as String
             cell.pluginIndex.text = NSString(format: "%d", indexPath.row + 1) as String

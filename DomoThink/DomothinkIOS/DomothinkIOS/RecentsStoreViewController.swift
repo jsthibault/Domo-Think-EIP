@@ -8,7 +8,7 @@
 
 import UIKit
 
-let reuseIdentifierPlugin = "PluginCell"
+let reuseIdentifierPluginRecent = "PluginCellRecent"
 
 class RecentsStoreViewController: UIViewController, UISearchResultsUpdating, UITableViewDataSource, UITableViewDelegate {
     
@@ -35,7 +35,7 @@ class RecentsStoreViewController: UIViewController, UISearchResultsUpdating, UIT
         
         indexSelected = -1
         
-        allPlugin = LibraryAPI.sharedInstance.getPlugins()
+        allPlugin = LibraryAPI.sharedInstance.getPluginStore()
         
         // l'initialisation de SeachController avec un UISearchController vide
         self.resultSeachController = UISearchController(searchResultsController: nil)
@@ -88,22 +88,24 @@ class RecentsStoreViewController: UIViewController, UISearchResultsUpdating, UIT
     func tableView(tableView: UITableView,
         cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        
-        let cell: PluginCell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifierPlugin, forIndexPath: indexPath) as! PluginCell
+        println("easy")
+        let cell: PluginCell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifierPluginRecent, forIndexPath: indexPath) as! PluginCell
         
         //add directive in the table view
         if (resultSeachController.active) {
             cell.pluginTitle.text = filtredPlugin[indexPath.row]._name
-            cell.pluginAutor.text = filtredPlugin[indexPath.row]._autor
+            cell.pluginAuthor.text = filtredPlugin[indexPath.row]._author
             cell.pluginImg.image = UIImage(named: filtredPlugin[indexPath.row]._imgName)
             cell.pluginRate.text = NSString(format: "%.1f/5", filtredPlugin[indexPath.row]._rate) as String
             cell.pluginIndex.text = NSString(format: "%d", indexPath.row + 1) as String
         } else {
+            println("chatte")
             cell.pluginTitle.text = allPlugin[indexPath.row]._name
-            cell.pluginAutor.text = allPlugin[indexPath.row]._autor
+            cell.pluginAuthor.text = allPlugin[indexPath.row]._author
             cell.pluginImg.image = UIImage(named: allPlugin[indexPath.row]._imgName)
             cell.pluginRate.text = NSString(format: "%.1f/5", allPlugin[indexPath.row]._rate) as String
             cell.pluginIndex.text = NSString(format: "%d", indexPath.row + 1) as String
+            println("bite")
         }
 
         return cell

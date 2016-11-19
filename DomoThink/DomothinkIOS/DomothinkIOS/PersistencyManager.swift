@@ -12,6 +12,12 @@ class PersistencyManager: NSObject {
     private var directives = [Directive]()
     private var devices = [Device]()
     private var plugins = [Plugin]()
+    private var pluginStore = [Plugin]()
+    
+    private var token: String!
+    private var login: String!
+    private var userId: String!
+    private var password: String!
     
     override init() {
         let directive1 = Directive(id: 0, title: "Allumage four", dateCreate: NSDate(), dateApply: NSDate(), isActive: true)
@@ -23,34 +29,43 @@ class PersistencyManager: NSObject {
         let device4 = Device(id: 4, name: "Stereo", isActive: true, description: "Stereo ma gueul")
         
         
-        let plugin1 = Plugin(name: "Valentine Mood",
-            descritpion: "vous voulez faire une surprise a votre femme ?",
+        let plugin1 = Plugin(id: 1, name: "Valentine Mood",
+            description: "vous voulez faire une surprise a votre femme ?",
             imgName: "images.jpeg",
             rate: 4.5,
             date: NSDate(),
-            autor: "jean jack")
-        let plugin2 = Plugin(name: "Musical Setup",
-            descritpion: "Reglez votre musique comme bon vous semble",
+            isActive: false,
+            author: "jean jack"
+            )
+        let plugin2 = Plugin(id: 2, name: "Musical Setup",
+            description: "Reglez votre musique comme bon vous semble",
             imgName: "images.jpeg",
             rate: 2,
             date: NSDate(),
-            autor: "jack henry de la bergerie")
-        let plugin3 = Plugin(name: "Film Setup",
-            descritpion: "Selectionner un film a distance",
+            isActive: false,
+            author: "jack henry de la bergerie")
+        let plugin3 = Plugin(id: 3, name: "Film Setup",
+            description: "Selectionner un film a distance",
             imgName: "images.jpeg",
             rate: 1,
             date: NSDate(),
-            autor: "steve jobs")
-        let plugin4 = Plugin(name: "Working Ambiance",
-            descritpion: "ambiance de chantier ? ce plugin est pour vous",
+            isActive: false,
+            author: "steve jobs")
+        let plugin4 = Plugin(id: 4, name: "Working Ambiance",
+            description: "ambiance de chantier ? ce plugin est pour vous",
             imgName: "images.jpeg",
             rate: 3.3,
             date: NSDate(),
-            autor: "edouard du marechal ferrand")
+            isActive: false,
+            author: "edouard du marechal ferrand")
         
-        directives = [directive1, directive2]
-        devices = [device1, device2, device3, device4]
-        plugins = [plugin1, plugin2, plugin3, plugin4]
+        //directives = [directive1, directive2]
+        //devices = [device1, device2, device3, device4]
+        plugin1._installed = false
+        plugin2._installed = false
+        plugin3._installed = false
+        plugin4._installed = false
+        pluginStore = [plugin1, plugin2, plugin3, plugin4]
     }
     
     
@@ -62,6 +77,21 @@ class PersistencyManager: NSObject {
     // getters on directives
     func getDirectives() -> [Directive] {
         return directives
+    }
+    
+    func clearTabDirectives() {
+        directives = [];
+    }
+    
+    func getHighestID() -> Int {
+        var tmp: Int!
+        tmp = -1
+        for (var i = 0; i < directives.count; i = i + 1) {
+            if (directives[i]._id > tmp) {
+                tmp = directives[i]._id
+            }
+        }
+        return tmp
     }
     
     // add a directive
@@ -108,6 +138,10 @@ class PersistencyManager: NSObject {
         return devices
     }
     
+    func clearTabDevices() {
+        devices = [];
+    }
+    
     // add a device
     func addDevice(device: Device, index: Int) {
         if (devices.count >= index) {
@@ -119,6 +153,8 @@ class PersistencyManager: NSObject {
     
     // delete a device
     func deleteDeviceAtIndex(index: Int) {
+        println(devices)
+        println(index)
         devices.removeAtIndex(index)
     }
     
@@ -126,6 +162,31 @@ class PersistencyManager: NSObject {
         device._isActive = value
     }
     
+    func getHighestIdDevice() -> Int {
+        var tmp: Int!
+        tmp = -1
+        for (var i = 0; i < devices.count; i = i + 1) {
+            if (devices[i]._id > tmp) {
+                tmp = devices[i]._id
+            }
+        }
+        return tmp
+    }
+    
+    func updateDevice(device: Device, id: Int) {
+        for (var i = 0; i < devices.count; i++) {
+            if (id == devices[i]._id) {
+                devices[i]._name = device._name
+                //devices[i]._description = device._description
+                //devices[i]._dateApply = device._dateApply
+                //devices[i]._isActive = device._isActive
+            }
+        }
+    }
+    
+    func countDevices() -> Int {
+        return devices.count
+    }
     
     /*
     **  Methods for plugin
@@ -135,32 +196,8 @@ class PersistencyManager: NSObject {
         return plugins
     }
     
-    func getPluginsInstalled() -> [Plugin] {
-        var pluginsInstalled: [Plugin]!
-        var tmp: Int!
-        tmp = 0
-        pluginsInstalled = []
-        while (tmp < plugins.count) {
-            if (plugins[tmp]._installed == true) {
-                pluginsInstalled.append(plugins[tmp])
-            }
-            tmp = tmp + 1
-        }
-        return pluginsInstalled
-    }
-    
-    func getPluginsRated() -> [Plugin] {
-        var pluginsRated: [Plugin]!
-        var tmp: Int!
-        tmp = 0
-        pluginsRated = []
-        while (tmp < plugins.count) {
-            if (plugins[tmp]._rate >= 2.5) {
-                pluginsRated.append(plugins[tmp])
-            }
-            tmp = tmp + 1
-        }
-        return pluginsRated
+    func clearTabPlugins() {
+        plugins = [];
     }
     
     func addPlugin(plugin: Plugin, index: Int) {
@@ -172,27 +209,87 @@ class PersistencyManager: NSObject {
     }
     
     func deletePluginAtIndex(index: Int) {
-        plugins.removeAtIndex(index)
-    }
-    
-    func adjustRate(plugin: Plugin, rate: Int) {
-        plugin._vote.append(rate)
-        var i: Int!
-        var result: Int!
-        result = 0
-        while (i < plugin._vote.count) {
-            result = result + plugin._vote[i]
-            i = i + 1
+        var tmpPlugin = plugins[index]
+        for (var i = 0; i < pluginStore.count; i++) {
+            if (tmpPlugin._name == pluginStore[i]._name ) {
+                pluginStore[i]._installed = false
+            }
         }
-        plugin._rate = (Float)((Float)(result) / (Float)(plugin._vote.count))
-    }
-    
-    func installPlugin(plugin: Plugin, value: Bool) {
-        plugin._installed = value
+        plugins.removeAtIndex(index)
     }
     
     func setIsActivePlugin(plugin: Plugin, value: Bool) {
         plugin._isActive = value
     }
     
+    func getPluginStore() -> [Plugin] {
+        return pluginStore
+    }
+    
+    func getPluginRated() -> [Plugin] {
+        
+        var tmp = [Plugin]()
+        for (var i = 0; i < pluginStore.count; i++) {
+            if (pluginStore[i]._rate > 2) {
+                tmp.append(pluginStore[i])
+            }
+        }
+        return tmp
+    }
+    
+    func getHighestIdPlugin() -> Int {
+        var tmp: Int!
+        tmp = -1
+        for (var i = 0; i < plugins.count; i = i + 1) {
+            if (plugins[i]._id > tmp) {
+                tmp = plugins[i]._id
+            }
+        }
+        return tmp + 1
+    }
+    
+    func installPlugin(plugin: Plugin, index: Int) {
+        addPlugin(plugin, index: index)
+        for (var i = 0; i < plugins.count; i++) {
+            if (plugin._name == plugins[i]._name) {
+                plugins[i]._installed = true
+            }
+        }
+    }
+    
+    /*
+    ** Methods User
+    */
+    
+    func getToken() -> String {
+        return token
+    }
+    
+    func setToken(tokenToSet: String) {
+        token = tokenToSet
+    }
+    
+    func getLogin() -> String {
+        return login
+    }
+    
+    func setLogin(loginToSet: String) {
+        login = loginToSet
+    }
+    
+    func getUserId() -> String {
+        return userId
+    }
+    
+    func setUserId(userIdToSet: String) {
+        userId = userIdToSet
+    }
+    
+    func getPassword() -> String {
+        return password
+    }
+    
+    func setPassword(passToSet: String) {
+        password = passToSet
+    }
 }
