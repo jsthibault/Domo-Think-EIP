@@ -1,0 +1,6 @@
+framework module Pods_Domothink {
+  umbrella header "Pods-Domothink-umbrella.h"
+
+  export *
+  module * { export * }
+}

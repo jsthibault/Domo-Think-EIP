@@ -1,0 +1,239 @@
+
+/* Class = "UIButton"; normalTitle = "S'inscrire"; ObjectID = "13v-Kh-ILG"; */
+"13v-Kh-ILG.normalTitle" = "Register";
+
+/* Class = "UILabel"; text = "Rate"; ObjectID = "199-GQ-Iag"; */
+"199-GQ-Iag.text" = "Rate";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "1Ee-9q-fHq"; */
+"1Ee-9q-fHq.title" = "Title";
+
+/* Class = "UILabel"; text = "Update"; ObjectID = "2d9-Gn-v4k"; */
+"2d9-Gn-v4k.text" = "Update";
+
+/* Class = "UILabel"; text = "Rate"; ObjectID = "3NP-Of-OTg"; */
+"3NP-Of-OTg.text" = "Rate";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "49h-LE-UbZ"; */
+"49h-LE-UbZ.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Store"; ObjectID = "5mK-JY-J6o"; */
+"5mK-JY-J6o.title" = "Store";
+
+/* Class = "UILabel"; text = "Author"; ObjectID = "60M-D6-chW"; */
+"60M-D6-chW.text" = "Author";
+
+/* Class = "UILabel"; text = "New password"; ObjectID = "6Qc-yk-vC8"; */
+"6Qc-yk-vC8.text" = "New password";
+
+/* Class = "UINavigationItem"; title = "Store"; ObjectID = "7MW-pX-aCX"; */
+"7MW-pX-aCX.title" = "Store";
+
+/* Class = "UILabel"; text = "Password confirmation :"; ObjectID = "7WE-Tz-8Gb"; */
+"7WE-Tz-8Gb.text" = "Password confirmation :";
+
+/* Class = "UIButton"; normalTitle = "Download"; ObjectID = "Afv-7m-Sip"; */
+"Afv-7m-Sip.normalTitle" = "Download";
+
+/* Class = "UIBarButtonItem"; title = "< Back"; ObjectID = "Aw6-If-DfT"; */
+"Aw6-If-DfT.title" = "< Back";
+
+/* Class = "UILabel"; text = "Logout"; ObjectID = "B9n-1N-cfq"; */
+"B9n-1N-cfq.text" = "Logout";
+
+/* Class = "UIButton"; normalTitle = "Se connecter"; ObjectID = "CcU-of-Lwg"; */
+"CcU-of-Lwg.normalTitle" = "Login";
+
+/* Class = "UINavigationItem"; title = "Plugins"; ObjectID = "EpU-hU-Oyr"; */
+"EpU-hU-Oyr.title" = "Plugins";
+
+/* Class = "UILabel"; text = "Rate"; ObjectID = "Hz9-at-7b3"; */
+"Hz9-at-7b3.text" = "Rate";
+
+/* Class = "UITableViewSection"; headerTitle = "Menu"; ObjectID = "I4K-Rg-5xu"; */
+"I4K-Rg-5xu.headerTitle" = "Menu";
+
+/* Class = "UILabel"; text = "No plugins"; ObjectID = "Inv-dH-LQf"; */
+"Inv-dH-LQf.text" = "No plugins";
+
+/* Class = "UILabel"; text = "No directives"; ObjectID = "Ivr-xY-8Up"; */
+"Ivr-xY-8Up.text" = "No directives";
+
+/* Class = "UILabel"; text = "Password :"; ObjectID = "J17-pB-3U8"; */
+"J17-pB-3U8.text" = "Password :";
+
+/* Class = "UINavigationItem"; title = "Update"; ObjectID = "JTk-eA-hwC"; */
+"JTk-eA-hwC.title" = "Update";
+
+/* Class = "UITextView"; text = "Enter your Email adress in the field then click on the button \"change your password\", an email will be send on your email address with your new password."; ObjectID = "JlD-UZ-sxB"; */
+"JlD-UZ-sxB.text" = "Enter your Email adress in the field then click on the button \"change your password\", an email will be send on your email address with your new password.";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Jqy-0N-aRp"; */
+"Jqy-0N-aRp.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Kup-zn-9Ny"; */
+"Kup-zn-9Ny.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "delete account"; ObjectID = "Mz5-0d-wjp"; */
+"Mz5-0d-wjp.normalTitle" = "delete account";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Nxs-6e-k26"; */
+"Nxs-6e-k26.text" = "Title";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "O0T-w4-xE1"; */
+"O0T-w4-xE1.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "PPH-VD-Qnw"; */
+"PPH-VD-Qnw.text" = "Label";
+
+/* Class = "UILabel"; text = "Mot de passe :"; ObjectID = "Pbz-On-0Nc"; */
+"Pbz-On-0Nc.text" = "Password :";
+
+/* Class = "UILabel"; text = "Plugins"; ObjectID = "PkR-Ct-jiX"; */
+"PkR-Ct-jiX.text" = "Plugins";
+
+/* Class = "UILabel"; text = "No plugins"; ObjectID = "Q7X-we-r9F"; */
+"Q7X-we-r9F.text" = "No plugins";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Qhx-Ou-7TM"; */
+"Qhx-Ou-7TM.text" = "Title";
+
+/* Class = "UIBarButtonItem"; title = "Add a comment"; ObjectID = "TKB-J1-Ycb"; */
+"TKB-J1-Ycb.title" = "Add a comment";
+
+/* Class = "UILabel"; text = "Description : "; ObjectID = "Tk0-1h-mMJ"; */
+"Tk0-1h-mMJ.text" = "Description : ";
+
+/* Class = "UIButton"; normalTitle = "change password"; ObjectID = "U2D-h8-mwp"; */
+"U2D-h8-mwp.normalTitle" = "change password";
+
+/* Class = "UIButton"; normalTitle = "Envoyer"; ObjectID = "V2x-uO-Rcb"; */
+"V2x-uO-Rcb.normalTitle" = "Send";
+
+/* Class = "UILabel"; text = "Devices"; ObjectID = "WSC-R9-gb5"; */
+"WSC-R9-gb5.text" = "Devices";
+
+/* Class = "UILabel"; text = "Rate"; ObjectID = "XSp-F2-S6s"; */
+"XSp-F2-S6s.text" = "Rate";
+
+/* Class = "UILabel"; text = "Login :"; ObjectID = "ZEp-dw-MTJ"; */
+"ZEp-dw-MTJ.text" = "Login :";
+
+/* Class = "UILabel"; text = "Author :"; ObjectID = "ZYI-vE-EQa"; */
+"ZYI-vE-EQa.text" = "Author :";
+
+/* Class = "UINavigationItem"; title = "Plugin"; ObjectID = "Zxk-xL-nYd"; */
+"Zxk-xL-nYd.title" = "Plugin";
+
+/* Class = "UILabel"; text = "Settings"; ObjectID = "c0i-qt-cuf"; */
+"c0i-qt-cuf.text" = "Settings";
+
+/* Class = "UILabel"; text = "Email :"; ObjectID = "dFK-bN-mop"; */
+"dFK-bN-mop.text" = "Email :";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "dYb-R0-xNt"; */
+"dYb-R0-xNt.text" = "Date";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "e2H-Uw-ZTz"; */
+"e2H-Uw-ZTz.title" = "Settings";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "f3A-nw-RoT"; */
+"f3A-nw-RoT.text" = "Label";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "fXA-Eq-SZq"; */
+"fXA-Eq-SZq.text" = "Title";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "gdm-P3-fdk"; */
+"gdm-P3-fdk.text" = "Date";
+
+/* Class = "UINavigationItem"; title = "Add a comment"; ObjectID = "gp2-6d-3hK"; */
+"gp2-6d-3hK.title" = "Add a comment";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "h2O-wo-L8u"; */
+"h2O-wo-L8u.text" = "Label";
+
+/* Class = "UILabel"; text = "No plugins"; ObjectID = "h8A-Gw-VPw"; */
+"h8A-Gw-VPw.text" = "No plugins";
+
+/* Class = "UILabel"; text = "Confirm password"; ObjectID = "hS3-VE-CND"; */
+"hS3-VE-CND.text" = "Confirm password";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "i8G-QY-yVt"; */
+"i8G-QY-yVt.text" = "Label";
+
+/* Class = "UILabel"; text = "Rate :"; ObjectID = "idJ-Z8-teB"; */
+"idJ-Z8-teB.text" = "Rate :";
+
+/* Class = "UILabel"; text = "Directives"; ObjectID = "iew-wM-liR"; */
+"iew-wM-liR.text" = "Directives";
+
+/* Class = "UILabel"; text = "TEEEXXXXXT"; ObjectID = "jQc-iz-UL9"; */
+"jQc-iz-UL9.text" = "TEEEXXXXXT";
+
+/* Class = "UILabel"; text = "No comment"; ObjectID = "jpQ-iQ-KUQ"; */
+"jpQ-iQ-KUQ.text" = "No comment";
+
+/* Class = "UINavigationItem"; title = "Devices"; ObjectID = "jv1-gj-iBj"; */
+"jv1-gj-iBj.title" = "Devices";
+
+/* Class = "UINavigationItem"; title = "Directives"; ObjectID = "lA6-5g-dTM"; */
+"lA6-5g-dTM.title" = "Directives";
+
+/* Class = "UIButton"; normalTitle = "Search for devices"; ObjectID = "lTa-a1-BaX"; */
+"lTa-a1-BaX.normalTitle" = "Search for devices";
+
+/* Class = "UIButton"; normalTitle = "Mot de passe oublié ?"; ObjectID = "oHf-e3-5rG"; */
+"oHf-e3-5rG.normalTitle" = "lost password ?";
+
+/* Class = "UILabel"; text = "Box number :"; ObjectID = "pLL-iV-sdP"; */
+"pLL-iV-sdP.text" = "Box number :";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "qnp-oP-Uui"; */
+"qnp-oP-Uui.title" = "Title";
+
+/* Class = "UIButton"; normalTitle = "S'inscrire"; ObjectID = "qzE-A0-7im"; */
+"qzE-A0-7im.normalTitle" = "Register";
+
+/* Class = "UILabel"; text = "No devices"; ObjectID = "r52-4j-fJH"; */
+"r52-4j-fJH.text" = "No devices";
+
+/* Class = "UILabel"; text = "Email :"; ObjectID = "sIP-5e-0yC"; */
+"sIP-5e-0yC.text" = "Email :";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "tAO-7V-Uji"; */
+"tAO-7V-Uji.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Theme : "; ObjectID = "tUN-LJ-FnT"; */
+"tUN-LJ-FnT.text" = "Theme : ";
+
+/* Class = "UITableViewSection"; headerTitle = "Action"; ObjectID = "uKt-lS-KZk"; */
+"uKt-lS-KZk.headerTitle" = "Action";
+
+/* Class = "UILabel"; text = "Comment :"; ObjectID = "vBw-cZ-KCg"; */
+"vBw-cZ-KCg.text" = "Comment :";
+
+/* Class = "UILabel"; text = "Author"; ObjectID = "wVk-0g-8or"; */
+"wVk-0g-8or.text" = "Author";
+
+/* Class = "UILabel"; text = "Store"; ObjectID = "weL-rp-KV5"; */
+"weL-rp-KV5.text" = "Store";
+
+"INFO" = "Information";
+"MESSAGE_WRONGPASSLOG" = "Wrong Password/Login";
+"MESSAGE" = "Fill the field email";
+"MESSAGE_REG_LOG" = "login already exist";
+"MESSAGE_REG_MDP" = "Passwords are different";
+"MESSAGE_REG_ELEM" = "Some fields are empty";
+"MESSAGE_CHANGE_WRONGCONF" = "Passwords are different";
+"MESSAGE_CHANGE_DONE" = "Password is changed";
+"MESSAGE_CHANGE_WRONG" = "Old password is wrong";
+"RETURN" = "Dismiss";
+"DELETE_ACCOUNT" = "account is delete";
+"UPDATE_SEARCH" = "Looking for update...";
+"UPDATE_NEW" = "New update available !";
+"UPDATE_MESSAGE" = "Version: 1.6 \n\nBuild: 1.1.342.54\n\nNews: At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.";
+"UPDATE_LOADING" = "installing...";
+"UPDATE_INSTALLED" = "Update installed";
+"MESSAGE_LIST_EMPTY" = "Nothing to show";
+"MESSAGE_EXPLICATIF" = "Enter your Email adress in the field then click on the button \"change your password\", an email will be send on your email address with your new password.";
+"MESSAGE_EMAILSEND" = "An email was send";
