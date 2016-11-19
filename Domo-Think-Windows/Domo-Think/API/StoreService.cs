@@ -28,9 +28,9 @@ namespace DomoThink.API
             return await this.api.Get<IEnumerable<PluginComment>>(ApiRoutes.GET_PLUGINS_STORE_COMMENTS, pluginId);
         }
 
-        public async Task PostComment(PluginComment comment)
+        public async Task PostComment(PluginComment comment, int pluginId)
         {
-            string url = string.Format(ApiRoutes.POST_PLUGINS_STORE_COMMENTS, comment.PluginId);
+            string url = string.Format(ApiRoutes.POST_PLUGINS_STORE_COMMENTS, pluginId);
 
             await this.api.Post<PluginComment, object>(url, comment);
         }

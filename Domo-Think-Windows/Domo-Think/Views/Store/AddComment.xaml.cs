@@ -37,15 +37,15 @@ namespace DomoThink.Views.Store
             this.COMMENT_TEXT.Document.GetText(TextGetOptions.UseCrlf, out commentText);
             var comment = new PluginComment()
             {
-                PluginId = this.pluginId,
+                //PluginId = this.pluginId,
                 Author = this.AUTHOR_TEXT.Text,
                 Comment = commentText,
-                //Date = DateTime.Now,
-                Rate = 0,
+                //Date = "",
+                Rate = 2,
                 KeyLoginHash = "YOLO_HASH"
             };
 
-            await AppContext.StoreService.PostComment(comment);
+            await AppContext.StoreService.PostComment(comment, this.pluginId);
         }
 
         private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
