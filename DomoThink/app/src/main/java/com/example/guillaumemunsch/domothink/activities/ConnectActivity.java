@@ -62,8 +62,6 @@ public class ConnectActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                         try {
-                            Log.d("Log", statusCode + "");
-                            Log.d("Log", response.toString());
                             token = response.getString("token");
                             id = response.getString("userId");
                             Utils.storeToken(context, token);

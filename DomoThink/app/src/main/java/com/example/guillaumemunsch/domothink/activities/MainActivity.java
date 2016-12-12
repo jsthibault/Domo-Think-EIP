@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.example.guillaumemunsch.domothink.R;
 import com.example.guillaumemunsch.domothink.adapter.NavDrawerListAdapter;
+import com.example.guillaumemunsch.domothink.fragments.DashboardFragment;
 import com.example.guillaumemunsch.domothink.fragments.DirectivesFragment;
 import com.example.guillaumemunsch.domothink.fragments.MyPluginsFragment;
 import com.example.guillaumemunsch.domothink.fragments.ObjectsFragment;
@@ -82,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         fragmentManager = getFragmentManager();
         fragmentList = new ArrayList<Fragment>();
+        fragmentList.add(new DashboardFragment());
         fragmentList.add(new ObjectsFragment());
         fragmentList.add(new DirectivesFragment());
         fragmentList.add(new MyPluginsFragment());
@@ -111,19 +113,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Fragment fragment = null;
         FragmentManager fragmentManager = getFragmentManager();
 
-        if (id == R.id.nav_objects) {
+        if (id == R.id.nav_dashboard) {
             placeId = 0;
-        } else if (id == R.id.nav_directives) {
+        } else if (id == R.id.nav_objects) {
             placeId = 1;
-        } else if (id == R.id.nav_plugins) {
+        } else if (id == R.id.nav_directives) {
             placeId = 2;
-        } else if (id == R.id.nav_store) {
+        } else if (id == R.id.nav_plugins) {
             placeId = 3;
-        } else if (id == R.id.nav_update) {
+        } else if (id == R.id.nav_store) {
             placeId = 4;
-        } else if (id == R.id.nav_settings) {
+        } else if (id == R.id.nav_update) {
             placeId = 5;
+        } else if (id == R.id.nav_settings) {
+            placeId = 6;
         } else if (id == R.id.nav_logout) {
+            finish();
             JSONObject param = new JSONObject();
             StringEntity stringEntity = null;
             try {

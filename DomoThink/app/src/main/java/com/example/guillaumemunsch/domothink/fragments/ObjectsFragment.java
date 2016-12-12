@@ -72,13 +72,12 @@ public class ObjectsFragment extends Fragment {
 
                     @Override
                     public void onDismiss(ListView listView, int[] reverseSortedPositions) {
-                        for (int position : reverseSortedPositions) {
-                            pos = position;
+                        for (final int position : reverseSortedPositions) {
                             RestAPI.deleteApiTest("/devices/" + devices.get(position).getId(), null, new JsonHttpResponseHandler() {
                                 @Override
                                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                                     Log.d("Success:", "Deleting device");
-                                    adapter.remove(pos);
+                                    adapter.remove(position);
                                     adapter.notifyDataSetChanged();
                                     if (adapter.getCount() == 0)
                                         Toast.makeText(context, R.string.no_directive_found, Toast.LENGTH_LONG).show();

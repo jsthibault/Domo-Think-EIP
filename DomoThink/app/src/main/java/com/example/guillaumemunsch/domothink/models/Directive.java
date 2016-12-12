@@ -9,21 +9,21 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 
 public class Directive implements Serializable {
-    private int id;
+    private int idDirective;
     private String name;
     private String description;
     private int creatorId;
-    private int objectId;
+    private int deviceId;
     private int actionId;
 
     public Directive(){};
 
-    public Directive(int id, String name, String description, int creatorId, int objectId, int actionId, Periodicity periodicity) {
-        this.id = id;
+    public Directive(int id, String name, String description, int creatorId, int deviceId, int actionId, Periodicity periodicity) {
+        this.idDirective = id;
         this.name = name;
         this.description = description;
         this.creatorId = creatorId;
-        this.objectId = objectId;
+        this.deviceId = deviceId;
         this.actionId = actionId;
         this.periodicity = periodicity;
     }
@@ -34,12 +34,12 @@ public class Directive implements Serializable {
         this.creatorId = creatorId;
     }
 
-    public int getObjectId() {
-        return objectId;
+    public int getDeviceId() {
+        return deviceId;
     }
 
-    public void setObjectId(int objectId) {
-        this.objectId = objectId;
+    public void setDeviceId(int deviceId) {
+        this.deviceId = deviceId;
     }
 
     public int getActionId() {
@@ -53,11 +53,11 @@ public class Directive implements Serializable {
     private Periodicity periodicity;
 
     public int getId() {
-        return id;
+        return idDirective;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.idDirective = id;
     }
 
     public String getName() {

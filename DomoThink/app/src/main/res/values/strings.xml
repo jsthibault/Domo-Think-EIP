@@ -75,4 +75,5 @@
     <string name="new_confirm_password_differ">New and confirm password aren\'t the same</string>
     <string name="old_new_password_differ">Old and new password are the same</string>
     <string name="already_current_password">This is already your current password</string>
+    <string name="dashboard">Dashboard</string>
 </resources>

@@ -17,7 +17,7 @@ import android.widget.Toast;
 import com.example.guillaumemunsch.domothink.R;
 import com.example.guillaumemunsch.domothink.http.RestAPI;
 import com.example.guillaumemunsch.domothink.models.Directive;
-import com.example.guillaumemunsch.domothink.models.Periodicity;
+import com.example.guillaumemunsch.domothink.utils.Utils;
 import com.google.gson.Gson;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -33,7 +33,7 @@ import cz.msebera.android.httpclient.entity.StringEntity;
 public class CreateUpdateDirectiveActivity extends AppCompatActivity {
     boolean edit = false;
     EditText editName = null;
-    Spinner objectSpinner = null;
+    Spinner deviceSpinner = null;
     Spinner actionSpinner = null;
     Spinner periodicitySpinner = null;
     Spinner daySpinner = null;
@@ -51,7 +51,7 @@ public class CreateUpdateDirectiveActivity extends AppCompatActivity {
         if (getIntent().hasExtra("editedDirective"))
             myDirective = (Directive)getIntent().getSerializableExtra("editedDirective");
         editName = (EditText)findViewById(R.id.directiveName);
-        objectSpinner = (Spinner)findViewById(R.id.directiveObject);
+        deviceSpinner = (Spinner)findViewById(R.id.directiveObject);
         actionSpinner = (Spinner)findViewById(R.id.directiveAction);
         periodicitySpinner = (Spinner)findViewById(R.id.directivePeriodicity);
         daySpinner = (Spinner)findViewById(R.id.directiveDay);
@@ -86,8 +86,8 @@ public class CreateUpdateDirectiveActivity extends AppCompatActivity {
         {
             edit = true;
             editName.setText(myDirective.getName());
-            objectSpinner.setSelection(myDirective.getObjectId());
-            actionSpinner.setSelection(myDirective.getActionId());
+            //deviceSpinner.setSelection(myDirective.getDeviceId());
+            //actionSpinner.setSelection(myDirective.getActionId());
             /*periodicitySpinner.setSelection(myDirective.getPeriodicity().getType());
             daySpinner.setSelection(myDirective.getPeriodicity().getDay());
             tp.setCurrentHour(myDirective.getPeriodicity().getHour());
@@ -105,14 +105,14 @@ public class CreateUpdateDirectiveActivity extends AppCompatActivity {
                 }
 
                 myDirective.setName(editName.getText().toString());
-                myDirective.setObjectId((int) objectSpinner.getSelectedItemId());
+                myDirective.setDeviceId((int) deviceSpinner.getSelectedItemId());
                 myDirective.setActionId((int) actionSpinner.getSelectedItemId());
-                Periodicity periodicity = new Periodicity();
+/*                Periodicity periodicity = new Periodicity();
                 periodicity.setType((int) periodicitySpinner.getSelectedItemId());
                 periodicity.setDay((int) daySpinner.getSelectedItemId());
                 periodicity.setHour(tp.getCurrentHour());
                 periodicity.setMinute(tp.getCurrentMinute());
-                myDirective.setPeriodicity(periodicity);
+                myDirective.setPeriodicity(periodicity);*/
                 RequestParams params = new RequestParams();
                 params.put("directive", new Gson().toJson(myDirective));
 
@@ -126,14 +126,18 @@ public class CreateUpdateDirectiveActivity extends AppCompatActivity {
                             Toast.makeText(context, R.string.directive_name_empty, Toast.LENGTH_LONG).show();
                             throw new Exception("Directive name is empty");
                         }
-                        param.put("id", myDirective.getId());
+                        param.put("creatorId", Utils.getInfo(context, "userId"));
+                        param.put("deviceId", deviceSpinner.getSelectedItemId());
+                        param.put("actionId", actionSpinner.getSelectedItem());
+                        param.put("periodicityType", periodicitySpinner.getSelectedItem());
+                        param.put("periodicityData", "{ data: 'now' }");
                         stringEntity = new StringEntity(param.toString());
                     }
                     catch (Throwable ex)
                     {
                         Log.d("DirectiveCreate", ex.getMessage());
                     }
-                    RestAPI.postApiTest(context, "directive", stringEntity, new JsonHttpResponseHandler() {
+                    RestAPI.postApiTest(context, "directives", stringEntity, new JsonHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                             Toast.makeText(context, R.string.yes, Toast.LENGTH_LONG).show();
@@ -157,14 +161,17 @@ public class CreateUpdateDirectiveActivity extends AppCompatActivity {
                             Toast.makeText(context, R.string.directive_name_empty, Toast.LENGTH_LONG).show();
                             throw new Exception("Directive name is empty");
                         }
-                        param.put("id", myDirective.getId());
+                        param.put("deviceId", deviceSpinner.getSelectedItemId());
+                        param.put("actionId", actionSpinner.getSelectedItem());
+                        param.put("periodicityType", periodicitySpinner.getSelectedItem());
+                        param.put("periodicityData", "{ data: 'now' }");
                         stringEntity = new StringEntity(param.toString());
                     }
                     catch (Throwable ex)
                     {
                         Log.d("EditDirective", ex.getMessage());
                     }
-                    RestAPI.putApiTest(context, "directive/" + myDirective.getId(), stringEntity, new JsonHttpResponseHandler() {
+                    RestAPI.putApiTest(context, "directive", stringEntity, new JsonHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                             Toast.makeText(context, R.string.yes, Toast.LENGTH_LONG).show();

@@ -115,8 +115,7 @@ public class PluginDetailActivity extends AppCompatActivity {
                 }
                 RestAPI.post(PluginDetailActivity.this, "plugins/install", stringEntity, new JsonHttpResponseHandler() {
                     @Override
-                    public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-                        Log.d("Coucou", "Success");
+                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                         Toast.makeText(context, "Plugin installed", Toast.LENGTH_LONG).show();
                         finish();
                     }
@@ -124,8 +123,7 @@ public class PluginDetailActivity extends AppCompatActivity {
 
 
                     @Override
-                    public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                        Log.d("Coucou", "Success");
+                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject response) {
                         Toast.makeText(context, "Unable to install. Already installed ?", Toast.LENGTH_LONG).show();
                         finish();
                     }
@@ -180,11 +178,11 @@ public class PluginDetailActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d("LA", "CA RESUME");
         RestAPI.getApiTest("store/" + plugin.getIdPlugin() + "/comments", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 try {
+                    commentList.clear();
                     commentList.addAll((List<Comment>)(new Gson().fromJson(response.toString(), new TypeToken<List<Comment>>() {
                     }.getType())));
                     mAdapter.notifyDataSetChanged();

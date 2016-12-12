@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.guillaumemunsch.domothink.R;
 import com.example.guillaumemunsch.domothink.activities.CreateUpdateDirectiveActivity;
@@ -64,15 +65,15 @@ public class MyPluginsFragment extends Fragment {
 
                     @Override
                     public void onDismiss(ListView listView, int[] reverseSortedPositions) {
-                        Utils.confirm(context, getResources().getString(R.string.removing_plugin), getResources().getString(R.string.do_you_really_plugin));
                         for (final int position : reverseSortedPositions) {
-                            adapter.remove(position);
-                            RestAPI.delete("/plugins/" + pluginList.get(position).getIdPlugin(), null, new JsonHttpResponseHandler() {
+                            RestAPI.delete("/plugins/uninstall/" + pluginList.get(position).getIdPlugin(), null, new JsonHttpResponseHandler() {
                                 @Override
                                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                                     Log.d("Success:", "removing plugin");
                                     adapter.remove(position);
                                     adapter.notifyDataSetChanged();
+                                    if (adapter.getCount() == 0)
+                                        Toast.makeText(context, "No plugin installed", Toast.LENGTH_LONG).show();
                                 }
 
                                 @Override
@@ -105,9 +106,11 @@ public class MyPluginsFragment extends Fragment {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 try {
-                    Log.d("RESPONSE", response.toString());
                     pluginList = new Gson().fromJson(response.toString(), new TypeToken<List<Plugin>>() {
                     }.getType());
+                    if (pluginList.size() == 0) {
+                        Toast.makeText(context, "No plugin installed", Toast.LENGTH_LONG).show();
+                    }
                     loadContent();
                 } catch (Throwable ex) {
                     Log.d("Plugin Fragment", "Unable to find plugin.");

@@ -16,8 +16,10 @@ import cz.msebera.android.httpclient.entity.StringEntity;
 
 public class RestAPI {
 //    private static final String BASE_URL = "http://89.156.153.245:4242/";
-    private static final String BASE_URL = "http://10.0.3.2:8081/";
-    private static final String BASE_URL_API_TEST = "http://10.0.3.2:8081/";
+//    private static final String BASE_URL = "http://10.0.3.2:8082/";
+//    private static final String BASE_URL_API_TEST = "http://10.0.3.2:8082/";
+    private static final String BASE_URL = "http://86.70.224.17:8081/";
+    private static final String BASE_URL_API_TEST = "http://86.70.224.17:8081/";
 
     private static AsyncHttpClient client = SingletonAsyncHttpClient.getInstance();
 

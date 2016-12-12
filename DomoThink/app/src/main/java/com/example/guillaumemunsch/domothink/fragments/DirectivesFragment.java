@@ -75,7 +75,7 @@ public class DirectivesFragment extends Fragment {
                                     adapter.remove(pos);
                                     adapter.notifyDataSetChanged();
                                     if (adapter.getCount() == 0)
-                                        Toast.makeText(context, R.string.no_device_found, Toast.LENGTH_LONG).show();
+                                        Toast.makeText(context, R.string.no_directive_found, Toast.LENGTH_LONG).show();
                                 }
 
                                 @Override
@@ -92,7 +92,6 @@ public class DirectivesFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Intent intent = new Intent(getActivity(), CreateUpdateDirectiveActivity.class);
-                Log.d("POSITION", position + "");
                 intent.putExtra("editedDirective", directives.get(position));
                 startActivity(intent);
             }
@@ -111,6 +110,9 @@ public class DirectivesFragment extends Fragment {
                 try {
                     directives = new Gson().fromJson(response.toString(), new TypeToken<List<Directive>>() {
                     }.getType());
+                    if (directives.size() == 0) {
+                        Toast.makeText(context, R.string.no_directive_found, Toast.LENGTH_LONG).show();
+                    }
                     loadContent();
                 } catch (Throwable ex) {
                     Log.d("Directive Fragment", "Unable to find directives.");

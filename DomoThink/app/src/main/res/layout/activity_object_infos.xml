@@ -32,12 +32,6 @@
 
     </LinearLayout>
 
-
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/chart"
-        android:layout_width="match_parent"
-        android:layout_height="422dp" />
-
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

@@ -51,23 +51,6 @@ public class InfosObject extends AppCompatActivity {
         button = (Button)findViewById(R.id.editDeviceNameBtn);
         name.setText(device.getName(), TextView.BufferType.EDITABLE);
 
-        LineChart mChart = (LineChart) findViewById(R.id.chart);
-
-        List<Entry> entries = new ArrayList<Entry>();
-
-        for (int i = 1; i < 10; i++) {
-            entries.add(new Entry(i, i + 2));
-        }
-
-        LineDataSet dataSet = new LineDataSet(entries, "DataSet 1");
-
-        ArrayList<ILineDataSet> dataSets = new ArrayList<ILineDataSet>();
-        dataSets.add(dataSet);
-
-        LineData data = new LineData(dataSets);
-
-        mChart.setData(data);
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

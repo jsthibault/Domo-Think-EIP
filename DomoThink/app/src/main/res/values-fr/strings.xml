@@ -75,4 +75,5 @@
     <string name="new_confirm_password_differ">Les champs du nouveau mot de passe different</string>
     <string name="old_new_password_differ">L\'ancien et le nouveau mot de passe sont les mêmes</string>
     <string name="already_current_password">Ceci est déjà votre mot de passe actuel</string>
+    <string name="dashboard">Tableau de bord</string>
 </resources>

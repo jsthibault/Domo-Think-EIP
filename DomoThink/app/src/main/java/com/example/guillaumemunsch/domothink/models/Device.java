@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 @SuppressWarnings("serial")
 public class Device implements Serializable {
-    private int id;
+    private int idDevice;
     private String name;
     private String description;
     private boolean activate;
@@ -18,9 +18,9 @@ public class Device implements Serializable {
 
     public void setAdded(boolean added) { this.added = added; }
 
-    public int getId() { return id; }
+    public int getId() { return idDevice; }
 
-    public void setId(int id) { this.id = id; }
+    public void setId(int id) { this.idDevice = id; }
 
     public String getName() {
         return name;
@@ -48,7 +48,7 @@ public class Device implements Serializable {
 
     public Device(int id, String name, String description, boolean activate, boolean added) {
 
-        this.id = id;
+        this.idDevice = id;
         this.name = name;
         this.description = description;
         this.activate = activate;
