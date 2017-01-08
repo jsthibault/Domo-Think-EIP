@@ -6,7 +6,7 @@
 "199-GQ-Iag.text" = "Note";
 
 /* Class = "UINavigationItem"; title = "Title"; ObjectID = "1Ee-9q-fHq"; */
-"1Ee-9q-fHq.title" = "Titre";
+"1Ee-9q-fHq.title" = "Ajout d'un objet";
 
 /* Class = "UILabel"; text = "Update"; ObjectID = "2d9-Gn-v4k"; */
 "2d9-Gn-v4k.text" = "Mise à jour";
@@ -189,7 +189,7 @@
 "pLL-iV-sdP.text" = "Clef de la box :";
 
 /* Class = "UINavigationItem"; title = "Title"; ObjectID = "qnp-oP-Uui"; */
-"qnp-oP-Uui.title" = "Titre";
+"qnp-oP-Uui.title" = "Directive";
 
 /* Class = "UIButton"; normalTitle = "S'inscrire"; ObjectID = "qzE-A0-7im"; */
 "qzE-A0-7im.normalTitle" = "S'inscrire";
@@ -201,7 +201,7 @@
 "sIP-5e-0yC.text" = "Email :";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "tAO-7V-Uji"; */
-"tAO-7V-Uji.normalTitle" = "Button";
+"tAO-7V-Uji.normalTitle" = "Mettre à jour";
 
 /* Class = "UILabel"; text = "Theme : "; ObjectID = "tUN-LJ-FnT"; */
 "tUN-LJ-FnT.text" = "Theme : ";
@@ -218,22 +218,24 @@
 /* Class = "UILabel"; text = "Store"; ObjectID = "weL-rp-KV5"; */
 "weL-rp-KV5.text" = "Store";
 
-"INFO" = "Information";
-"MESSAGE_WRONGPASSLOG" = "Mot de passe/Login incorrect";
-"MESSAGE" = "remplir le champ email";
-"MESSAGE_REG_LOG" = "login existant";
-"MESSAGE_REG_MDP" = "Les mots de passe sont differents";
-"MESSAGE_REG_ELEM" = "Certains champs sont vident";
-"MESSAGE_CHANGE_WRONGCONF" = "Les mots de passe sont differents";
-"MESSAGE_CHANGE_DONE" = "Le mot de passe est modifié";
-"MESSAGE_CHANGE_WRONG" = "l'ancien mot de passe n'est pas le bon";
-"RETURN" = "retour";
-"DELETE_ACCOUNT" = "le compte à était supprimé";
-"UPDATE_SEARCH" = "Recherche de mise à jour...";
-"UPDATE_NEW" = "Nouvelle Mise à jour disponible !";
-"UPDATE_MESSAGE" = "Version: 1.6 \n\nBuild: 1.1.342.54\n\nNouveautés: At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.";
-"UPDATE_LOADING" = "instalation en cours...";
-"UPDATE_INSTALLED" = "Mise à jour installée";
-"MESSAGE_LIST_EMPTY" = "aucun element a montrer";
-"MESSAGE_EXPLICATIF" = "Ajoutez voutre e-mail dans le champ associé et cliquer sur le bouton \"changer le mot de passe\", un e-mail vous sera envoyer avec votre nouveau mot de passe.";
-"MESSAGE_EMAILSEND" = "un email a etait envoyer";
+"eHu-n7-BWR.text" = "Accueil";
+
+"1ZI-3E-XVY.text" = "Accueil";
+
+"T1G-bN-Snh.text" = "Température";
+
+"87v-2s-uTS.text" = "Nom";
+
+"m8c-R7-FgH.text" = "Objet associé";
+
+"osn-BB-qDv.text" = "Date";
+
+"xA2-xe-OxW.text" = "Télécharger";
+
+"de7-bT-Ght.text" = "< Retour";
+
+"5dS-xF-04W.text" = "Inscription";
+
+"ak5-fC-GKt.text" = "Mot de passe oublié";
+
+"q5C-xb-2a1.text" = "Humidité";

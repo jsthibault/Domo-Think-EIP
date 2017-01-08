@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2F0CF7341DA7F2E1000EAEFB /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0CF7331DA7F2E1000EAEFB /* SWRevealViewController.m */; };
+		2F1C38F41DE0AC05006C55C9 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1C38F31DE0AC05006C55C9 /* ChartsViewController.swift */; };
+		2F55C6CC1E0EC9D600EF3F2C /* ThermometerDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F55C6CB1E0EC9D600EF3F2C /* ThermometerDevice.swift */; };
+		2F55C6CE1E0EDD0400EF3F2C /* DirectiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F55C6CD1E0EDD0400EF3F2C /* DirectiveViewController.swift */; };
 		2F6325111DA40B610037BFD7 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6325101DA40B610037BFD7 /* RegistrationViewController.swift */; };
 		2F6325131DA40B770037BFD7 /* ForgotPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6325121DA40B770037BFD7 /* ForgotPassViewController.swift */; };
+		2F691B2C1E0EE2FD003FAADF /* RuleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F691B2B1E0EE2FD003FAADF /* RuleTableViewCell.swift */; };
 		2FA201DD1DBBAC1B00FF9609 /* DirectiveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA201DC1DBBAC1B00FF9609 /* DirectiveTableViewCell.swift */; };
 		2FA201DF1DBBAC2C00FF9609 /* DeviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA201DE1DBBAC2C00FF9609 /* DeviceTableViewCell.swift */; };
 		2FA201E11DBBAC4300FF9609 /* PluginTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA201E01DBBAC4300FF9609 /* PluginTableViewCell.swift */; };
@@ -26,6 +30,15 @@
 		2FAFF41F1DA7D3E100B1BD98 /* PluginListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAFF41E1DA7D3E100B1BD98 /* PluginListViewController.swift */; };
 		2FAFF4231DA7D9D800B1BD98 /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAFF4221DA7D9D800B1BD98 /* UpdateViewController.swift */; };
 		2FAFF4251DA7DE2E00B1BD98 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAFF4241DA7DE2E00B1BD98 /* SettingsViewController.swift */; };
+		2FB1ACA41DE4F75B00CD8F2D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2FB1ACA21DE4F75B00CD8F2D /* Localizable.strings */; };
+		2FB791021E1121020044E590 /* LightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB791011E1121020044E590 /* LightTableViewCell.swift */; };
+		2FB791041E1121A20044E590 /* TVTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB791031E1121A20044E590 /* TVTableViewCell.swift */; };
+		2FB791061E1121E50044E590 /* ThermometerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB791051E1121E50044E590 /* ThermometerTableViewCell.swift */; };
+		2FB791081E1122050044E590 /* HomeSecuredTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB791071E1122050044E590 /* HomeSecuredTableViewCell.swift */; };
+		2FB7910B1E1123830044E590 /* AddDeviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7910A1E1123830044E590 /* AddDeviceTableViewCell.swift */; };
+		2FD1EF6B1E0E8A84003B4116 /* HomeSecuredCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1EF6A1E0E8A84003B4116 /* HomeSecuredCollectionViewCell.swift */; };
+		2FD1EF6D1E0E8A9E003B4116 /* TVCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1EF6C1E0E8A9E003B4116 /* TVCollectionViewCell.swift */; };
+		2FD1EF6F1E0EACCB003B4116 /* AddDeviceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1EF6E1E0EACCB003B4116 /* AddDeviceCollectionViewCell.swift */; };
 		2FDA2C8F1D8E955900EDE411 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA2C8E1D8E955900EDE411 /* AppDelegate.swift */; };
 		2FDA2C941D8E955900EDE411 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FDA2C921D8E955900EDE411 /* Main.storyboard */; };
 		2FDA2C961D8E955900EDE411 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FDA2C951D8E955900EDE411 /* Images.xcassets */; };
@@ -42,6 +55,10 @@
 		2FE18FAD1DD779C60084876D /* AddDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE18FAC1DD779C60084876D /* AddDeviceViewController.swift */; };
 		2FE18FC21DD9040C0084876D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FE18FC01DD9040C0084876D /* Info.plist */; };
 		2FE18FC41DDA48280084876D /* LogoutSpess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE18FC31DDA48280084876D /* LogoutSpess.swift */; };
+		2FE2F0D61E0AFCFC00F282BB /* ThermometerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE2F0D51E0AFCFC00F282BB /* ThermometerCollectionViewCell.swift */; };
+		2FE2F0D81E0AFE9E00F282BB /* LightCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE2F0D71E0AFE9E00F282BB /* LightCollectionViewCell.swift */; };
+		2FF744901DEB2C780079F351 /* DevicesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF7448F1DEB2C780079F351 /* DevicesCollectionViewCell.swift */; };
+		2FF744981DEB459A0079F351 /* DeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF744971DEB459A0079F351 /* DeviceViewController.swift */; };
 		89CB5D40B4133C20EDB08E4F /* Pods_Domothink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72F424CBC6FB9726EE7713E /* Pods_Domothink.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,10 +76,14 @@
 		2F0CF7311DA7F2E0000EAEFB /* Domothink-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Domothink-Bridging-Header.h"; sourceTree = "<group>"; };
 		2F0CF7321DA7F2E1000EAEFB /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		2F0CF7331DA7F2E1000EAEFB /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		2F1C38F31DE0AC05006C55C9 /* ChartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartsViewController.swift; path = Controllers/ChartsViewController.swift; sourceTree = "<group>"; };
+		2F55C6CB1E0EC9D600EF3F2C /* ThermometerDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThermometerDevice.swift; path = Models/ThermometerDevice.swift; sourceTree = "<group>"; };
+		2F55C6CD1E0EDD0400EF3F2C /* DirectiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DirectiveViewController.swift; path = Controllers/DirectiveViewController.swift; sourceTree = "<group>"; };
 		2F6325101DA40B610037BFD7 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationViewController.swift; path = Controllers/RegistrationViewController.swift; sourceTree = "<group>"; };
 		2F6325121DA40B770037BFD7 /* ForgotPassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPassViewController.swift; path = Controllers/ForgotPassViewController.swift; sourceTree = "<group>"; };
+		2F691B2B1E0EE2FD003FAADF /* RuleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuleTableViewCell.swift; path = Views/RuleTableViewCell.swift; sourceTree = "<group>"; };
 		2FA201DC1DBBAC1B00FF9609 /* DirectiveTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DirectiveTableViewCell.swift; path = Views/DirectiveTableViewCell.swift; sourceTree = "<group>"; };
-		2FA201DE1DBBAC2C00FF9609 /* DeviceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceTableViewCell.swift; path = Views/DeviceTableViewCell.swift; sourceTree = "<group>"; };
+		2FA201DE1DBBAC2C00FF9609 /* DeviceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceTableViewCell.swift; path = Views/Devices/DeviceTableViewCell.swift; sourceTree = "<group>"; };
 		2FA201E01DBBAC4300FF9609 /* PluginTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PluginTableViewCell.swift; path = Views/PluginTableViewCell.swift; sourceTree = "<group>"; };
 		2FA201E21DBBC81400FF9609 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		2FA201E51DBBD01C00FF9609 /* LibraryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryAPI.swift; path = API/LibraryAPI.swift; sourceTree = "<group>"; };
@@ -77,6 +98,17 @@
 		2FAFF41E1DA7D3E100B1BD98 /* PluginListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PluginListViewController.swift; path = Controllers/PluginListViewController.swift; sourceTree = "<group>"; };
 		2FAFF4221DA7D9D800B1BD98 /* UpdateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateViewController.swift; path = Controllers/UpdateViewController.swift; sourceTree = "<group>"; };
 		2FAFF4241DA7DE2E00B1BD98 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Controllers/SettingsViewController.swift; sourceTree = "<group>"; };
+		2FB1ACA11DE4F66600CD8F2D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		2FB1ACA31DE4F75B00CD8F2D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2FB1ACA51DE4F76D00CD8F2D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2FB791011E1121020044E590 /* LightTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LightTableViewCell.swift; path = Views/Devices/LightTableViewCell.swift; sourceTree = "<group>"; };
+		2FB791031E1121A20044E590 /* TVTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TVTableViewCell.swift; path = Views/Devices/TVTableViewCell.swift; sourceTree = "<group>"; };
+		2FB791051E1121E50044E590 /* ThermometerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThermometerTableViewCell.swift; path = Views/Devices/ThermometerTableViewCell.swift; sourceTree = "<group>"; };
+		2FB791071E1122050044E590 /* HomeSecuredTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeSecuredTableViewCell.swift; path = Views/Devices/HomeSecuredTableViewCell.swift; sourceTree = "<group>"; };
+		2FB7910A1E1123830044E590 /* AddDeviceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddDeviceTableViewCell.swift; path = Views/Devices/AddDeviceTableViewCell.swift; sourceTree = "<group>"; };
+		2FD1EF6A1E0E8A84003B4116 /* HomeSecuredCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeSecuredCollectionViewCell.swift; path = Views/HomeSecuredCollectionViewCell.swift; sourceTree = "<group>"; };
+		2FD1EF6C1E0E8A9E003B4116 /* TVCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TVCollectionViewCell.swift; path = Views/TVCollectionViewCell.swift; sourceTree = "<group>"; };
+		2FD1EF6E1E0EACCB003B4116 /* AddDeviceCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddDeviceCollectionViewCell.swift; path = Views/AddDeviceCollectionViewCell.swift; sourceTree = "<group>"; };
 		2FDA2C891D8E955900EDE411 /* Domothink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Domothink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FDA2C8E1D8E955900EDE411 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FDA2C931D8E955900EDE411 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,9 +129,12 @@
 		2FE18FB01DD8E83C0084876D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		2FE18FB11DD8E83C0084876D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2FE18FB31DD8E88D0084876D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		2FE18FB51DD8ED090084876D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2FE18FC11DD9040C0084876D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
 		2FE18FC31DDA48280084876D /* LogoutSpess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogoutSpess.swift; path = API/LogoutSpess.swift; sourceTree = "<group>"; };
+		2FE2F0D51E0AFCFC00F282BB /* ThermometerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThermometerCollectionViewCell.swift; path = Views/ThermometerCollectionViewCell.swift; sourceTree = "<group>"; };
+		2FE2F0D71E0AFE9E00F282BB /* LightCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LightCollectionViewCell.swift; path = Views/LightCollectionViewCell.swift; sourceTree = "<group>"; };
+		2FF7448F1DEB2C780079F351 /* DevicesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DevicesCollectionViewCell.swift; path = Views/DevicesCollectionViewCell.swift; sourceTree = "<group>"; };
+		2FF744971DEB459A0079F351 /* DeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceViewController.swift; path = Controllers/DeviceViewController.swift; sourceTree = "<group>"; };
 		C70C332A88C8BEF6A24245C2 /* Pods-Domothink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domothink.release.xcconfig"; path = "Pods/Target Support Files/Pods-Domothink/Pods-Domothink.release.xcconfig"; sourceTree = "<group>"; };
 		DC480983F318D3FB2A7C1E94 /* Pods-Domothink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domothink.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Domothink/Pods-Domothink.debug.xcconfig"; sourceTree = "<group>"; };
 		E72F424CBC6FB9726EE7713E /* Pods_Domothink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Domothink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +180,19 @@
 			path = Domothink/Framework/SWRevealView;
 			sourceTree = "<group>";
 		};
+		2FB791001E1120D50044E590 /* Devices */ = {
+			isa = PBXGroup;
+			children = (
+				2FA201DE1DBBAC2C00FF9609 /* DeviceTableViewCell.swift */,
+				2FB791011E1121020044E590 /* LightTableViewCell.swift */,
+				2FB791031E1121A20044E590 /* TVTableViewCell.swift */,
+				2FB791051E1121E50044E590 /* ThermometerTableViewCell.swift */,
+				2FB791071E1122050044E590 /* HomeSecuredTableViewCell.swift */,
+				2FB7910A1E1123830044E590 /* AddDeviceTableViewCell.swift */,
+			);
+			name = Devices;
+			sourceTree = "<group>";
+		};
 		2FDA2C801D8E955900EDE411 = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +222,7 @@
 				2FDA2CAE1D8E95D500EDE411 /* Models */,
 				2FDA2C8E1D8E955900EDE411 /* AppDelegate.swift */,
 				2FDA2C921D8E955900EDE411 /* Main.storyboard */,
+				2FB1ACA21DE4F75B00CD8F2D /* Localizable.strings */,
 				2FDA2C951D8E955900EDE411 /* Images.xcassets */,
 				2FDA2C971D8E955900EDE411 /* LaunchScreen.xib */,
 				2FDA2C8C1D8E955900EDE411 /* Supporting Files */,
@@ -215,6 +264,7 @@
 				2FAAD8E41DBD67DD00BF05C5 /* Directive.swift */,
 				2FAAD8E81DC2791600BF05C5 /* StoreComment.swift */,
 				2FAAD8EA1DC2793100BF05C5 /* StorePlugin.swift */,
+				2F55C6CB1E0EC9D600EF3F2C /* ThermometerDevice.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -222,11 +272,18 @@
 		2FDA2CAF1D8E95DE00EDE411 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2FB791001E1120D50044E590 /* Devices */,
 				2FA201DC1DBBAC1B00FF9609 /* DirectiveTableViewCell.swift */,
-				2FA201DE1DBBAC2C00FF9609 /* DeviceTableViewCell.swift */,
 				2FA201E01DBBAC4300FF9609 /* PluginTableViewCell.swift */,
 				2FE18F9E1DD5E6630084876D /* StoreTableViewCell.swift */,
 				2FE18FA61DD61F120084876D /* CommentStoreTableViewCell.swift */,
+				2FF7448F1DEB2C780079F351 /* DevicesCollectionViewCell.swift */,
+				2FE2F0D51E0AFCFC00F282BB /* ThermometerCollectionViewCell.swift */,
+				2FE2F0D71E0AFE9E00F282BB /* LightCollectionViewCell.swift */,
+				2FD1EF6A1E0E8A84003B4116 /* HomeSecuredCollectionViewCell.swift */,
+				2FD1EF6C1E0E8A9E003B4116 /* TVCollectionViewCell.swift */,
+				2FD1EF6E1E0EACCB003B4116 /* AddDeviceCollectionViewCell.swift */,
+				2F691B2B1E0EE2FD003FAADF /* RuleTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -248,6 +305,9 @@
 				2FE18FA41DD61CCB0084876D /* DescPlugStoreViewController.swift */,
 				2FE18FAA1DD76E920084876D /* AddCommentViewController.swift */,
 				2FE18FAC1DD779C60084876D /* AddDeviceViewController.swift */,
+				2F1C38F31DE0AC05006C55C9 /* ChartsViewController.swift */,
+				2FF744971DEB459A0079F351 /* DeviceViewController.swift */,
+				2F55C6CD1E0EDD0400EF3F2C /* DirectiveViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -325,9 +385,11 @@
 					2FDA2C881D8E955900EDE411 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = D8H2B6F94P;
+						LastSwiftMigration = 0810;
 					};
 					2FDA2C9D1D8E955900EDE411 = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0810;
 						TestTargetID = 2FDA2C881D8E955900EDE411;
 					};
 				};
@@ -357,6 +419,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FB1ACA41DE4F75B00CD8F2D /* Localizable.strings in Resources */,
 				2FDA2C941D8E955900EDE411 /* Main.storyboard in Resources */,
 				2FE18FC21DD9040C0084876D /* Info.plist in Resources */,
 				2FDA2C991D8E955900EDE411 /* LaunchScreen.xib in Resources */,
@@ -430,22 +493,37 @@
 				2FDA2CDC1D8EA12900EDE411 /* LoginViewController.swift in Sources */,
 				2F6325131DA40B770037BFD7 /* ForgotPassViewController.swift in Sources */,
 				2FAAD8E11DBD67BB00BF05C5 /* Device.swift in Sources */,
+				2FB791061E1121E50044E590 /* ThermometerTableViewCell.swift in Sources */,
+				2FB791021E1121020044E590 /* LightTableViewCell.swift in Sources */,
 				2FE18FA31DD6104E0084876D /* AllStoreViewController.swift in Sources */,
+				2FB791041E1121A20044E590 /* TVTableViewCell.swift in Sources */,
 				2FE18FA11DD5F4A90084876D /* RatedStoreViewController.swift in Sources */,
 				2FE18FA51DD61CCB0084876D /* DescPlugStoreViewController.swift in Sources */,
 				2FE18FA91DD75C9C0084876D /* EditDirectiveViewController.swift in Sources */,
+				2FB7910B1E1123830044E590 /* AddDeviceTableViewCell.swift in Sources */,
 				2FAAD8EB1DC2793100BF05C5 /* StorePlugin.swift in Sources */,
 				2F0CF7341DA7F2E1000EAEFB /* SWRevealViewController.m in Sources */,
 				2FE18FA71DD61F120084876D /* CommentStoreTableViewCell.swift in Sources */,
+				2FD1EF6D1E0E8A9E003B4116 /* TVCollectionViewCell.swift in Sources */,
+				2F55C6CC1E0EC9D600EF3F2C /* ThermometerDevice.swift in Sources */,
 				2FAFF41F1DA7D3E100B1BD98 /* PluginListViewController.swift in Sources */,
+				2F55C6CE1E0EDD0400EF3F2C /* DirectiveViewController.swift in Sources */,
 				2FE18FAB1DD76E920084876D /* AddCommentViewController.swift in Sources */,
+				2FF744981DEB459A0079F351 /* DeviceViewController.swift in Sources */,
 				2FAFF4231DA7D9D800B1BD98 /* UpdateViewController.swift in Sources */,
 				2FE18FC41DDA48280084876D /* LogoutSpess.swift in Sources */,
 				2FA201E31DBBC81400FF9609 /* User.swift in Sources */,
+				2FF744901DEB2C780079F351 /* DevicesCollectionViewCell.swift in Sources */,
+				2F1C38F41DE0AC05006C55C9 /* ChartsViewController.swift in Sources */,
+				2FD1EF6F1E0EACCB003B4116 /* AddDeviceCollectionViewCell.swift in Sources */,
 				2FA201E81DBBD0A800FF9609 /* PersistencyManager.swift in Sources */,
 				2FDA2C8F1D8E955900EDE411 /* AppDelegate.swift in Sources */,
+				2FD1EF6B1E0E8A84003B4116 /* HomeSecuredCollectionViewCell.swift in Sources */,
+				2F691B2C1E0EE2FD003FAADF /* RuleTableViewCell.swift in Sources */,
 				2FA201E11DBBAC4300FF9609 /* PluginTableViewCell.swift in Sources */,
 				2FA201DF1DBBAC2C00FF9609 /* DeviceTableViewCell.swift in Sources */,
+				2FE2F0D61E0AFCFC00F282BB /* ThermometerCollectionViewCell.swift in Sources */,
+				2FE2F0D81E0AFE9E00F282BB /* LightCollectionViewCell.swift in Sources */,
 				2FE18F9F1DD5E6630084876D /* StoreTableViewCell.swift in Sources */,
 				2FAAD8E71DBD680B00BF05C5 /* Plugin.swift in Sources */,
 				2FAFF4171DA7CFD800B1BD98 /* DeviceListViewController.swift in Sources */,
@@ -456,6 +534,7 @@
 				2FAAD8E51DBD67DD00BF05C5 /* Directive.swift in Sources */,
 				2FE18FAD1DD779C60084876D /* AddDeviceViewController.swift in Sources */,
 				2FA201DD1DBBAC1B00FF9609 /* DirectiveTableViewCell.swift in Sources */,
+				2FB791081E1122050044E590 /* HomeSecuredTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +557,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2FB1ACA21DE4F75B00CD8F2D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FB1ACA31DE4F75B00CD8F2D /* en */,
+				2FB1ACA51DE4F76D00CD8F2D /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		2FDA2C921D8E955900EDE411 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -493,7 +581,7 @@
 			children = (
 				2FDA2C981D8E955900EDE411 /* Base */,
 				2FE18FB11DD8E83C0084876D /* fr */,
-				2FE18FB51DD8ED090084876D /* en */,
+				2FB1ACA11DE4F66600CD8F2D /* en */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -549,7 +637,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos10.1;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -608,6 +696,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Domothink/Framework/SWRevealView/Domothink-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -627,6 +716,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Domothink/Framework/SWRevealView/Domothink-Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -643,6 +733,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "guillaume.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Domothink.app/Domothink";
 			};
 			name = Debug;
@@ -655,6 +746,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "guillaume.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Domothink.app/Domothink";
 			};
 			name = Release;

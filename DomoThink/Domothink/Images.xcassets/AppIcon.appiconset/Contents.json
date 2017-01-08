@@ -1,6 +1,18 @@
 {
   "images" : [
     {
+      "size" : "20x20",
+      "idiom" : "iphone",
+      "filename" : "40iconDomo.png",
+      "scale" : "2x"
+    },
+    {
+      "size" : "20x20",
+      "idiom" : "iphone",
+      "filename" : "60iconDomo.png",
+      "scale" : "3x"
+    },
+    {
       "idiom" : "iphone",
       "size" : "29x29",
       "scale" : "2x"

@@ -189,7 +189,7 @@
 "pLL-iV-sdP.text" = "Box number :";
 
 /* Class = "UINavigationItem"; title = "Title"; ObjectID = "qnp-oP-Uui"; */
-"qnp-oP-Uui.title" = "Title";
+"qnp-oP-Uui.title" = "Directive";
 
 /* Class = "UIButton"; normalTitle = "S'inscrire"; ObjectID = "qzE-A0-7im"; */
 "qzE-A0-7im.normalTitle" = "Register";
@@ -201,7 +201,7 @@
 "sIP-5e-0yC.text" = "Email :";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "tAO-7V-Uji"; */
-"tAO-7V-Uji.normalTitle" = "Button";
+"tAO-7V-Uji.normalTitle" = "Update";
 
 /* Class = "UILabel"; text = "Theme : "; ObjectID = "tUN-LJ-FnT"; */
 "tUN-LJ-FnT.text" = "Theme : ";
@@ -218,22 +218,24 @@
 /* Class = "UILabel"; text = "Store"; ObjectID = "weL-rp-KV5"; */
 "weL-rp-KV5.text" = "Store";
 
-"INFO" = "Information";
-"MESSAGE_WRONGPASSLOG" = "Wrong Password/Login";
-"MESSAGE" = "Fill the field email";
-"MESSAGE_REG_LOG" = "login already exist";
-"MESSAGE_REG_MDP" = "Passwords are different";
-"MESSAGE_REG_ELEM" = "Some fields are empty";
-"MESSAGE_CHANGE_WRONGCONF" = "Passwords are different";
-"MESSAGE_CHANGE_DONE" = "Password is changed";
-"MESSAGE_CHANGE_WRONG" = "Old password is wrong";
-"RETURN" = "Dismiss";
-"DELETE_ACCOUNT" = "account is delete";
-"UPDATE_SEARCH" = "Looking for update...";
-"UPDATE_NEW" = "New update available !";
-"UPDATE_MESSAGE" = "Version: 1.6 \n\nBuild: 1.1.342.54\n\nNews: At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.";
-"UPDATE_LOADING" = "installing...";
-"UPDATE_INSTALLED" = "Update installed";
-"MESSAGE_LIST_EMPTY" = "Nothing to show";
-"MESSAGE_EXPLICATIF" = "Enter your Email adress in the field then click on the button \"change your password\", an email will be send on your email address with your new password.";
-"MESSAGE_EMAILSEND" = "An email was send";
+"eHu-n7-BWR.text" = "Home";
+
+"1ZI-3E-XVY.text" = "Home";
+
+"T1G-bN-Snh.text" = "Temperature";
+
+"87v-2s-uTS.text" = "Name";
+
+"m8c-R7-FgH.text" = "Associate device";
+
+"osn-BB-qDv.text" = "Date";
+
+"xA2-xe-OxW.text" = "Download";
+
+"de7-bT-Ght.text" = "< Back";
+
+"5dS-xF-04W.text" = "Register";
+
+"ak5-fC-GKt.text" = "Forget password";
+
+"q5C-xb-2a1.text" = "Humidity";

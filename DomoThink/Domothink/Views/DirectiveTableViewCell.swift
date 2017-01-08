@@ -10,8 +10,10 @@ import UIKit
 
 class DirectiveTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var directiveName: UILabel!
-    @IBOutlet weak var directiveDate: UILabel!
-    @IBOutlet weak var directiveStatus: UISwitch!
+    @IBOutlet weak var ruleName: UILabel!
+    @IBOutlet weak var ruleRecurence: UILabel!
+    @IBOutlet weak var ruleLastExec: UILabel!
+    @IBOutlet weak var ruleStatus: UISwitch!
+    @IBOutlet weak var ruleImg: UIImageView!
     
 }

@@ -24,7 +24,8 @@ class DirectiveListViewController: UIViewController, UISearchResultsUpdating, UI
         
         if self.revealViewController() != nil {
             menuBtn.target = self.revealViewController()
-            menuBtn.action = #selector(SWRevealViewController.revealToggle(_:))
+            menuBtn
+                .action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
         }
@@ -85,6 +86,7 @@ class DirectiveListViewController: UIViewController, UISearchResultsUpdating, UI
         let cell: DirectiveTableViewCell = tableView.dequeueReusableCellWithIdentifier("directiveCell", forIndexPath: indexPath) as! DirectiveTableViewCell
         
         //add directive in the table view
+        /*
         if (resultSeachController.active) {
             cell.directiveName.text = filteredDirective[indexPath.row].getName()
             //cell.directiveStatus.setOn(filteredDirective[indexPath.row].getStatus(), animated: true)
@@ -103,6 +105,7 @@ class DirectiveListViewController: UIViewController, UISearchResultsUpdating, UI
             cell.directiveStatus.tag = indexPath.row
             cell.directiveStatus.addTarget(self, action: #selector(DirectiveListViewController.switchOnOff(_:)), forControlEvents: UIControlEvents.ValueChanged)
         }
+ */
         return cell
     }
     
@@ -130,9 +133,9 @@ class DirectiveListViewController: UIViewController, UISearchResultsUpdating, UI
         }
     }
     
-    @IBAction func unwindToListDir(segue: UIStoryboardSegue) {}
+    //@IBAction func unwindToListDir(segue: UIStoryboardSegue) {}
     
-    @IBAction func unwindToListDirButSave(segue: UIStoryboardSegue) {}
+    //@IBAction func unwindToListDirButSave(segue: UIStoryboardSegue) {}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

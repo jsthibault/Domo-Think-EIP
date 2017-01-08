@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "494125055D62F34D2B7093CB5694A515"
+               BlueprintIdentifier = "780A7D20C6B0A91047B815DDB9C80594"
                BuildableName = "Pods_Domothink.framework"
                BlueprintName = "Pods-Domothink"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "494125055D62F34D2B7093CB5694A515"
+            BlueprintIdentifier = "780A7D20C6B0A91047B815DDB9C80594"
             BuildableName = "Pods_Domothink.framework"
             BlueprintName = "Pods-Domothink"
             ReferencedContainer = "container:Pods.xcodeproj">

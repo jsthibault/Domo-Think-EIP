@@ -83,18 +83,18 @@ class DeviceListViewController: UIViewController, UISearchResultsUpdating, UITab
         
         //add directive in the table view
         if (resultSeachController.active) {
-            cell.deviceName.text = filteredDevice[indexPath.row].getName()
-            cell.deviceStatus.setOn(filteredDevice[indexPath.row].getStatus(), animated: true)
-            
-            cell.deviceStatus.tag = indexPath.row
-            cell.deviceStatus.addTarget(self, action: #selector(DeviceListViewController.switchOnOff(_:)), forControlEvents: UIControlEvents.ValueChanged)
+//            cell.deviceName.text = filteredDevice[indexPath.row].getName()
+//            cell.deviceStatus.setOn(filteredDevice[indexPath.row].getStatus(), animated: true)
+//            
+//            cell.deviceStatus.tag = indexPath.row
+//            cell.deviceStatus.addTarget(self, action: #selector(DeviceListViewController.switchOnOff(_:)), forControlEvents: UIControlEvents.ValueChanged)
             
         } else {
-            cell.deviceName.text = allDevice[indexPath.row].getName()
-            cell.deviceStatus.setOn(allDevice[indexPath.row].getStatus(), animated: true)
-            
-            cell.deviceStatus.tag = indexPath.row
-            cell.deviceStatus.addTarget(self, action: #selector(DeviceListViewController.switchOnOff(_:)), forControlEvents: UIControlEvents.ValueChanged)
+//            cell.deviceName.text = allDevice[indexPath.row].getName()
+//            cell.deviceStatus.setOn(allDevice[indexPath.row].getStatus(), animated: true)
+//            
+//            cell.deviceStatus.tag = indexPath.row
+//            cell.deviceStatus.addTarget(self, action: #selector(DeviceListViewController.switchOnOff(_:)), forControlEvents: UIControlEvents.ValueChanged)
         }
         return cell
     }

@@ -20,7 +20,7 @@ class LibraryAPI: NSObject {
     private let URL: String!
     
     override init() {
-        URL = "http://86.70.224.17:8081/"
+        URL = "http://86.70.224.226:8081/"
         persistencyManager = PersistencyManager()
         super.init()
     }
@@ -109,13 +109,11 @@ class LibraryAPI: NSObject {
             case .Success(let JSON):
                 
                 let jsonParsed = JSON as! NSArray
-                //debugPrint(JSON)
-                
+
                 //savoir si la requete a marcher niveau API
                 if (response.response?.statusCode == 200) {
                     self.persistencyManager.removeAllStoreComments()
                     for obj in jsonParsed {
-                        //debugPrint(obj.objectForKey("name"))
                         let storeComment = StoreComment(author: obj.objectForKey("author") as! String, rate: obj.objectForKey("rate") as! Float, comment: obj.objectForKey("comment") as! String)
                         
                         self.persistencyManager.addStoreComment(storeComment)
@@ -171,7 +169,7 @@ class LibraryAPI: NSObject {
                     for obj in jsonParsed {
                         
                         print(obj)
-                        //debugPrint(obj.objectForKey("name"))
+                        
                         let plugin = Plugin(id: obj.objectForKey("idPlugin") as! Int, name: obj.objectForKey("name") as! String, status: obj.objectForKey("status") as! Bool)
                         
                         self.persistencyManager.addPlugin(plugin)
@@ -194,7 +192,7 @@ class LibraryAPI: NSObject {
             headers: ["login-token": persistencyManager.getUser().getToken()],
             parameters:  ["idPlugin": id, "name": name, "status": status, "repository": repository])
             .responseJSON { response in switch response.result {
-            case .Success(let JSON):
+            case .Success(_):
                 //savoir si la requete a marcher niveau API
                 if (response.response?.statusCode == 200) {
                     completion(result: true)
@@ -213,7 +211,7 @@ class LibraryAPI: NSObject {
             URL + "plugins/uninstall/" + String(id),
             headers: ["login-token": persistencyManager.getUser().getToken()])
             .responseJSON { response in switch response.result {
-            case .Success(let JSON):
+            case .Success(_):
                 //savoir si la requete a marcher niveau API
                 if (response.response?.statusCode == 200) {
                     completion(result: true)
@@ -267,9 +265,9 @@ class LibraryAPI: NSObject {
         Alamofire.request(.POST,
             URL + "directives",
             headers: ["login-token": persistencyManager.getUser().getToken()],
-            parameters:  ["name": name, "creatorId": creatorId, "deviceId": deviceId, "actionId": actionId, "periodicityType": periodicityType, "periodicityData": periodicityData])
+            parameters:  ["name": name, "creatorId": creatorId, "deviceId": deviceId, "actionId": actionId, "periodicityType": periodicityType, "periodicityData": ""])
             .responseJSON { response in switch response.result {
-            case .Success(let JSON):
+            case .Success(_):
                 //savoir si la requete a marcher niveau API
                 if (response.response?.statusCode == 200) {
                     completion(result: true)
@@ -288,12 +286,12 @@ class LibraryAPI: NSObject {
         Alamofire.request(.PUT,
             URL + "directives",
             headers: ["login-token": persistencyManager.getUser().getToken()],
-            parameters:  ["idDevice": directive.getId(), "name": directive.getName(),
+            parameters:  ["idDirective": directive.getId(), "name": directive.getName(),
                     "creatorId": directive.getCreatorId(), "deviceId": directive.getDeviceId(),
                     "actionId": directive.getActionId(), "periodicityType": directive.getPerType(),
                     "periodicityData": directive.getPerData()])
             .responseJSON { response in switch response.result {
-            case .Success(let JSON):
+            case .Success(_):
                 //savoir si la requete a marcher niveau API
                 if (response.response?.statusCode == 200) {
                     completion(result: true)
@@ -312,7 +310,7 @@ class LibraryAPI: NSObject {
             URL + "directives/" + String(id),
             headers: ["login-token": persistencyManager.getUser().getToken()])
             .responseJSON { response in switch response.result {
-            case .Success(let JSON):
+            case .Success(_):
                 //savoir si la requete a marcher niveau API
                 if (response.response?.statusCode == 200) {
                     completion(result: true)
@@ -349,6 +347,7 @@ class LibraryAPI: NSObject {
                         
                         self.persistencyManager.addDevice(device)
                     }
+                    self.persistencyManager.addDevice(Device(id: -1, name: "Ajouter !", desc: "Ajouter un objet", status: true))
                     completion(result: self.persistencyManager.getDevices())
                 } else {
                     completion(result: self.persistencyManager.getDevices())
@@ -367,7 +366,7 @@ class LibraryAPI: NSObject {
             headers: ["login-token": persistencyManager.getUser().getToken()],
             parameters:  ["name": name, "descritpion": desc, "status": status])
             .responseJSON { response in switch response.result {
-            case .Success(let JSON):
+            case .Success(_):
                 //savoir si la requete a marcher niveau API
                 if (response.response?.statusCode == 200) {
                     completion(result: true)
@@ -388,7 +387,7 @@ class LibraryAPI: NSObject {
             headers: ["login-token": persistencyManager.getUser().getToken()],
             parameters:  ["idDevice": device.getId(), "name": device.getName(), "descritpion": device.getDesc(), "status": device.getStatus()])
             .responseJSON { response in switch response.result {
-            case .Success(let JSON):
+            case .Success(_):
                 //savoir si la requete a marcher niveau API
                 if (response.response?.statusCode == 200) {
                     completion(result: true)
@@ -407,7 +406,7 @@ class LibraryAPI: NSObject {
             URL + "devices/" + String(id),
             headers: ["login-token": persistencyManager.getUser().getToken()])
             .responseJSON { response in switch response.result {
-            case .Success(let JSON):
+            case .Success(_):
                 //savoir si la requete a marcher niveau API
                 if (response.response?.statusCode == 200) {
                     completion(result: true)

@@ -1,17 +1,21 @@
 //
-//  DeviceTableViewCell.swift
+//  RuleTableViewCell.swift
 //  Domothink
 //
-//  Created by Guillaume Wehrling on 22/10/2016.
+//  Created by Guillaume Wehrling on 24/12/2016.
 //  Copyright © 2016 DomoThink. All rights reserved.
 //
 
 import UIKit
 
-class DeviceTableViewCell: UITableViewCell {
+class RuleTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var deviceName: UILabel!
-    @IBOutlet weak var deviceStatus: UISwitch!
+    @IBOutlet weak var ruleImg: UIImageView!
+    @IBOutlet weak var ruleTitle: UILabel!
+    @IBOutlet weak var ruleRecurence: UILabel!
+    @IBOutlet weak var ruleLastExec: UILabel!
+    @IBOutlet weak var ruleState: UISwitch!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -47,6 +47,38 @@ class PersistencyManager: NSObject {
     }
     
     func addDevice(device: Device) {
+        
+        if (device.getName().lowercaseString.rangeOfString("lumi") != nil) {
+            device.setType("light")
+            device.setImgName("lightOn")
+        } else if (device.getName().lowercaseString.rangeOfString("temp") != nil) {
+            device.setType("thermometer")
+            device.setImgName("Thermometer")
+        } else if (device.getName().lowercaseString.rangeOfString("ajou") != nil) {
+            device.setType("other")
+            device.setImgName("plus")
+        } else {
+            device.setType("TV")
+            device.setImgName("TV")
+        }
+        
+        if (device.getName().lowercaseString.rangeOfString("salle de bain") != nil) {
+            device.setRoomType("bathRoom")
+        } else if (device.getName().lowercaseString.rangeOfString("cuisine") != nil) {
+            device.setRoomType("kitchen")
+        } else if (device.getName().lowercaseString.rangeOfString("chambre") != nil) {
+            device.setRoomType("bedRoom")
+        } else if (device.getName().lowercaseString.rangeOfString("salon") != nil) {
+            device.setRoomType("livingRoom")
+        } else if (device.getName().lowercaseString.rangeOfString("couloir") != nil) {
+            device.setRoomType("corridor")
+        } else if (device.getName().lowercaseString.rangeOfString("garage") != nil) {
+            device.setRoomType("garage")
+        } else if (device.getName().lowercaseString.rangeOfString("jardin") != nil) {
+            device.setRoomType("garden")
+        } else {
+            device.setRoomType("all")
+        }
         _devices.append(device)
     }
     

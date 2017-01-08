@@ -36,6 +36,8 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func connectBtnPressed(sender: UIButton) {
+        //self.performSegueWithIdentifier("ConnectSegue", sender: nil)
+        
         LibraryAPI.sharedInstance.connectUser(loginField.text!, pass: passField.text!) { (result) -> () in
             if (result == true) {
                 debugPrint(LibraryAPI.sharedInstance.getUser(), terminator: "")
@@ -45,6 +47,7 @@ class LoginViewController: UIViewController {
             }
 
         }
+        
     }
     
 

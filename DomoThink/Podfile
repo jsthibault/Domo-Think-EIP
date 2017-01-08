@@ -4,4 +4,5 @@ use_frameworks!
 
 target 'Domothink' do
     pod 'Alamofire', '~> 3.0'
+    pod 'Charts', '~> 2.3'
 end

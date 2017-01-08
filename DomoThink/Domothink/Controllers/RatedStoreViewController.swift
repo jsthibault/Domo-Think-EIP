@@ -86,13 +86,13 @@ class RatedStoreViewController: UIViewController, UISearchResultsUpdating, UITab
         //add plugin in the table view
         if (resultSeachController.active) {
             cell.titlePlugin.text = filteredPlugins[indexPath.row].getName()
-            cell.ratePlugin.text = String(filteredPlugins[indexPath.row].getRate()) + "/5"
+            cell.ratePlugin.text = String(round(filteredPlugins[indexPath.row].getRate())) + "/5"
             cell.datePlugin.text = filteredPlugins[indexPath.row].getDate()
             cell.imgPlugin.image = UIImage(named: "images.jpeg")
             
         } else {
             cell.titlePlugin.text = allPlugins[indexPath.row].getName()
-            cell.ratePlugin.text = String(allPlugins[indexPath.row].getRate()) + "/5"
+            cell.ratePlugin.text = String(round(allPlugins[indexPath.row].getRate())) + "/5"
             cell.datePlugin.text = allPlugins[indexPath.row].getDate()
             cell.imgPlugin.image = UIImage(named: "images.jpeg")
         }
@@ -110,7 +110,7 @@ class RatedStoreViewController: UIViewController, UISearchResultsUpdating, UITab
     }
     
     
-    @IBAction func unwindToRated(segue: UIStoryboardSegue) {}
+    @IBAction func unwindToRatedStore(segue: UIStoryboardSegue) {}
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "showDetails") {

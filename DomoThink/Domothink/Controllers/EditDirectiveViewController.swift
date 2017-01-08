@@ -79,7 +79,17 @@ class EditDirectiveViewController: UIViewController, UIScrollViewDelegate, UIPic
         if segue.identifier == "unwindSaveDir" {
             if (directive == nil) {
                 let tmp = []
-                LibraryAPI.sharedInstance.addDirective(ordreText.text!, creatorId: LibraryAPI.sharedInstance.getUser().getId(), deviceId: deviceSelected.getId(), actionId: 10, periodicityType: 1, periodicityData: tmp) { (result) -> () in
+                var idDevice: Int!
+                if (deviceSelected == nil) {
+                    if (devices.count == 0) {
+                        idDevice = -1
+                    } else {
+                        idDevice = devices[0].getId()
+                    }
+                } else {
+                    idDevice = deviceSelected.getId()
+                }
+                LibraryAPI.sharedInstance.addDirective(ordreText.text!, creatorId: LibraryAPI.sharedInstance.getUser().getId(), deviceId: idDevice, actionId: 10, periodicityType: 1, periodicityData: tmp) { (result) -> () in
                     if (result == true) {
                         print("bien", terminator: "")
                     } else {
@@ -89,6 +99,7 @@ class EditDirectiveViewController: UIViewController, UIScrollViewDelegate, UIPic
                 //post une directive
             } else {
                 //put une directive
+                directive.setName(ordreText.text!)
                 LibraryAPI.sharedInstance.modifyDirective(directive) { (result) -> () in
                     if (result == true) {
                         print("bien", terminator: "")

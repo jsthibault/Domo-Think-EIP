@@ -15,6 +15,11 @@ class Device: NSObject {
     private var _desc: String!
     private var _status: Bool!
     
+    //features
+    private var _type: String!
+    private var _imgName: String!
+    private var _roomType: String!
+    
     init(id: Int, name: String, desc: String, status: Bool) {
         super.init()
         self._id = id
@@ -54,5 +59,32 @@ class Device: NSObject {
     func setStatus(status: Bool) {
         _status = status
     }
+    
+    /*
+    ** features
+    */
 
+    func getType() -> String {
+        return _type
+    }
+    
+    func setType(type: String) {
+        _type = type
+    }
+    
+    func getImgName() -> String {
+        return _imgName
+    }
+    
+    func setImgName(imgName: String) {
+        _imgName = imgName
+    }
+    
+    func getRoomType() -> String {
+        return _roomType
+    }
+    
+    func setRoomType(RoomType: String) {
+        _roomType = RoomType
+    }
 }

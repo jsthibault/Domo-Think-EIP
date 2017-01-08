@@ -28,7 +28,7 @@ class DescPlugStoreViewController: UIViewController, UITableViewDataSource, UITa
         
         datePlugin.text = plugin.getDate()
         titlePlugin.text = plugin.getName()
-        ratePlugin.text = String(plugin.getRate())
+        ratePlugin.text = String(round(plugin.getRate()))
         imgPlugin.image = UIImage(named: "images.jpeg")
         
         emptyMessage.hidden = true
@@ -78,7 +78,12 @@ class DescPlugStoreViewController: UIViewController, UITableViewDataSource, UITa
     
     @IBAction func unwindToDesc(segue: UIStoryboardSegue) {}
     
-    @IBAction func unwindToDescButSave(segue: UIStoryboardSegue) {}
+    @IBAction func unwindToDescButSave(segue: UIStoryboardSegue) {
+        LibraryAPI.sharedInstance.getStoreComments(plugin.getId()) { (result) -> () in
+            self.allComment = result
+            self.commentListView.reloadData()
+        }
+    }
 
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
