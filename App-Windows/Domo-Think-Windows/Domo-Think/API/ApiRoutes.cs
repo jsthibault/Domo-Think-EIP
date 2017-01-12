@@ -22,6 +22,7 @@ namespace DomoThink.API
 
         // Devices
         public const string DEVICE_ROUTE = API_PREFIX + "/devices";
+        public const string DEVICE_SCAN_ROUTE = API_PREFIX + "/devices/scan";
 
         // Directives
         public const string GET_DIRECTIVES = API_PREFIX + "/directives";

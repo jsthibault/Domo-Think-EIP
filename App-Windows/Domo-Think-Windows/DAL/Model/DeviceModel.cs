@@ -19,15 +19,10 @@ namespace DAL.Model
     [DataContract]
     public class DeviceModel : IEquatable<DeviceModel>
     {
-        #region FIELDS
-        #endregion
-
-        #region PROPERTIES
-
         /// <summary>
         /// Gets or sets the Id of the object.
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "idDevice", EmitDefaultValue = false)]
         public Int32 Id { get; set; }
 
         /// <summary>
@@ -45,7 +40,7 @@ namespace DAL.Model
         /// <summary>
         /// Gets or sets the activation state of the object.
         /// </summary>
-        [DataMember(Name = "activate", EmitDefaultValue = false)]
+        [DataMember(Name = "state", EmitDefaultValue = false)]
         public Boolean IsActive { get; set; }
 
         /// <summary>
@@ -65,11 +60,7 @@ namespace DAL.Model
         /// </summary>
         [IgnoreDataMember]
         public ICommand DeleteCommand { get; set; }
-
-        #endregion
-
-        #region CONSTRUCTORS
-
+        
         /// <summary>
         /// Creates a new ObjectModel instance.
         /// </summary>
@@ -83,11 +74,7 @@ namespace DAL.Model
             this.Id = id;
             this.Name = name;
         }
-
-        #endregion
-
-        #region METHODS
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -100,7 +87,7 @@ namespace DAL.Model
             _sb.Append("  Id: ").Append(this.Id).Append("\n");
             _sb.Append("  Name: ").Append(this.Name).Append("\n");
             _sb.Append("  Description: ").Append(this.Description).Append("\n");
-            _sb.Append("  IsActive: ").Append(this.IsActive).Append("\n");
+            _sb.Append("  Status: ").Append(this.IsActive).Append("\n");
             _sb.AppendLine("}");
 
             return _sb.ToString();
@@ -138,7 +125,5 @@ namespace DAL.Model
         {
             return base.GetHashCode();
         }
-
-        #endregion
     }
 }

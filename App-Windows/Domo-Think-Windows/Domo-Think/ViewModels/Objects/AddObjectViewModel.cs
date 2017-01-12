@@ -84,6 +84,7 @@ namespace DomoThink.ViewModels.Objects
 
             // Initialize the commands
             this.AddObjectCommand = new Command(this.AddObjectAction);
+            this.LoadCommand = new Command(param => this.LoadObjects());
 
             // Initialize the collection
             this.AvailiableObjects = new ObservableCollection<DeviceModel>();
@@ -114,22 +115,15 @@ namespace DomoThink.ViewModels.Objects
 
                 if (this.AvailiableObjects.Any())
                     this.AvailiableObjects.Clear();
+                
+                var devices = await AppContext.DeviceService.ScanDevices();
 
-                // TODO: API request to get the objects near the DomoBox.
-                List<DeviceModel> _objects = await AppContext.DeviceService.GetDevices();
-
-                if (_objects != null)
+                if (devices != null)
                 {
-                    for (Int32 i = 0; i < _objects.Count; ++i)
-                        this.AvailiableObjects.Add(_objects[i]);
+                    for (int i = 0; i < devices.Length; ++i)
+                        this.AvailiableObjects.Add(devices[i]);
 
-                    // FAKE
-                    //await Task.Delay(3000);
-
-                    //for (Int32 i = 0; i < 5; ++i)
-                    //    this.AvailiableObjects.Add(new ObjectModel(i, "Availiable Object #" + i.ToString()));
-
-                    for (Int32 i = 0; i < 5; ++i)
+                    for (int i = 0; i < devices.Length; ++i)
                         this.AvailiableObjects[i].AddCommand = new Command(this.AddObjectAction);
                 }
 
@@ -178,7 +172,7 @@ namespace DomoThink.ViewModels.Objects
         /// <param name="parameter"></param>
         public override void Refresh(Object parameter)
         {
-            this.LoadObjects();
+            //this.LoadObjects();
         }
     }
 }

@@ -69,6 +69,22 @@ namespace DomoThink.API
             }
         }
 
+        public async Task<DeviceModel[]> ScanDevices()
+        {
+            try
+            {
+                return await this.api.Get<DeviceModel[]>(ApiRoutes.DEVICE_SCAN_ROUTE);
+            }
+            catch
+            {
+                NotificationHelper.ShowToastNotification(
+                    ResourceHelper.GetString("Error"),
+                    ResourceHelper.GetString("ApiError"));
+
+                return null;
+            }
+        }
+
         public async Task<DeviceModel> GetDeviceById(int id)
         {
             try

@@ -86,6 +86,8 @@ namespace DAL.API
 
                     Debug.WriteLine("Message: " + _response.ReasonPhrase.ToString());
 
+                    var test = await _response.Content.ReadAsStringAsync();
+                    
                     if (_response.IsSuccessStatusCode)
                         return await _response.Content.ReadAsAsync<T>();
                 }
