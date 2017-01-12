@@ -44,6 +44,12 @@ namespace DAL.Model
         public Boolean IsActive { get; set; }
 
         /// <summary>
+        /// Gets or sets the device protocole.
+        /// </summary>
+        [DataMember(Name = "protocole", EmitDefaultValue = false)]
+        public string Protocole { get; set; }
+
+        /// <summary>
         /// Gets or sets the add command.
         /// </summary>
         [IgnoreDataMember]
@@ -88,6 +94,7 @@ namespace DAL.Model
             _sb.Append("  Name: ").Append(this.Name).Append("\n");
             _sb.Append("  Description: ").Append(this.Description).Append("\n");
             _sb.Append("  Status: ").Append(this.IsActive).Append("\n");
+            _sb.Append("  Protocole: ").Append(this.Protocole).Append("\n");
             _sb.AppendLine("}");
 
             return _sb.ToString();

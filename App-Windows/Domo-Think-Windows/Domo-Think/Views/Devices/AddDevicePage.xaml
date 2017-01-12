@@ -11,17 +11,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <!-- Interactions -->
-    <Interactivity:Interaction.Behaviors>
-        <Interactions:EventTriggerBehavior EventName="Loaded">
-            <Interactions:InvokeCommandAction Command="{Binding LoadCommand}"/>
-        </Interactions:EventTriggerBehavior>
-    </Interactivity:Interaction.Behaviors>
-
-    <!--<Page.Resources>
-        <viewModel:AddObjectViewModel x:Key="addObjectViewModel" />
-    </Page.Resources>-->
-    
     <!-- Main Grid -->
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <!-- Grid Row definitions -->

@@ -138,7 +138,7 @@ namespace DomoThink.API
         {
             try
             {
-                return await this.api.Delete<DeviceModel>(ApiRoutes.DEVICE_ROUTE, model) != null;
+                return await this.api.Delete<DeviceModel>(ApiRoutes.DEVICE_ROUTE_ID, model.Id) != null;
             }
             catch
             {

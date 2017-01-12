@@ -172,7 +172,7 @@ namespace DomoThink.ViewModels.Objects
         /// <param name="parameter"></param>
         public override void Refresh(Object parameter)
         {
-            //this.LoadObjects();
+            this.LoadObjects();
         }
     }
 }

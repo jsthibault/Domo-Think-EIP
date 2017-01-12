@@ -25,7 +25,7 @@
                     <Image Grid.Column="0" Height="45" Width="45" Margin="0,8,0,8" Source="../../Assets/ViewBox.png" Stretch="UniformToFill"/>
                     <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Top" Margin="8,8,0,0">
                         <TextBlock Text="{Binding Name}" Style="{StaticResource BaseTextBlockStyle}" />
-                        <TextBlock Text="{Binding Id}" Margin="0,4,8,0" Style="{StaticResource BodyTextBlockStyle}" />
+                        <TextBlock Text="{Binding Description}" Margin="0,4,8,0" Style="{StaticResource BodyTextBlockStyle}" />
                     </StackPanel>
 
                     <ToggleSwitch Grid.Column="2"></ToggleSwitch>
@@ -39,7 +39,10 @@
                     </Grid.RowDefinitions>
 
                     <Grid Grid.Row="0">
-                        <TextBlock Text="Object informations. Like ID, type" Margin="0,8,0,0" Style="{StaticResource BodyTextBlockStyle}" />
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Protocole: " />
+                            <TextBlock Text="{Binding Protocole}" />
+                        </StackPanel>
                     </Grid>
 
                     <Grid Grid.Row="1" HorizontalAlignment="Stretch">
@@ -71,11 +74,11 @@
             <Image Grid.Column="0" Height="45" Width="45" Margin="0,8,0,8" Source="../../Assets/ViewBox.png" Stretch="UniformToFill"/>
             <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Top" Margin="8,8,0,0">
                 <TextBlock Text="{Binding Name}" Style="{StaticResource BaseTextBlockStyle}" />
-                <TextBlock Text="{Binding Id}" Margin="0,4,8,0" Style="{StaticResource BodyTextBlockStyle}" />
+                <TextBlock Text="{Binding Protocole}" Margin="0,4,8,0" Style="{StaticResource BodyTextBlockStyle}" />
             </StackPanel>
 
             <!-- Add button -->
-            <Button Grid.Column="2" Margin="4" Command="{Binding AddObjectCommand}" CommandParameter="{Binding}" Style="{StaticResource DomoButton}">
+            <Button Grid.Column="2" Margin="4" Command="{Binding AddCommand}" CommandParameter="{Binding}" Style="{StaticResource DomoButton}">
                 <Button.Content>
                     <SymbolIcon Symbol="Add" />
                 </Button.Content>
