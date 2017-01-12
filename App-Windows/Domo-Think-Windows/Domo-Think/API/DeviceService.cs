@@ -150,12 +150,11 @@ namespace DomoThink.API
             }
         }
 
-        public async Task<List<DeviceModel>> GetNearObjects()
+        public async Task<bool> ChangeStatus(DeviceModel model)
         {
             try
             {
-                throw new NotImplementedException();
-                //return await this.api.Get<List<ObjectModel>>("/api/" + ApiRoutes.GET_NEAR_OBJECTS);
+                await this.api.Put(ApiRoutes.DEVICE_ROUTE_CHANGE_STATUS, model);
             }
             catch
             {
@@ -163,9 +162,12 @@ namespace DomoThink.API
                     ResourceHelper.GetString("Error"),
                     ResourceHelper.GetString("ApiError"));
 
-                return null;
+                return false;
             }
+
+            return true;
         }
+
 
         #endregion
     }

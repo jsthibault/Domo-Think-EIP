@@ -1,6 +1,8 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" 
+    xmlns:Interactions="using:Microsoft.Xaml.Interactions.Core"
     xmlns:local="using:DomoThink.Resources.Styles"
     xmlns:xp="using:Expander">
 
@@ -28,7 +30,13 @@
                         <TextBlock Text="{Binding Description}" Margin="0,4,8,0" Style="{StaticResource BodyTextBlockStyle}" />
                     </StackPanel>
 
-                    <ToggleSwitch Grid.Column="2"></ToggleSwitch>
+                    <ToggleSwitch Grid.Column="2" IsOn="{Binding IsActive}">
+                        <Interactivity:Interaction.Behaviors>
+                            <Interactions:EventTriggerBehavior EventName="Toggled">
+                                <Interactions:InvokeCommandAction Command="{Binding ChangeStatusCommand}" CommandParameter="{Binding}"/>
+                            </Interactions:EventTriggerBehavior>
+                        </Interactivity:Interaction.Behaviors>
+                    </ToggleSwitch>
                 </Grid>
             </xp:Expander.Header>
             <xp:Expander.Content>

@@ -136,6 +136,7 @@ namespace DomoThink.ViewModels.Objects
                     {
                         _objects[i].EditCommand = new Command(this.EditDeviceAction);
                         _objects[i].DeleteCommand = new Command(this.DeleteDeviceAction);
+                        _objects[i].ChangeStatusCommand = new Command(this.SwitchDeviceStateAction);
                         this.ConnectedObjects.Add(_objects[i]);
                     }
                 }
@@ -165,9 +166,14 @@ namespace DomoThink.ViewModels.Objects
         /// Switch device activity sate.
         /// </summary>
         /// <param name="param"></param>
-        private void SwitchDeviceStateAction(Object param)
+        private async void SwitchDeviceStateAction(Object param)
         {
-            // Change object state here
+            var device = param as DeviceModel;
+
+            if (device == null)
+                return;
+
+            await AppContext.DeviceService.ChangeStatus(device);
         }
 
         /// <summary>

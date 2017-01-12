@@ -40,7 +40,7 @@ namespace DAL.Model
         /// <summary>
         /// Gets or sets the activation state of the object.
         /// </summary>
-        [DataMember(Name = "state", EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = false)]
         public Boolean IsActive { get; set; }
 
         /// <summary>
@@ -66,6 +66,9 @@ namespace DAL.Model
         /// </summary>
         [IgnoreDataMember]
         public ICommand DeleteCommand { get; set; }
+
+        [IgnoreDataMember]
+        public ICommand ChangeStatusCommand { get; set; }
         
         /// <summary>
         /// Creates a new ObjectModel instance.

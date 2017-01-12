@@ -11,6 +11,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <!-- Interactions -->
+
+    <!--<Page.Resources>
+        <viewModel:AddObjectViewModel x:Key="addObjectViewModel" />
+    </Page.Resources>-->
+    
     <!-- Main Grid -->
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <!-- Grid Row definitions -->
