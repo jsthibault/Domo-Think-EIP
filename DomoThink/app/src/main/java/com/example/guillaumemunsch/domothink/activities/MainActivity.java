@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             {
                 Log.d("OK", "OK");
             }
-            RestAPI.post(context, "user/logout", stringEntity, new JsonHttpResponseHandler() {
+            RestAPI.post(context, "/logout", stringEntity, new JsonHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                     Toast.makeText(context, R.string.logout, Toast.LENGTH_LONG).show();

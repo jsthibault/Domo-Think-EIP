@@ -137,7 +137,7 @@ public class CreateUpdateDirectiveActivity extends AppCompatActivity {
                     {
                         Log.d("DirectiveCreate", ex.getMessage());
                     }
-                    RestAPI.postApiTest(context, "directives", stringEntity, new JsonHttpResponseHandler() {
+                    RestAPI.post(context, "directives", stringEntity, new JsonHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                             Toast.makeText(context, R.string.yes, Toast.LENGTH_LONG).show();
@@ -171,7 +171,7 @@ public class CreateUpdateDirectiveActivity extends AppCompatActivity {
                     {
                         Log.d("EditDirective", ex.getMessage());
                     }
-                    RestAPI.putApiTest(context, "directive", stringEntity, new JsonHttpResponseHandler() {
+                    RestAPI.put(context, "directives", stringEntity, new JsonHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                             Toast.makeText(context, R.string.yes, Toast.LENGTH_LONG).show();

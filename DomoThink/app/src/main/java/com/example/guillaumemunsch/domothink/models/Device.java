@@ -11,7 +11,8 @@ public class Device implements Serializable {
     private int idDevice;
     private String name;
     private String description;
-    private boolean activate;
+    private String protocole;
+    private boolean activate = false;
     private boolean added;
 
     public boolean getAdded() { return added; }
@@ -38,6 +39,14 @@ public class Device implements Serializable {
         this.description = description;
     }
 
+    public String getProtocole() {
+        return protocole;
+    }
+
+    public void setProtocole(String protocole) {
+        this.protocole = protocole;
+    }
+
     public boolean isActivate() {
         return activate;
     }
@@ -51,6 +60,7 @@ public class Device implements Serializable {
         this.idDevice = id;
         this.name = name;
         this.description = description;
+        this.protocole = protocole;
         this.activate = activate;
         this.added = added;
     }

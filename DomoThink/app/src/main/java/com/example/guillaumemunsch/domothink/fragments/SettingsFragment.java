@@ -41,7 +41,7 @@ public class SettingsFragment extends Fragment {
     public SettingsFragment(){}
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_settings, container, false);
         context = this.getActivity();
@@ -70,7 +70,7 @@ public class SettingsFragment extends Fragment {
                                 JSONObject param = new JSONObject();
                                 StringEntity stringEntity = null;
                                 try {
-                                    param.put("username", Utils.getInfo(context, "login"));
+                                    param.put("login", Utils.getInfo(context, "login"));
                                     param.put("password", Utils.getInfo(context, "password"));
                                     param.put("userId", Utils.getInfo(context, "userId"));
                                     stringEntity = new StringEntity(param.toString());
@@ -79,7 +79,7 @@ public class SettingsFragment extends Fragment {
                                 {
                                     Log.d("OK", "OK");
                                 }
-                                RestAPI.post(context, "user/remove_account", stringEntity, new JsonHttpResponseHandler() {
+                                RestAPI.post(context, "user/delete", stringEntity, new JsonHttpResponseHandler() {
                                     @Override
                                     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                                         Toast.makeText(context, R.string.delete_account, Toast.LENGTH_SHORT).show();

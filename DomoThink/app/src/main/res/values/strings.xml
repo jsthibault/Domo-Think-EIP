@@ -76,4 +76,14 @@
     <string name="old_new_password_differ">Old and new password are the same</string>
     <string name="already_current_password">This is already your current password</string>
     <string name="dashboard">Dashboard</string>
+    <string name="unable_add_object">Unable to add object</string>
+    <string name="success">Success</string>
+    <string name="failure">Failure</string>
+    <string name="check_update">Checking update</string>
+    <string name="searching_update">Looking for updates</string>
+    <string name="waiting">Waiting</string>
+    <string name="newUpdate">New update found !</string>
+    <string name="newUpdateButton">Install new update</string>
+    <string name="noUpdate">You\'re up to date</string>
+    <string name="noUpdateButton">Nothing to do</string>
 </resources>

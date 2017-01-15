@@ -75,7 +75,7 @@ public class StoreFragment extends Fragment {
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(mAdapter);
 
-        RestAPI.getApiTest("store", null, new JsonHttpResponseHandler() {
+        RestAPI.getStore("/store", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 try {

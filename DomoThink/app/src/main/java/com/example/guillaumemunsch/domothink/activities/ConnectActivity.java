@@ -5,11 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.guillaumemunsch.domothink.http.RestAPI;
@@ -35,6 +38,44 @@ public class ConnectActivity extends AppCompatActivity {
     String id = null;
     EditText userInput, passwordInput;
 
+    private void tryConnection() {
+        JSONObject param = new JSONObject();
+        StringEntity stringEntity = null;
+        try {
+            param.put("login", userInput.getText().toString());
+            param.put("password", passwordInput.getText().toString());
+            stringEntity = new StringEntity(param.toString());
+
+        }
+        catch (Throwable ex)
+        {
+            Log.d("Connection", ex.getMessage());
+        }
+        RestAPI.post(ConnectActivity.this, "/login", stringEntity, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                try {
+                    token = response.getString("token");
+                    id = response.getString("userId");
+                    Utils.storeToken(context, token);
+                    Utils.storeInfo(context, "login", userInput.getText().toString());
+                    Utils.storeInfo(context, "userId", id);
+                    Utils.storeInfo(context, "password", passwordInput.getText().toString());
+                    RestAPI.addHeader("login-token", token);
+                    startActivity(new Intent(ConnectActivity.this, MainActivity.class));
+                } catch (Throwable ex) {
+                    Toast.makeText(ConnectActivity.this, ex.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Toast.makeText(ConnectActivity.this, R.string.unable_connect, Toast.LENGTH_LONG).show();
+                Log.d("Connect: ", "" + statusCode);
+            }
+        });
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,45 +83,19 @@ public class ConnectActivity extends AppCompatActivity {
         context = this;
         userInput = (EditText)findViewById(R.id.user);
         passwordInput = (EditText)findViewById(R.id.password);
+        passwordInput.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
+                    tryConnection();
+                }
+                return false;
+            }
+        });
         connectButton = (Button)findViewById(R.id.connection_button);
         connectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                JSONObject param = new JSONObject();
-                StringEntity stringEntity = null;
-                try {
-                    param.put("login", userInput.getText().toString());
-                    param.put("password", passwordInput.getText().toString());
-                    stringEntity = new StringEntity(param.toString());
-
-                }
-                catch (Throwable ex)
-                {
-                    Log.d("Connection", ex.getMessage());
-                }
-                RestAPI.post(ConnectActivity.this, /*"user/auth"*/ "/login", stringEntity, new JsonHttpResponseHandler() {
-                    @Override
-                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                        try {
-                            token = response.getString("token");
-                            id = response.getString("userId");
-                            Utils.storeToken(context, token);
-                            Utils.storeInfo(context, "login", userInput.getText().toString());
-                            Utils.storeInfo(context, "userId", id);
-                            Utils.storeInfo(context, "password", passwordInput.getText().toString());
-                            RestAPI.addHeader("login-token", token);
-                            startActivity(new Intent(ConnectActivity.this, MainActivity.class));
-                        } catch (Throwable ex) {
-                            Toast.makeText(ConnectActivity.this, ex.getMessage(), Toast.LENGTH_LONG).show();
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                        Toast.makeText(ConnectActivity.this, R.string.unable_connect, Toast.LENGTH_LONG).show();
-                        Log.d("Connect: ", "" + statusCode);
-                    }
-                });
+                tryConnection();
             }
         });
         forgottenPassword = (Button)findViewById(R.id.forgotten_password_button);

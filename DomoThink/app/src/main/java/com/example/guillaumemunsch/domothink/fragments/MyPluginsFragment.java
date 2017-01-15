@@ -81,6 +81,10 @@ public class MyPluginsFragment extends Fragment {
                                     Log.d("Error:", "Removing plugin");
                                 }
 
+                                @Override
+                                public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                                    Toast.makeText(context, "Plugin not found in DB", Toast.LENGTH_LONG).show();
+                                }
                             });
                         }
                         adapter.notifyDataSetChanged();

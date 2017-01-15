@@ -73,7 +73,7 @@ public class ObjectsFragment extends Fragment {
                     @Override
                     public void onDismiss(ListView listView, int[] reverseSortedPositions) {
                         for (final int position : reverseSortedPositions) {
-                            RestAPI.deleteApiTest("/devices/" + devices.get(position).getId(), null, new JsonHttpResponseHandler() {
+                            RestAPI.delete("/devices/" + devices.get(position).getId(), null, new JsonHttpResponseHandler() {
                                 @Override
                                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                                     Log.d("Success:", "Deleting device");
@@ -107,7 +107,7 @@ public class ObjectsFragment extends Fragment {
                              Bundle savedInstanceState) {
         context = this.getActivity();
         rootView = inflater.inflate(R.layout.fragment_objects, container, false);
-        RestAPI.getApiTest("devices", null, new JsonHttpResponseHandler() {
+        RestAPI.get("/devices", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 try {
@@ -142,7 +142,7 @@ public class ObjectsFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        RestAPI.getApiTest("devices", null, new JsonHttpResponseHandler() {
+        RestAPI.get("/devices", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 try {

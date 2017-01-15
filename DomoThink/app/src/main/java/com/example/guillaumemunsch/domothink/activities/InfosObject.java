@@ -4,9 +4,11 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Button;
@@ -42,6 +44,34 @@ public class InfosObject extends AppCompatActivity {
     Button button = null;
     Context context = this;
 
+    private void postComment() {
+        device.setName(name.getText().toString());
+        JSONObject param = new JSONObject();
+        StringEntity stringEntity = null;
+        try {
+            param.put("idDevice", device.getId());
+            param.put("name", device.getName());
+            stringEntity = new StringEntity(param.toString());
+        }
+        catch (Throwable ex)
+        {
+            Log.d("OK", "OK");
+        }
+        RestAPI.put(InfosObject.this, "devices", stringEntity, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                Toast.makeText(InfosObject.this, R.string.success, Toast.LENGTH_LONG).show();
+                finish();
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Toast.makeText(InfosObject.this, R.string.failure, Toast.LENGTH_LONG).show();
+                Log.d("Edit object: ", "" + statusCode);
+            }
+        });
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,35 +80,18 @@ public class InfosObject extends AppCompatActivity {
         device = (Device)getIntent().getSerializableExtra("device");
         button = (Button)findViewById(R.id.editDeviceNameBtn);
         name.setText(device.getName(), TextView.BufferType.EDITABLE);
-
+        name.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
+                    postComment();
+                }
+                return false;
+            }
+        });
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                device.setName(name.getText().toString());
-                JSONObject param = new JSONObject();
-                StringEntity stringEntity = null;
-                try {
-                    param.put("idDevice", device.getId());
-                    param.put("name", device.getName());
-                    stringEntity = new StringEntity(param.toString());
-                }
-                catch (Throwable ex)
-                {
-                    Log.d("OK", "OK");
-                }
-                RestAPI.putApiTest(InfosObject.this, "devices", stringEntity, new JsonHttpResponseHandler() {
-                    @Override
-                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                        Toast.makeText(InfosObject.this, R.string.yes, Toast.LENGTH_LONG).show();
-                        finish();
-                    }
-
-                    @Override
-                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                        Toast.makeText(InfosObject.this, R.string.no, Toast.LENGTH_LONG).show();
-                        Log.d("Edit object: ", "" + statusCode);
-                    }
-                });
+                postComment();
             }
         });
     }

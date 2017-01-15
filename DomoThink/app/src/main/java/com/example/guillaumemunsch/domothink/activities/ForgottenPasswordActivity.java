@@ -25,13 +25,15 @@ import cz.msebera.android.httpclient.entity.StringEntity;
 
 public class ForgottenPasswordActivity extends AppCompatActivity {
     Button btn = null;
-    EditText userInput, boxKeyInput;
+    EditText userInput, passwordInput, confirmPasswordInput, boxKeyInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.forgotten_password_activity);
         userInput = (EditText)findViewById(R.id.login);
+        passwordInput = (EditText)findViewById(R.id.password);
+        confirmPasswordInput = (EditText)findViewById(R.id.confirmPassword);
         boxKeyInput = (EditText)findViewById(R.id.box_key);
         btn = (Button)findViewById(R.id.button);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -42,17 +44,19 @@ public class ForgottenPasswordActivity extends AppCompatActivity {
                 StringEntity stringEntity = null;
                 try {
                     param.put("email", userInput.getText().toString());
-//                    param.put("boxKey", boxKeyInput.getText().toString());
+                    param.put("password", passwordInput.getText().toString());
+                    param.put("confirmPassword", confirmPasswordInput.getText().toString());
+                    param.put("boxKey", boxKeyInput.getText().toString());
                     stringEntity = new StringEntity(param.toString());
                 }
                 catch (Throwable ex)
                 {
                     Log.d("OK", "OK");
                 }
-                RestAPI.post(ForgottenPasswordActivity.this, "user/forgotten_password", stringEntity, new JsonHttpResponseHandler() {
+                RestAPI.post(ForgottenPasswordActivity.this, "/forgotten_password", stringEntity, new JsonHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                        Toast.makeText(ForgottenPasswordActivity.this, R.string.email_sent, Toast.LENGTH_LONG).show();
+                        Toast.makeText(ForgottenPasswordActivity.this, R.string.password_changed, Toast.LENGTH_LONG).show();
                         finish();
                     }
 

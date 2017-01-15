@@ -48,7 +48,6 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 JSONObject param = new JSONObject();
                 StringEntity stringEntity = null;
                 try {
-                    param.put("username", Utils.getInfo(context, "login"));
                     param.put("userId", Utils.getInfo(context, "userId"));
                     param.put("oldPassword", oldPassword.getText().toString());
                     param.put("newPassword", newPassword.getText().toString());

@@ -53,28 +53,28 @@ public class SearchObjectsActivity extends AppCompatActivity {
                 JSONObject param = new JSONObject();
                 StringEntity stringEntity = null;
                 try {
-                    param.put("id", foundDevices.get(position).getId());
                     param.put("name", foundDevices.get(position).getName());
                     param.put("description", foundDevices.get(position).getDescription());
+                    param.put("protocole", foundDevices.get(position).getProtocole());
                     param.put("state", foundDevices.get(position).isActivate());
                     stringEntity = new StringEntity(param.toString());
                 }
                 catch (Throwable ex)
                 {
-                    Log.d("OK", "OK");
+                    Log.d("Error", "Unable to set params");
                 }
-                RestAPI.postApiTest(SearchObjectsActivity.this, "device", stringEntity, new JsonHttpResponseHandler() {
+                RestAPI.post(SearchObjectsActivity.this, "/devices", stringEntity, new JsonHttpResponseHandler() {
                     @Override
-                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                        adapter.remove(adapter.getItem(position));
+                    public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                        adapter.remove(position);
                         adapter.notifyDataSetChanged();
-                        Toast.makeText(SearchObjectsActivity.this, R.string.add_device, Toast.LENGTH_LONG).show();
                         finish();
+                        Toast.makeText(SearchObjectsActivity.this, R.string.add_device, Toast.LENGTH_LONG).show();
                     }
 
                     @Override
                     public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                        Toast.makeText(SearchObjectsActivity.this, R.string.unable_create_account, Toast.LENGTH_LONG).show();
+                        Toast.makeText(SearchObjectsActivity.this, R.string.unable_add_object, Toast.LENGTH_LONG).show();
                         finish();
                     }
                 });
@@ -90,17 +90,24 @@ public class SearchObjectsActivity extends AppCompatActivity {
         context = SearchObjectsActivity.this;
 
         text = (TextView)findViewById(R.id.searchObjectId);
-        RestAPI.getApiTest("installDevice", null, new JsonHttpResponseHandler() {
+        RestAPI.get("/devices/scan", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-                foundDevices = new Gson().fromJson(response.toString(), new TypeToken<List<Device>>() {
-                }.getType());
-                loadContent();
+                try {
+                    foundDevices = new Gson().fromJson(response.toString(), new TypeToken<List<Device>>() {
+                    }.getType());
+                    if (foundDevices.size() == 0) {
+                        Toast.makeText(SearchObjectsActivity.this, R.string.no_device_found, Toast.LENGTH_LONG).show();
+                    }
+                    loadContent();
+                } catch (Throwable ex) {
+                    Log.d("Devices Fragment", "Unable to find devices.");
+                }
             }
 
             @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                Log.d("Fail:", "Unable to detect objects.");
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Toast.makeText(SearchObjectsActivity.this, throwable.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }

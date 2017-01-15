@@ -152,7 +152,7 @@ public class PluginDetailActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(mAdapter);
 
-        RestAPI.getApiTest("store/" + plugin.getIdPlugin() + "/comments", null, new JsonHttpResponseHandler() {
+        RestAPI.getStore("store/" + plugin.getIdPlugin() + "/comments", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 try {
@@ -178,7 +178,7 @@ public class PluginDetailActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        RestAPI.getApiTest("store/" + plugin.getIdPlugin() + "/comments", null, new JsonHttpResponseHandler() {
+        RestAPI.getStore("store/" + plugin.getIdPlugin() + "/comments", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 try {

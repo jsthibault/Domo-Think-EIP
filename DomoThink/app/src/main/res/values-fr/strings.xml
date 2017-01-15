@@ -76,4 +76,14 @@
     <string name="old_new_password_differ">L\'ancien et le nouveau mot de passe sont les mêmes</string>
     <string name="already_current_password">Ceci est déjà votre mot de passe actuel</string>
     <string name="dashboard">Tableau de bord</string>
+    <string name="unable_add_object">Impossible d\'ajouter l\'objet</string>
+    <string name="success">Succès</string>
+    <string name="failure">Erreur</string>
+    <string name="check_update">Recherche de mise à jour</string>
+    <string name="searching_update">Recherche de mises à jour</string>
+    <string name="waiting">En attente</string>
+    <string name="newUpdate">Nouvelle mise à jour disponible !</string>
+    <string name="newUpdateButton">Installer la mise à jour</string>
+    <string name="noUpdate">Vous être à jour</string>
+    <string name="noUpdateButton">Rien à faire</string>
 </resources>

@@ -3,11 +3,14 @@ package com.example.guillaumemunsch.domothink.activities;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.guillaumemunsch.domothink.R;
@@ -27,6 +30,36 @@ public class CreateAccountActivity extends AppCompatActivity {
     Button btn = null;
     EditText userInput, passwordInput, confirmInput, boxKeyInput;
 
+    private void tryCreateAccount() {
+        JSONObject param = new JSONObject();
+        StringEntity stringEntity = null;
+        try {
+            param.put("login", userInput.getText().toString());
+            param.put("password", passwordInput.getText().toString());
+            param.put("confirmPassword", confirmInput.getText().toString());
+            param.put("boxKey", boxKeyInput.getText().toString());
+            stringEntity = new StringEntity(param.toString());
+        }
+        catch (Throwable ex)
+        {
+            Log.d("OK", "OK");
+        }
+        RestAPI.post(CreateAccountActivity.this, "/create_account", stringEntity, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                Toast.makeText(CreateAccountActivity.this, R.string.create_account, Toast.LENGTH_LONG).show();
+                finish();
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Toast.makeText(CreateAccountActivity.this, R.string.unable_create_account, Toast.LENGTH_LONG).show();
+                Log.d("Create account: ", "" + statusCode);
+                finish();
+            }
+        });
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,37 +68,19 @@ public class CreateAccountActivity extends AppCompatActivity {
         passwordInput = (EditText)findViewById(R.id.password);
         confirmInput = (EditText)findViewById(R.id.confirm);
         boxKeyInput = (EditText)findViewById(R.id.box_key);
+        boxKeyInput.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
+                    tryCreateAccount();
+                }
+                return false;
+            }
+        });
         btn = (Button)findViewById(R.id.validate);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                JSONObject param = new JSONObject();
-                StringEntity stringEntity = null;
-                try {
-                    param.put("username", userInput.getText().toString());
-                    param.put("password", passwordInput.getText().toString());
-                    param.put("confirmPassword", confirmInput.getText().toString());
-                    param.put("boxKey", boxKeyInput.getText().toString());
-                    stringEntity = new StringEntity(param.toString());
-                }
-                catch (Throwable ex)
-                {
-                    Log.d("OK", "OK");
-                }
-                RestAPI.post(CreateAccountActivity.this, "user/create_account", stringEntity, new JsonHttpResponseHandler() {
-                    @Override
-                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                        Toast.makeText(CreateAccountActivity.this, R.string.email_sent, Toast.LENGTH_LONG).show();
-                        finish();
-                    }
-
-                    @Override
-                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                        Toast.makeText(CreateAccountActivity.this, R.string.unable_create_account, Toast.LENGTH_LONG).show();
-                        Log.d("Create account: ", "" + statusCode);
-                        finish();
-                    }
-                });
+                tryCreateAccount();
             }
         });
     }

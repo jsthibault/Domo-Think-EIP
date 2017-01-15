@@ -59,7 +59,7 @@ public class PostCommentActivity extends AppCompatActivity {
                 {
                     Log.d("Connection", ex.getMessage());
                 }
-                RestAPI.post(PostCommentActivity.this, "/store/" + getIntent().getIntExtra("pluginId", 0) + "/comments/", stringEntity, new JsonHttpResponseHandler() {
+                RestAPI.postStore(PostCommentActivity.this, "/store/" + getIntent().getIntExtra("pluginId", 0) + "/comments/", stringEntity, new JsonHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                         try {
