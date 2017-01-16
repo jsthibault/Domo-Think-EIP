@@ -86,4 +86,8 @@
     <string name="newUpdateButton">Installer la mise à jour</string>
     <string name="noUpdate">Vous être à jour</string>
     <string name="noUpdateButton">Rien à faire</string>
+    <string name="turnOn">Allumer</string>
+    <string name="turnOff">Eteindre</string>
+    <string name="now">Maintenant</string>
+    <string name="weekly">Chaque semaine</string>
 </resources>

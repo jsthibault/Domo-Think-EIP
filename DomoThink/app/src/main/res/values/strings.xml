@@ -86,4 +86,8 @@
     <string name="newUpdateButton">Install new update</string>
     <string name="noUpdate">You\'re up to date</string>
     <string name="noUpdateButton">Nothing to do</string>
+    <string name="turnOn">Turn on</string>
+    <string name="turnOff">Turn off</string>
+    <string name="now">Now</string>
+    <string name="weekly">Weekly</string>
 </resources>

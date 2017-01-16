@@ -68,7 +68,7 @@ public class DirectivesFragment extends Fragment {
                     public void onDismiss(ListView listView, int[] reverseSortedPositions) {
                         for (int position : reverseSortedPositions) {
                             pos = position;
-                            RestAPI.delete("/directives/" + directives.get(position).getId(), null, new JsonHttpResponseHandler() {
+                            RestAPI.delete("/directives/" + directives.get(position).getIdDirective(), null, new JsonHttpResponseHandler() {
                                 @Override
                                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                                     Log.d("Success:", "Deleting directive");

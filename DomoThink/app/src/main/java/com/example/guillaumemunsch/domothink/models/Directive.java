@@ -11,24 +11,43 @@ import java.io.Serializable;
 public class Directive implements Serializable {
     private int idDirective;
     private String name;
-    private String description;
     private int creatorId;
     private int deviceId;
     private int actionId;
+    private int periodicityType;
+    private String periodicityData;
 
     public Directive(){};
 
-    public Directive(int id, String name, String description, int creatorId, int deviceId, int actionId, Periodicity periodicity) {
-        this.idDirective = id;
+    public Directive(int idDirective, String name, int creatorId, int deviceId, int actionId, int periodicityType, String periodicityData) {
+        this.idDirective = idDirective;
         this.name = name;
-        this.description = description;
         this.creatorId = creatorId;
         this.deviceId = deviceId;
         this.actionId = actionId;
-        this.periodicity = periodicity;
+        this.periodicityType = periodicityType;
+        this.periodicityData = periodicityData;
     }
 
-    public int getCreatorId() { return creatorId; }
+    public int getIdDirective() {
+        return idDirective;
+    }
+
+    public void setIdDirective(int idDirective) {
+        this.idDirective = idDirective;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getCreatorId() {
+        return creatorId;
+    }
 
     public void setCreatorId(int creatorId) {
         this.creatorId = creatorId;
@@ -50,37 +69,19 @@ public class Directive implements Serializable {
         this.actionId = actionId;
     }
 
-    private Periodicity periodicity;
-
-    public int getId() {
-        return idDirective;
+    public int getPeriodicityType() {
+        return periodicityType;
     }
 
-    public void setId(int id) {
-        this.idDirective = id;
+    public void setPeriodicityType(int periodicityType) {
+        this.periodicityType = periodicityType;
     }
 
-    public String getName() {
-        return name;
+    public String getPeriodicityData() {
+        return periodicityData;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Periodicity getPeriodicity() {
-        return periodicity;
-    }
-
-    public void setPeriodicity(Periodicity periodicity) {
-        this.periodicity = periodicity;
+    public void setPeriodicityData(String periodicityData) {
+        this.periodicityData = periodicityData;
     }
 }

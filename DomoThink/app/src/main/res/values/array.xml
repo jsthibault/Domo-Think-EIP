@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="periodicity">
-        <item>Now</item>
-        <item>Weekly</item>
-        <item>One time</item>
+        <item>@string/now</item>
+        <item>@string/weekly</item>
     </string-array>
     <string-array name="connectedObjects">
         <item>Television</item>
@@ -12,9 +11,8 @@
         <item>Radiateur</item>
     </string-array>
     <string-array name="objectsAction">
-        <item>Allumer</item>
-        <item>Eteindre</item>
-        <item>Mettre en veille</item>
+        <item>@string/turnOn</item>
+        <item>@string/turnOff</item>
     </string-array>
     <string-array name="themes">
         <item>Classique</item>

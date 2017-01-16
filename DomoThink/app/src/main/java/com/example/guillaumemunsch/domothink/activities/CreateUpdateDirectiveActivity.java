@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
@@ -16,13 +17,22 @@ import android.widget.Toast;
 
 import com.example.guillaumemunsch.domothink.R;
 import com.example.guillaumemunsch.domothink.http.RestAPI;
+import com.example.guillaumemunsch.domothink.models.Device;
 import com.example.guillaumemunsch.domothink.models.Directive;
+import com.example.guillaumemunsch.domothink.models.PeriodicityData;
+import com.example.guillaumemunsch.domothink.models.Version;
 import com.example.guillaumemunsch.domothink.utils.Utils;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 import cz.msebera.android.httpclient.entity.StringEntity;
@@ -33,14 +43,126 @@ import cz.msebera.android.httpclient.entity.StringEntity;
 public class CreateUpdateDirectiveActivity extends AppCompatActivity {
     boolean edit = false;
     EditText editName = null;
+    List<Device> devices = null;
     Spinner deviceSpinner = null;
     Spinner actionSpinner = null;
     Spinner periodicitySpinner = null;
     Spinner daySpinner = null;
     TimePicker tp = null;
     Directive myDirective = null;
+    PeriodicityData myPeriodicityData = null;
     Button btn = null;
     Context context = null;
+
+    private void setBtn() {
+        if (getIntent().hasExtra("editedDirective"))
+        {
+            edit = true;
+            editName.setText(myDirective.getName());
+            int selectedDeviceId;
+            for (selectedDeviceId = 0; selectedDeviceId < devices.size(); ++selectedDeviceId) {
+                if (devices.get(selectedDeviceId).getId() == myDirective.getDeviceId()) {
+                    break;
+                }
+            }
+            if (selectedDeviceId == devices.size()) {
+                Toast.makeText(context, "Unknown device", Toast.LENGTH_LONG).show();
+                finish();
+                return;
+            }
+            deviceSpinner.setSelection(selectedDeviceId);
+            actionSpinner.setSelection(myDirective.getActionId());
+            periodicitySpinner.setSelection(myDirective.getPeriodicityType() - 1);
+            myPeriodicityData = new Gson().fromJson(myDirective.getPeriodicityData(), new TypeToken<PeriodicityData>() {}.getType());
+            daySpinner.setSelection(myPeriodicityData.getDay() - 1);
+            tp.setCurrentHour(Integer.parseInt(myPeriodicityData.getHour().split(":")[0]));
+            tp.setCurrentMinute(Integer.parseInt(myPeriodicityData.getHour().split(":")[1]));
+            btn.setText(getResources().getString(R.string.edit));
+        }
+
+        myPeriodicityData = new PeriodicityData();
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (myDirective == null) {
+                    myDirective = new Directive();
+                    myDirective.setIdDirective(0);
+                    myDirective.setCreatorId(Integer.parseInt(Utils.getInfo(context, "userId"))); //Creator id.
+                }
+
+                myDirective.setIdDirective(edit ? myDirective.getIdDirective() : 0);
+                myDirective.setCreatorId(edit ? myDirective.getCreatorId() : Integer.parseInt(Utils.getInfo(context, "userId")));
+                myDirective.setName(editName.getText().toString());
+                myDirective.setDeviceId(devices.get((int) deviceSpinner.getSelectedItemId()).getId());
+                myDirective.setActionId((int) actionSpinner.getSelectedItemId());
+                myDirective.setPeriodicityType((int) periodicitySpinner.getSelectedItemId() + 1);
+                myPeriodicityData.setDay((int) daySpinner.getSelectedItemId() + 1);
+                myPeriodicityData.setHour(tp.getCurrentHour() + ":" + tp.getCurrentMinute());
+                myDirective.setPeriodicityData(new Gson().toJson(myPeriodicityData));
+
+                JSONObject param = new JSONObject();
+                StringEntity stringEntity = null;
+
+                try {
+                    param.put("name", myDirective.getName());
+                    if (myDirective.getName().length() == 0) {
+                        Toast.makeText(context, R.string.directive_name_empty, Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                    param.put("creatorId", myDirective.getCreatorId());
+                    param.put("deviceId", myDirective.getDeviceId());
+                    param.put("actionId", myDirective.getActionId());
+                    param.put("periodicityType", myDirective.getPeriodicityType());
+                    param.put("periodicityData", myDirective.getPeriodicityData());
+                    stringEntity = new StringEntity(param.toString());
+                } catch (Throwable ex) { Log.d("DirectiveCreate", ex.getMessage()); }
+
+                if (!edit)
+                {
+                    try {
+                        stringEntity = new StringEntity(param.toString());
+                    } catch (Throwable ex) { Log.d("DirectiveCreate", ex.getMessage()); }
+                    RestAPI.post(context, "directives", stringEntity, new JsonHttpResponseHandler() {
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                            Toast.makeText(context, R.string.success, Toast.LENGTH_LONG).show();
+                            finish();
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                            Toast.makeText(context, R.string.failure, Toast.LENGTH_LONG).show();
+                            Log.d("Add directive: ", "" + statusCode);
+                        }
+                    });
+                } else {
+                    try {
+                        param.put("idDirective", myDirective.getIdDirective());
+                        stringEntity = new StringEntity(param.toString());
+                    }
+                    catch (Throwable ex)
+                    {
+                        Log.d("EditDirective", ex.getMessage());
+                    }
+                    RestAPI.put(context, "directives", stringEntity, new JsonHttpResponseHandler() {
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                            Toast.makeText(context, R.string.success, Toast.LENGTH_LONG).show();
+                            finish();
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                            Toast.makeText(context, R.string.failure, Toast.LENGTH_LONG).show();
+                            Log.d("Edit directive: ", "" + statusCode);
+                        }
+                    });
+                }
+
+                finish();
+            }
+        });
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,135 +204,31 @@ public class CreateUpdateDirectiveActivity extends AppCompatActivity {
             }
         });
 
-        if (getIntent().hasExtra("editedDirective"))
-        {
-            edit = true;
-            editName.setText(myDirective.getName());
-            //deviceSpinner.setSelection(myDirective.getDeviceId());
-            //actionSpinner.setSelection(myDirective.getActionId());
-            /*periodicitySpinner.setSelection(myDirective.getPeriodicity().getType());
-            daySpinner.setSelection(myDirective.getPeriodicity().getDay());
-            tp.setCurrentHour(myDirective.getPeriodicity().getHour());
-            tp.setCurrentMinute(myDirective.getPeriodicity().getMinute());*/
-            btn.setText("EDIT");
-        }
-
-        btn.setOnClickListener(new View.OnClickListener() {
+        RestAPI.get("/devices", null, new JsonHttpResponseHandler() {
             @Override
-            public void onClick(View v) {
-                if (myDirective == null) {
-                    myDirective = new Directive();
-                    myDirective.setId(0);
-                    myDirective.setCreatorId(1); //Creator id.
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                try {
+                    devices = new Gson().fromJson(response.toString(), new TypeToken<List<Device>>() {
+                    }.getType());
+                    List<String> listDeviceNames = Utils.transform(devices, "name");
+                    ArrayList<String> arrayListDeviceNames = new ArrayList<String>(listDeviceNames);
+                    ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, arrayListDeviceNames); //selected item will look like a spinner set from XML
+                    spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    deviceSpinner.setAdapter(spinnerArrayAdapter);
+                    setBtn();
+                } catch (Throwable ex) {
+                    Log.d("Devices Fragment", "Unable to find devices.");
                 }
+            }
 
-                myDirective.setName(editName.getText().toString());
-                myDirective.setDeviceId((int) deviceSpinner.getSelectedItemId());
-                myDirective.setActionId((int) actionSpinner.getSelectedItemId());
-/*                Periodicity periodicity = new Periodicity();
-                periodicity.setType((int) periodicitySpinner.getSelectedItemId());
-                periodicity.setDay((int) daySpinner.getSelectedItemId());
-                periodicity.setHour(tp.getCurrentHour());
-                periodicity.setMinute(tp.getCurrentMinute());
-                myDirective.setPeriodicity(periodicity);*/
-                RequestParams params = new RequestParams();
-                params.put("directive", new Gson().toJson(myDirective));
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Log.d("Fail", errorResponse.toString());
+            }
 
-                if (!edit)
-                {
-                    JSONObject param = new JSONObject();
-                    StringEntity stringEntity = null;
-                    try {
-                        param.put("name", myDirective.getName());
-                        if (myDirective.getName().length() == 0) {
-                            Toast.makeText(context, R.string.directive_name_empty, Toast.LENGTH_LONG).show();
-                            throw new Exception("Directive name is empty");
-                        }
-                        param.put("creatorId", Utils.getInfo(context, "userId"));
-                        param.put("deviceId", deviceSpinner.getSelectedItemId());
-                        param.put("actionId", actionSpinner.getSelectedItem());
-                        param.put("periodicityType", periodicitySpinner.getSelectedItem());
-                        param.put("periodicityData", "{ data: 'now' }");
-                        stringEntity = new StringEntity(param.toString());
-                    }
-                    catch (Throwable ex)
-                    {
-                        Log.d("DirectiveCreate", ex.getMessage());
-                    }
-                    RestAPI.post(context, "directives", stringEntity, new JsonHttpResponseHandler() {
-                        @Override
-                        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                            Toast.makeText(context, R.string.yes, Toast.LENGTH_LONG).show();
-                            finish();
-                        }
-
-                        @Override
-                        public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                            Toast.makeText(context, R.string.no, Toast.LENGTH_LONG).show();
-                            Log.d("Add directive: ", "" + statusCode);
-                        }
-                    });
-                }
-                else
-                {
-                    JSONObject param = new JSONObject();
-                    StringEntity stringEntity = null;
-                    try {
-                        param.put("name", myDirective.getName());
-                        if (myDirective.getName().length() == 0) {
-                            Toast.makeText(context, R.string.directive_name_empty, Toast.LENGTH_LONG).show();
-                            throw new Exception("Directive name is empty");
-                        }
-                        param.put("deviceId", deviceSpinner.getSelectedItemId());
-                        param.put("actionId", actionSpinner.getSelectedItem());
-                        param.put("periodicityType", periodicitySpinner.getSelectedItem());
-                        param.put("periodicityData", "{ data: 'now' }");
-                        stringEntity = new StringEntity(param.toString());
-                    }
-                    catch (Throwable ex)
-                    {
-                        Log.d("EditDirective", ex.getMessage());
-                    }
-                    RestAPI.put(context, "directives", stringEntity, new JsonHttpResponseHandler() {
-                        @Override
-                        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                            Toast.makeText(context, R.string.yes, Toast.LENGTH_LONG).show();
-                            finish();
-                        }
-
-                        @Override
-                        public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                            Toast.makeText(context, R.string.no, Toast.LENGTH_LONG).show();
-                            Log.d("Edit directive: ", "" + statusCode);
-                        }
-                    });
-                }
-/*                if (!edit)
-                    RestAPI.post("/directive", params, new JsonHttpResponseHandler(){
-                        @Override
-                        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                            Log.d("CreateUpdateDirective: ", "Creation success");
-                        }
-
-                        @Override
-                        public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                            Log.d("CreateUpdateDirective: ", "Creation failure");
-                        }
-                    });
-                else
-                    RestAPI.put("/directive/" + myDirective.getId(), params, new JsonHttpResponseHandler(){
-                        @Override
-                        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                            Log.d("CreateUpdateDirective: ", "Edition success");
-                        }
-
-                        @Override
-                        public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                            Log.d("CreateUpdateDirective: ", "Edition failure");
-                        }
-                    });
-                    */
-                finish();
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                Log.d("Error", responseString);
             }
         });
     }

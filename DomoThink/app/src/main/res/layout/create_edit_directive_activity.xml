@@ -21,35 +21,34 @@
             android:id="@+id/directiveObject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:entries="@array/connectedObjects"></Spinner>
+            android:layout_marginTop="16dp" />
 
         <Spinner
             android:id="@+id/directiveAction"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:entries="@array/objectsAction"></Spinner>
+            android:entries="@array/objectsAction" />
 
         <Spinner
             android:id="@+id/directivePeriodicity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:entries="@array/periodicity"></Spinner>
+            android:entries="@array/periodicity" />
 
         <Spinner
             android:id="@+id/directiveDay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:entries="@array/days"></Spinner>
+            android:entries="@array/days" />
 
         <TimePicker
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:id="@+id/directiveHour"></TimePicker>
+            android:id="@+id/directiveHour" />
 
         <Button
             android:id="@+id/createEditDirectiveButton"
