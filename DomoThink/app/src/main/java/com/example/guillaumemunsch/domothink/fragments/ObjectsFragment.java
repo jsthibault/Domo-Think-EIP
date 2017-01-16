@@ -80,7 +80,7 @@ public class ObjectsFragment extends Fragment {
                                     adapter.remove(position);
                                     adapter.notifyDataSetChanged();
                                     if (adapter.getCount() == 0)
-                                        Toast.makeText(context, R.string.no_directive_found, Toast.LENGTH_LONG).show();
+                                        Toast.makeText(context, R.string.no_device_found, Toast.LENGTH_LONG).show();
                                 }
 
                                 @Override

@@ -98,4 +98,27 @@ public class StoreFragment extends Fragment {
         return rootView;
     }
 
-}
+    @Override
+    public void onResume() {
+        super.onResume();
+        RestAPI.getStore("/store", null, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                try {
+                    pluginList.clear();
+                    pluginList.addAll((List<Plugin>)(new Gson().fromJson(response.toString(), new TypeToken<List<Plugin>>() {
+                    }.getType())));
+                    mAdapter.notifyDataSetChanged();
+                } catch (Throwable ex) {
+
+                    Log.d("Store Fragment", ex.getMessage());
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                Toast.makeText(context, R.string.request_failed, Toast.LENGTH_LONG).show();
+                Log.d("Store Fragment: ", "Unable to get store.");
+            }
+        });
+    }}
