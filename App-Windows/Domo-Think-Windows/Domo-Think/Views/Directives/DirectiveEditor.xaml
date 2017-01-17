@@ -12,10 +12,17 @@
     <!-- Page resources -->
     <Page.Resources>
         <converters:EditorModeConverter x:Key="editorModeConv" />
+        <converters:DateTimeToDateTimeOffsetConverter x:Key="DateTimeToDateTimeOffsetConverter"/>
+        <converters:DateTimeToTimeSpanConverter x:Key="DateTimeToTimeSpanConverter"/>
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
         <StackPanel Orientation="Vertical" Margin="12">
+            <StackPanel Background="Red" BorderThickness="2" BorderBrush="Brown" Orientation="Horizontal" Visibility="{Binding HasError, Converter={StaticResource visibilityConverter}}">
+                <SymbolIcon Symbol="ReportHacked" Foreground="White" Margin="10,0,0,0" />
+                <TextBlock Text="{Binding ErrorMessage}" Foreground="White" FontFamily="16" Margin="10" TextWrapping="Wrap" />
+            </StackPanel>
 
             <!-- Options -->
             <StackPanel x:Name="OPTIONS_PANEL" Margin="0,0,0,8">
@@ -30,13 +37,50 @@
 
                 <StackPanel Orientation="Vertical" Margin="0,8,0,0">
                     <TextBlock Text="Object" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
-                    <ComboBox ItemsSource="{Binding ObjectList}" Width="350" HorizontalAlignment="Left" />
+                    <ComboBox ItemsSource="{Binding DeviceList}" SelectedIndex="{Binding SelectedDeviceIndex, Mode=TwoWay}" Width="350" HorizontalAlignment="Left">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Margin="0,8,0,0">
+                    <TextBlock Text="Action" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
+                    <ComboBox Width="350" SelectedIndex="{Binding SelectedActionIndex, Mode=TwoWay}">
+                        <ComboBoxItem>Allumer</ComboBoxItem>
+                        <ComboBoxItem>Eteindre</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Margin="0,8,0,0">
+                    <TextBlock Text="Jour de la semaine" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
+                    <ComboBox Width="350" SelectedIndex="{Binding SelectedDayIndex, Mode=TwoWay}">
+                        <ComboBoxItem>Lundi</ComboBoxItem>
+                        <ComboBoxItem>Mardi</ComboBoxItem>
+                        <ComboBoxItem>Mercredi</ComboBoxItem>
+                        <ComboBoxItem>Jeudi</ComboBoxItem>
+                        <ComboBoxItem>Vendredi</ComboBoxItem>
+                        <ComboBoxItem>Samedi</ComboBoxItem>
+                        <ComboBoxItem>Dimanche</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Margin="0,8,0,0">
+                    <TextBlock Text="Récurence" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
+                    <ComboBox Width="350" SelectedIndex="{Binding SelectedPeriodicityType, Mode=TwoWay}">
+                        <ComboBoxItem>Une fois</ComboBoxItem>
+                        <ComboBoxItem>Semaine</ComboBoxItem>
+                    </ComboBox>
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical" Margin="0,8,0,0">
                     <TextBlock Text="Time" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
-                    <DatePicker />
+                    <TimePicker />
                 </StackPanel>
+                
+                
 
                 <Button x:Uid="AddDirective" Content="[Add directive]" Margin="0,8,8,0" Command="{Binding AddDirectiveCommand}" Visibility="{Binding Mode, Converter={StaticResource editorModeConv}, ConverterParameter='Create'}" Style="{StaticResource DomoButton}" />
                 <Button x:Uid="EditDirective" Content="[Edit directive]" Margin="0,8,8,0" Command="{Binding EditDirectiveCommand}" Visibility="{Binding Mode, Converter={StaticResource editorModeConv}, ConverterParameter='Edit'}" Style="{StaticResource DomoButton}" />

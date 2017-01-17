@@ -20,7 +20,7 @@ namespace DomoThink.API
         public const String API_URL = "http://89.156.153.245:4242/";
 #endif
 
-        public const String API_URL_FILIPE_PI = "http://86.70.224.17:8081";
+        public const String API_URL_FILIPE_PI = "http://86.70.224.226:4242";
 
         public const string API_URL_LOCAL = "http://127.0.0.1:4242";
     }

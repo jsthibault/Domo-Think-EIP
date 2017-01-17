@@ -78,8 +78,7 @@ namespace DomoThink.ViewModels.Accounts
             if ((Int32)result.Id == 0)
             {
                 // Process account deletion.
-                
-                this.AccountInformations.UserId = App.UserId;
+                this.AccountInformations.UserId = App.UserId.ToString();
 
                 // Delete account
                 await App.ApiClient.Post<AccountModel, Object>("/user/remove_account", this.AccountInformations);

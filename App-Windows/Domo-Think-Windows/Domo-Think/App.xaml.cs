@@ -33,8 +33,8 @@ namespace DomoThink
     sealed partial class App : Application
     {
         public static DAL.API.ApiClient ApiClient;
-        public static String LoginToken;
-        public static String UserId;
+        public static string LoginToken;
+        public static int UserId;
 
         /// <summary>
         /// Initialise l'objet d'application de singleton.  Il s'agit de la première ligne du code créé
@@ -47,7 +47,7 @@ namespace DomoThink
                 Microsoft.ApplicationInsights.WindowsCollectors.Session);
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-            ApiClient = new DAL.API.ApiClient(API.APIConstants.API_URL_LOCAL);
+            ApiClient = new DAL.API.ApiClient(API.APIConstants.API_URL_FILIPE_PI);
             ApiClient.IsActive = true;
         }
 

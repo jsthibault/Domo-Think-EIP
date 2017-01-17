@@ -63,6 +63,7 @@ namespace DomoThink.API
                     return false;
 
                 App.LoginToken = response?.Token;
+                App.UserId = int.Parse(response?.Id);
 
                 App.ApiClient.AddHeader("login-token", App.LoginToken);
 

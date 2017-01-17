@@ -115,7 +115,7 @@ namespace DomoThink.ViewModels.Accounts
                 return;
             }
 
-            this.AccountInformations.UserId = App.UserId;
+            this.AccountInformations.UserId = App.UserId.ToString();
 
             Boolean _result = await this.userApiService.SendChangePassword(this.AccountInformations);
 

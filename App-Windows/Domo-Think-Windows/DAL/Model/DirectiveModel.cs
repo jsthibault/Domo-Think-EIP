@@ -23,42 +23,44 @@ namespace DAL.Model
     [DataContract]
     public class DirectiveModel : IEquatable<DirectiveModel>
     {
-        #region FIELDS
-        #endregion
-
-        #region PROPERTIES
-
         /// <summary>
         /// Gets or sets the Id of the directive.
         /// </summary>
         [DataMember(Name = "id", EmitDefaultValue = false)]
-        public Double? Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the directive.
         /// </summary>
         [DataMember(Name = "name", EmitDefaultValue = false)]
-        public String Name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the directive's creator Id.
         /// </summary>
         [DataMember(Name = "creatorId", EmitDefaultValue = false)]
-        public Double? CreatorId { get; set; }
+        public int CreatorId { get; set; }
 
         /// <summary>
         /// Gets or sets the directive's parent object Id.
         /// </summary>
         [DataMember(Name = "objectId", EmitDefaultValue = false)]
-        public Double? ObjectId { get; set; }
+        public int ObjectId { get; set; }
 
         /// <summary>
         /// Gets or sets the directive's action Id.
         /// </summary>
         [DataMember(Name = "actionId", EmitDefaultValue = false)]
-        public Double? ActionId { get; set; }
+        public int ActionId { get; set; }
 
-        [DataMember(Name = "periodicity", EmitDefaultValue = false)]
+        [DataMember(Name = "periodicityType")]
+        public int PeriodicityType { get; set; }
+
+        [DataMember(Name = "peridicityData")]
+        public string PeriodicityData { get; set; }
+
+        [IgnoreDataMember]
+        //[DataMember(Name = "periodicity", EmitDefaultValue = false)]
         public PeriodicityModel Periodicity { get; set; }
 
         /// <summary>
@@ -78,43 +80,36 @@ namespace DAL.Model
         /// </summary>
         [IgnoreDataMember]
         public ICommand DeleteCommand { get; set; }
+        
 
-        #endregion
-
-        #region CONSTRUCTORS
-
-        public DirectiveModel(Double id, String name, Double creatorId, Double objectId, Double actionId)
+        public DirectiveModel(int id, string name, int creatorId, int objectId, int actionId, int periodicityType)
         {
             this.Id = id;
             this.Name = name;
             this.CreatorId = creatorId;
             this.ObjectId = objectId;
             this.ActionId = actionId;
-            this.Periodicity = new PeriodicityModel();
+            this.PeriodicityType = periodicityType;
+            this.PeriodicityData = string.Empty;
         }
-
-        #endregion
-
-        #region METHODS
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder _sb = new StringBuilder();
+            var sb = new StringBuilder();
 
-            _sb.AppendLine("class DirectiveModel {");
-            _sb.Append("  Id: ").Append(Id).Append("\n");
-            _sb.Append("  Name: ").Append(Name).Append("\n");
-            _sb.Append("  CreatorId: ").Append(CreatorId).Append("\n");
-            _sb.Append("  ObjectId: ").Append(ObjectId).Append("\n");
-            _sb.Append("  ActionId: ").Append(ActionId).Append("\n");
-            _sb.Append("  Periodicity: ").Append(this.Periodicity.ToString()).Append("\n");
-            _sb.AppendLine("}");
+            sb.AppendLine("class DirectiveModel {");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  CreatorId: ").Append(CreatorId).Append("\n");
+            sb.Append("  ObjectId: ").Append(ObjectId).Append("\n");
+            sb.Append("  ActionId: ").Append(ActionId).Append("\n");
+            sb.AppendLine("}");
 
-            return _sb.ToString();
+            return sb.ToString();
         }
 
         /// <summary>
@@ -122,7 +117,7 @@ namespace DAL.Model
         /// </summary>
         /// <param name="other">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override Boolean Equals(Object obj)
+        public override bool Equals(object obj)
         {
             return this.Equals(obj as DirectiveModel);
         }
@@ -132,7 +127,7 @@ namespace DAL.Model
         /// </summary>
         /// <param name="other">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public Boolean Equals(DirectiveModel other)
+        public bool Equals(DirectiveModel other)
         {
             if (other == null)
                 return false;
@@ -148,11 +143,9 @@ namespace DAL.Model
         /// Gets the object hash code.
         /// </summary>
         /// <returns></returns>
-        public override Int32 GetHashCode()
+        public override int GetHashCode()
         {
             return base.GetHashCode();
         }
-
-        #endregion
     }
 }

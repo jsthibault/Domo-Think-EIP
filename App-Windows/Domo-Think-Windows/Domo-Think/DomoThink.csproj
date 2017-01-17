@@ -133,6 +133,9 @@
     <Compile Include="Controls\Panel.xaml.cs">
       <DependentUpon>Panel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\DateTimeConverter.cs" />
+    <Compile Include="Converters\DateTimeToDateTimeOffsetConverter.cs" />
+    <Compile Include="Converters\DateTimeToTimeSpanConverter.cs" />
     <Compile Include="Converters\EditorModeConverter.cs" />
     <Compile Include="Converters\CacheImageConverter.cs" />
     <Compile Include="Converters\DebugConverter.cs" />
