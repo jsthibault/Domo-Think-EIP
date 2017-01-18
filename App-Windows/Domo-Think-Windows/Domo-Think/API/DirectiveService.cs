@@ -57,7 +57,7 @@ namespace DomoThink.API
         {
             try
             {
-                return await this.api.Get<List<DirectiveModel>>(ApiRoutes.GET_DIRECTIVES);
+                return await this.api.Get<List<DirectiveModel>>(ApiRoutes.DIRECTIVES);
             }
             catch
             {
@@ -73,7 +73,7 @@ namespace DomoThink.API
         {
             try
             {
-                await this.api.Post<DirectiveModel, Object>("/api/directive", model);
+                await this.api.Post<DirectiveModel, Object>(ApiRoutes.DIRECTIVES, model);
             }
             catch
             {
@@ -91,7 +91,7 @@ namespace DomoThink.API
         {
             try
             {
-                await this.api.Put("/api/directive/" + model.Id, model);
+                await this.api.Put(ApiRoutes.DIRECTIVES, model);
             }
             catch
             {
@@ -109,7 +109,7 @@ namespace DomoThink.API
         {
             try
             {
-                await this.api.Delete<DirectiveModel>("/api/directive/{0}", directive.Id);
+                await this.api.Delete<DirectiveModel>(ApiRoutes.DIRECTIVES_ID, directive.Id);
             }
             catch
             {

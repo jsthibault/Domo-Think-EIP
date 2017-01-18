@@ -1,4 +1,5 @@
-﻿using DomoThink.MVVM;
+﻿using DAL.Model;
+using DomoThink.MVVM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,83 +21,28 @@ namespace DomoThink.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        #region CONSTANTS
+        private BoxStatusModel boxStatus;
 
-
-
-        #endregion
-
-        #region ENUMS
-
-
-
-        #endregion
-
-        #region FIELDS
-
-        private String echoName;
-
-        #endregion
-
-        #region PROPERTIES
-
-        public String EchoName
+        public BoxStatusModel BoxStatus
         {
-            get { return this.echoName; }
-            set { this.NotifyPropertyChanged(ref this.echoName, value); }
+            get { return this.boxStatus; }
+            set { this.NotifyPropertyChanged(ref this.boxStatus, value); }
         }
-
-        public ICommand EchoApiCommand { get; private set; }
-
-        public Object DAL { get; private set; }
-
-        #endregion
-
-        #region CONSTRUCTORS
-
+        
         /// <summary>
         /// Creates a new MainViewModel instance.
         /// </summary>
         public MainViewModel()
         {
-            this.EchoName = String.Empty;
-
-            // Initialize command
-            this.EchoApiCommand = new Command(this.EchoApiAction);
         }
-
-        #endregion
-
-        #region METHODS
-
-
-
-        #endregion
-
-        #region ACTIONS
-
-        public struct ApiResponse
-        {
-            public String Result;
-            public Object ObjResult;
-        }
-
-        private void EchoApiAction(Object param)
-        {
-            //DAL _api = new DAL(Constants.API_ADDRESS);
-            //ApiResponse _result = await _api.Get<ApiResponse>("/api/Login/GetUsername?username={0}", param.ToString());
-
-            //this.EchoName = String.Format("'{0}'", _result.ObjResult.ToString());
-        }
-
-        #endregion
 
         /// <summary>
         /// Refresh the ViewModel data.
         /// </summary>
         /// <param name="parameter"></param>
-        public override void Refresh(Object parameter)
+        public async override void Refresh(object parameter)
         {
+            this.BoxStatus = await AppContext.BoxService.GetStatus();
         }
     }
 }

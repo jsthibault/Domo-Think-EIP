@@ -27,6 +27,7 @@ namespace DomoThink.ViewModels.Directives
         private int selectedDeviceIndex;
         private int selectedDayIndex;
         private int selectedPeriodicityType;
+        private DateTime selectedTime;
         private bool hasError;
         private string errorMessage;
         private DirectiveModel directiveModel;
@@ -68,6 +69,12 @@ namespace DomoThink.ViewModels.Directives
             set { this.NotifyPropertyChanged(ref this.selectedPeriodicityType, value); }
         }
 
+        public DateTime SelectedTime
+        {
+            get { return this.selectedTime; }
+            set { this.NotifyPropertyChanged(ref this.selectedTime, value); }
+        }
+
         public string ErrorMessage
         {
             get { return this.errorMessage; }
@@ -94,11 +101,12 @@ namespace DomoThink.ViewModels.Directives
         {
             // Initialize properties
             this.DeviceList = new ObservableCollection<DeviceModel>();
-            this.directiveModel = new DirectiveModel(-1, null, -1, -1, -1, -1);
+            this.directiveModel = new DirectiveModel(0, null, -1, -1, -1, -1);
             this.Mode = mode;
             this.SelectedActionIndex = 0;
             this.SelectedDeviceIndex = -1;
             this.SelectedDayIndex = -1;
+            this.selectedTime = DateTime.Now;
             this.HasError = false;
             this.ErrorMessage = string.Empty;
 
@@ -107,24 +115,40 @@ namespace DomoThink.ViewModels.Directives
             this.EditDirectiveCommand = new Command(this.EditDirectiveAction);
         }
         
-        private async void AddDirectiveAction(Object param)
+        private async void AddDirectiveAction(object param)
         {
-            // TODO: add directive with API
+            //this.DirectiveInformations.Id = 0;
             this.DirectiveInformations.ActionId = this.SelectedActionIndex;
             this.DirectiveInformations.CreatorId = App.UserId;
             this.DirectiveInformations.ObjectId = this.DeviceList[this.selectedDeviceIndex].Id;
-            this.DirectiveInformations.PeriodicityType = this.SelectedPeriodicityType;
+            this.DirectiveInformations.PeriodicityType = this.SelectedPeriodicityType + 1;
+
+            int day = this.SelectedDayIndex + 1;
+            string hour = this.SelectedTime.Hour.ToString("D2") + ":" + this.SelectedTime.Minute.ToString("D2");
+            
+            string periodicityData = Newtonsoft.Json.JsonConvert.SerializeObject(new PeriodicityModel(day, hour));
+
+            this.DirectiveInformations.PeriodicityData = periodicityData;
+
+            await AppContext.DirectiveService.AddDirective(this.DirectiveInformations);
 
             this.Pop();
         }
 
-        private async void EditDirectiveAction(Object param)
+        private async void EditDirectiveAction(object param)
         {
-            // TODO: edit directive with API
             this.DirectiveInformations.ActionId = this.SelectedActionIndex;
             this.DirectiveInformations.CreatorId = App.UserId;
             this.DirectiveInformations.ObjectId = this.DeviceList[this.selectedDeviceIndex].Id;
-            this.DirectiveInformations.PeriodicityType = this.SelectedPeriodicityType;
+            this.DirectiveInformations.PeriodicityType = this.SelectedPeriodicityType + 1;
+
+            int day = this.SelectedDayIndex + 1;
+            string hour = this.SelectedTime.Hour + ":" + this.SelectedTime.Minute;
+            string periodicityData = Newtonsoft.Json.JsonConvert.SerializeObject(new PeriodicityModel(day, hour));
+
+            this.DirectiveInformations.PeriodicityData = periodicityData;
+
+            await AppContext.DirectiveService.UpdateDirective(this.DirectiveInformations);
 
             this.Pop();
         }
@@ -146,7 +170,18 @@ namespace DomoThink.ViewModels.Directives
 
                 this.SelectedActionIndex = this.DirectiveInformations.ActionId;
                 this.SelectedDeviceIndex = this.GetIndexOfDevice(this.DirectiveInformations.ObjectId);
-                this.SelectedPeriodicityType = this.DirectiveInformations.PeriodicityType;
+                this.SelectedPeriodicityType = this.DirectiveInformations.PeriodicityType - 1;
+
+                if (string.IsNullOrEmpty(this.DirectiveInformations.PeriodicityData))
+                    return;
+
+                dynamic periodicityData = Newtonsoft.Json.Linq.JObject.Parse(this.DirectiveInformations.PeriodicityData);
+
+                this.SelectedDayIndex = (int)(periodicityData.day) - 1;
+
+                string date = periodicityData.hour;
+                string[] hourMin = date.Split(':');
+                this.SelectedTime = new DateTime(1, 1, 1, int.Parse(hourMin[0]), int.Parse(hourMin[1]), 0);
             }
         }
 

@@ -24,6 +24,7 @@ namespace DomoThink
         private static DirectiveService directiveService;
         private static PluginService pluginService;
         private static StoreService storeService;
+        private static BoxService boxService;
 
         public static UserService UserService
         {
@@ -77,6 +78,17 @@ namespace DomoThink
                     storeService = new StoreService(App.ApiClient);
 
                 return storeService;
+            }
+        }
+
+        public static BoxService BoxService
+        {
+            get
+            {
+                if (boxService == null)
+                    boxService = new BoxService(App.ApiClient);
+
+                return boxService;
             }
         }
 

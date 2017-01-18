@@ -114,6 +114,7 @@
     <Compile Include="API\AccountService.cs" />
     <Compile Include="API\APIConstants.cs" />
     <Compile Include="API\ApiRoutes.cs" />
+    <Compile Include="API\BoxService.cs" />
     <Compile Include="API\DirectiveService.cs" />
     <Compile Include="API\DeviceService.cs" />
     <Compile Include="API\PluginService.cs" />

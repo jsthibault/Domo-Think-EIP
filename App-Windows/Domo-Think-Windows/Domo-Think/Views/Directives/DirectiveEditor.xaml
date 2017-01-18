@@ -31,7 +31,7 @@
 
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="Name" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
-                    <TextBox x:Name="DIRECTIVE_NAME" Text="{Binding DirectiveInformations.Name}" Width="350" HorizontalAlignment="Left" />
+                    <TextBox x:Name="DIRECTIVE_NAME" Text="{Binding DirectiveInformations.Name, Mode=TwoWay}" Width="350" HorizontalAlignment="Left" />
                     <TextBox x:Name="DIRECTIVE_ID" Text="{Binding DirectivesInformations.Id}" Visibility="Collapsed" />
                 </StackPanel>
 
@@ -70,14 +70,14 @@
                 <StackPanel Orientation="Vertical" Margin="0,8,0,0">
                     <TextBlock Text="Récurence" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
                     <ComboBox Width="350" SelectedIndex="{Binding SelectedPeriodicityType, Mode=TwoWay}">
-                        <ComboBoxItem>Une fois</ComboBoxItem>
+                        <ComboBoxItem>Maintenant</ComboBoxItem>
                         <ComboBoxItem>Semaine</ComboBoxItem>
                     </ComboBox>
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical" Margin="0,8,0,0">
                     <TextBlock Text="Time" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
-                    <TimePicker />
+                    <TimePicker Time="{Binding SelectedTime, Converter={StaticResource DateTimeToTimeSpanConverter}, Mode=TwoWay}" />
                 </StackPanel>
                 
                 

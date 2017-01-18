@@ -92,7 +92,9 @@ namespace DAL.API
                         return await _response.Content.ReadAsAsync<T>();
                 }
             }
-            catch (Exception e) { }
+            catch (Exception e)
+            {
+            }
 
             return default(T);
         }

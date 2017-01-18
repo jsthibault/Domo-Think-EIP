@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    x:Name="PANEL"
     d:DesignHeight="300"
     d:DesignWidth="400">
 
@@ -17,11 +18,11 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0" Background="LightGray">
-                <TextBlock Style="{ThemeResource TitleTextBlockStyle}" Text="{Binding Title}" Margin="12,4,4,4"></TextBlock>
+                <TextBlock Style="{ThemeResource TitleTextBlockStyle}" Text="{Binding Path=Title, ElementName=PANEL}" Margin="12,4,4,4"></TextBlock>
             </Grid>
 
             <Grid Grid.Row="1">
-                <ContentControl />
+                <ContentControl Content="{Binding Path=PanelContent, ElementName=PANEL}" />
             </Grid>
         </Grid>
 

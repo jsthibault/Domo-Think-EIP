@@ -26,7 +26,7 @@ namespace DAL.Model
         /// <summary>
         /// Gets or sets the Id of the directive.
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "idDirective", EmitDefaultValue = false)]
         public int Id { get; set; }
 
         /// <summary>
@@ -44,24 +44,20 @@ namespace DAL.Model
         /// <summary>
         /// Gets or sets the directive's parent object Id.
         /// </summary>
-        [DataMember(Name = "objectId", EmitDefaultValue = false)]
+        [DataMember(Name = "deviceId", EmitDefaultValue = true)]
         public int ObjectId { get; set; }
 
         /// <summary>
         /// Gets or sets the directive's action Id.
         /// </summary>
-        [DataMember(Name = "actionId", EmitDefaultValue = false)]
+        [DataMember(Name = "actionId", EmitDefaultValue = true)]
         public int ActionId { get; set; }
 
-        [DataMember(Name = "periodicityType")]
+        [DataMember(Name = "periodicityType", EmitDefaultValue = false)]
         public int PeriodicityType { get; set; }
 
-        [DataMember(Name = "peridicityData")]
+        [DataMember(Name = "periodicityData", EmitDefaultValue = false)]
         public string PeriodicityData { get; set; }
-
-        [IgnoreDataMember]
-        //[DataMember(Name = "periodicity", EmitDefaultValue = false)]
-        public PeriodicityModel Periodicity { get; set; }
 
         /// <summary>
         /// Gets or sets the add command.
@@ -90,7 +86,7 @@ namespace DAL.Model
             this.ObjectId = objectId;
             this.ActionId = actionId;
             this.PeriodicityType = periodicityType;
-            this.PeriodicityData = string.Empty;
+            //this.PeriodicityData = new PeriodicityModel(0, "");
         }
         
         /// <summary>

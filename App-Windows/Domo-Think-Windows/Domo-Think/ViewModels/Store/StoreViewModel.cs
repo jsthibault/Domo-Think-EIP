@@ -68,8 +68,9 @@ namespace DomoThink.ViewModels.Store
             if (this.Plugins.Any())
                 this.Plugins.Clear();
 
-            foreach (PluginModel storePlugin in storePlugins)
-                this.Plugins.Add(storePlugin);
+            if (storePlugins != null)
+                foreach (PluginModel storePlugin in storePlugins)
+                    this.Plugins.Add(storePlugin);
 
             this.Loading = false;
             this.Display = true;

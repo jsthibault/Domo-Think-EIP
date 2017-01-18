@@ -114,6 +114,7 @@
     <Compile Include="IO\Settings.cs" />
     <Compile Include="Model\AccountModel.cs" />
     <Compile Include="Model\ActionType.cs" />
+    <Compile Include="Model\BoxStatusModel.cs" />
     <Compile Include="Model\DirectiveModel.cs" />
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\DeviceModel.cs" />

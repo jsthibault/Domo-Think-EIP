@@ -27,7 +27,8 @@ namespace DomoThink.API
         public const string DEVICE_ROUTE_CHANGE_STATUS = API_PREFIX + "/devices/changeStatus/";
 
         // Directives
-        public const string GET_DIRECTIVES = API_PREFIX + "/directives/";
+        public const string DIRECTIVES = API_PREFIX + "/directives/";
+        public const string DIRECTIVES_ID = API_PREFIX + "/directives/{0}";
 
         // Plugins
         public const string GET_PLUGINS = API_PREFIX + "/plugin/";
