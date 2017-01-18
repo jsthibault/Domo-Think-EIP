@@ -90,4 +90,7 @@
     <string name="turnOff">Eteindre</string>
     <string name="now">Maintenant</string>
     <string name="weekly">Chaque semaine</string>
+    <string name="alreadyInstalled">Déjà installé</string>
+    <string name="unableToInstall">Impossible à installer</string>
+    <string name="forbidden">Interdit</string>
 </resources>

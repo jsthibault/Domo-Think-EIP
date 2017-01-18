@@ -53,7 +53,10 @@ public class MyPluginsFragment extends Fragment {
         list = (ListView)rootView.findViewById(R.id.myPluginsList);
         final SwitchListAdapter adapter = new SwitchListAdapter(this.getActivity(),
                 (List<String>)(Object)Utils.transform(pluginList, "name"),
-                (List<Boolean>)(Object)Utils.transform(pluginList, "status"));
+                (List<Boolean>)(Object)Utils.transform(pluginList, "status"),
+                (List<Integer>)(Object)Utils.transform(pluginList, "idPlugin"),
+                "plugins"
+                );
         list.setAdapter(adapter);
         list.setOnTouchListener(new SwipeDismissListViewTouchListener(
                 list,

@@ -10,6 +10,7 @@ public class Comment implements Serializable {
     private String author;
     private float rate;
     private String comment;
+    private String keyLoginHash;
 
     public int getIdComment() {
         return idComment;
@@ -43,10 +44,19 @@ public class Comment implements Serializable {
         this.comment = comment;
     }
 
-    public Comment(int idComment, String author, float rate, String comment) {
+    public String getKeyLoginHash() {
+        return keyLoginHash;
+    }
+
+    public void setKeyLoginHash(String keyLoginHash) {
+        this.keyLoginHash = keyLoginHash;
+    }
+
+    public Comment(int idComment, String author, float rate, String comment, String keyLoginHash) {
         this.idComment = idComment;
         this.author = author;
         this.rate = rate;
         this.comment = comment;
+        this.keyLoginHash = keyLoginHash;
     }
 }

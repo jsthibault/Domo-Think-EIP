@@ -90,4 +90,7 @@
     <string name="turnOff">Turn off</string>
     <string name="now">Now</string>
     <string name="weekly">Weekly</string>
+    <string name="alreadyInstalled">Already installed</string>
+    <string name="unableToInstall">Unable to install</string>
+    <string name="forbidden">Forbidden</string>
 </resources>

@@ -12,7 +12,7 @@ public class Device implements Serializable {
     private String name;
     private String description;
     private String protocole;
-    private boolean activate = false;
+    private boolean status = false;
     private boolean added;
 
     public boolean getAdded() { return added; }
@@ -47,21 +47,21 @@ public class Device implements Serializable {
         this.protocole = protocole;
     }
 
-    public boolean isActivate() {
-        return activate;
+    public boolean getStatus() {
+        return status;
     }
 
-    public void setActivate(boolean activate) {
-        this.activate = activate;
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
-    public Device(int id, String name, String description, boolean activate, boolean added) {
+    public Device(int id, String name, String description, boolean status, boolean added, String protocole) {
 
         this.idDevice = id;
         this.name = name;
         this.description = description;
         this.protocole = protocole;
-        this.activate = activate;
+        this.status = status;
         this.added = added;
     }
 }

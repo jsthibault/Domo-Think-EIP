@@ -43,38 +43,69 @@ public class PostCommentActivity extends AppCompatActivity {
         btn = (Button)findViewById(R.id.validate);
         comment = (EditText)findViewById(R.id.comment);
         rate = (RatingBar)findViewById(R.id.rate);
+        if (getIntent().hasExtra("idComment")) {
+            String keyLoginHash = getIntent().getStringExtra("keyLoginHash");
+            if (!keyLoginHash.equals(Utils.md5(Utils.getInfo(context, "userId") + Utils.getInfo(context, "password")))) {
+                Toast.makeText(PostCommentActivity.this, getResources().getString(R.string.forbidden), Toast.LENGTH_LONG).show();
+                finish();
+            }
+            rate.setRating(getIntent().getFloatExtra("rate", 0f));
+            comment.setText(getIntent().getStringExtra("comment"));
+        }
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 JSONObject param = new JSONObject();
                 StringEntity stringEntity = null;
                 try {
+                    if (getIntent().hasExtra("idComment")) {
+                        param.put("idComment", getIntent().getIntExtra("idComment", 0));
+                    }
                     param.put("author", Utils.getInfo(context, "login"));
                     param.put("rate", rate.getRating());
                     param.put("comment", comment.getText().toString());
-                    param.put("keyLoginHash", Utils.getInfo(context, "userId") + Utils.getInfo(context, "password"));
+                    param.put("keyLoginHash", Utils.md5(Utils.getInfo(context, "userId") + Utils.getInfo(context, "password")));
                     stringEntity = new StringEntity(param.toString());
                 }
                 catch (Throwable ex)
                 {
                     Log.d("Connection", ex.getMessage());
                 }
-                RestAPI.postStore(PostCommentActivity.this, "/store/" + getIntent().getIntExtra("pluginId", 0) + "/comments/", stringEntity, new JsonHttpResponseHandler() {
-                    @Override
-                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                        try {
-                            Toast.makeText(PostCommentActivity.this, "Posted", Toast.LENGTH_LONG).show();
-                            finish();
-                        } catch (Throwable ex) {
-                            Toast.makeText(PostCommentActivity.this, "Fail", Toast.LENGTH_LONG).show();
+                if (!getIntent().hasExtra("idComment")) {
+                    RestAPI.postStore(PostCommentActivity.this, "/store/" + getIntent().getIntExtra("pluginId", 0) + "/comments/", stringEntity, new JsonHttpResponseHandler() {
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                            try {
+                                Toast.makeText(PostCommentActivity.this, "Posted", Toast.LENGTH_LONG).show();
+                                finish();
+                            } catch (Throwable ex) {
+                                Toast.makeText(PostCommentActivity.this, "Fail", Toast.LENGTH_LONG).show();
+                            }
                         }
-                    }
 
-                    @Override
-                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                        Toast.makeText(PostCommentActivity.this, throwable.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                });
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                            Toast.makeText(PostCommentActivity.this, throwable.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    });
+                } else {
+                    RestAPI.putStore(PostCommentActivity.this, "/store/comments/", stringEntity, new JsonHttpResponseHandler() {
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                            try {
+                                Toast.makeText(PostCommentActivity.this, "Posted", Toast.LENGTH_LONG).show();
+                                finish();
+                            } catch (Throwable ex) {
+                                Toast.makeText(PostCommentActivity.this, "Fail", Toast.LENGTH_LONG).show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                            Toast.makeText(PostCommentActivity.this, throwable.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
             }
         });
     }

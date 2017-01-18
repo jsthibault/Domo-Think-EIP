@@ -28,7 +28,6 @@ public class StoreCommentsAdapter extends RecyclerView.Adapter<StoreCommentsAdap
 
         public MyViewHolder(View view) {
             super(view);
-            icon = (ImageView) view.findViewById(R.id.commentUserIcon);
             author = (TextView) view.findViewById(R.id.commentUserName);
             comment = (TextView) view.findViewById(R.id.commentUserText);
             rate = (RatingBar) view.findViewById(R.id.commentUserRate);

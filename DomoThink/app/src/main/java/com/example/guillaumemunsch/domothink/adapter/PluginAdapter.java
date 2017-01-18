@@ -69,7 +69,6 @@ public class PluginAdapter extends BaseAdapter {
         final Holder holder=new Holder();
         View rowView;
         rowView = inflater.inflate(R.layout.list_item_plugin, null);
-        holder.i=(ImageView) rowView.findViewById(R.id.pluginIcon);
         holder.n=(TextView) rowView.findViewById(R.id.pluginName);
         holder.d=(TextView) rowView.findViewById(R.id.pluginDescription);
         holder.r=(RatingBar) rowView.findViewById(R.id.pluginRate);

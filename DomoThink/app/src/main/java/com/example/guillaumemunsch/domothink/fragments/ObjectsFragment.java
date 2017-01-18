@@ -31,6 +31,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -60,7 +61,10 @@ public class ObjectsFragment extends Fragment {
         list = (ListView)rootView.findViewById(R.id.listView);
         final SwitchListAdapter adapter = new SwitchListAdapter(this.getActivity(),
                 (List<String>)(Object)Utils.transform(devices, "name"),
-                (List<Boolean>)(Object)Utils.transform(devices, "activate"));
+                (List<Boolean>)(Object)Utils.transform(devices, "status"),
+                (List<Integer>)(Object)Utils.transform(devices, "idDevice"),
+                "devices"
+                );
         list.setAdapter(adapter);
         list.setOnTouchListener(new SwipeDismissListViewTouchListener(
                 list,

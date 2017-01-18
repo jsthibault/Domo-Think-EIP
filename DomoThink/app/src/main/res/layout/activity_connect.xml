@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:id="@+id/box_key"
-        android:layout_marginBottom="45dp"
+        android:layout_marginBottom="25dp"
         android:layout_below="@+id/password"
         android:layout_centerHorizontal="true"
         android:hint="@string/domobox_identifier"

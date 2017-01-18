@@ -79,6 +79,10 @@ public class RestAPI {
         client.delete(getAbsoluteUrlStore(url), params, responseHandler);
     }
 
+    public static void deleteStore(Context context, String url, StringEntity entity, AsyncHttpResponseHandler responseHandler) {
+        client.delete(context, getAbsoluteUrlStore(url), entity, "application/json", responseHandler);
+    }
+
     private static String getAbsoluteUrl(String relativeUrl) {
         return BASE_URL + relativeUrl;
     }

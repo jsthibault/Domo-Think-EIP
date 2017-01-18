@@ -1,6 +1,8 @@
 package com.example.guillaumemunsch.domothink.activities;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -25,6 +27,7 @@ import com.example.guillaumemunsch.domothink.models.Device;
 import com.example.guillaumemunsch.domothink.models.Plugin;
 import com.example.guillaumemunsch.domothink.recycler.DividerItemDecoration;
 import com.example.guillaumemunsch.domothink.recycler.RecyclerItemClickListener;
+import com.example.guillaumemunsch.domothink.utils.Utils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -53,6 +56,7 @@ public class PluginDetailActivity extends AppCompatActivity {
     Button pluginInstallButton = null;
     private StoreCommentsAdapter mAdapter;
     FloatingActionButton addComment = null;
+    boolean installed;
 
 
     @Override
@@ -75,12 +79,7 @@ public class PluginDetailActivity extends AppCompatActivity {
             plugin = (Plugin)getIntent().getSerializableExtra("storePlugin");
         else
             finish();
-
-        int[] icons = new int[]{R.drawable.plugin_logo, R.drawable.plugin_logo, R.drawable.plugin_logo};
-        String[] names = new String[]{"User 1", "User 2", "User 3"};
-        String[] comments = new String[]{"This plugin works great!", "Crashed with the lamp XM1014", "I use this plugin a lot, it works well."};
-        float[] rates = new float[]{5f, 2f, 3.5f};
-
+        installed = getIntent().hasExtra("installed");
         pluginName = (TextView)findViewById(R.id.pluginName);
         pluginName.setText(plugin.getName());
         pluginDesc = (TextView)findViewById(R.id.pluginDescription);
@@ -94,53 +93,109 @@ public class PluginDetailActivity extends AppCompatActivity {
         }
         else {
             pluginRate.setRating(plugin.getRate());
-            pluginRateText.setVisibility(View.INVISIBLE);
         }
         pluginInstallButton = (Button)findViewById(R.id.pluginInstallButton);
-        pluginInstallButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                JSONObject param = new JSONObject();
-                StringEntity stringEntity = null;
-                try {
-                    param.put("idPlugin", plugin.getIdPlugin());
-                    param.put("name", plugin.getName());
-                    param.put("repository", plugin.getRepository());
-                    param.put("status", true);
-                    stringEntity = new StringEntity(param.toString());
-                }
-                catch (Throwable ex)
-                {
-                    Log.d("PluginDetailActivity", ex.getMessage());
-                }
-                RestAPI.post(PluginDetailActivity.this, "plugins/install", stringEntity, new JsonHttpResponseHandler() {
-                    @Override
-                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                        Toast.makeText(context, "Plugin installed", Toast.LENGTH_LONG).show();
-                        finish();
+        if (installed) {
+            pluginInstallButton.setBackgroundTintList(getResources().getColorStateList(R.color.grey));
+            pluginInstallButton.setText(getResources().getString(R.string.alreadyInstalled));
+        }
+        else {
+            pluginInstallButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    JSONObject param = new JSONObject();
+                    StringEntity stringEntity = null;
+                    try {
+                        param.put("idPlugin", plugin.getIdPlugin());
+                        param.put("name", plugin.getName());
+                        param.put("repository", plugin.getRepository());
+                        param.put("status", true);
+                        stringEntity = new StringEntity(param.toString());
                     }
-
-
-
-                    @Override
-                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject response) {
-                        Toast.makeText(context, "Unable to install. Already installed ?", Toast.LENGTH_LONG).show();
-                        finish();
+                    catch (Throwable ex)
+                    {
+                        Log.d("PluginDetailActivity", ex.getMessage());
                     }
-                });
-            }
-        });
+                    RestAPI.post(PluginDetailActivity.this, "plugins/install", stringEntity, new JsonHttpResponseHandler() {
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                            Toast.makeText(context, getResources().getString(R.string.alreadyInstalled), Toast.LENGTH_LONG).show();
+                            finish();
+                        }
+
+
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject response) {
+                            Toast.makeText(context, getResources().getString(R.string.unableToInstall), Toast.LENGTH_LONG).show();
+                            finish();
+                        }
+                    });
+                }
+            });
+        }
 
         recyclerView = (RecyclerView) findViewById(R.id.commentsRecyclerList);
         recyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(context, recyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
-                        //Toast.makeText(context, "Click", Toast.LENGTH_LONG).show();
-
+                        Intent intent = new Intent(PluginDetailActivity.this, PostCommentActivity.class);
+                        intent.putExtra("pluginId", plugin.getIdPlugin());
+                        intent.putExtra("idComment", commentList.get(position).getIdComment());
+                        intent.putExtra("keyLoginHash", commentList.get(position).getKeyLoginHash());
+                        intent.putExtra("rate", commentList.get(position).getRate());
+                        intent.putExtra("comment", commentList.get(position).getComment());
+                        startActivity(intent);
                     }
 
-                    @Override public void onLongItemClick(View view, int position) {
-                        // do whatever
+                    @Override public void onLongItemClick(View view, final int position) {
+                        if (!Utils.md5(Utils.getInfo(context, "userId") + Utils.getInfo(context, "password")).equals(commentList.get(position).getKeyLoginHash())) {
+                            Toast.makeText(context, getResources().getString(R.string.forbidden), Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+
+                        alertDialogBuilder.setTitle("Delete comment");
+                        alertDialogBuilder.setMessage("Do you really wanna delete this comment ?").setCancelable(false)
+                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(final DialogInterface dialog, int id) {
+                                        RestAPI.deleteStore("/store/comments/" + commentList.get(position).getIdComment(), null, new JsonHttpResponseHandler() {
+                                            @Override
+                                            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                                                Log.d("OU", "GG");
+                                                try {
+                                                    Toast.makeText(PluginDetailActivity.this, "Removed", Toast.LENGTH_LONG).show();
+                                                    finish();
+                                                } catch (Throwable ex) {
+                                                    Toast.makeText(PluginDetailActivity.this, "Fail", Toast.LENGTH_LONG).show();
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                                                Toast.makeText(PluginDetailActivity.this, throwable.getMessage(), Toast.LENGTH_LONG).show();
+                                            }
+
+                                            @Override
+                                            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                                                Toast.makeText(PluginDetailActivity.this, throwable.getMessage(), Toast.LENGTH_LONG).show();
+                                            }
+                                        });
+                                    }
+                                })
+                                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                                });
+
+                        // create alert dialog
+                        AlertDialog alertDialog = alertDialogBuilder.create();
+
+                        // show it
+                        alertDialog.show();
                     }
                 })
         );

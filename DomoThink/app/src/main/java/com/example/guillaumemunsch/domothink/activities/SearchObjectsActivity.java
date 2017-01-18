@@ -56,7 +56,7 @@ public class SearchObjectsActivity extends AppCompatActivity {
                     param.put("name", foundDevices.get(position).getName());
                     param.put("description", foundDevices.get(position).getDescription());
                     param.put("protocole", foundDevices.get(position).getProtocole());
-                    param.put("state", foundDevices.get(position).isActivate());
+                    param.put("status", foundDevices.get(position).getStatus());
                     stringEntity = new StringEntity(param.toString());
                 }
                 catch (Throwable ex)
@@ -65,7 +65,23 @@ public class SearchObjectsActivity extends AppCompatActivity {
                 }
                 RestAPI.post(SearchObjectsActivity.this, "/devices", stringEntity, new JsonHttpResponseHandler() {
                     @Override
+                    public void onSuccess(int statusCode, Header[] headers, String responseString) {
+                        adapter.remove(position);
+                        adapter.notifyDataSetChanged();
+                        finish();
+                        Toast.makeText(SearchObjectsActivity.this, R.string.add_device, Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                        adapter.remove(position);
+                        adapter.notifyDataSetChanged();
+                        finish();
+                        Toast.makeText(SearchObjectsActivity.this, R.string.add_device, Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                         adapter.remove(position);
                         adapter.notifyDataSetChanged();
                         finish();

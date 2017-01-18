@@ -29,7 +29,6 @@ public class StorePluginAdapter extends RecyclerView.Adapter<StorePluginAdapter.
 
         public MyViewHolder(View view) {
             super(view);
-            icon = (ImageView) view.findViewById(R.id.pluginIcon);
             name = (TextView) view.findViewById(R.id.pluginName);
             description = (TextView) view.findViewById(R.id.pluginDescription);
             rateText = (TextView)view.findViewById(R.id.pluginRateText);
