@@ -46,12 +46,26 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
 
-                    <Grid Grid.Row="0">
+                    <StackPanel Grid.Row="0">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Protocole: " />
                             <TextBlock Text="{Binding Protocole}" />
+                            
                         </StackPanel>
-                    </Grid>
+                        <StackPanel x:Name="TEST" Orientation="Horizontal" Visibility="Collapsed" Margin="0,4,0,0">
+                            <Interactivity:Interaction.Behaviors>
+                                <Interactions:DataTriggerBehavior Binding="{Binding Protocole}" Value="ZWAVE">
+                                    <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=TEST}" PropertyName="Visibility" Value="Visible" />
+                                </Interactions:DataTriggerBehavior>
+                                <!--<Core:DataTriggerBehavior Binding="{Binding BoxStatus.ZWave}" Value="True">
+                                    <Core:ChangePropertyAction TargetObject="{Binding ElementName=ZWAVE_LABEL}" PropertyName="Foreground" Value="#128B44" />
+                                    <Core:ChangePropertyAction TargetObject="{Binding ElementName=ZWAVE_LABEL}" PropertyName="Text" Value="Online" />
+                                </Core:DataTriggerBehavior>-->
+                            </Interactivity:Interaction.Behaviors>
+                            <TextBlock Text="Temperature: " />
+                            <TextBlock Text="{Binding Temperature}" />
+                        </StackPanel>
+                    </StackPanel>
 
                     <Grid Grid.Row="1" HorizontalAlignment="Stretch">
                         <Grid.ColumnDefinitions>

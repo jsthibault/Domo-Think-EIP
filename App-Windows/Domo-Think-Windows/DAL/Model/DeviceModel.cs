@@ -43,6 +43,9 @@ namespace DAL.Model
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public Boolean IsActive { get; set; }
 
+        [DataMember(Name = "temperature", EmitDefaultValue = false)]
+        public string Temperature { get; set; }
+
         /// <summary>
         /// Gets or sets the device protocole.
         /// </summary>
