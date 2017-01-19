@@ -41,5 +41,8 @@ namespace DomoThink.API
 
         public const string GET_PLUGINS_STORE_COMMENTS = API_PREFIX + "/store/{0}/comments/";
         public const string POST_PLUGINS_STORE_COMMENTS = API_PREFIX + "/store/{0}/comments/";
+
+        // Other
+        public const string CREATE_ACCOUNT = "/create_account/";
     }
 }

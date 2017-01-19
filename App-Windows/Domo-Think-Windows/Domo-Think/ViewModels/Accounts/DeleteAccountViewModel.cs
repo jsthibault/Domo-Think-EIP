@@ -3,10 +3,6 @@ using DomoThink.Helper;
 using DomoThink.MVVM;
 using DomoThink.Views.Login;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
@@ -25,41 +21,19 @@ namespace DomoThink.ViewModels.Accounts
 {
     public class DeleteAccountViewModel : ViewModelBase
     {
-        #region FIELDS
-
-
-
-        #endregion
-
-        #region PROPERTIES
-
         public AccountModel AccountInformations { get; set; }
 
         public ICommand DeleteAccountCommand { get; private set; }
-
-        #endregion
-
-        #region CONSTRUCTORS
-
+        
         public DeleteAccountViewModel()
         {
             // Initialize properties
-            this.AccountInformations = new AccountModel();
+            this.AccountInformations = new AccountModel("", "");
 
             // Initialize commands
             this.DeleteAccountCommand = new Command(this.DeleteAccountAction);
             
         }
-
-        #endregion
-
-        #region METHODS
-
-
-
-        #endregion
-
-        #region ACTIONS
 
         private async void DeleteAccountAction(Object param)
         {
@@ -81,7 +55,7 @@ namespace DomoThink.ViewModels.Accounts
                 this.AccountInformations.UserId = App.UserId.ToString();
 
                 // Delete account
-                await App.ApiClient.Post<AccountModel, Object>("/user/remove_account", this.AccountInformations);
+                await App.ApiClient.Post<AccountModel, Object>("/user/delete", this.AccountInformations);
 
                 // Logout
                 await App.ApiClient.Post<LoginResponse, Object>("/user/logout", new LoginResponse() { Token = App.LoginToken });
@@ -90,11 +64,7 @@ namespace DomoThink.ViewModels.Accounts
                 Window.Current.Activate();
             }
         }
-
-        #endregion
-
-        #region ABSTRACT
-
+        
         /// <summary>
         /// Refresh the ViewModel data.
         /// </summary>
@@ -102,7 +72,5 @@ namespace DomoThink.ViewModels.Accounts
         public override void Refresh(Object parameter)
         {
         }
-
-        #endregion
     }
 }

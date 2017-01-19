@@ -75,7 +75,7 @@ namespace DomoThink.API
         {
             try
             {
-                await this.api.Post<AccountModel, Object>("/user/create_account", model);
+                await this.api.Post<AccountModel, Object>(ApiRoutes.CREATE_ACCOUNT, model);
             }
             catch
             {

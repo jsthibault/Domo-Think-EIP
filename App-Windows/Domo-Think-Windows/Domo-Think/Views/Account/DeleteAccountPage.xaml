@@ -17,10 +17,10 @@
                 <TextBlock x:Uid="SettingsMyAccountDelete" x:Name="TITLE" Text="[DELETE_ACCOUNT_TITLE]" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,8"  />
 
                 <TextBlock x:Uid="Username" Text="[USERNAME]" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
-                <TextBox x:Name="USERNAME" Text="{Binding AccountInformations.Username}" Margin="0,0,409,0" />
+                <TextBox x:Name="USERNAME" Text="{Binding AccountInformations.Username, Mode=TwoWay}" Margin="0,0,409,0" />
 
                 <TextBlock x:Uid="Password"  Text="[PASSWORD]" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
-                <PasswordBox x:Name="PASSWORD" Password="{Binding AccountInformations.Password}" Margin="0,0,409,0" />
+                <PasswordBox x:Name="PASSWORD" Password="{Binding AccountInformations.Password, Mode=TwoWay}" Margin="0,0,409,0" />
 
                 <Button x:Name="DELETE_ACCOUNT" Margin="0,12,8,0" Command="{Binding DeleteAccountCommand}" Style="{StaticResource DomoButton}">
                     <Button.Content>

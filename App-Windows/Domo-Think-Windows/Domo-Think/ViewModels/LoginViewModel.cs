@@ -1,16 +1,11 @@
-﻿using DomoThink.API;
-using DomoThink.Model;
-using DomoThink.MVVM;
+﻿using DomoThink.MVVM;
 using DomoThink.Navigation;
 using DAL.Model;
 using System;
-using System.IO;
-using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using DomoThink.Helper;
 using DomoThink.Views.Login;
 
 /*--------------------------------------------------------

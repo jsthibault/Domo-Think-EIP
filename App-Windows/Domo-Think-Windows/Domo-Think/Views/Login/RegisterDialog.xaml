@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     x:Name="REGISTER_DIALOG"
-    Title="REGISTER ACCOUNT">
+    Title="CREATION D'UTILISATEUR">
 
     <!-- Data Context -->
     <ContentDialog.DataContext>
@@ -27,22 +27,22 @@
         <StackPanel Grid.Row="0">
             <StackPanel>
                 <TextBlock x:Uid ="BoxKey" Text="[BoxKey]" />
-                <TextBox Text="" IsEnabled="{Binding DisplayState}" />
+                <TextBox Text="{Binding AccountInformations.BoxKey, Mode=TwoWay}" IsEnabled="{Binding DisplayState}" />
             </StackPanel>
             
             <StackPanel>
                 <TextBlock x:Uid ="Username" Text="[Username]" />
-                <TextBox Text="{Binding AccountInformations.Username}" IsEnabled="{Binding DisplayState}" />
+                <TextBox Text="{Binding AccountInformations.Username, Mode=TwoWay}" IsEnabled="{Binding DisplayState}" />
             </StackPanel>
 
             <StackPanel>
                 <TextBlock x:Uid="Password" Text="[Password]" />
-                <PasswordBox Password="{Binding AccountInformations.Password}" IsEnabled="{Binding DisplayState}" />
+                <PasswordBox Password="{Binding AccountInformations.Password, Mode=TwoWay}" IsEnabled="{Binding DisplayState}" />
             </StackPanel>
 
             <StackPanel>
                 <TextBlock x:Uid="PasswordConfirmation" Text="[Password confirmation]" />
-                <PasswordBox Password="{Binding AccountInformations.PasswordConfirmation}" IsEnabled="{Binding DisplayState}" />
+                <PasswordBox Password="{Binding AccountInformations.PasswordConfirmation, Mode=TwoWay}" IsEnabled="{Binding DisplayState}" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,8,0,0" Visibility="{Binding LoadingState, Converter={StaticResource visibilityConverter}}">

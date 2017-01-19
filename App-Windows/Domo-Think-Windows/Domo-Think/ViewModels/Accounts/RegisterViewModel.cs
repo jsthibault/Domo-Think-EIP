@@ -20,15 +20,8 @@ namespace DomoThink.ViewModels.Accounts
 {
     public class RegisterViewModel : ViewModelBase
     {
-        #region FIELDS
-
         private Boolean loadingState;
         private Boolean displayState;
-        private AccountService accountService;
-
-        #endregion
-
-        #region PROPERTIES
 
         /// <summary>
         /// Gets or sets the account informations.
@@ -62,35 +55,25 @@ namespace DomoThink.ViewModels.Accounts
             get { return this.displayState; }
             set { this.NotifyPropertyChanged(ref this.displayState, value); }
         }
-
-        #endregion
-
-        #region CONSTRUCTORS
+        
 
         /// <summary>
         /// Creates a new Register view model.
         /// </summary>
         public RegisterViewModel()
         {
-            // Initialize API service
-            this.accountService = new AccountService(App.ApiClient);
-
             // Initialize properties
             this.LoadingState = false;
             this.DisplayState = true;
 
             // Initialize models
-            this.AccountInformations = new AccountModel();
+            this.AccountInformations = new AccountModel("", "", "", "");
 
             // Initialize commands
             this.RegisterCommand = new Command(this.RegisterAction);
             this.CancelCommand = new Command(this.CancelAction);
         }
-
-        #endregion
-
-        #region METHODS
-
+        
         /// <summary>
         /// Set the loading state.
         /// </summary>
@@ -111,10 +94,7 @@ namespace DomoThink.ViewModels.Accounts
 
             _dialog?.Hide();
         }
-
-        #endregion
-
-        #region ACTIONS
+        
 
         /// <summary>
         /// Register a new account.
@@ -125,7 +105,7 @@ namespace DomoThink.ViewModels.Accounts
             try
             {
                 this.SetLoadingState(true);
-                await this.accountService.AddAccount(this.AccountInformations);
+                await AppContext.AccountService.AddAccount(this.AccountInformations);
                 this.SetLoadingState(false);
                 this.CloseDialod(param);
             }
@@ -140,11 +120,7 @@ namespace DomoThink.ViewModels.Accounts
         {
             this.CloseDialod(param);
         }
-
-        #endregion
-
-        #region ABSTRACT
-
+        
         /// <summary>
         /// Refresh the ViewModel data.
         /// </summary>
@@ -152,7 +128,5 @@ namespace DomoThink.ViewModels.Accounts
         public override void Refresh(Object parameter)
         {
         }
-
-        #endregion
     }
 }

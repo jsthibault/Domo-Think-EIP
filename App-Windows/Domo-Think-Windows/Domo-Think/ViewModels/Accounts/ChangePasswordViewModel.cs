@@ -76,7 +76,10 @@ namespace DomoThink.ViewModels.Accounts
             this.userApiService = new UserService();
 
             // Initialize properties
-            this.AccountInformations = new AccountModel();
+            this.AccountInformations = new AccountModel("", "");
+            this.AccountInformations.PasswordConfirmation = "";
+            this.AccountInformations.NewPassword = "";
+            this.AccountInformations.OldPassword = "";
             this.SetLoadingState(false);
 
             // Initialize commands
@@ -109,7 +112,7 @@ namespace DomoThink.ViewModels.Accounts
         {
             this.SetLoadingState(true);
 
-            if (this.AccountInformations.Password != this.AccountInformations.PasswordConfirmation)
+            if (this.AccountInformations.NewPassword != this.AccountInformations.PasswordConfirmation)
             {
                 this.SetLoadingState(false);
                 return;
@@ -117,7 +120,7 @@ namespace DomoThink.ViewModels.Accounts
 
             this.AccountInformations.UserId = App.UserId.ToString();
 
-            Boolean _result = await this.userApiService.SendChangePassword(this.AccountInformations);
+            Boolean _result = await AppContext.UserService.SendChangePassword(this.AccountInformations);
 
             if (_result == true)
             {

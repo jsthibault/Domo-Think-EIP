@@ -24,30 +24,10 @@ namespace DAL.Model
     [DataContract]
     public class AccountModel
     {
-        #region CONSTANTS
-
-
-
-        #endregion
-
-        #region ENUMS
-
-
-
-        #endregion
-
-        #region FIELDS
-
-
-
-        #endregion
-
-        #region PROPERTIES
-
         /// <summary>
         /// Gets or sets the username.
         /// </summary>
-        [DataMember(Name = "username", EmitDefaultValue = false)]
+        [DataMember(Name = "login", EmitDefaultValue = false)]
         public String Username { get; set; }
 
         /// <summary>
@@ -103,16 +83,13 @@ namespace DAL.Model
         /// </summary>
         [IgnoreDataMember]
         public ICommand DeleteCommand { get; set; }
-
-        #endregion
-
-        #region CONSTRUCTORS
+        
 
         /// <summary>
         /// Creates a new empty account model.
         /// </summary>
         public AccountModel()
-            : this(null, null)
+            : this("", "")
         { }
 
         /// <summary>
@@ -138,11 +115,7 @@ namespace DAL.Model
             this.PasswordConfirmation = passwordConfirmation;
             this.BoxKey = boxKey;
         }
-
-        #endregion
-
-        #region METHODS
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -188,7 +161,5 @@ namespace DAL.Model
         {
             return base.GetHashCode();
         }
-
-        #endregion
     }
 }
