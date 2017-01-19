@@ -121,7 +121,7 @@
                     </Grid.RowDefinitions>
 
                     <Grid Grid.Row="0">
-                        <TextBlock Text="Directive informations." Margin="0,8,0,0" Style="{StaticResource BodyTextBlockStyle}" />
+                        <!--<TextBlock Text="Directive informations." Margin="0,8,0,0" Style="{StaticResource BodyTextBlockStyle}" />-->
                     </Grid>
 
                     <Grid Grid.Row="1" HorizontalAlignment="Stretch">
@@ -157,7 +157,13 @@
                         <TextBlock Text="{Binding Name}" Style="{StaticResource BaseTextBlockStyle}" />
                         <!--<TextBlock Text="{Binding Id}" Margin="0,4,8,0" Style="{StaticResource BodyTextBlockStyle}" />-->
                     </StackPanel>
-                    <ToggleSwitch Grid.Column="2"></ToggleSwitch>
+                    <ToggleSwitch Grid.Column="2" IsOn="{Binding Status}">
+                        <Interactivity:Interaction.Behaviors>
+                            <Interactions:EventTriggerBehavior EventName="Toggled">
+                                <Interactions:InvokeCommandAction Command="{Binding ChangeStatusCommand}" CommandParameter="{Binding}"/>
+                            </Interactions:EventTriggerBehavior>
+                        </Interactivity:Interaction.Behaviors>
+                    </ToggleSwitch>
                 </Grid>
             </xp:Expander.Header>
             <xp:Expander.Content>
@@ -168,7 +174,7 @@
                     </Grid.RowDefinitions>
 
                     <Grid Grid.Row="0">
-                        <TextBlock Text="Plugin informations." Margin="0,8,0,0" Style="{StaticResource BodyTextBlockStyle}" />
+                        <!--<TextBlock Text="Plugin informations." Margin="0,8,0,0" Style="{StaticResource BodyTextBlockStyle}" />-->
                     </Grid>
 
                     <Grid Grid.Row="1" HorizontalAlignment="Stretch">
@@ -177,7 +183,7 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="1" Margin="0,8,16,8" Orientation="Horizontal">
-                            <Button x:Uid="UninstallButton" Margin="4" Width="100" Content="!Uninstall" Style="{StaticResource DomoButton}" />
+                            <Button x:Uid="UninstallButton" Margin="4" Width="100" Content="!Uninstall" Style="{StaticResource DomoButton}" Command="{Binding UninstallCommand}" CommandParameter="{Binding}" />
                         </StackPanel>
                     </Grid>
                 </Grid>

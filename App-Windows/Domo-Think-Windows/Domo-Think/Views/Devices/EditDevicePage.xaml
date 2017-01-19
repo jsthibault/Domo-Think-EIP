@@ -18,7 +18,9 @@
 
                 <TextBlock x:Uid="ObjectName" Text="[Name]" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
                 <TextBox x:Name="OBJECT_NAME" Text="{Binding ObjectInformations.Name, Mode=TwoWay}" Margin="0,0,409,0" />
-                <TextBox x:Name="OBJECT_ID" Text="{Binding ObjectInformations.Id}" Visibility="Collapsed" />
+
+                <TextBlock Text="Description" Style="{ThemeResource BodyTextBlockStyle}" Margin="0,0,0,4" />
+                <TextBox x:Name="OBJECT_DESCRIPTION" Text="{Binding ObjectInformations.Description, Mode=TwoWay}" Margin="0,0,409,0" />
 
                 <Button x:Name="EDIT_BUTTON" x:Uid="EditObject" Content="[Edit object]" Margin="0,8,8,0" Command="{Binding EditObjectCommand}" Style="{StaticResource DomoButton}" />
 

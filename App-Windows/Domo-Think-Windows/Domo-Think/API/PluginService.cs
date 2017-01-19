@@ -18,33 +18,15 @@ namespace DomoThink.API
 {
     public class PluginService : ApiService
     {
-        #region FIELDS
-
-
-
-        #endregion
-
-        #region PROPERTIES
-
-
-
-        #endregion
-
-        #region CONSTRUCTORS
-
         public PluginService(ApiClient client)
             : base(client)
         { }
-
-        #endregion
-
-        #region METHODS
-
+        
         public async Task<List<PluginModel>> GetPlugins()
         {
             try
             {
-                List<PluginModel> _plugins = await this.api.Get<List<PluginModel>>(ApiRoutes.GET_PLUGINS);
+                List<PluginModel> _plugins = await this.api.Get<List<PluginModel>>(ApiRoutes.PLUGINS);
 
                 // TODO: Checks
 
@@ -60,6 +42,38 @@ namespace DomoThink.API
             }
         }
 
-        #endregion
+        public async Task<bool> ChangeStatus(PluginModel model)
+        {
+            try
+            {
+                await this.api.Put(ApiRoutes.PLUGINS_CHANGE_STATUS, model);
+            }
+            catch
+            {
+                NotificationHelper.ShowToastNotification(
+                    ResourceHelper.GetString("Error"),
+                    ResourceHelper.GetString("ApiError"));
+
+                return false;
+            }
+
+            return true;
+        }
+
+        public async Task<bool> Remove(PluginModel model)
+        {
+            try
+            {
+                return await this.api.Delete<PluginModel>(ApiRoutes.PLUGINS_ID, model.Id) != null;
+            }
+            catch
+            {
+                NotificationHelper.ShowToastNotification(
+                    ResourceHelper.GetString("Error"),
+                    ResourceHelper.GetString("ApiError"));
+
+                return false;
+            }
+        }
     }
 }

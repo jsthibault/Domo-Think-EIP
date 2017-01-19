@@ -13,14 +13,8 @@ namespace DomoThink.ViewModels.Plugins
 {
     public class PluginsViewModel : ViewModelBase, ILoader
     {
-        #region FIELDS
-
         private Boolean display;
         private Boolean loading;
-
-        #endregion
-
-        #region PROPERTIES
 
         /// <summary>
         /// Gets or sets the loading state.
@@ -49,11 +43,8 @@ namespace DomoThink.ViewModels.Plugins
         /// Gets or sets the plugins collection.
         /// </summary>
         public ObservableCollection<PluginModel> Plugins { get; set; }
-
-        #endregion
-
-        #region CONSTRUCTORS
-
+        
+        
         /// <summary>
         /// Creates a new Plugins instance.
         /// </summary>
@@ -61,12 +52,10 @@ namespace DomoThink.ViewModels.Plugins
         {
             // Create the collection
             this.Plugins = new ObservableCollection<PluginModel>();
+
+            this.LoadCommand = new Command(async (param) => await this.LoadPlugins());
         }
-
-        #endregion
-
-        #region METHODS
-
+        
         /// <summary>
         /// Sets the loading state.
         /// </summary>
@@ -80,36 +69,53 @@ namespace DomoThink.ViewModels.Plugins
         /// <summary>
         /// Loads the plugins.
         /// </summary>
-        private void LoadPlugins()
+        private async Task LoadPlugins()
         {
             // Set loading state to true during loading
             this.LoadingState(true);
 
-            // TODO: load plugins
+            var plugins = await AppContext.PluginService.GetPlugins();
 
             if (this.Plugins.Any())
                 this.Plugins.Clear();
 
-            for (Int32 i = 0; i < 5; ++i)
-                this.Plugins.Add(new PluginModel(i, "Plugin #" + i.ToString(), 3, false));
-
-            // Set loading state to false after loading
+            for (int i = 0; i < plugins.Count; ++i)
+            {
+                plugins[i].ChangeStatusCommand = new Command(this.ChangeStatusAction);
+                plugins[i].UninstallCommand = new Command(this.UninstallAction);
+                this.Plugins.Add(plugins[i]);
+            }
+            
             this.LoadingState(false);
         }
 
-        #endregion
+        private void ChangeStatusAction(object param)
+        {
+            var plugin = param as PluginModel;
 
-        #region ACTIONS
+            if (plugin == null)
+                return;
 
-        #endregion
+            AppContext.PluginService.ChangeStatus(plugin);
+        }
+
+        public void UninstallAction(object param)
+        {
+            var plugin = param as PluginModel;
+
+            if (plugin == null)
+                return;
+
+            AppContext.PluginService.Remove(plugin);
+        }
 
         /// <summary>
         /// Refresh the ViewModel data.
         /// </summary>
         /// <param name="parameter"></param>
-        public override void Refresh(Object parameter)
+        public async override void Refresh(Object parameter)
         {
-            this.LoadPlugins();
+            await this.LoadPlugins();
         }
     }
 }

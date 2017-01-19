@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 
 /*--------------------------------------------------------
@@ -21,8 +22,6 @@ namespace DAL.Model
     [DataContract]
     public class PluginModel
     {
-        #region PROPERTIES
-
         /// <summary>
         /// Gets or sets the Id of the plugin.
         /// </summary>
@@ -34,6 +33,15 @@ namespace DAL.Model
         /// </summary>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public String Name { get; set; }
+
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public bool Status { get; set; }
+
+        [IgnoreDataMember]
+        public ICommand ChangeStatusCommand { get; set; }
+
+        [IgnoreDataMember]
+        public ICommand UninstallCommand { get; set; }
 
         /// <summary>
         /// Gets or sets the description of the plugin.
@@ -68,9 +76,6 @@ namespace DAL.Model
         [DataMember(Name = "installed", EmitDefaultValue = false)]
         public Boolean Installed { get; set; }
 
-        #endregion
-
-        #region CONSTRUCTORS
 
         /// <summary>
         /// Creates a default plugin model instance.
@@ -94,30 +99,24 @@ namespace DAL.Model
             this.Installed = installed;
         }
 
-        #endregion
-
-        #region METHODS
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override String ToString()
         {
-            StringBuilder _sb = new StringBuilder();
+            var sb = new StringBuilder();
 
-            _sb.AppendLine("class Plugin {");
-            _sb.Append("    Id: ").Append(this.Id).Append("\n");
-            _sb.Append("    Name: ").Append(this.Name).Append("\n");
-            _sb.Append("    Description: ").Append(this.Description).Append("\n");
-            _sb.Append("    IsActive: ").Append(this.IsActive).Append("\n");
-            _sb.Append("    Rating: ").Append(this.Rating).Append("\n");
-            _sb.Append("    Installed: ").Append(this.Installed).Append("\n");
-            _sb.AppendLine("}\n");
+            sb.AppendLine("class Plugin {");
+            sb.Append("    Id: ").Append(this.Id).Append("\n");
+            sb.Append("    Name: ").Append(this.Name).Append("\n");
+            sb.Append("    Description: ").Append(this.Description).Append("\n");
+            sb.Append("    IsActive: ").Append(this.IsActive).Append("\n");
+            sb.Append("    Rating: ").Append(this.Rating).Append("\n");
+            sb.Append("    Installed: ").Append(this.Installed).Append("\n");
+            sb.AppendLine("}\n");
 
-            return _sb.ToString();
+            return sb.ToString();
         }
-
-        #endregion
     }
 }

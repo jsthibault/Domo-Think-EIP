@@ -31,7 +31,9 @@ namespace DomoThink.API
         public const string DIRECTIVES_ID = API_PREFIX + "/directives/{0}";
 
         // Plugins
-        public const string GET_PLUGINS = API_PREFIX + "/plugin/";
+        public const string PLUGINS = API_PREFIX + "/plugins/";
+        public const string PLUGINS_ID = API_PREFIX + "/plugins/{0}";
+        public const string PLUGINS_CHANGE_STATUS = API_PREFIX + "/plugins/changeStatus";
 
         // Users
         public const string GET_ACCOUNTS = API_PREFIX + "/users/";

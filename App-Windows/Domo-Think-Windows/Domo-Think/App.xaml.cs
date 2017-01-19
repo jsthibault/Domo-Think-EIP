@@ -47,7 +47,7 @@ namespace DomoThink
                 Microsoft.ApplicationInsights.WindowsCollectors.Session);
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-            ApiClient = new DAL.API.ApiClient(API.APIConstants.API_URL_LOCAL);
+            ApiClient = new DAL.API.ApiClient(API.APIConstants.API_URL_FILIPE_PI);
             ApiClient.IsActive = true;
         }
 
