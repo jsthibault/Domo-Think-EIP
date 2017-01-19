@@ -33,6 +33,7 @@ namespace DomoThink
     sealed partial class App : Application
     {
         public static DAL.API.ApiClient ApiClient;
+        public static DAL.API.ApiClient StoreApiClient;
         public static string LoginToken;
         public static int UserId;
 
@@ -49,6 +50,9 @@ namespace DomoThink
             this.Suspending += OnSuspending;
             ApiClient = new DAL.API.ApiClient(API.APIConstants.API_URL_FILIPE_PI);
             ApiClient.IsActive = true;
+
+            StoreApiClient = new DAL.API.ApiClient("http://api-domothink.timekube.net:8081");
+            StoreApiClient.IsActive = true;
         }
 
         /// <summary>

@@ -76,7 +76,7 @@ namespace DomoThink
             get
             {
                 if (storeService == null)
-                    storeService = new StoreService(App.ApiClient);
+                    storeService = new StoreService(App.StoreApiClient);
 
                 return storeService;
             }
