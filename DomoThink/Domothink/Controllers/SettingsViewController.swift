@@ -87,12 +87,7 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 }
             }
             
-            
-            
-            
-            
         } else {
-            print("ta oublier un truc pd", terminator: "")
            let alertController = UIAlertController(title:
                 
                 NSLocalizedString("INFO", comment: "information"), message:
@@ -103,23 +98,10 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
         
     }
-    
-    //faire la requete http pour le delete
     func deleteAccount() {
-        
-        print("je delete le compte", terminator: "")
-       /* let alertController = UIAlertController(title:
-            
-            NSLocalizedString("INFO", comment: "information"), message:
-            NSLocalizedString("DELETE_ACCOUNT", comment: "elemant manquant"), preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("RETURN", comment: "Dismiss"), style: UIAlertActionStyle.Default,handler: nil))
- 
-        self.presentViewController(alertController, animated: true, completion: nil)
-        */
+        LibraryAPI.sharedInstance.deleteUser() { (result) -> () in
+            self.performSegueWithIdentifier("logoutAfterDel", sender: nil)
+        }
     }
-    
-    /*func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-     myLabel.text = pickerData[row]
-     }*/
 
 }

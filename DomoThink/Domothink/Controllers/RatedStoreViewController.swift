@@ -88,14 +88,12 @@ class RatedStoreViewController: UIViewController, UISearchResultsUpdating, UITab
             cell.titlePlugin.text = filteredPlugins[indexPath.row].getName()
             cell.ratePlugin.text = String(round(filteredPlugins[indexPath.row].getRate())) + "/5"
             cell.datePlugin.text = filteredPlugins[indexPath.row].getDate()
-            cell.imgPlugin.image = UIImage(named: "images.jpeg")
-            
         } else {
             cell.titlePlugin.text = allPlugins[indexPath.row].getName()
             cell.ratePlugin.text = String(round(allPlugins[indexPath.row].getRate())) + "/5"
             cell.datePlugin.text = allPlugins[indexPath.row].getDate()
-            cell.imgPlugin.image = UIImage(named: "images.jpeg")
         }
+        cell.imgPlugin.image = UIImage(named: "plugin")
         return cell
     }
     

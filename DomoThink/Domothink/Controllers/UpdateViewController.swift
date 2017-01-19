@@ -19,6 +19,7 @@ class UpdateViewController: UIViewController {
     @IBOutlet weak var infoLabel: UILabel!
     private var timer: NSTimer!
     private var indicator = 0
+    private var isUpdate = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,16 @@ class UpdateViewController: UIViewController {
             menuBtn.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
+        }
+        
+        LibraryAPI.sharedInstance.getActualVersion() { (actualVersion) -> () in
+            LibraryAPI.sharedInstance.getNewVersion() { (newVersion) -> () in
+                if (actualVersion == newVersion) {
+                    self.isUpdate = true
+                } else {
+                    self.isUpdate = false
+                }
+            }
         }
         
         updateButton.layer.cornerRadius = 5
@@ -53,7 +64,7 @@ class UpdateViewController: UIViewController {
     }
     
     func searching() {
-        if (indicator == 6) {
+        if (indicator == 6 && isUpdate == false) {
             spinner.stopAnimating()
             timer.invalidate()
             timer = nil
@@ -61,10 +72,24 @@ class UpdateViewController: UIViewController {
             descriptionUpdate.hidden = false
             updateButton.hidden = false
         }
+        
+        if (isUpdate == true) {
+            spinner.stopAnimating()
+            timer.invalidate()
+            timer = nil
+            progressView.progress = 0
+            progressView.hidden = true
+            descriptionUpdate.hidden = true
+            updateButton.hidden = true
+            infoLabel.text = NSLocalizedString("UP_TO_DATE", comment: "information")
+        }
         indicator += 1
     }
     
     func update() {
+        LibraryAPI.sharedInstance.updateBox() { (result) -> () in
+            print("installed")
+        }
         descriptionUpdate.hidden = true
         updateButton.hidden = true
         progressView.hidden = false
@@ -83,7 +108,5 @@ class UpdateViewController: UIViewController {
         }
         progressView.progress += 0.1
     }
-
-
 
 }

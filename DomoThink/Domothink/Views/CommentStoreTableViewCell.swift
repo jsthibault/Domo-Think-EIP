@@ -12,6 +12,8 @@ class CommentStoreTableViewCell: UITableViewCell {
 
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var rateLabel: UILabel!
-    @IBOutlet weak var commentLabel: UILabel!
+    
+    @IBOutlet weak var commentLabel: UITextView!
+
 
 }

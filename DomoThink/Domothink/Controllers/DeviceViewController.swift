@@ -103,7 +103,7 @@ class DeviceViewController: UIViewController, UITableViewDataSource, UITableView
             let lightCell: LightTableViewCell =  tableView.dequeueReusableCellWithIdentifier("lightCell", forIndexPath: indexPath) as! LightTableViewCell
             lightCell.lightSwitch.on = device.getStatus()
             lightCell.lightSwitch.tag = indexPath.row
-            lightCell.lightSwitch.addTarget(self, action: #selector(DeviceListViewController.switchOnOff(_:)), forControlEvents: UIControlEvents.ValueChanged)
+            lightCell.lightSwitch.addTarget(self, action: #selector(DeviceViewController.switchOnOff(_:)), forControlEvents: UIControlEvents.ValueChanged)
             //lightCell.backgroundColor = UIColor.yellowColor()
             cell = lightCell
         case "thermometer":
@@ -116,14 +116,14 @@ class DeviceViewController: UIViewController, UITableViewDataSource, UITableView
             let tvCell: TVTableViewCell = tableView.dequeueReusableCellWithIdentifier("TVCell", forIndexPath: indexPath) as! TVTableViewCell
             tvCell.tvSwitch.on = device.getStatus()
             tvCell.tvSwitch.tag = indexPath.row
-            tvCell.tvSwitch.addTarget(self, action: #selector(DeviceListViewController.switchOnOff(_:)), forControlEvents: UIControlEvents.ValueChanged)
+            tvCell.tvSwitch.addTarget(self, action: #selector(DeviceViewController.switchOnOff(_:)), forControlEvents: UIControlEvents.ValueChanged)
             cell = tvCell
             print("je passe dans thermo")
         case "HomeSecured":
             let homeSecuredCell: HomeSecuredTableViewCell = tableView.dequeueReusableCellWithIdentifier("HomeSecuredCell", forIndexPath: indexPath) as! HomeSecuredTableViewCell
             homeSecuredCell.homeLock.on = device.getStatus()
             homeSecuredCell.homeLock.tag = indexPath.row
-            homeSecuredCell.homeLock.addTarget(self, action: #selector(DeviceListViewController.switchOnOff(_:)), forControlEvents: UIControlEvents.ValueChanged)
+            homeSecuredCell.homeLock.addTarget(self, action: #selector(DeviceViewController.switchOnOff(_:)), forControlEvents: UIControlEvents.ValueChanged)
             cell = homeSecuredCell
             print("je passe dans homesecured")
         default:
@@ -161,11 +161,33 @@ class DeviceViewController: UIViewController, UITableViewDataSource, UITableView
             
         }
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if (deviceSort[indexPath.row].getId() != -1) {
+            self.performSegueWithIdentifier("editDeviceSegue", sender: indexPath)
+        }
+    }
 
-    @IBAction func unwindToListDevice(segue: UIStoryboardSegue) {}
+    @IBAction func unwindToListDevice(segue: UIStoryboardSegue) {
+        //usleep(5000)
+        self.loadData()
+    }
     
     func switchOnOff(switchTab: UISwitch) {
-        print("je change le status mais ca marche pas encore", terminator: "")
+        LibraryAPI.sharedInstance.switchOnOffDevice(deviceSort[switchTab.tag].getId()) { (result) -> () in
+         print("device switched")
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "editDeviceSegue") {
+            let svc = segue.destinationViewController as! EditDeviceViewController;
+            
+            //get selected Directive from tableView
+            if let indexPath = sender as? NSIndexPath {
+                svc.device = deviceSort[indexPath.row]
+            }
+        }
     }
     
     

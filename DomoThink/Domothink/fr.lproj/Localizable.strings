@@ -16,6 +16,9 @@
 "MESSAGE_CHANGE_WRONGCONF" = "Les mots de passe sont differents";
 "MESSAGE_CHANGE_DONE" = "Le mot de passe est modifié";
 "MESSAGE_CHANGE_WRONG" = "l'ancien mot de passe n'est pas le bon";
+"MESSAGE_CONNECTION_FAILED" = "Connexion échouée, essayez plus tard";
+"MESSAGE_REGISTER_COMPLETE" = "Inscription reussite, vous pouvez vous connecter";
+"SERVICE_NOT_AVAIBLE" = "Ce service n'est pas encore disponible";
 "RETURN" = "retour";
 "DELETE_ACCOUNT" = "le compte à était supprimé";
 "UPDATE_SEARCH" = "Recherche de mise à jour...";
@@ -23,6 +26,10 @@
 "UPDATE_MESSAGE" = "Version: 1.6 \n\nBuild: 1.1.342.54\n\nNouveautés: At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.";
 "UPDATE_LOADING" = "instalation en cours...";
 "UPDATE_INSTALLED" = "Mise à jour installée";
+"UP_TO_DATE" = "Vous êtes à jour";
 "MESSAGE_LIST_EMPTY" = "aucun element a montrer";
 "MESSAGE_EXPLICATIF" = "Ajoutez voutre e-mail dans le champ associé et cliquer sur le bouton \"changer le mot de passe\", un e-mail vous sera envoyer avec votre nouveau mot de passe.";
 "MESSAGE_EMAILSEND" = "un email a etait envoyer";
+"ECHEC_ERASE" = "ce commentaire n'est pas le votre, vous ne pouvez pas le supprimer";
+"PLUGIN_INSTALLED" = "Plugin installé, aller dans la section des plugins";
+"PLUGIN_NOT_INSTALLED" = "Plugin non installé, essayez plus tard";

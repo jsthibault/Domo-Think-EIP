@@ -14,10 +14,12 @@ class AddCommentViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var ratePicker: UIPickerView!
     @IBOutlet weak var commentField: UITextView!
     private var selectedRate: Float!
-    
+    @IBOutlet weak var sendingComment: UIActivityIndicatorView!
+
     var pickerDataR: [Float] = []
     
     var plugin: StorePlugin!
+    var commentPlugin: StoreComment!
 
     
     override func viewDidLoad() {
@@ -26,7 +28,12 @@ class AddCommentViewController: UIViewController, UIPickerViewDataSource, UIPick
         pickerDataR = [0.0, 1.0, 2.0, 3.0, 4.0, 5.0]
         ratePicker.delegate = self
         ratePicker.dataSource = self
-        
+        sendingComment.hidden = true
+        if (commentPlugin != nil) {
+            authorField.text = commentPlugin.getAuthor()
+            ratePicker.selectRow(Int(commentPlugin.getRate()), inComponent: 0, animated: true)
+            commentField.text = commentPlugin.getComment()
+        }
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -56,16 +63,24 @@ class AddCommentViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         if segue.identifier == "saveCommentSegue" {
-            print(plugin, terminator: "")
-            print(selectedRate, terminator: "")
-            print(commentField.text, terminator: "")
-            LibraryAPI.sharedInstance.addStoreComment(plugin.getId(), author: authorField.text!, rate: selectedRate, comment: commentField.text) { (result) -> () in
-                //add a nslocalise
-                print(result, terminator: "")
+            if (commentPlugin != nil) {
+                LibraryAPI.sharedInstance.modifyStoreComment(commentPlugin.getId(), keyLoginHash: commentPlugin.getKeyLoginHash(), comment: commentField.text) { (result) -> () in
+                    //add a nslocalise
+                    print(result, terminator: "")
+                }
+            } else {
+                let keyUser = (String(LibraryAPI.sharedInstance.getUser().getId()) + LibraryAPI.sharedInstance.getUser().getLogin()).md5
+                LibraryAPI.sharedInstance.addStoreComment(plugin.getId(), author: authorField.text!, rate: selectedRate, comment: commentField.text, keyLoginHash: keyUser) { (result) -> () in
+                    //add a nslocalise
+                    print(result, terminator: "")
+                }
             }
-            
+
+            sendingComment.startAnimating()
+            sendingComment.hidden = false
+            sleep(1)
         }
     }
-    
 }

@@ -15,6 +15,9 @@
 "MESSAGE_CHANGE_WRONGCONF" = "Passwords are different";
 "MESSAGE_CHANGE_DONE" = "Password changed";
 "MESSAGE_CHANGE_WRONG" = "Old password is wrong";
+"MESSAGE_CONNECTION_FAILED" = "Connection failed, try it later";
+"MESSAGE_REGISTER_COMPLETE" = "Register sucessful, you can log in now";
+"SERVICE_NOT_AVAIBLE" = "this service is not avaibable";
 "RETURN" = "Dismiss";
 "DELETE_ACCOUNT" = "account is delete";
 "UPDATE_SEARCH" = "Looking for update...";
@@ -22,6 +25,11 @@
 "UPDATE_MESSAGE" = "Version: 1.6 \n\nBuild: 1.1.342.54\n\nNews: At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.";
 "UPDATE_LOADING" = "installing...";
 "UPDATE_INSTALLED" = "Update installed";
+"UP_TO_DATE" = "You are up to date";
 "MESSAGE_LIST_EMPTY" = "Nothing to show";
 "MESSAGE_EXPLICATIF" = "Enter your Email adress in the field then click on the button \"change your password\", an email will be send on your email address with your new password.";
 "MESSAGE_EMAILSEND" = "An email was send";
+"ECHEC_ERASE" = "this comment is not yours, you can't delete it";
+"PLUGIN_INSTALLED" = "Plugin installed, go to plugin section";
+"PLUGIN_NOT_INSTALLED" = "Plugin not installed, try again later";
+

@@ -107,24 +107,24 @@ class DirectiveViewController: UIViewController,UISearchResultsUpdating,UITableV
         if (resultSeachController.active) {
             cell.ruleName.text = filteredDirective[indexPath.row].getName()
             //cell.directiveStatus.setOn(filteredDirective[indexPath.row].getStatus(), animated: true)
-            cell.ruleStatus.setOn(true, animated: true)
-            cell.ruleLastExec.text = LibraryAPI.sharedInstance.dateFormatter(String(NSDate()))
-            cell.ruleRecurence.text = "Tous les lundis à 18H"
+            cell.ruleLastExec.text = ""
+            cell.ruleRecurence.text = "Récurrence : " + filteredDirective[indexPath.row].getRecDay() + " " + filteredDirective[indexPath.row].getRecHour()
             
+            cell.ruleStatus.setOn(filteredDirective[indexPath.row].getActionId(), animated: true)
             cell.ruleStatus.tag = indexPath.row
-            cell.ruleStatus.addTarget(self, action: #selector(DirectiveListViewController.switchOnOff(_:)), forControlEvents: UIControlEvents.ValueChanged)
+            cell.ruleStatus.addTarget(self, action: #selector(DirectiveViewController.switchOnOff(_:)), forControlEvents: UIControlEvents.ValueChanged)
             
         } else {
             cell.ruleName.text = allDirectives[indexPath.row].getName()
-            //cell.directiveStatus.setOn(allDirectives[indexPath.row].getStatus(), animated: true)
-            cell.ruleStatus.setOn(true, animated: true)
-            cell.ruleLastExec.text = LibraryAPI.sharedInstance.dateFormatter(String(NSDate()))
-            cell.ruleRecurence.text = "Tous les lundis à 18H"
+            cell.ruleStatus.setOn(allDirectives[indexPath.row].getActionId(), animated: true)
+            cell.ruleLastExec.text = ""
+            cell.ruleRecurence.text = "Récurrence : " + allDirectives[indexPath.row].getRecDay() + " " + allDirectives[indexPath.row].getRecHour()
 
             
             cell.ruleStatus.tag = indexPath.row
-            cell.ruleStatus.addTarget(self, action: #selector(DirectiveListViewController.switchOnOff(_:)), forControlEvents: UIControlEvents.ValueChanged)
+            cell.ruleStatus.addTarget(self, action: #selector(DirectiveViewController.switchOnOff(_:)), forControlEvents: UIControlEvents.ValueChanged)
         }
+        cell.ruleStatus.hidden = true
         cell.ruleImg.image = UIImage(named: "directive")
         if (indexPath.row % 2 == 0) {
             cell.backgroundColor = UIColor.init(red: 18/255, green: 135/255, blue: 223/255, alpha: 0.1)
@@ -162,6 +162,7 @@ class DirectiveViewController: UIViewController,UISearchResultsUpdating,UITableV
     @IBAction func unwindToListDir(segue: UIStoryboardSegue) {}
     
     @IBAction func unwindToListDirButSave(segue: UIStoryboardSegue) {
+        usleep(5000)
         self.loadValues()
     }
     
@@ -189,6 +190,19 @@ class DirectiveViewController: UIViewController,UISearchResultsUpdating,UITableV
     }
  
     func switchOnOff(switchTab: UISwitch) {
-        print("je change le status mais ca marche pas encore", terminator: "")
+        var directive: Directive!
+        if (resultSeachController.active) {
+            directive = filteredDirective[switchTab.tag]
+        } else {
+            directive = allDirectives[switchTab.tag]
+        }
+        if (directive.getActionId() == true) {
+            directive.setActionId(false)
+        } else {
+           directive.setActionId(true)
+        }
+        LibraryAPI.sharedInstance.modifyDirective(directive) { (result) -> () in
+            print(result)
+        }
     }
 }

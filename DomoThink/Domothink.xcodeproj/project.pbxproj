@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		2F0CF7341DA7F2E1000EAEFB /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0CF7331DA7F2E1000EAEFB /* SWRevealViewController.m */; };
 		2F1C38F41DE0AC05006C55C9 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1C38F31DE0AC05006C55C9 /* ChartsViewController.swift */; };
-		2F55C6CC1E0EC9D600EF3F2C /* ThermometerDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F55C6CB1E0EC9D600EF3F2C /* ThermometerDevice.swift */; };
+		2F20B49B1E30D24E00429A90 /* BoxStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F20B49A1E30D24E00429A90 /* BoxStatusViewController.swift */; };
+		2F2216871E3123BD00A464ED /* EditDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2216861E3123BD00A464ED /* EditDeviceViewController.swift */; };
 		2F55C6CE1E0EDD0400EF3F2C /* DirectiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F55C6CD1E0EDD0400EF3F2C /* DirectiveViewController.swift */; };
 		2F6325111DA40B610037BFD7 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6325101DA40B610037BFD7 /* RegistrationViewController.swift */; };
 		2F6325131DA40B770037BFD7 /* ForgotPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6325121DA40B770037BFD7 /* ForgotPassViewController.swift */; };
@@ -25,8 +26,6 @@
 		2FAAD8E71DBD680B00BF05C5 /* Plugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAAD8E61DBD680B00BF05C5 /* Plugin.swift */; };
 		2FAAD8E91DC2791600BF05C5 /* StoreComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAAD8E81DC2791600BF05C5 /* StoreComment.swift */; };
 		2FAAD8EB1DC2793100BF05C5 /* StorePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAAD8EA1DC2793100BF05C5 /* StorePlugin.swift */; };
-		2FAFF4171DA7CFD800B1BD98 /* DeviceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAFF4161DA7CFD800B1BD98 /* DeviceListViewController.swift */; };
-		2FAFF41B1DA7D28100B1BD98 /* DirectiveListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAFF41A1DA7D28100B1BD98 /* DirectiveListViewController.swift */; };
 		2FAFF41F1DA7D3E100B1BD98 /* PluginListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAFF41E1DA7D3E100B1BD98 /* PluginListViewController.swift */; };
 		2FAFF4231DA7D9D800B1BD98 /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAFF4221DA7D9D800B1BD98 /* UpdateViewController.swift */; };
 		2FAFF4251DA7DE2E00B1BD98 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAFF4241DA7DE2E00B1BD98 /* SettingsViewController.swift */; };
@@ -77,7 +76,8 @@
 		2F0CF7321DA7F2E1000EAEFB /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		2F0CF7331DA7F2E1000EAEFB /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		2F1C38F31DE0AC05006C55C9 /* ChartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartsViewController.swift; path = Controllers/ChartsViewController.swift; sourceTree = "<group>"; };
-		2F55C6CB1E0EC9D600EF3F2C /* ThermometerDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThermometerDevice.swift; path = Models/ThermometerDevice.swift; sourceTree = "<group>"; };
+		2F20B49A1E30D24E00429A90 /* BoxStatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoxStatusViewController.swift; path = Controllers/BoxStatusViewController.swift; sourceTree = "<group>"; };
+		2F2216861E3123BD00A464ED /* EditDeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditDeviceViewController.swift; path = Controllers/EditDeviceViewController.swift; sourceTree = "<group>"; };
 		2F55C6CD1E0EDD0400EF3F2C /* DirectiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DirectiveViewController.swift; path = Controllers/DirectiveViewController.swift; sourceTree = "<group>"; };
 		2F6325101DA40B610037BFD7 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationViewController.swift; path = Controllers/RegistrationViewController.swift; sourceTree = "<group>"; };
 		2F6325121DA40B770037BFD7 /* ForgotPassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPassViewController.swift; path = Controllers/ForgotPassViewController.swift; sourceTree = "<group>"; };
@@ -93,8 +93,6 @@
 		2FAAD8E61DBD680B00BF05C5 /* Plugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Plugin.swift; path = Models/Plugin.swift; sourceTree = "<group>"; };
 		2FAAD8E81DC2791600BF05C5 /* StoreComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoreComment.swift; path = Models/StoreComment.swift; sourceTree = "<group>"; };
 		2FAAD8EA1DC2793100BF05C5 /* StorePlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorePlugin.swift; path = Models/StorePlugin.swift; sourceTree = "<group>"; };
-		2FAFF4161DA7CFD800B1BD98 /* DeviceListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceListViewController.swift; path = Controllers/DeviceListViewController.swift; sourceTree = "<group>"; };
-		2FAFF41A1DA7D28100B1BD98 /* DirectiveListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DirectiveListViewController.swift; path = Controllers/DirectiveListViewController.swift; sourceTree = "<group>"; };
 		2FAFF41E1DA7D3E100B1BD98 /* PluginListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PluginListViewController.swift; path = Controllers/PluginListViewController.swift; sourceTree = "<group>"; };
 		2FAFF4221DA7D9D800B1BD98 /* UpdateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateViewController.swift; path = Controllers/UpdateViewController.swift; sourceTree = "<group>"; };
 		2FAFF4241DA7DE2E00B1BD98 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Controllers/SettingsViewController.swift; sourceTree = "<group>"; };
@@ -264,7 +262,6 @@
 				2FAAD8E41DBD67DD00BF05C5 /* Directive.swift */,
 				2FAAD8E81DC2791600BF05C5 /* StoreComment.swift */,
 				2FAAD8EA1DC2793100BF05C5 /* StorePlugin.swift */,
-				2F55C6CB1E0EC9D600EF3F2C /* ThermometerDevice.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -294,9 +291,7 @@
 				2FAFF4241DA7DE2E00B1BD98 /* SettingsViewController.swift */,
 				2FAFF4221DA7D9D800B1BD98 /* UpdateViewController.swift */,
 				2FAFF41E1DA7D3E100B1BD98 /* PluginListViewController.swift */,
-				2FAFF41A1DA7D28100B1BD98 /* DirectiveListViewController.swift */,
 				2FE18FA81DD75C9C0084876D /* EditDirectiveViewController.swift */,
-				2FAFF4161DA7CFD800B1BD98 /* DeviceListViewController.swift */,
 				2F6325121DA40B770037BFD7 /* ForgotPassViewController.swift */,
 				2F6325101DA40B610037BFD7 /* RegistrationViewController.swift */,
 				2FDA2CDB1D8EA12900EDE411 /* LoginViewController.swift */,
@@ -308,6 +303,8 @@
 				2F1C38F31DE0AC05006C55C9 /* ChartsViewController.swift */,
 				2FF744971DEB459A0079F351 /* DeviceViewController.swift */,
 				2F55C6CD1E0EDD0400EF3F2C /* DirectiveViewController.swift */,
+				2F20B49A1E30D24E00429A90 /* BoxStatusViewController.swift */,
+				2F2216861E3123BD00A464ED /* EditDeviceViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -497,6 +494,8 @@
 				2FB791021E1121020044E590 /* LightTableViewCell.swift in Sources */,
 				2FE18FA31DD6104E0084876D /* AllStoreViewController.swift in Sources */,
 				2FB791041E1121A20044E590 /* TVTableViewCell.swift in Sources */,
+				2F20B49B1E30D24E00429A90 /* BoxStatusViewController.swift in Sources */,
+				2F2216871E3123BD00A464ED /* EditDeviceViewController.swift in Sources */,
 				2FE18FA11DD5F4A90084876D /* RatedStoreViewController.swift in Sources */,
 				2FE18FA51DD61CCB0084876D /* DescPlugStoreViewController.swift in Sources */,
 				2FE18FA91DD75C9C0084876D /* EditDirectiveViewController.swift in Sources */,
@@ -505,7 +504,6 @@
 				2F0CF7341DA7F2E1000EAEFB /* SWRevealViewController.m in Sources */,
 				2FE18FA71DD61F120084876D /* CommentStoreTableViewCell.swift in Sources */,
 				2FD1EF6D1E0E8A9E003B4116 /* TVCollectionViewCell.swift in Sources */,
-				2F55C6CC1E0EC9D600EF3F2C /* ThermometerDevice.swift in Sources */,
 				2FAFF41F1DA7D3E100B1BD98 /* PluginListViewController.swift in Sources */,
 				2F55C6CE1E0EDD0400EF3F2C /* DirectiveViewController.swift in Sources */,
 				2FE18FAB1DD76E920084876D /* AddCommentViewController.swift in Sources */,
@@ -526,11 +524,9 @@
 				2FE2F0D81E0AFE9E00F282BB /* LightCollectionViewCell.swift in Sources */,
 				2FE18F9F1DD5E6630084876D /* StoreTableViewCell.swift in Sources */,
 				2FAAD8E71DBD680B00BF05C5 /* Plugin.swift in Sources */,
-				2FAFF4171DA7CFD800B1BD98 /* DeviceListViewController.swift in Sources */,
 				2FA201E61DBBD01C00FF9609 /* LibraryAPI.swift in Sources */,
 				2FAAD8E91DC2791600BF05C5 /* StoreComment.swift in Sources */,
 				2FAFF4251DA7DE2E00B1BD98 /* SettingsViewController.swift in Sources */,
-				2FAFF41B1DA7D28100B1BD98 /* DirectiveListViewController.swift in Sources */,
 				2FAAD8E51DBD67DD00BF05C5 /* Directive.swift in Sources */,
 				2FE18FAD1DD779C60084876D /* AddDeviceViewController.swift in Sources */,
 				2FA201DD1DBBAC1B00FF9609 /* DirectiveTableViewCell.swift in Sources */,

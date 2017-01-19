@@ -9,14 +9,22 @@
 import UIKit
 
 class StoreComment: NSObject {
+    private var _id: Int
     private var _author: String
     private var _rate: Float
     private var _comment: String
+    private var _keyLoginHash: String
     
-    init(author: String, rate: Float, comment: String) {
+    init(id: Int, author: String, rate: Float, comment: String, keyLoginHash: String) {
+        _id = id
         _author = author
         _rate = rate
         _comment = comment
+        _keyLoginHash = keyLoginHash
+    }
+    
+    func getId() -> Int {
+        return _id
     }
     
     func getAuthor() -> String {
@@ -29,6 +37,10 @@ class StoreComment: NSObject {
     
     func getComment() -> String {
         return _comment
+    }
+    
+    func getKeyLoginHash() -> String {
+        return _keyLoginHash
     }
     
 }

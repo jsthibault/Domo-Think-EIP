@@ -94,6 +94,7 @@ class AllStoreViewController: UIViewController, UISearchResultsUpdating, UITable
             cell.ratePlugin.text = String(allPlugins[indexPath.row].getRate()) + "/5"
             cell.datePlugin.text = allPlugins[indexPath.row].getDate()
         }
+        cell.imgPlugin.image = UIImage(named: "plugin")
         return cell
     }
     

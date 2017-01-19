@@ -85,19 +85,16 @@ class PluginListViewController: UIViewController, UISearchResultsUpdating, UITab
         
         //add directive in the table view
         if (resultSeachController.active) {
-            print("le plugin : " + filteredPlugins[indexPath.row].getName(), terminator: "")
             
             cell.pluginName.text = filteredPlugins[indexPath.row].getName()
-            //cell.directiveStatus.setOn(filteredDirective[indexPath.row].getStatus(), animated: true)
-            cell.pluginStatus.setOn(true, animated: true)
+            cell.pluginStatus.setOn(filteredPlugins[indexPath.row].getStatus(), animated: true)
             
             cell.pluginStatus.tag = indexPath.row
             cell.pluginStatus.addTarget(self, action: #selector(PluginListViewController.switchOnOff(_:)), forControlEvents: UIControlEvents.ValueChanged)
             
         } else {
             cell.pluginName.text = allPlugins[indexPath.row].getName()
-            //cell.directiveStatus.setOn(allDirectives[indexPath.row].getStatus(), animated: true)
-            cell.pluginStatus.setOn(true, animated: true)
+            cell.pluginStatus.setOn(allPlugins[indexPath.row].getStatus(), animated: true)
 
             cell.pluginStatus.tag = indexPath.row
             cell.pluginStatus.addTarget(self, action: #selector(PluginListViewController.switchOnOff(_:)), forControlEvents: UIControlEvents.ValueChanged)
@@ -114,15 +111,16 @@ class PluginListViewController: UIViewController, UISearchResultsUpdating, UITab
             
             // delete directive if recherche activer ou non
             if (resultSeachController.active) {
-                LibraryAPI.sharedInstance.deleteDevice(filteredPlugins[indexPath.row].getId())  { (result) -> () in
+                LibraryAPI.sharedInstance.deletePlugin(filteredPlugins[indexPath.row].getId())  { (result) -> () in
+                    
                     print("device bien supprimer", terminator: "")
-                    self.pluginListView.reloadData()
+                    self.viewDidLoad()
                 }
                 
             } else {
-                LibraryAPI.sharedInstance.deleteDevice(allPlugins[indexPath.row].getId())  { (result) -> () in
+                LibraryAPI.sharedInstance.deletePlugin(allPlugins[indexPath.row].getId())  { (result) -> () in
                     print("device bien supprimer", terminator: "")
-                    self.pluginListView.reloadData()
+                    self.viewDidLoad()
                 }
                 
             }
@@ -135,7 +133,16 @@ class PluginListViewController: UIViewController, UISearchResultsUpdating, UITab
     }
     
     func switchOnOff(switchTab: UISwitch) {
-        print("je change le status mais ca marche pas encore", terminator: "")
+        if (resultSeachController.active) {
+            LibraryAPI.sharedInstance.switchOnOffPlugin(filteredPlugins[switchTab.tag].getId()) { (result) -> () in
+                print("plugin on or off")
+            }
+        } else {
+            LibraryAPI.sharedInstance.switchOnOffPlugin(allPlugins[switchTab.tag].getId()) { (result) -> () in
+               print("plugin on or off")
+            }
+        }
+        
     }
 
 

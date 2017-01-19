@@ -129,7 +129,7 @@
 "c0i-qt-cuf.text" = "Settings";
 
 /* Class = "UILabel"; text = "Email :"; ObjectID = "dFK-bN-mop"; */
-"dFK-bN-mop.text" = "Email :";
+"dFK-bN-mop.text" = "Login :";
 
 /* Class = "UILabel"; text = "Date"; ObjectID = "dYb-R0-xNt"; */
 "dYb-R0-xNt.text" = "Date";
@@ -198,7 +198,7 @@
 "r52-4j-fJH.text" = "No devices";
 
 /* Class = "UILabel"; text = "Email :"; ObjectID = "sIP-5e-0yC"; */
-"sIP-5e-0yC.text" = "Email :";
+"sIP-5e-0yC.text" = "Login :";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "tAO-7V-Uji"; */
 "tAO-7V-Uji.normalTitle" = "Update";
@@ -220,7 +220,7 @@
 
 "eHu-n7-BWR.text" = "Home";
 
-"1ZI-3E-XVY.text" = "Home";
+"1ZI-3E-XVY.title" = "Home";
 
 "T1G-bN-Snh.text" = "Temperature";
 
@@ -236,6 +236,22 @@
 
 "5dS-xF-04W.text" = "Register";
 
-"ak5-fC-GKt.text" = "Forget password";
+"ak5-fC-GKt.title" = "Forget password";
 
 "q5C-xb-2a1.text" = "Humidity";
+
+"5dS-xF-04W.title" = "Register";
+
+"Csu-1X-dew.text" = "Home";
+
+"9lL-7b-uGm.text" = "Devices";
+
+"c3F-O1-e5y.text" = "Forget password";
+
+"Tnx-6Q-qK5.text" = "Password : ";
+
+"74H-23-ZCG.text" = "Confirm Password : ";
+
+"C9t-PT-LZU.text" = "Box key : ";
+
+"wod-Pm-UIe.title" = "Devices";

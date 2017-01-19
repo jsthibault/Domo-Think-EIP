@@ -14,18 +14,28 @@ class Device: NSObject {
     private var _name: String!
     private var _desc: String!
     private var _status: Bool!
+    private var _protocole: String!
     
     //features
     private var _type: String!
     private var _imgName: String!
     private var _roomType: String!
     
-    init(id: Int, name: String, desc: String, status: Bool) {
+    init(id: Int, name: String, desc: String, status: Bool, protocole: String) {
         super.init()
         self._id = id
         self._name = name
         self._desc = desc
         self._status = status
+        self._protocole = protocole
+    }
+    
+    func getProtocole() -> String {
+        return _protocole
+    }
+    
+    func setProtocole(protocole: String) {
+        _protocole = protocole
     }
     
     func getId() -> Int! {
